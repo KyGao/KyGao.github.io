@@ -4,12 +4,10 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Emacs tutorial 笔记 | Kerry</title>
+    <title>GRE/WriteTemp | Kerry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Kerry">
-    
-    <meta name="description" itemprop="description" content="最早是看yhm同学大力使用，然而自己学习主要是因为Coursera上面一门课程的要求，便也开始尝试一下传说中的编辑器（操作系统）">
     
     
     
@@ -71,15 +69,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020-02-tools/Emacs tutorial 笔记/" title="Emacs tutorial 笔记" itemprop="url">Emacs tutorial 笔记</a>
+      <a href="/uncategorized-GRE/WriteTemp.html" title="GRE/WriteTemp" itemprop="url">GRE/WriteTemp</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Kerry">Kerry</a>
     </p>
   <p class="article-time">
-    <time datetime="2020-02-14T05:12:43.000Z" itemprop="datePublished">2020-02-14</time>
-    Updated:<time datetime="2020-02-16T04:25:26.665Z" itemprop="dateModified">2020-02-16</time>
+    <time datetime="2020-02-20T15:11:17.280Z" itemprop="datePublished">2020-02-20</time>
+    Updated:<time datetime="2020-02-20T15:11:17.283Z" itemprop="dateModified">2020-02-20</time>
     
   </p>
 </header>
@@ -88,272 +86,19 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Above-all"><span class="toc-number">1.</span> <span class="toc-text">Above all</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-editing-commands"><span class="toc-number">2.</span> <span class="toc-text">Basic editing commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffers"><span class="toc-number">3.</span> <span class="toc-text">Buffers</span></a></li></ol>
+		
 		</div>
 		
-		<p>​        个人感觉Emacs官网的 <a href="https://www.gnu.org/software/emacs/tour/" target="_blank" rel="noopener">guide</a> 比emacs自带的tutorial清晰很多，可能主要是因为富文本的原因。这里我仅放上可能常用的操作作为索引。有更多需要的小伙伴请移步官网guide。</p>
-<h3 id="Above-all"><a href="#Above-all" class="headerlink" title="Above all"></a>Above all</h3><p>扩展符C-x 跟单个character，M-x 跟单词</p>
-<ul>
-<li><p><strong>tutorial</strong></p>
-<p><code>C-h t</code></p>
-</li>
-<li><p><strong>Abortion</strong><br><code>C-g</code>: cmd中的ctrl+z</p>
-</li>
-<li><p><strong>CloseAndMinimize</strong><br><code>C-x C-c</code>: Close<br><code>C-z</code>: Minimize</p>
-</li>
-</ul>
-<h3 id="Basic-editing-commands"><a href="#Basic-editing-commands" class="headerlink" title="Basic editing commands"></a>Basic editing commands</h3><ul>
-<li><strong>moving around in buffers</strong><br>crtl跟着的是文章结构上的跳动（逐行逐字母），meta跟着的是内容结构上的跳动（逐句逐单词）</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">操作</th>
-<th align="center">目的</th>
-<th align="center">操作</th>
-<th align="center">目的</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C-f</td>
-<td align="center">下一个字母</td>
-<td align="center">C-b</td>
-<td align="center">上一个字母</td>
-</tr>
-<tr>
-<td align="center">C-n</td>
-<td align="center">下一行</td>
-<td align="center">C-e</td>
-<td align="center">上一行</td>
-</tr>
-<tr>
-<td align="center">C-a</td>
-<td align="center">回到行首</td>
-<td align="center">C-e</td>
-<td align="center">回到行尾</td>
-</tr>
-<tr>
-<td align="center">M-f</td>
-<td align="center">下一个单词</td>
-<td align="center">M-b</td>
-<td align="center">上一个单词</td>
-</tr>
-<tr>
-<td align="center">M-a</td>
-<td align="center">上一句</td>
-<td align="center">M-e</td>
-<td align="center">下一句</td>
-</tr>
-<tr>
-<td align="center">C-v</td>
-<td align="center">page down</td>
-<td align="center">M-v</td>
-<td align="center">page up</td>
-</tr>
-<tr>
-<td align="center">M-&lt;</td>
-<td align="center">Home</td>
-<td align="center">M-&gt;</td>
-<td align="center">End</td>
-</tr>
-<tr>
-<td align="center">C-l (L not 1)</td>
-<td align="center">将光标位置移到Top/Bot/Cen</td>
-<td align="center">M-g g 3</td>
-<td align="center">前往第3行</td>
-</tr>
-<tr>
-<td align="center">C-s</td>
-<td align="center">向后查询</td>
-<td align="center">C-r</td>
-<td align="center">向前查询</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>注：C-l 一般用两次即 C-l C-l，将当前行移到窗口顶端</p>
-</blockquote>
-<ul>
-<li><p><strong>Mark</strong><br>Mark几乎始终存在，在进行页面内跳转时跨度过大emacs都会自动标记原位置，只需要C-x C-x即可回去 </p>
-<table style="text-align:center">
-  <tr>
-      <td>C-SPC</td> 
-      <td>Set mark to the current location</td> 
- </tr>
- <tr>
-      <td>C-x C-x</td> 
-      <td>Swap point and mark</td> 
- </tr>
-
-
-</li>
-</ul>
-  </table>
-
-<ul>
-<li><p><strong>Region</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x h</td> 
-      <td>全选</td> 
-      <td>M-h</td> 
-      <td>选中该段</td> 
- </tr>
- <tr>
-      <td>C-x n n</td> 
-      <td>单独拎出目标区域</td> 
-      <td>C-x n w</td> 
-      <td>恢复原样</td> 
- </tr>
-</table>
-</li>
-<li><p><strong>Killing, Copying and Yanking</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-k</td> 
-      <td>删除该行</td> 
-      <td>M-k</td> 
-      <td>删除该句</td> 
- </tr>
- <tr>
-      <td>C-w</td> 
-      <td>剪切选中区域</td> 
-      <td>M-w</td> 
-      <td>复制选中区域</td> 
- </tr>
-  <tr>
-      <td>C-y</td> 
-      <td>粘贴</td> 
-      <td>M-y</td> 
-      <td>粘贴剪贴板之前内容</td> 
- </tr>
-</table>
-</li>
-<li><p><strong>Undo</strong><br>3种方式：<br><code>C-/</code><br><code>C-_</code><br><code>C-x u</code></p>
-</li>
-<li><p><strong>Incremental Search</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-s</td> 
-      <td>向后搜索</td> 
-      <td>C-r</td> 
-      <td>向前搜索</td> 
- </tr>
-</table>
-搜索之后再按 C-s 跳到下一项， Backspace 跳到前一项
-
-
-
-
-</li>
-</ul>
-<h3 id="Buffers"><a href="#Buffers" class="headerlink" title="Buffers"></a>Buffers</h3><p>正文部分是buffer，最下面一行是minibuffer<br>是Buffer不一定是文件，但是文件就一定是Buffer</p>
-<ul>
-<li><strong>FIles</strong><table style="text-align:center">
-  <tr>
-      <td>C-x C-f</td> 
-      <td>Find 查找 (创建) 文件</td> 
-  </tr>
-  <tr>
-      <td>C-x C-s</td> 
-      <td>保存文件</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-
-<ul>
-<li><p><strong>Buffers</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x C-b</td> 
-      <td>List Buffers</td> 
-      <td>C-x b [Buffer]</td> 
-      <td>前往指定Buffer</td> 
-  </tr>
-  <tr>
-      <td>C-x 1</td> 
-      <td>Kill All other Windows</td> 
-      <td>C-x s</td> 
-      <td>逐一保存所有Buffer</td> 
-  </tr>
-  <tr>
-      <td>C-x k</td> 
-      <td>关闭当前Buffer</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-<ul>
-<li><p><strong>Extending</strong></p>
-<ul>
-<li>替换<br>M-x repl s<Return> (支持补全)</li>
-<li>格式化输入<br>M-x text-mode<br>M-x auto-fill-mode<br>C-x f <digit><br>M-q :re-fill</li>
-</ul>
-</li>
-<li><p><strong>Multiple Windows</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x 2</td> 
-      <td>复制当前buffer建立新对话 (上下)</td> 
-      <td>C-M-v</td> 
-      <td>scroll 另一个窗口</td> 
-  </tr>
-  <tr>
-      <td>C-x 4 C-f <Filename></td> 
-      <td>新建对话打开文件 (左右)</td> 
-      <td>C-x o</td> 
-      <td>Jump to the other window</td> 
-  </tr>
-  <tr>
-      <td>C-x 2 <Filename></td> 
-      <td>上下扩展</td> 
-      <td>C-x 3</td> 
-      <td>左右扩展</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-<ul>
-<li><strong>Multiple Frames</strong><br>Window是在同一个GUI里的，Frames是新建了一个GUI<table style="text-align:center">
-  <tr>
-      <td>C-x 5 2</td> 
-      <td>复制当前buffer建立新窗口 (上下)</td> 
-  </tr>
-  <tr>
-      <td>C-x 5 0 <Filename></td> 
-      <td>新建窗口打开文件 (左右)</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Emacs/">Emacs</a>
-  </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/tools/">tools</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2020-02-tools/Emacs%20tutorial%20%E7%AC%94%E8%AE%B0/" data-title="Emacs tutorial 笔记 | Kerry" data-tsina="" class="share clearfix">
+  <div data-url="http://yoursite.com/uncategorized-GRE/WriteTemp.html" data-title="GRE/WriteTemp | Kerry" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -362,19 +107,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2020-02-AI/PyTorch/DiveIntoDL/" title="AI/PyTorch/DiveIntoDL">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  AI/PyTorch/DiveIntoDL</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2020-02-MOOC/ProgramLangPartA/"  title="Programming Language (Part A)">
+<a href="/uncategorized-AI/PyTorch/DiveIntoDL.html"  title="AI/PyTorch/DiveIntoDL">
  <strong>NEXT:</strong><br/> 
- <span>Programming Language (Part A)
+ <span>AI/PyTorch/DiveIntoDL
 </span>
 </a>
 </div>
@@ -387,7 +124,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Above-all"><span class="toc-number">1.</span> <span class="toc-text">Above all</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-editing-commands"><span class="toc-number">2.</span> <span class="toc-text">Basic editing commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffers"><span class="toc-number">3.</span> <span class="toc-text">Buffers</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">

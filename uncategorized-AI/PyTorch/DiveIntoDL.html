@@ -4,12 +4,10 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>在Manjaro上使用Hexo | Kerry</title>
+    <title>AI/PyTorch/DiveIntoDL | Kerry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Kerry">
-    
-    <meta name="description" itemprop="description" content="在Linux上配置hexo果然方便多了，应该是因为nodejs比较好配置。现在还没有部署到github上，反正也只是自己看，以后再说啦">
     
     
     
@@ -71,15 +69,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020-01-tools/在Manjaro上使用Hexo/" title="在Manjaro上使用Hexo" itemprop="url">在Manjaro上使用Hexo</a>
+      <a href="/uncategorized-AI/PyTorch/DiveIntoDL.html" title="AI/PyTorch/DiveIntoDL" itemprop="url">AI/PyTorch/DiveIntoDL</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Kerry">Kerry</a>
     </p>
   <p class="article-time">
-    <time datetime="2020-01-29T01:52:43.000Z" itemprop="datePublished">2020-01-29</time>
-    Updated:<time datetime="2020-01-31T05:29:39.617Z" itemprop="dateModified">2020-01-31</time>
+    <time datetime="2020-02-16T07:57:17.666Z" itemprop="datePublished">2020-02-16</time>
+    Updated:<time datetime="2020-02-16T07:57:17.666Z" itemprop="dateModified">2020-02-16</time>
     
   </p>
 </header>
@@ -88,46 +86,19 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建博客"><span class="toc-number">1.</span> <span class="toc-text">新建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#官方的Hello-World"><span class="toc-number">2.</span> <span class="toc-text">官方的Hello-World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Run-server"><span class="toc-number">2.1.0.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.1.0.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.1.0.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li></ol></li></ol>
+		
 		</div>
 		
-		<h2 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h2><p>Winsows上其实是已经有一个hexo了，并且在gihub部署好了，但是迁移的时候好像还挺麻烦的，需要在一开始就建立一个分支（我当然没有建立）。反正也不急，主要是想自己整理自己看，所以就新建一个啦。话说Pacman主题我真的喜欢，因为Manjaro的安装软件就是pacman，所以选这个主题也没有由于太久hhh。下面进入正题哈哈哈哈：</p>
-<p>Manjaro上安装Hexo相当方便，因为编译环境基本上已经配置好了，像npm什么的安装也非常简单（如果已经在win上安装过的话）。</p>
-<p>参考这篇博客即可：<a href="https://www.jianshu.com/p/a6d03d13788b" target="_blank" rel="noopener">linux 下 Hexo + Github 搭建个人博客</a></p>
-<p>码一下关于动画小人的预览网址：<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">Live2d</a></p>
-<h2 id="官方的Hello-World"><a href="#官方的Hello-World" class="headerlink" title="官方的Hello-World"></a>官方的Hello-World</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h5 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h5 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h5 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h5 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/tools/">tools</a><a href="/tags/manjaro/">manjaro</a><a href="/tags/hexo/">hexo</a>
-  </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/tools/">tools</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2020-01-tools/%E5%9C%A8Manjaro%E4%B8%8A%E4%BD%BF%E7%94%A8Hexo/" data-title="在Manjaro上使用Hexo | Kerry" data-tsina="" class="share clearfix">
+  <div data-url="http://yoursite.com/uncategorized-AI/PyTorch/DiveIntoDL.html" data-title="AI/PyTorch/DiveIntoDL | Kerry" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -137,13 +108,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2020-01-tools/记一次vim优化/" title="记一次vim优化">
+ <a href="/uncategorized-GRE/WriteTemp.html" title="GRE/WriteTemp">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  记一次vim优化</span>
+  GRE/WriteTemp</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/tools-tools/Emacs tutorial 笔记.html"  title="Emacs tutorial 笔记">
+ <strong>NEXT:</strong><br/> 
+ <span>Emacs tutorial 笔记
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -153,7 +132,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建博客"><span class="toc-number">1.</span> <span class="toc-text">新建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#官方的Hello-World"><span class="toc-number">2.</span> <span class="toc-text">官方的Hello-World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Run-server"><span class="toc-number">2.1.0.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.1.0.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.1.0.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">

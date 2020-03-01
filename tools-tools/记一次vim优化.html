@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>AI/PyTorch/pytorch中文手册 | Kerry</title>
+    <title>记一次vim优化 | Kerry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Kerry">
+    
+    <meta name="description" itemprop="description" content="初次尝试修改vim插件，效果一般，想到暂时对vim的需求不大，故先搁置于此">
     
     
     
@@ -69,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020-01-AI/PyTorch/pytorch中文手册/" title="AI/PyTorch/pytorch中文手册" itemprop="url">AI/PyTorch/pytorch中文手册</a>
+      <a href="/tools-tools/记一次vim优化.html" title="记一次vim优化" itemprop="url">记一次vim优化</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Kerry">Kerry</a>
     </p>
   <p class="article-time">
-    <time datetime="2020-01-30T12:56:17.759Z" itemprop="datePublished">2020-01-30</time>
-    Updated:<time datetime="2020-01-31T05:34:33.569Z" itemprop="dateModified">2020-01-31</time>
+    <time datetime="2020-01-29T02:50:43.000Z" itemprop="datePublished">2020-01-29</time>
+    Updated:<time datetime="2020-01-31T05:24:50.851Z" itemprop="dateModified">2020-01-31</time>
     
   </p>
 </header>
@@ -86,19 +88,80 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vundle"><span class="toc-number">1.</span> <span class="toc-text">安装vundle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装YouCompleteMe"><span class="toc-number">2.</span> <span class="toc-text">安装YouCompleteMe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-vimrc和其他插件"><span class="toc-number">3.</span> <span class="toc-text">配置.vimrc和其他插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题选择"><span class="toc-number">4.</span> <span class="toc-text">主题选择</span></a></li></ol>
 		</div>
 		
-		  
+		<p><strong>起因</strong>：因为实在受不了默认的hjkl上下左右，想要修改vim的快捷键，才看到vim竟然还有插件和配置这种东西，原来和zsh一样，看来是我才疏学浅了，于是临时兴起又随便照着别人的配置优化了一下，之后有需要再回来完善。</p>
+<h3 id="安装vundle"><a href="#安装vundle" class="headerlink" title="安装vundle"></a>安装vundle</h3><p>vundle是vim的插件管理器，参考官网安装即可：<a href="https://github.com/VundleVim/Vundle.vim" target="_blank" rel="noopener">https://github.com/VundleVim/Vundle.vim</a></p>
+<p>这里放一点vundle的常见操作：</p>
+<ul>
+<li>安装插件<ol>
+<li>vim中<code>:PluginInstall</code></li>
+<li>命令行<code>vim +PluginInstall +qall</code></li>
+</ol>
+</li>
+<li>移除插件<br>在.vimrc中注释掉对应的Plugin，保存退出后输入命令<code>:BundleClean</code></li>
+<li>更新插件<br><code>:BundleUpdate</code></li>
+<li>列出所有插件<br><code>:BundleList</code></li>
+<li>查找插件<br><code>:BundleSearch</code></li>
+</ul>
+<h3 id="安装YouCompleteMe"><a href="#安装YouCompleteMe" class="headerlink" title="安装YouCompleteMe"></a>安装YouCompleteMe</h3><p>官网地址：<a href="https://github.com/ycm-core/YouCompleteMe" target="_blank" rel="noopener">https://github.com/ycm-core/YouCompleteMe</a></p>
+<p>官网杂七杂八的说太多了，我是参考这个博文安装的：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/35626421" target="_blank" rel="noopener">YouCompleteMe 安装配置方法</a></p>
+<blockquote>
+<p>这里在安装（./install.py –all）的时候报错</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File ~/.vim/bundle/YouCompleteMe/third_party/ycmd/build.py does <span class="keyword">not</span> <span class="keyword">exist</span>; you probably forgot to run:</span><br><span class="line">        git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+
+<p>按照他的提示执行</p>
+<p><code>git submodule update --init --recursive</code></p>
+<p>即可</p>
+</blockquote>
+<p>emmm因为安装太久了实在受不了，就参考官网说的只安装C的全家福了</p>
+<p><code>python3 install.py --clangd-completer</code></p>
+<h3 id="配置-vimrc和其他插件"><a href="#配置-vimrc和其他插件" class="headerlink" title="配置.vimrc和其他插件"></a>配置.vimrc和其他插件</h3><p>为了方便我直接用的一个博主的配置（<strong>NERDTree</strong>什么的直接通过这里就可以安装好了）</p>
+<p><a href="https://blog.csdn.net/amoscykl/article/details/80616688" target="_blank" rel="noopener">Vim的终极配置方案，完美的写代码界面</a></p>
+<h3 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h3><p>安装方式：在.vimrc中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#39;jnurmine&#x2F;Zenburn&#39;</span><br><span class="line">Plugin &#39;altercation&#x2F;vim-colors-solarized&#39;</span><br></pre></td></tr></table></figure>
+
+<p>诸如此类的字符串就当插件一样的安装了，但是在安装完成之后需要</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkidr ~/.vim/colors</span><br><span class="line">cp ~/.vim/bundle/Zenburn/colors/zenburn.vim ~/.vim/colors/</span><br><span class="line">cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/</span><br></pre></td></tr></table></figure>
+
+<p>这样才可以通过命令在控制台修改主题</p>
+<p><strong>常见命令</strong></p>
+<ul>
+<li><p>查看当前主题<br><code>:colorscheme</code></p>
+</li>
+<li><p>列出所有主题<br><code>:colorscheme [space] [tab]</code></p>
+</li>
+<li><p>切换主题<br><code>:colorscheme [your-theme]</code></p>
+<blockquote>
+<p>参考<a href="https://juejin.im/entry/5b62cdc5e51d4519885635f0" target="_blank" rel="noopener">Vim安装插件</a></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：最后还是因为vim似乎不支持python2依赖所以YCM还是装不上，哎，反正暂时也不用vim写脚本，以后再说吧</p>
+</blockquote>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tools/">tools</a><a href="/tags/vim/">vim</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/tools/">tools</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2020-01-AI/PyTorch/pytorch%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/" data-title="AI/PyTorch/pytorch中文手册 | Kerry" data-tsina="" class="share clearfix">
+  <div data-url="http://yoursite.com/tools-tools/%E8%AE%B0%E4%B8%80%E6%AC%A1vim%E4%BC%98%E5%8C%96.html" data-title="记一次vim优化 | Kerry" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -108,18 +171,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2020-01-AI/PyTorch/PyTorch入门/" title="Pytorch">
+ <a href="/tools-tools/Manjaro+win10双系统安装和配置.html" title="Manjaro+Win10双系统安装和配置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Pytorch</span>
+  Manjaro+Win10双系统安装和配置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2020-01-tools/Manjaro+win10双系统安装和配置/"  title="Manjaro+Win10双系统安装和配置">
+<a href="/tools-tools/在Manjaro上使用Hexo.html"  title="在Manjaro上使用Hexo">
  <strong>NEXT:</strong><br/> 
- <span>Manjaro+Win10双系统安装和配置
+ <span>在Manjaro上使用Hexo
 </span>
 </a>
 </div>
@@ -132,7 +195,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vundle"><span class="toc-number">1.</span> <span class="toc-text">安装vundle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装YouCompleteMe"><span class="toc-number">2.</span> <span class="toc-text">安装YouCompleteMe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-vimrc和其他插件"><span class="toc-number">3.</span> <span class="toc-text">配置.vimrc和其他插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题选择"><span class="toc-number">4.</span> <span class="toc-text">主题选择</span></a></li></ol>
   </div>
 
 <div id="asidepart">
