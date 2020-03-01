@@ -1,0 +1,606 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Programming Language (Part A) | Kerry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kerry">
+    
+    <meta name="description" itemprop="description" content="Coursera上据说很有挑战的一门课，课程目的是学会如何设计优美的程序结构，掌握对编程语言的统一宏观概念。在Part A中利用ML语言和Emacs编辑器作为工具，Part B 和 Part C分别是 Rocket 和 Ruby。">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Kerry" title="Kerry"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kerry">Kerry</a></h1>
+				<h2 class="blog-motto">Blog in Manjaro</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020-02-MOOC/ProgramLangPartA/" title="Programming Language (Part A)" itemprop="url">Programming Language (Part A)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Kerry">Kerry</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2020-02-14T05:10:43.000Z" itemprop="datePublished">2020-02-14</time>
+    Updated:<time datetime="2020-02-29T07:29:23.011Z" itemprop="dateModified">2020-02-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-1-Introduction"><span class="toc-number">1.</span> <span class="toc-text">Week 1: Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-to-this-course"><span class="toc-number">1.1.</span> <span class="toc-text">Welcome to this course</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Software-Installation-and-Test"><span class="toc-number">1.2.</span> <span class="toc-text">Software Installation and Test</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Homework"><span class="toc-number">1.3.</span> <span class="toc-text">Homework</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-2"><span class="toc-number">2.</span> <span class="toc-text">Week 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-Message"><span class="toc-number">2.1.</span> <span class="toc-text">Welcome Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ML-Variable-Bindings-and-Expressions"><span class="toc-number">2.2.</span> <span class="toc-text">ML Variable Bindings and Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rules-for-Expressions"><span class="toc-number">2.3.</span> <span class="toc-text">Rules for Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-REPL-and-Errors"><span class="toc-number">2.4.</span> <span class="toc-text">The REPL and Errors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadowing"><span class="toc-number">2.5.</span> <span class="toc-text">Shadowing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function"><span class="toc-number">2.6.</span> <span class="toc-text">Function</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="Week-1-Introduction"><a href="#Week-1-Introduction" class="headerlink" title="Week 1: Introduction"></a>Week 1: Introduction</h2><h3 id="Welcome-to-this-course"><a href="#Welcome-to-this-course" class="headerlink" title="Welcome to this course"></a>Welcome to this course</h3><ul>
+<li>Initial Motivation</li>
+</ul>
+<p>This course is neither particularly theoretical nor just about programming specifics – it will give you <strong>a framework for understanding how to use language constructs effectively and how to design correct and elegant programs</strong>. By using different languages, you will learn to think more deeply than in terms of the particular syntax of one language. The emphasis on functional programming is essential for learning how to write <strong>robust, reusable, composable, and elegant programs</strong>. </p>
+<ul>
+<li><p>Recommended Background</p>
+<ul>
+<li>Variables, if, loops, arrays</li>
+<li>Recursion (递归)</li>
+<li>Implementation vs. Interface</li>
+<li>linked lists, binary tree</li>
+<li>Dynamic-dispatch</li>
+<li>Python or Javascript</li>
+</ul>
+</li>
+<li><p>Why Part A, Part B, Part C</p>
+</li>
+<li><ul>
+<li>huge contents</li>
+<li>reasonable stopping point</li>
+</ul>
+</li>
+<li><p>Grading Policy</p>
+<ul>
+<li>Auto-Grader Policy (resubmit at most once per day (must exceed 80%))</li>
+<li>Challenge Problem</li>
+<li>Peer assesment</li>
+<li>Exams (resubmit at most once per day (must exceed 80%))</li>
+</ul>
+</li>
+<li><p>Course Overview</p>
+<ul>
+<li><strong>Part A</strong></li>
+</ul>
+<ol start="0">
+<li>Software Installation</li>
+<li>Basics, functions, recursion, scope, variable, tuples, lists, …</li>
+<li>Datatypes, pattern-matching, tail recursion</li>
+<li>First-class functions, closures</li>
+<li>Type inference, modules</li>
+</ol>
+<ul>
+<li><strong>Part B</strong></li>
+</ul>
+<ol start="5">
+<li>Quick “re-do” in a dynamically typed language</li>
+<li>Implementing languages with interpreters (Static vs. dynamic typing)</li>
+</ol>
+<ul>
+<li><strong>Part C</strong></li>
+</ul>
+<ol start="7">
+<li>Dynamically-typed Object-Oriented Programming</li>
+<li>OOP vs. Functional decomposition</li>
+</ol>
+</li>
+</ul>
+<h3 id="Software-Installation-and-Test"><a href="#Software-Installation-and-Test" class="headerlink" title="Software Installation and Test"></a>Software Installation and Test</h3><p><em>OS: Manjaro (Linux)</em></p>
+<ol>
+<li><p><strong>Emacs</strong></p>
+<ul>
+<li><strong>Installation</strong>:  <code>yay -Sy emacs</code></li>
+<li><strong>Usage</strong>: check over <a href="/2020/02/tools/Emacs%20tutorial%20笔记/">here</a></li>
+</ul>
+</li>
+<li><p><strong>SML/NJ</strong></p>
+<ul>
+<li><strong>Installation</strong><br>follow the step <a href="http://www.smlnj.org/dist/working/110.80/INSTALL" target="_blank" rel="noopener">here</a> , quite easy but remember to <code>sudo</code>for all that commands .<br>My Version is <strong>110.87</strong></li>
+<li><strong>Test</strong><br>add the path like: <code>export PATH=&quot;/usr/share/smlnj/bin:$PATH&quot;</code> (in .zshrc)<br>type <code>sml</code> and then <code>1+1;</code> to check if it works</li>
+</ul>
+</li>
+<li><p>SML Mode for Emacs</p>
+<ul>
+<li><strong>Installation</strong><br>In emacs: <code>M-x package-install RET sml-mode RET</code><br>add SML/NJ  into ~/.emacs:<br><code>(setenv &quot;PATH&quot; (concat &quot;/usr/share/smlnj/bin:&quot; (getenv &quot;PATH&quot;)))
+(setq exec-path (cons &quot;/usr/share/smlnj/bin&quot;  exec-path))</code></li>
+<li><strong>Test</strong><ol>
+<li><code>C-x C-f test.sml</code> to create a new sml file</li>
+<li><code>val n = 1;</code> to see if it’s high-lightened</li>
+<li><code>C-c C-s &lt;Return&gt;</code> to see if emacs open a new buffer as the SML prompt</li>
+<li><code>1 + 1;</code> in the prompt to see if it is working</li>
+<li><code>M-p</code> to see history commands</li>
+<li><code>C-d</code> to end the prompt normally</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h3><p>​        第一周的作业被官方称为 “fake assignment” , 只是为了让我们熟悉提交作业的流程。以后每次作业都需要自己编写 <code>test.sml</code> 来测试作业的完成度，这个方式还是挺新鲜的。举个例子，这一周的作业就是在 <code>hw0provided.sml</code> 里面改一个符号，来实现乘幂的函数。但是我们又不能直接测试这个函数，所以官方提供了另一个 <code>hw0test.sml</code> 来辅助检测我们作业完成的正确性。Assignment中也提到了在以后的作业中，需要我们自己考虑边界情况进行测试，他们不会直接提示，只会通过 auto-grader 来检测我们代码的 robustness。<br>​        在此有一个tricks可以分享一下，在用emacs编辑的时候，可以开三个窗口（其中<code>C-x 2</code> 和 <code>C-x 3</code>分别是上下镜像和左右镜像），右边窗口是REPL，左边是两个窗口，上面是函数，下面是test，看起来就很舒服了</p>
+<hr>
+<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h3 id="Welcome-Message"><a href="#Welcome-Message" class="headerlink" title="Welcome Message"></a>Welcome Message</h3><p>这一周先学习各种数据类型，然后学习函数的”scope”和”shadowing”概念，接着学习”pairs”和”list”来组合成复合数据类型，再然后学习”let expressions”。那就开始吧！</p>
+<h3 id="ML-Variable-Bindings-and-Expressions"><a href="#ML-Variable-Bindings-and-Expressions" class="headerlink" title="ML Variable Bindings and Expressions"></a>ML Variable Bindings and Expressions</h3><ul>
+<li><p><strong>static environment</strong>: 记录数据的类型 (Type)<br><strong>dynamic environment</strong>: 记录数据的值 (Value)<br>程序运行之前，需要在 static environment 中进行一次 “Type check”，通过之后才会运行程序 (“Evaluation”)，即更新dynamic environment</p>
+</li>
+<li><p><strong>A variable binding</strong></p>
+<figure class="highlight ml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = [expression]</span><br></pre></td></tr></table></figure>
+<p>一个 variable（就是程序中的 <code>val</code>）会受到3个约束：</p>
+<ol>
+<li>等号右边的 expression 的 syntax 要正确</li>
+<li>static environment 中的 type-check 要通过</li>
+<li>dynamic environment 中的 evaluation 要满足</li>
+</ol>
+</li>
+</ul>
+<h3 id="Rules-for-Expressions"><a href="#Rules-for-Expressions" class="headerlink" title="Rules for Expressions"></a>Rules for Expressions</h3><p>  每个expression同样也会受到上面三种约束 (Expression bindings)，例如if .. then .. else .. 语句：</p>
+<p>doesn’t typecheck</p>
+<h3 id="The-REPL-and-Errors"><a href="#The-REPL-and-Errors" class="headerlink" title="The REPL and Errors"></a>The REPL and Errors</h3><ul>
+<li><p><strong>REPL</strong><br>Read-Evaluate-Print-Loop<br>就是在 <code>use</code> 调用sml的时候进行的操作，调试很方便，但是注意每次 use 的时候都要重启REPL（C-d C-c C-s）</p>
+</li>
+<li><p>Errors<br>4种错误：syntax, type-check, evaluation, result<br>编译器会先查看是否出现 syntax error (if then else的完整性 / 变量命名是否用到了关键词等等)，在解决之后再会来检查 type-check (-5要用~5表示 / 4/5要用4 div 5表示等等)，然后程序会开始运行，继续检查在 evaluation 的时候出的错 (除数不能为0等等)。接着就是程序运行通过了，但是结果不如我们的意，这时候就需要我们自己去查看代码发现问题了。</p>
+</li>
+</ul>
+<h3 id="Shadowing"><a href="#Shadowing" class="headerlink" title="Shadowing"></a>Shadowing</h3><p>  当变量被重新赋值的时候，原来的值就被shadowing了，在REPL原赋值语句的输出也会变成 <hidden-value>，所以dynamic environment就是指在程序运行时也是dynamic的</p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
+<li><p><strong>Function bindings</strong></p>
+<ul>
+<li><strong>A function is a value</strong>: 当我们调用func的时候才开始对func进行evaluate，一直可以把func当作值为0的value</li>
+<li>函数的返回值类型由程序自动赋给（程序通过recursion得到）</li>
+</ul>
+</li>
+<li><p>Unless a function has exactly one argument, you need to use parentheses (括号) to call it</p>
+</li>
+<li></li>
+<li><p>Type syntax 中表示函数的type时会用 * 来表示and，比如上面的函数type就是 <code>int * int -&gt; int</code></p>
+</li>
+<li><p>所有编程要用到 Loop 的都可以用 Recursion 来替代</p>
+</li>
+<li><p><strong>Calling the Function</strong><br>调用函数时也要检查这三样东西：Syntax, Type-checking and Evaluation</p>
+<ul>
+<li>Syntax: <code>e0 (e1,...,en)</code> （ML不支持可选参数）</li>
+<li>Type-cheking<br>检查两个东西，一个是函数参数的数据类型是否和定义的相同，一个是函数名的数据类型( <code>(t1 * ,,, * tn) -&gt; t</code> )是否和定义相同，如果这两点满足了，就将数据类型t赋给 e0(e1,..,en)</li>
+<li>Evaluation<ol>
+<li>evaluate e0. 找到 e0 这个函数; </li>
+<li>evaluate all arguments. 比如2+2的参数要算成4;</li>
+<li>evaluate the function. 将参数代进去是否能够运行函数（会新开一片区域放临时变量）; </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Pairs and Tuples</strong></p>
+<ul>
+<li>Pairs (2-tuples)<ul>
+<li>Syntax: `(e1, e2)</li>
+<li>Type-cheking: <code>ta * tb</code></li>
+<li>Evaluate: e1, e2分别赋两个值可以运行</li>
+</ul>
+</li>
+<li>Tuples<ul>
+<li>就是不只两个元素的pair</li>
+</ul>
+</li>
+<li>Nesting<ul>
+<li>tuples很重要的用法，可以tuples嵌套tuples，取出其中的元素就用 <code>#1 x1</code> 来取出x1这个tuple的第一个元素，甭管什么类型都可以取</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Lists</strong></p>
+<ul>
+<li>lists和tuples的区别<br>lists可以含有任意数量的元素，但是必须是同一类型<br>tuples可以拥有不同数据类型，但是只能含有有限数量的元素</li>
+<li>用法：<table>
+  <tr>
+    <td><b>构造</b></td>
+    <td>`[6, 5, 1]`</td>
+    <td>`6::5::1;`</td>
+  </tr>
+  <tr>
+    <td><b>检查为空</b></td>
+    <td>`null x` </td>
+    <td>返回true则为空 ->bool</td>
+  </tr>
+  <tr>
+    <td><b>掐头</b></td>
+    <td>`hd x` </td>
+    <td>返回第一个元素 ->a</td>
+  </tr>
+      <tr>
+    <td><b>取尾</b></td>
+    <td>`tl x` </td>
+    <td>返回除了第一个元素的所有元素 ->a list</td>
+  </tr>
+</table></li>
+<li>type-checking: 只能是同一种数据类型，但是又可以是嵌套的数据类型。空list是alpha类型，可以变成任意类型（所以null实际上是检测是否为alpha类型）</li>
+<li>function example<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">append</span> <span class="params">(xs : <span class="keyword">int</span> list, ys : <span class="keyword">int</span> list)</span> </span>= </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">null</span> xs</span><br><span class="line">    then ys</span><br><span class="line">    <span class="keyword">else</span> (hd xs) :: append((tl xs), ys)</span><br><span class="line">    </span><br><span class="line"><span class="function">fun <span class="title">sum_pair_list</span> <span class="params">(xs : (<span class="keyword">int</span> * <span class="keyword">int</span>)</span> list) </span>=</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">null</span> xs</span><br><span class="line">    then <span class="number">0</span></span><br><span class="line">    else #1 (hd xs) + #2 (hd xs) + sum_pair_list(tl xs)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Let expressions</strong></p>
+<ul>
+<li>Syntax: <code>let b1 b2 ... bn in e end</code> 返回类型由 e 决定</li>
+<li>创建局部作用域 (<em>scope</em>)，在bi中定义的值出了lei就不复存在</li>
+<li><strong>Nested Functions</strong>: 将函数内嵌在let语句中，使得函数变为局部函数<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">countup_from1</span> <span class="params">(x : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">    let</span><br><span class="line">        <span class="function">fun <span class="title">count</span> <span class="params">(from : <span class="keyword">int</span>, to : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">            <span class="keyword">if</span> from=to</span><br><span class="line">            then to::[]</span><br><span class="line">            <span class="keyword">else</span> from :: count(from+<span class="number">1</span>, to)</span><br><span class="line">    in</span><br><span class="line">        count(<span class="number">1</span>, x)</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 甚至更为简洁</span></span><br><span class="line"><span class="function">fun <span class="title">countup_from1</span> <span class="params">(x : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">    let</span><br><span class="line">        <span class="function">fun <span class="title">count</span> <span class="params">(from : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">            <span class="keyword">if</span> from=x</span><br><span class="line">            then x::[]</span><br><span class="line">            <span class="keyword">else</span> from :: count(from+<span class="number">1</span>)</span><br><span class="line">    in</span><br><span class="line">        count(<span class="number">1</span>)</span><br><span class="line">    end</span><br></pre></td></tr></table></figure></li>
+<li>Note: <strong>Avoid repeated recursion</strong></li>
+</ul>
+</li>
+<li><p><strong>Options</strong><br>允许返回不同类型的函数</p>
+<pre><code>&lt;table&gt;
+&lt;tr&gt;
+  &lt;td rowspan=&quot;2&quot;&gt;&lt;b&gt;构造&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;`NONE`&lt;/td&gt;
+  &lt;td&gt;type: &apos;a option&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;`SOME`&lt;/td&gt;
+  &lt;td&gt;type: t option&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td rowspan=&quot;2&quot;&gt;&lt;b&gt;调用&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;`isSome`&lt;/td&gt;
+  &lt;td&gt;type: &apos;a option -&gt; bool&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;`valOf`&lt;/td&gt;
+  &lt;td&gt;type: &apos;a potion -&gt; &apos;a&lt;/td&gt;
+&lt;/tr&gt;</code></pre>  </table>
+</li>
+<li><p><strong>Booleans and Comparison Operations</strong></p>
+<ul>
+<li>e都必须要是bool类型：<code>e1 andalso e2</code>  <code>e1 orelse</code>  <code>not e</code></li>
+<li>comparison两边必须是同类型(int就不等于real): <code>=</code> <code>&lt;&gt;</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></li>
+<li>对于real类型不能使用 <code>=</code> 和 <code>&lt;&gt;</code>来比较，因为real本来就不准确</li>
+</ul>
+</li>
+<li><p><strong>No Mutation</strong><br><code>reference=alias vs. copy</code><br>ML是不允许mutation的（不知道是不是指静态语言的意思），因此，不需要考虑aliases和copies的区别（指向的存储空间的存储类型不会发生冲突），像java这种编程语言就需要考虑aliases，但都有好有坏。所以Java在安全性上会做的更好：比如在登录注册的时候，数据库调用已有的用户信息与当前登录信息进行匹配，如果得到的是alias，就很容易通过客户端修改数据库，但如果客户端得到的是copy，就无法篡改数据库</p>
+</li>
+<li><p><strong>Five different things</strong> (shouldn’t confused)</p>
+<ol>
+<li><em>Syntax</em>: how</li>
+<li><em>Semantics</em>: mean</li>
+<li><em>Idioms</em>: typical patterns</li>
+<li><em>Libraries</em>: standard facilities</li>
+<li><em>Tools</em>: implementations<br>2 和 3是这门课侧重的</li>
+</ol>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Coursera/">Coursera</a><a href="/tags/ML/">ML</a><a href="/tags/MOOC/">MOOC</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/MOOC/">MOOC</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2020-02-MOOC/ProgramLangPartA/" data-title="Programming Language (Part A) | Kerry" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020-02-tools/Emacs tutorial 笔记/" title="Emacs tutorial 笔记">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Emacs tutorial 笔记</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020-02-GRE/writing/"  title="GRE/writing">
+ <strong>NEXT:</strong><br/> 
+ <span>GRE/writing
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-1-Introduction"><span class="toc-number">1.</span> <span class="toc-text">Week 1: Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-to-this-course"><span class="toc-number">1.1.</span> <span class="toc-text">Welcome to this course</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Software-Installation-and-Test"><span class="toc-number">1.2.</span> <span class="toc-text">Software Installation and Test</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Homework"><span class="toc-number">1.3.</span> <span class="toc-text">Homework</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-2"><span class="toc-number">2.</span> <span class="toc-text">Week 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-Message"><span class="toc-number">2.1.</span> <span class="toc-text">Welcome Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ML-Variable-Bindings-and-Expressions"><span class="toc-number">2.2.</span> <span class="toc-text">ML Variable Bindings and Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rules-for-Expressions"><span class="toc-number">2.3.</span> <span class="toc-text">Rules for Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-REPL-and-Errors"><span class="toc-number">2.4.</span> <span class="toc-text">The REPL and Errors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadowing"><span class="toc-number">2.5.</span> <span class="toc-text">Shadowing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function"><span class="toc-number">2.6.</span> <span class="toc-text">Function</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/AI/" title="AI">AI<sup>1</sup></a></li>
+		
+			<li><a href="/categories/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>4</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/AI/" title="AI">AI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Coursera/" title="Coursera">Coursera<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Emacs/" title="Emacs">Emacs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ML/" title="ML">ML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/kde/" title="kde">kde<sup>1</sup></a></li>
+		
+			<li><a href="/tags/manjaro/" title="manjaro">manjaro<sup>2</sup></a></li>
+		
+			<li><a href="/tags/pytorch/" title="pytorch">pytorch<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Coursera/" style="font-size: 10px;">Coursera</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/ML/" style="font-size: 10px;">ML</a> <a href="/tags/MOOC/" style="font-size: 10px;">MOOC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kde/" style="font-size: 10px;">kde</a> <a href="/tags/manjaro/" style="font-size: 15px;">manjaro</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2020 
+		
+		<a href="http://yoursite.com" target="_blank" title="Kerry">Kerry</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":180,"height":360,"hOffset":15,"vOffset":-15},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
