@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>图像实验SDK配置 | Kerry</title>
+    <title>比较 对抗样本 在 压缩模型 上的可迁移性 | Kerry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Kerry">
     
-    <meta name="description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。
-
-我先按照...\E_EM\Doc路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC（有一个很迷的bug，按照他的文档配">
+    <meta name="description" content="论文名称To Compress or Not to Compress: Understanding the Interactions between Adversarial Attacks and Neural Network Compression
+论文重述该论文主要是讨论对抗攻击在压缩模型上的可">
     
     
     
@@ -73,7 +72,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/curriculum/大三上-HUST/SDK配置.html" title="图像实验SDK配置" itemprop="url">图像实验SDK配置</a>
+      <a href="/AI-AI/adversarial.html" title="比较 对抗样本 在 压缩模型 上的可迁移性" itemprop="url">比较 对抗样本 在 压缩模型 上的可迁移性</a>
   </h1>
   <p class="article-author">By
     
@@ -81,7 +80,7 @@
     </p>
   <p class="article-time">
     <time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished">2019-12-06</time>
-    Updated:<time datetime="2019-12-10T12:13:14.000Z" itemprop="dateModified">2019-12-10</time>
+    Updated:<time datetime="2020-03-06T11:38:15.881Z" itemprop="dateModified">2020-03-06</time>
     
   </p>
 </header>
@@ -90,54 +89,70 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#论文名称"><span class="toc-number">1.</span> <span class="toc-text">论文名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论文重述"><span class="toc-number">2.</span> <span class="toc-text">论文重述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较结果"><span class="toc-number">3.</span> <span class="toc-text">比较结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
 		</div>
 		
-		<p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。<br>以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。</p>
-<ol>
-<li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
-</li>
-<li><p>然后后来其实用不上这个了，才知道老师是允许用opencv的数据类型，所以又转到opencv开发去了（不然用二维矩阵的形式表示图像实在太鸡肋了，因为想保存在数组里还需要大量压缩一下图像，不然没办法开辟那么大的数组）。opencv的话不需要参照doc里的opencv开发手册（说多了都是泪），只需要跑通<code>...\E_EM\SDK\Samples_CV</code>里面的例程就好了。</p>
-</li>
-<li><p>例程这里两个应该都可以，我用的是<strong>openCV_IplImage</strong>，具体的环境配置方法还是可以参考opencv开发手册，添加<code>VC++目录-包含目录</code>，添加<code>VC++目录-库目录</code>，修改<code>连接器-输入-附加依赖项</code>，这里注意直接用sample里的opencv2的目录即可，不需要下载opencv。</p>
-</li>
-<li><p>这里提一下开发手册没有提到的但是会遇到的问题：</p>
+		<h3 id="论文名称"><a href="#论文名称" class="headerlink" title="论文名称"></a>论文名称</h3><p><a href="https://arxiv.org/pdf/1810.00208.pdf" target="_blank" rel="noopener">To Compress or Not to Compress: Understanding the Interactions between Adversarial Attacks and Neural Network Compression</a></p>
+<h3 id="论文重述"><a href="#论文重述" class="headerlink" title="论文重述"></a>论文重述</h3><p>该论文主要是讨论对抗攻击在压缩模型上的可迁移性 (Transferability)，分为三种情形：</p>
 <ul>
-<li>首先记得改平台为x64！！</li>
-<li>一个是说int8出现类型重定义<br>这个是因为opencv定义了一个int8，相机的SDK库也定义了一个int8，所以随意注释掉其中一个的定义就好</li>
-<li>一个是<img src=".../dll.PNG" alt=""><br>这个是因为没有添加动态链接库，需要把bin里面带dll后缀的（怎么查看文件扩展名我就不说了）全部拷贝到该工程目录下，比如我用的OpenCV_IplImage，就放在<code>Samples_CV\OpenCV_IplImage\</code>目录下就好了</li>
-<li>一个是会报找不到输出文件什么什么的，具体错误我就不回去截图了，没看到的可以忽略<br>这个是因为输出文件设置的不合理，按如下方式填写即可：<br><img src=".../out.PNG" alt=""></li>
+<li>compressed 产生对抗样本测试自身</li>
+<li>baseline 产生对抗样本测试 compressed</li>
+<li>compressed 产生对抗样本测试 baseline<br>比较的压缩方式为：剪枝 和 量化<br>比较的攻击方法为：IFGSM, IFGM, Deepfool</li>
+</ul>
+<h3 id="比较结果"><a href="#比较结果" class="headerlink" title="比较结果"></a>比较结果</h3><ul>
+<li><p>剪枝方法</p>
+<ol>
+<li><p>对于 IFGM 和 IFGSM 方法，对抗样本的迁移性是受到剪枝过后密度减小造成影响的。具体表现在：</p>
+<ul>
+<li>当密度小的时候，用compressed生成的对抗样本去攻击baseline的效果不错，从小到大迁移性好</li>
+<li>当密度小的时候，用baseline生成的对抗样本去攻击compressed效果不好，从大到小迁移性不好</li>
 </ul>
 </li>
-<li><p>到这里应该可以跑通demo了，那怎么加入自己的代码呢？先在前面引入头文件，我也不知道该引什么，所以我就都引了，报错的注释掉就好:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/core_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/types_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc_c.h"</span> </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/types_c.h"</span>  </span></span><br><span class="line"><span class="comment">//#include "opencv2/highgui/cap_ios.h"  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui_c.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>在<strong>GCapDlg.cpp</strong>文件中，<code>CGCapDlg::OnStreamCB( MV_IMAGE_INFO *pInfo)</code>函数内，应该可以发现可以直接截到Iplimage的数据类型，（有if分支，是根据相机采集图像的方式决定的，大家可以一个个试）。然后通过</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat my_img = cv::cvarrToMat(iplSrc);</span><br></pre></td></tr></table></figure>
-<p>就可以直接变成我们熟悉的Mat数据类型了（如果用了cv的命名空间的话就不需要前面加上cv::了），需要转灰度的就<code>cvtColor(my_img, m, CV_BGR2GRAY);</code>这样转就行了。<br>然后在这一行以下的就是我们的TODO了，我们只需要构造函数实现</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************</span></span><br><span class="line"><span class="comment">	<span class="doctag">TODO:</span> Add function here	</span></span><br><span class="line"><span class="comment">	input: Mat original_img</span></span><br><span class="line"><span class="comment">	output: Mat processed_img</span></span><br><span class="line"><span class="comment">************************/</span></span><br></pre></td></tr></table></figure>
-<p>就可以啦</p>
+<li><p>对于 Deepfool 方法，小的生成样本攻击自身，小的生成样本攻击大的，这两种情况在密度减小的时候迁移性都更好。</p>
+</li>
+<li><p>因为clipped的原因，对于有clipped的方法（IFGSM and IFGM），小的生成样本攻击自身，大的生成样本攻击小的，这两种情况在密度减小的时候迁移性都更不好。</p>
 </li>
 </ol>
+</li>
+<li><p>量化方法</p>
+<ol>
+<li><p>当量化精度高的时候，在量化与不量化之间的攻击效果不受影响</p>
+</li>
+<li><p>当小数位数减小的很厉害时类似fine-grained pruning（剪枝权重）的效果</p>
+</li>
+<li><p>整数位数很少的时候，小的产生样本攻击大的会变得异常困难，表明类别的语义信息保存在activations and weights中</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong><em>（以下仅表示个人观点，欢迎讨论指正）</em></strong></p>
+<p>就像看了一份实验报告一样，没有新方法，主要是比较结果。</p>
+<p>个人感觉方法分的太细了，特别是攻击方法，感觉 ①没有从攻击原理的角度阐释可迁移性，②只是众多攻击模型中的典型三种，且IFGSM，IFGM和Deepfool的区别还挺大的，感觉又只像两类攻击方法。总之感觉脱离数学原理的比较都显得不那么全面。</p>
+<p>亮点：</p>
+<ul>
+<li>use Mayo tool to generate pruned and quantised models</li>
+<li>对于应用的讨论，作者最终的结论是公司用压缩模型发行并不会增加大模型的安全性</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/课内/">课内</a><a href="/tags/大三上/">大三上</a><a href="/tags/C方向/">C方向</a>
+  <span></span> <a href="/tags/网络压缩/">网络压缩</a><a href="/tags/对抗样本/">对抗样本</a><a href="/tags/水文章/">水文章</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/curriculum/">curriculum</a>►<a class="article-category-link" href="/categories/curriculum/%E5%A4%A7%E4%B8%89%E4%B8%8A/">大三上</a>
+  <a class="article-category-link" href="/categories/AI/">AI</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/curriculum/%E5%A4%A7%E4%B8%89%E4%B8%8A-HUST/SDK%E9%85%8D%E7%BD%AE.html" data-title="图像实验SDK配置 | Kerry" data-tsina="" class="share clearfix">
+  <div data-url="http://yoursite.com/AI-AI/adversarial.html" data-title="比较 对抗样本 在 压缩模型 上的可迁移性 | Kerry" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -147,13 +162,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/English-English/TofelWriting.html" title="托福写作笔记">
+ <a href="/tools-tools/在Manjaro上使用Hexo.html" title="在Manjaro上使用Hexo">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  托福写作笔记</span>
+  在Manjaro上使用Hexo</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/English-English/GREWriting.html"  title="GRE写作笔记">
+ <strong>NEXT:</strong><br/> 
+ <span>GRE写作笔记
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -163,7 +186,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#论文名称"><span class="toc-number">1.</span> <span class="toc-text">论文名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论文重述"><span class="toc-number">2.</span> <span class="toc-text">论文重述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较结果"><span class="toc-number">3.</span> <span class="toc-text">比较结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -175,21 +198,15 @@
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/AI/" title="AI">AI<sup>1</sup></a></li>
+			<li><a href="/categories/AI/" title="AI">AI<sup>2</sup></a></li>
 		
 			<li><a href="/categories/English/" title="English">English<sup>3</sup></a></li>
 		
-			<li><a href="/categories/HUST/" title="HUST">HUST<sup>1</sup></a></li>
+			<li><a href="/categories/HUST/" title="HUST">HUST<sup>2</sup></a></li>
 		
 			<li><a href="/categories/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
 		
-			<li><a href="/categories/curriculum/" title="curriculum">curriculum<sup>1</sup></a></li>
-		
 			<li><a href="/categories/tools/" title="tools">tools<sup>4</sup></a></li>
-		
-			<li><a href="/categories/curriculum/大三上/" title="大三上">大三上<sup>1</sup></a></li>
-		
-			<li><a href="/categories/网络压缩/" title="网络压缩">网络压缩<sup>1</sup></a></li>
 		
 		</ul>
 </div>
