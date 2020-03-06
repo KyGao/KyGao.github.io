@@ -1,0 +1,689 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>电子商务 | Kerry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kerry">
+    
+    <meta name="description" itemprop="description" content="华科自动化学院电子商务选修课笔记">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Kerry" title="Kerry"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kerry">Kerry</a></h1>
+				<h2 class="blog-motto">Blog in Manjaro</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/HUST-HUST/电子商务.html" title="电子商务" itemprop="url">电子商务</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Kerry">Kerry</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished">2019-12-06</time>
+    Updated:<time datetime="2020-03-06T11:30:29.549Z" itemprop="dateModified">2020-03-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第1章-PHP概述"><span class="toc-number">1.</span> <span class="toc-text">第1章 PHP概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-动态网站技术"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 动态网站技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-前端技术"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前端技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-PHP"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 PHP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-PHP开发环境"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 PHP开发环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二章-PHP"><span class="toc-number">2.</span> <span class="toc-text">第二章 PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三章-HTML"><span class="toc-number">3.</span> <span class="toc-text">第三章 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MYSQL"><span class="toc-number">4.</span> <span class="toc-text">MYSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-with-php"><span class="toc-number">5.</span> <span class="toc-text">mysql with php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX"><span class="toc-number">6.</span> <span class="toc-text">AJAX</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AJAX和PHP交互"><span class="toc-number">6.0.1.</span> <span class="toc-text">AJAX和PHP交互</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">7.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">8.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#背景"><span class="toc-number">8.0.1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文字"><span class="toc-number">8.0.2.</span> <span class="toc-text">文字</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程"><span class="toc-number">9.</span> <span class="toc-text">存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assignment"><span class="toc-number">10.</span> <span class="toc-text">Assignment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我的实现"><span class="toc-number">11.</span> <span class="toc-text">我的实现</span></a></li></ol>
+		</div>
+		
+		<ul>
+<li>避免乱码：在每一个php前面都加一个<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Cache-Control: np-cache, post-check=0, pre-check=0"</span>);</span><br><span class="line">header(<span class="string">"Content-type: text/html;charset=gb2312"</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>html加这个</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="第1章-PHP概述"><a href="#第1章-PHP概述" class="headerlink" title="第1章 PHP概述"></a>第1章 PHP概述</h3><h4 id="1-1-动态网站技术"><a href="#1-1-动态网站技术" class="headerlink" title="1.1 动态网站技术"></a>1.1 动态网站技术</h4><ul>
+<li>动态网页开发技术：数据保存在服务器（.NET PHP Java）</li>
+<li>web服务器：接受请求<br>数据库服务器：存储数据<h4 id="1-2-前端技术"><a href="#1-2-前端技术" class="headerlink" title="1.2 前端技术"></a>1.2 前端技术</h4></li>
+<li>HTML：控制内容显示方式</li>
+<li>CSS：控制修饰内容</li>
+<li>Javascript：脚本语言，嵌入HTML文件中<h4 id="1-3-PHP"><a href="#1-3-PHP" class="headerlink" title="1.3 PHP"></a>1.3 PHP</h4></li>
+<li>嵌入HTML的脚本语言，运行于服务器端<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"&lt;br/&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"服务器当前时间："</span>;</span><br><span class="line">	<span class="keyword">echo</span> date(<span class="string">'Y-m-d H-i-s'</span>.time());</span><br><span class="line">?/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="1-4-PHP开发环境"><a href="#1-4-PHP开发环境" class="headerlink" title="1.4 PHP开发环境"></a>1.4 PHP开发环境</h4></li>
+<li>Apache：服务器程序</li>
+<li>PHP：编程语言</li>
+<li>MySQL：数据库程序</li>
+<li>XAMPP：集成开发环境</li>
+</ul>
+<h3 id="第二章-PHP"><a href="#第二章-PHP" class="headerlink" title="第二章 PHP"></a>第二章 PHP</h3><h3 id="第三章-HTML"><a href="#第三章-HTML" class="headerlink" title="第三章 HTML"></a>第三章 HTML</h3><ul>
+<li><p>META 刷新网页</p>
+</li>
+<li><p>HTML文件主体</p>
+<ul>
+<li>body</li>
+</ul>
+</li>
+<li><p>颜色的表示方法</p>
+<ul>
+<li>命名方式定义，RED blue 等</li>
+<li>RGB值 #FF0000: red  #0000FF: blue</li>
+</ul>
+</li>
+<li><p>字形标记</p>
+<ul>
+<li>红色的中华人民共和国：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Font</span> <span class="attr">size</span>=<span class="string">10</span> <span class="attr">color</span>=<span class="string">Red</span> <span class="attr">align</span>=<span class="string">center</span>&gt;</span><span class="tag">&lt;<span class="name">B</span>&gt;</span><span class="tag">&lt;<span class="name">I</span>&gt;</span> 中华人民共和国 <span class="tag">&lt;/<span class="name">I</span>&gt;</span><span class="tag">&lt;/<span class="name">B</span>&gt;</span><span class="tag">&lt;/<span class="name">Font</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>列表</p>
+<ul>
+<li>无序：UL  有序：OL</li>
+<li>都是用LI表示表项</li>
+</ul>
+</li>
+<li><p>图片</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IMG</span> <span class="attr">src</span>=<span class="string">"图片文件名"</span> <span class="attr">alt</span>=<span class="string">"简单说明"</span> <span class="attr">width</span>=<span class="string">"图片的宽度"</span> <span class="attr">height</span>=<span class="string">"高度"</span> <span class="attr">hspace</span>=<span class="string">"水平方向的空白"</span> <span class="attr">vspace</span>=<span class="string">"垂直方向的空白"</span> <span class="attr">border</span>=<span class="string">"边框宽度"</span> <span class="attr">align</span>=<span class="string">"对齐方式"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>文件名是相对路径 </li>
+</ul>
+</li>
+<li><p>超链接标记</p>
+<ul>
+<li>可以把图片作为链接源<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">A</span> <span class="attr">herf</span>=<span class="string">url</span>&gt;</span><span class="tag">&lt;<span class="name">IMG</span> <span class="attr">arc</span>=<span class="string">图像文件名</span>&gt;</span><span class="tag">&lt;/<span class="name">A</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>表格标记</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TABLE</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">CAPTION</span> <span class="attr">align</span>=<span class="string">center</span> <span class="attr">valign</span>=<span class="string">top</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">CAPTION</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TR</span>&gt;</span><span class="tag">&lt;<span class="name">TH</span>&gt;</span>表头1<span class="tag">&lt;/<span class="name">TH</span>&gt;</span><span class="tag">&lt;<span class="name">TH</span>&gt;</span>表头2<span class="tag">&lt;/<span class="name">TH</span>&gt;</span><span class="tag">&lt;/<span class="name">TR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TR</span>&gt;</span><span class="tag">&lt;<span class="name">TD</span>&gt;</span>表项11<span class="tag">&lt;/<span class="name">TD</span>&gt;</span><span class="tag">&lt;<span class="name">TD</span>&gt;</span>表项12<span class="tag">&lt;/<span class="name">TD</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">TABLE</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>记住<TABLE><TR><TH><TD>的区别</li>
+</ul>
+</li>
+<li><p><strong>表单标记</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">FORM</span> <span class="attr">action</span>=<span class="string">"url"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">name</span>=<span class="string">"value"</span> <span class="attr">onsubmit</span>=<span class="string">"function"</span> <span class="attr">onreset</span>=<span class="string">"function"</span> <span class="attr">target</span>=<span class="string">"window"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法一般用post，get是当网页有参数时使用（比如邮箱链接里的账号密码）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">INPUT</span> <span class="attr">name</span>=<span class="string">"value"</span> <span class="attr">type</span>=<span class="string">"form area type"</span> <span class="attr">value</span>=<span class="string">"value"</span> <span class="attr">src</span>=<span class="string">"url"</span> <span class="attr">checled</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>只有type=”submit”会自动提交，如果想用button提交就得用jacvascript脚本</p>
+</li>
+<li><p>type=”radio”:  name相同的radio属于一个group，一个group只能选择一个</p>
+</li>
+</ul>
+</li>
+<li><p>常见type控件：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>文本</td>
+</tr>
+<tr>
+<td>password</td>
+<td>圈圈文本</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>隐藏属性</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>单选钮</td>
+</tr>
+<tr>
+<td>checkbox</td>
+<td>复选框</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>列表框</td>
+</tr>
+</tbody></table>
+<ul>
+<li>php文件传回使用字符串方式传回网页代码</li>
+<li>hidden控件是用来传值给服务器用的，在服务器可以做保护（加if），防止直接修改网址妄图得到下一个页面</li>
+<li>通过<code>if ($_POST[&quot;hidden控件的文件名&quot;]==&quot;1&quot;)</code>保护信息只能通过别的页面链接进来，防止直接修改网址妄图得到下一个页面</li>
+</ul>
+</li>
+<li><p>一些on指令</p>
+<ul>
+<li><strong>onsubmit</strong>控件可以在提交前最后执行其中的步骤（作校验用），返回false就不submit了</li>
+<li><strong>onkeyup</strong>：当键盘弹起</li>
+<li><strong>onblur</strong>：鼠标移开</li>
+</ul>
+</li>
+<li><p>span控件，控制浏览器显示内容，可以嵌入innerHTML</p>
+</li>
+<li><p><strong>建立框架</strong></p>
+<ul>
+<li>左右各一半</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">FRAMESET</span> <span class="attr">cols</span>=<span class="string">"50%,*"</span>&gt;</span>     </span><br><span class="line">	<span class="tag">&lt;<span class="name">FRAME</span> <span class="attr">name</span>=<span class="string">"left"</span> <span class="attr">src</span>=<span class="string">"left.html"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">FRAME</span> <span class="attr">name</span>=<span class="string">"left"</span> <span class="attr">src</span>=<span class="string">"left.html"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">FRAMSET</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>回到某个网页<ul>
+<li>没有框架<br><code>header(&quot;location: userlogin.htm&quot;);</code></li>
+<li>有框架<br><code>die(&#39;&lt;script language=&quot;javascript&quot;&gt;top.location.href=&quot;loginexit.php&quot;&lt;/script&gt;&#39;);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h3><ul>
+<li><p>varchar: 节省空间，方便修改</p>
+</li>
+<li><p>AUTO_INCREMENT: 顺序自动增量</p>
+</li>
+<li><p>增删改查</p>
+<ul>
+<li><p>增<br><code>insert into php_admin(userid, username, password, usertype) values(&#39;23456&#39;, &#39;高开元&#39;, &#39;sql&#39;, &#39;0&#39;);</code></p>
+</li>
+<li><p>删<br><code>delete  from  where</code></p>
+</li>
+<li><p>改<br><code>update php_admin set userage=20 where username=&quot;高兴&quot;</code></p>
+</li>
+<li><p>查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">select * from php_admin</span><br><span class="line"></span><br><span class="line">select username,userid from php_admin where username&#x3D;&#39;田丰&#39;</span><br><span class="line"></span><br><span class="line">select userid, username </span><br><span class="line">from php_admin </span><br><span class="line">where username like &quot;高%&quot;</span><br><span class="line"></span><br><span class="line">select username, </span><br><span class="line">avg(userage) as avgage</span><br><span class="line">from php_admin</span><br><span class="line">group by username	# 相同名字的合并成一条</span><br><span class="line"></span><br><span class="line">select username,</span><br><span class="line">avg(userage) as avgage</span><br><span class="line">from php_admin</span><br><span class="line">group by username</span><br><span class="line">having avg(userage) &gt;20    # having就是与where求交</span><br><span class="line">order by usertype</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% n个表要有n-1个约束（才能选出特定的条目）</span><br><span class="line">select stu.stuID, name, classnum,</span><br><span class="line">from student, stu_course, class</span><br><span class="line">where stu.stuID&#x3D;stu_course.stuID</span><br><span class="line">and course.courseID &#x3D; stu_course.courseID</span><br><span class="line">and score&gt;60</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">update stu_course</span><br><span class="line">SET</span><br><span class="line">where stuID in (select stuID from stu where name&#x3D;&quot;李明&quot;)</span><br><span class="line"># 此处数据集合不能用&#x3D;，只能用in</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="mysql-with-php"><a href="#mysql-with-php" class="headerlink" title="mysql with php"></a>mysql with php</h3><ul>
+<li><p>以下三句一般一起先放出来</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$con = mysql_connect(<span class="string">"localhost"</span>, <span class="string">"root"</span>, <span class="string">"sql"</span>);	<span class="comment">//连接到数据库</span></span><br><span class="line">mysql_select_db(<span class="string">"qingzhou"</span>, $con);	<span class="comment">//选取数据库</span></span><br><span class="line">mysql_query(<span class="string">"set names gb2312"</span>);	<span class="comment">//mysql查询要支持GB2312</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><pre><code>$sql = &quot;&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  双引号中是sql语句，查询插入blablabla</span><br><span class="line"></span><br><span class="line">button控件，可以对表单进行提交</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### html php javascript交叉使用</span><br><span class="line"></span><br><span class="line">- html + php</span><br><span class="line">  .php的文件，在html框架中</span><br><span class="line">  </span><br><span class="line">  &#96;&#96;&#96;php</span><br><span class="line">  &lt;?php</span><br><span class="line">  if (true)?&gt;</span><br><span class="line">  Hello</span><br><span class="line">  &lt;?php</span><br><span class="line">  ?&gt;</span><br></pre></td></tr></table></figure>
+等价于
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>javascript + php<br>同样可以用echo来替代，使得全是php语言，但是没必要</p>
+</li>
+<li><p>凡是<strong>动态</strong>的用php来写，凡是<strong>静态</strong>的就用javascript和html来写</p>
+</li>
+</ul>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>异步Javascript和XML</p>
+<ul>
+<li>跨平台浏览器，通过在程序后台做工作，使Internet应用程序更加强大</li>
+<li>无需重载网页，就可以发送及传回数据，更新网页显示<h5 id="AJAX和PHP交互"><a href="#AJAX和PHP交互" class="headerlink" title="AJAX和PHP交互"></a>AJAX和PHP交互</h5></li>
+<li>创建<strong>XMLHttpRequest</strong>对象：GetXmlHttpObject</li>
+<li>通过网页传参数<code>url=url+&quot;?q=&quot;+str</code>?q表示要传参数啦，str是要传的参数的值</li>
+<li><code>url=url+&quot;&amp;sid=&quot;+Math.random()</code>本身没有用，是刷新网页用的</li>
+<li>然后通过<code>xmlHttp.open(&quot;GET&quot;,url,true)</code>发送url出去（带参数）<blockquote>
+<p>通过网址传参：GET</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>总流程</strong></p>
+<ol>
+<li>html：head中script控件使之与js文件相关联</li>
+<li>html：通过span控件的inner属性id来获取txtHint</li>
+<li>js：通过document.getElementById对接html中的id</li>
+<li>js：创建XMLHttpRequest对象</li>
+<li>js：通过onreadystatechange设置中断（每个网页“正在加载”都是在这个等待的状态）</li>
+<li>js：通过url访问到php并用GET操作来open</li>
+<li>php：遍历并给出response</li>
+<li>js：在给出response之后statechange才会变有效，中断恢复</li>
+<li>js：赋给span传回html</li>
+<li>html：打印</li>
+</ol>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>一种让数据在页面中持续有效的方法，存储在服务器端</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">'userid'</span>] = <span class="string">''</span>;</span><br><span class="line">$_SESSION[<span class="string">'usertype'</span>] = <span class="string">''</span>;</span><br></pre></td></tr></table></figure>
+<p><code>session_destroy()</code></p>
+<ul>
+<li>防止没有登录直接访问</li>
+<li>防止登录后长时间未访问页面</li>
+<li>session判断必须要放在每个php最前面</li>
+</ul>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h5 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h5><ul>
+<li><p>设置背景颜色<br>no2是底下的class属性</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;<span class="attribute">background-color</span>: yellow&#125;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;<span class="attribute">background-color</span>: <span class="number">#00ff00</span>&#125;</span><br><span class="line">  <span class="selector-tag">h2</span> &#123;<span class="attribute">background-color</span>: transparent&#125;</span><br><span class="line">  <span class="selector-tag">p</span> &#123;<span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">250</span>,<span class="number">0</span>,<span class="number">255</span>)&#125;</span><br><span class="line">  <span class="selector-tag">p</span><span class="selector-class">.no2</span> &#123;<span class="attribute">background-color</span>: gray; <span class="attribute">padding</span>: <span class="number">20px</span>;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>设置文本的背景颜色<br><code>&lt;span class=&quot;highlight&quot;&gt;</code></p>
+</li>
+<li><p>将图像设置为背景<br><code>body {background-image:url(/i/eg_bg_04.gif);}</code></p>
+</li>
+<li><p>重复背景图像（铺开）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url('/i/eg_bg_03.gif');</span><br><span class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">no-repeat</span>;</span><br><span class="line"><span class="selector-tag">background-attachment</span><span class="selector-pseudo">:fixed</span>;</span><br><span class="line"><span class="selector-tag">background-position</span>: 30% 20%;</span><br></pre></td></tr></table></figure>
+<h5 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h5></li>
+<li><p>设置字体尺寸<br><code>p {font-size: 100%}</code></p>
+</li>
+<li><p>设置边框样式（）<br><code>p.groove {border-style: groove}</code></p>
+<p>设置下边框属性</p>
+<p><code>border-bottom-color:#ff0000;</code></p>
+</li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><ul>
+<li><p>sp_addorder</p>
+<p>#6 cnt计算的是逗号数+1，即命令数量</p>
+<p>#11 将输入插入数据库</p>
+<p>#13 limit1 只一个例子</p>
+<p>#17 substring: 字符串 ，分隔符，分隔符序号：整出第几个分隔符前面的所有字符串</p>
+<p>#15-… 每个循环得到两个元素（result：id和result1：数量）</p>
+<p>#27 这里的要输入    price在#29通过别的数据库读取（参考）</p>
+<p>#30 更改库存</p>
+<p>#34 计算订单总体价格sum()</p>
+</li>
+</ul>
+<h3 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h3><ul>
+<li>新增商品</li>
+</ul>
+<p>insert+上传图片+展示</p>
+<p>输出部分<code>&lt;?php echo &quot;&lt;img src=&quot; . strval($RS[&quot;productimage&quot;]).&quot;&gt;&quot;?&gt;</code></p>
+<p>参考database/mysql.php</p>
+<ul>
+<li><p>买家卖家分别登录</p>
+</li>
+<li><p>合成购买商品信息<br>selectproduct0.php中的addorder中的java脚本</p>
+</li>
+<li><p>生成订单</p>
+</li>
+</ul>
+<p>  <strong>事务</strong>：若有任何一个步骤没完成，插入的数据要全部还原</p>
+<h3 id="我的实现"><a href="#我的实现" class="headerlink" title="我的实现"></a>我的实现</h3><p>想了解的学弟学妹可以前往<a href="https://github.com/KyGao" target="_blank" rel="noopener">github</a></p>
+<p><strong>基础任务</strong></p>
+<ul>
+<li>:ok:新增商品</li>
+<li>:ok:登陆注册</li>
+<li>:ok:付款</li>
+</ul>
+<p><strong>附加题</strong></p>
+<ul>
+<li><p>:ok:库存定时失效</p>
+</li>
+<li><p>:ok:用户信息修改</p>
+</li>
+<li><p>:ok:撤销订单（flag=1：对于ispay=0的可以直接撤销）</p>
+</li>
+<li><p>:ok:支付订单（把ispay改成1）<br>存款– </p>
+</li>
+<li><p>:ok:商品库存管理（update）<br>和银行接口搭配</p>
+</li>
+<li><p>:ok:和物流配送系统建立接口（issend：对于ispay=1的可以直接发货）<br>三次握手</p>
+</li>
+<li><p>:ok:和银行建立接口</p>
+</li>
+</ul>
+<p><strong>还可以尝试</strong></p>
+<ul>
+<li>商品分类 =&gt; 同类商品比较，价格排序</li>
+<li>购物车功能实现</li>
+<li>修改订单（涉及两个sql语句）</li>
+<li>售后服务，评价留言</li>
+<li>会员功能</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/课内/">课内</a><a href="/tags/大三上/">大三上</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/HUST/">HUST</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/HUST-HUST/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1.html" data-title="电子商务 | Kerry" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/网络压缩-AI/adversarial.html" title="比较 对抗样本 在 压缩模型 上的可迁移性">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  比较 对抗样本 在 压缩模型 上的可迁移性</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/English-English/GREWriting.html"  title="GRE写作笔记">
+ <strong>NEXT:</strong><br/> 
+ <span>GRE写作笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第1章-PHP概述"><span class="toc-number">1.</span> <span class="toc-text">第1章 PHP概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-动态网站技术"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 动态网站技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-前端技术"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前端技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-PHP"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 PHP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-PHP开发环境"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 PHP开发环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二章-PHP"><span class="toc-number">2.</span> <span class="toc-text">第二章 PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三章-HTML"><span class="toc-number">3.</span> <span class="toc-text">第三章 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MYSQL"><span class="toc-number">4.</span> <span class="toc-text">MYSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-with-php"><span class="toc-number">5.</span> <span class="toc-text">mysql with php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX"><span class="toc-number">6.</span> <span class="toc-text">AJAX</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AJAX和PHP交互"><span class="toc-number">6.0.1.</span> <span class="toc-text">AJAX和PHP交互</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">7.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">8.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#背景"><span class="toc-number">8.0.1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文字"><span class="toc-number">8.0.2.</span> <span class="toc-text">文字</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程"><span class="toc-number">9.</span> <span class="toc-text">存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assignment"><span class="toc-number">10.</span> <span class="toc-text">Assignment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我的实现"><span class="toc-number">11.</span> <span class="toc-text">我的实现</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/AI/" title="AI">AI<sup>1</sup></a></li>
+		
+			<li><a href="/categories/English/" title="English">English<sup>3</sup></a></li>
+		
+			<li><a href="/categories/HUST/" title="HUST">HUST<sup>1</sup></a></li>
+		
+			<li><a href="/categories/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/curriculum/" title="curriculum">curriculum<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>4</sup></a></li>
+		
+			<li><a href="/categories/curriculum/大三上/" title="大三上">大三上<sup>1</sup></a></li>
+		
+			<li><a href="/categories/网络压缩/" title="网络压缩">网络压缩<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/AI/" title="AI">AI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Coursera/" title="Coursera">Coursera<sup>1</sup></a></li>
+		
+			<li><a href="/tags/C方向/" title="C方向">C方向<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Emacs/" title="Emacs">Emacs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/GRE/" title="GRE">GRE<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ML/" title="ML">ML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/kde/" title="kde">kde<sup>1</sup></a></li>
+		
+			<li><a href="/tags/manjaro/" title="manjaro">manjaro<sup>2</sup></a></li>
+		
+			<li><a href="/tags/pytorch/" title="pytorch">pytorch<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tofel/" title="tofel">tofel<sup>2</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大三上/" title="大三上">大三上<sup>2</sup></a></li>
+		
+			<li><a href="/tags/学习笔记/" title="学习笔记">学习笔记<sup>3</sup></a></li>
+		
+			<li><a href="/tags/对抗样本/" title="对抗样本">对抗样本<sup>1</sup></a></li>
+		
+			<li><a href="/tags/水文章/" title="水文章">水文章<sup>1</sup></a></li>
+		
+			<li><a href="/tags/网络压缩/" title="网络压缩">网络压缩<sup>1</sup></a></li>
+		
+			<li><a href="/tags/课内/" title="课内">课内<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Coursera/" style="font-size: 10px;">Coursera</a> <a href="/tags/C%E6%96%B9%E5%90%91/" style="font-size: 10px;">C方向</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GRE/" style="font-size: 10px;">GRE</a> <a href="/tags/ML/" style="font-size: 10px;">ML</a> <a href="/tags/MOOC/" style="font-size: 10px;">MOOC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kde/" style="font-size: 10px;">kde</a> <a href="/tags/manjaro/" style="font-size: 15px;">manjaro</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/tofel/" style="font-size: 15px;">tofel</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 15px;">大三上</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">学习笔记</a> <a href="/tags/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC/" style="font-size: 10px;">对抗样本</a> <a href="/tags/%E6%B0%B4%E6%96%87%E7%AB%A0/" style="font-size: 10px;">水文章</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">网络压缩</a> <a href="/tags/%E8%AF%BE%E5%86%85/" style="font-size: 15px;">课内</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2020 
+		
+		<a href="http://yoursite.com" target="_blank" title="Kerry">Kerry</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":180,"height":360,"hOffset":15,"vOffset":-15},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
