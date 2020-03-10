@@ -1,0 +1,424 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>2020年腾讯暑期实习面试准备 | Kerry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kerry">
+    
+    <meta name="description" itemprop="description" content="这是一个非常业余的准备笔记，完全0基础的准备过程">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Kerry" title="Kerry"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kerry">Kerry</a></h1>
+				<h2 class="blog-motto">Blog in Manjaro</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/tools-tools/Tencent面试准备.html" title="2020年腾讯暑期实习面试准备" itemprop="url">2020年腾讯暑期实习面试准备</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Kerry">Kerry</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2020-03-07T11:52:43.000Z" itemprop="datePublished">2020-03-07</time>
+    Updated:<time datetime="2020-03-10T01:49:13.972Z" itemprop="dateModified">2020-03-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-基础"><span class="toc-number">1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数的实现机制"><span class="toc-number">1.1.</span> <span class="toc-text">虚函数的实现机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数-析构函数可不可以virtual"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数&#x2F;析构函数可不可以virtual</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承体系下函数的调用"><span class="toc-number">1.3.</span> <span class="toc-text">继承体系下函数的调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11的一些新特性，如shared-ptr等"><span class="toc-number">1.4.</span> <span class="toc-text">C++11的一些新特性，如shared_ptr等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配、内存对齐、序列化等"><span class="toc-number">1.5.</span> <span class="toc-text">内存分配、内存对齐、序列化等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static关键字的作用"><span class="toc-number">1.6.</span> <span class="toc-text">Static关键字的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数和纯虚函数的区别"><span class="toc-number">1.7.</span> <span class="toc-text">虚函数和纯虚函数的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数以及构造函数执行顺序的一些特性"><span class="toc-number">1.8.</span> <span class="toc-text">虚函数以及构造函数执行顺序的一些特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#struct-class-以及-union-内存对齐的四个原则"><span class="toc-number">1.9.</span> <span class="toc-text">struct&#x2F;class 以及 union 内存对齐的四个原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有虚析构函数"><span class="toc-number">1.10.</span> <span class="toc-text">为什么要有虚析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让-h文件不被重复引用"><span class="toc-number">1.11.</span> <span class="toc-text">如何让.h文件不被重复引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">2.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-与-UDP-的区别及适用场景"><span class="toc-number">2.1.</span> <span class="toc-text">TCP 与 UDP 的区别及适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-的三次握手、四次挥手"><span class="toc-number">2.2.</span> <span class="toc-text">TCP 的三次握手、四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><span class="toc-number">2.3.</span> <span class="toc-text">为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-bind-和-connect-有什么用"><span class="toc-number">2.4.</span> <span class="toc-text">UDP bind 和 connect 有什么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket编程中-close-和-shutdown-有什么区别"><span class="toc-number">2.5.</span> <span class="toc-text">Socket编程中 close() 和 shutdown() 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络模型"><span class="toc-number">2.6.</span> <span class="toc-text">网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-请求"><span class="toc-number">2.7.</span> <span class="toc-text">HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请说明一下-http-和-https-的区别"><span class="toc-number">2.8.</span> <span class="toc-text">请说明一下 http 和 https 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><span class="toc-number">2.9.</span> <span class="toc-text">浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制机制"><span class="toc-number">2.10.</span> <span class="toc-text">TCP拥塞控制机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-流量控制"><span class="toc-number">2.11.</span> <span class="toc-text">TCP 流量控制</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="虚函数的实现机制"><a href="#虚函数的实现机制" class="headerlink" title="虚函数的实现机制"></a>虚函数的实现机制</h3><p>虚函数的作用主要是实现了多态的机制即动态联编</p>
+<ul>
+<li><strong>动态联编</strong><br>首先函数名联编是指将源代码中的函数调用为特定代码块，在C++中，由于函数重载，需要根据<strong>函数名</strong>和<strong>函数参数</strong>一起来确定使用哪个函数块，在编译过程中实现这个过程的联编叫做<strong>静态联编</strong>，但是C++还提供了一个情况，就是函数名和函数参数都一样的情况也可以有不同功能，这就必须要在程序运行时才能实现，就是<strong>动态联编</strong>，在这时，编译器必须生成能够在程序运行时选择正确的虚方法的代码。注意，动态绑定要求采用 <code>指针-&gt;函数()</code> 或 <code>引用变量.函数()</code> 的方式调用C++类中的虚函数才能实现。</li>
+</ul>
+<p><strong>答</strong>：主要是依靠<strong>虚函数表</strong>和<strong>虚表指针</strong>实现的，每个类使用一个虚函数表，每个类对象用一个虚表指针。比如基类对象包含一个虚表指针，指向基类所有虚函数的地址表，派生类对象也有一个虚表指针，指向派生类所有虚函数的地址表。如果派生类重写了基类的虚方法，派生类的虚函数表将保存重写的虚函数的地址；如果派生类没有重写基类的虚方法，即将继承基类的虚方法，那么派生类的虚函数表中将保存基类未被重写的虚函数的地址。</p>
+<h3 id="构造函数-析构函数可不可以virtual"><a href="#构造函数-析构函数可不可以virtual" class="headerlink" title="构造函数/析构函数可不可以virtual"></a>构造函数/析构函数可不可以virtual</h3><p><strong>答</strong>：<strong>构造函数</strong>：C++之父对这个问题做过回答，大概含义是说：虚函数调用是在部分信息下完成工作的机制，允许我们只知道接口而不知道对象的类型。然而，要创建一个对象，就一定要知道对象的完整信息，特别是想要创建对象的确切类型，所以构造函数不应被定义为虚函数。所以结论是这样的：构造函数任何时候都不能声明为虚函数，并且不能在构造函数内调用虚函数。具体来看，虚函数的调用需要找到虚函数表，虚函数表是存储在内存空间的，但是在调用构造函数时，对象还未被实例化，也就没有该对象的内存空间，也就无法找到虚函数表，所以说虚函数表是在构造对象之后才建立的，也就不可以 virtual。<br><strong>析构函数</strong>却有点不一样，基类的析构函数通常需要 virtual 虚析构函数，目的是防止内存泄漏。假如基类采用的是非虚析构函数，那么在派生类的析构函数释放派生类对象内存的时候，删除基类指针指向派生类对象时不会触发动态绑定，即只会调用基类的析构函数而不会调用派生类析构函数，所以派生类申请的空间就得不到释放而产生内存泄漏。但是依然不能在析构函数中调用虚函数，因为析构一旦开始执行，先是派生类成员就会呈现未定义值，进入基类析构后，对象就成为了一个基类对象，动态调用也没有意义了。</p>
+<h3 id="继承体系下函数的调用"><a href="#继承体系下函数的调用" class="headerlink" title="继承体系下函数的调用"></a>继承体系下函数的调用</h3><p><img src="https://img-blog.csdn.net/20150706123206122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="C++继承体系"></p>
+<p><strong>答</strong>：实函数和虚函数调用机制不相同，静态调用时用的是类的编译信息，实函数与虚函数的静态调用时采用，动态调用只能是虚函数，用的是虚函数表的函数信息。在单继承体制中，子类的虚函数会把基类的虚函数表拷贝过来，同时子类的虚函数会覆盖同名的虚函数，对于这种虚函数，就可以静态调用实现基类的功能或者动态调用实现派生类重载的功能了。<br>从另一个角度来看，有三种继承方式：公有，受保护和私有。public继承时，派生类继承基类的公有和保护成员，且成员属性不变，基类中类外能访问的在派生类中也能类外访问；protected继承时，也是继承基类的公有和保护成员，但是成员属性都变为保护，即类外不能访问成员，只能通过成员函数访问；private继承时，基类的公有和保护成员均变为派生类的私有成员，无法通过子类访问。同时要注意的一点是，友元关系不能继承。</p>
+<h3 id="C-11的一些新特性，如shared-ptr等"><a href="#C-11的一些新特性，如shared-ptr等" class="headerlink" title="C++11的一些新特性，如shared_ptr等"></a>C++11的一些新特性，如shared_ptr等</h3><ul>
+<li><strong>shared_ptr</strong><br>是一种智能指针，能够构造一个保存在栈上的智能指针对象，shared_ptr 使用引用计数，每个shared_ptr的拷贝都指向相同的内存。</li>
+</ul>
+<p><strong>答</strong>：新增了一些关键字如 nullptr , auto类型推导等，具体不是很了解，因为之前也没有需求。</p>
+<h3 id="内存分配、内存对齐、序列化等"><a href="#内存分配、内存对齐、序列化等" class="headerlink" title="内存分配、内存对齐、序列化等"></a>内存分配、内存对齐、序列化等</h3><ul>
+<li><strong>堆栈对比</strong><br>栈是系统提供的功能，由编译器自动分配释放，优点是快速高效，缺点是有限制，数据不灵活；堆是函数库提供的功能，一般由程序员分配释放优点是灵活方便，数据适应面广泛，但是效率有一定降低</li>
+<li><strong>内存分配</strong><br>程序占用的内存一般分为以下几个部分：栈区，堆区，全局区（也成为静态区），文字常量区和程序代码区</li>
+<li><strong>内存对齐</strong><br>现代计算机中内存空间都是按byte划分的，通常会要求数据的首地址的值是某个数的 k 倍，这样可以匹配计算机的字长，加快数据存储的速度，而不用花时间计算某个数据的哪几位是int哪几位是char</li>
+<li><strong>序列化</strong><br>序列化就是将对象变成字节流的形式传出去，反序列化就是从字节流恢复成原来的对象。实现存储和传输数据时的必需操作，比如可以序列化一个对象，然后使用 HTTP 通过 Internet 在客户端和服务器之间传输该对象。常用方法如Google Protocol Buffers 的 protobuf等。</li>
+</ul>
+<h3 id="Static关键字的作用"><a href="#Static关键字的作用" class="headerlink" title="Static关键字的作用"></a>Static关键字的作用</h3><p>有五处使用场景：</p>
+<ul>
+<li><strong>全局静态变量</strong><br>全局静态变量加上 static 就变成了全局静态变量，作用域：定义之处开始，到文件结尾，存在于静态存储区（文件外不可见）</li>
+<li><strong>局部静态变量</strong><br>局部静态变量加上 static 就变成了局部静态变量，作用域：定义之处开始，到定义他的函数或语句块结束，只初始化一次（放在 while 里不会重复赋值）</li>
+<li><strong>静态函数</strong><br>函数返回类型前加上 static 就变成了静态函数，将函数限制在该文件内才有用，从而不会和其他文件的同名函数发生冲突</li>
+<li><strong>类的静态数据成员</strong><br>静态数据成员是类的所有对象中共享的成员，而不是某个特定对象的成员。优点是不会破坏类的隐藏原则，保证了安全性</li>
+<li><strong>类的静态成员函数</strong><br>类的静态成员函数和静态数据成员一样，他们都属于类的静态成员，都不是对象成员。特点：静态成员函数实现时不能引用类的非静态成员，只能引用静态成员（毕竟是基于静态成员实现的方法），如果静态成员函数中要引用非静态成员时，可通过对象来引用</li>
+</ul>
+<h3 id="虚函数和纯虚函数的区别"><a href="#虚函数和纯虚函数的区别" class="headerlink" title="虚函数和纯虚函数的区别"></a>虚函数和纯虚函数的区别</h3><ul>
+<li><strong>抽象类</strong>：包含纯虚函数的类<br>这种类不能声明对象，只是作为基类为派生类服务。除非在派生类中实现了基类中所有纯虚函数，否则·派生类也变成了抽象类，不能实例化对象。</li>
+</ul>
+<p><strong>答</strong>：虚函数可以直接使用，也可以在子类中重载以多态的形式调用，而纯虚函数在基类中只有声明没有定义，所以只能在子类中实现了该函数才可以以多态的形式调用。这么来看的话，虚函数在子类中可以不被重载，但是纯虚函数必须在子类中实现。</p>
+<h3 id="虚函数以及构造函数执行顺序的一些特性"><a href="#虚函数以及构造函数执行顺序的一些特性" class="headerlink" title="虚函数以及构造函数执行顺序的一些特性"></a>虚函数以及构造函数执行顺序的一些特性</h3><p><strong>答</strong>：构造函数时先构造基类，再构造派生类；析构函数时先析构派生类，再析构基类。</p>
+<h3 id="struct-class-以及-union-内存对齐的四个原则"><a href="#struct-class-以及-union-内存对齐的四个原则" class="headerlink" title="struct/class 以及 union 内存对齐的四个原则"></a>struct/class 以及 union 内存对齐的四个原则</h3><p><strong>答</strong>：该四原则适用于 struct / class / union ：</p>
+<ol>
+<li>数据成员对齐规则：结构或联合的数据成员，第一个数据成员放在 offset 为 0 的地方，以后每个数据成员存储的起始位置要从该成员大小或者成员的子成员大小（子成员可能是数组、结构体等）的整数倍开始（比如 int 在32位机为4字节，则要从4的整数倍地址开始存储）</li>
+<li>结构体作为成员：如果一个结构里有某些结构体的成员，则结构体成员要从其内部“最宽基本类型成员”的整数倍地址开始存储（struct a里有struct b，b里有char, int, double等元素，那么b应该从8的整数倍开始存储）</li>
+<li>收尾工作：结构体的总大小，也就是sizeof的结果，必须是其内部最大成员的“最宽基本类型成员”的整数倍，不足的要补齐</li>
+<li>sizeof(union)，以结构里面size最大元素为union的size。因为在某一时刻，union只有一个成员真正存储于该地址</li>
+</ol>
+<h3 id="为什么要有虚析构函数"><a href="#为什么要有虚析构函数" class="headerlink" title="为什么要有虚析构函数"></a>为什么要有虚析构函数</h3><h3 id="如何让-h文件不被重复引用"><a href="#如何让-h文件不被重复引用" class="headerlink" title="如何让.h文件不被重复引用"></a>如何让.h文件不被重复引用</h3><p><strong>答</strong>：可以使用条件编译，就是<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _HEADERNAME_H</span></span><br><span class="line">#DEFINE _HEADERNAME_H</span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure><br>  但是无法保证变量不被重复定义（可以用定义成静态变量的方法）<br>  另一种方法是 <code>#pragmaonce</code> 但是这个方法可能会有跨平台的问题，因为并不是所有编译器都支持这个操作</p>
+<hr>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="TCP-与-UDP-的区别及适用场景"><a href="#TCP-与-UDP-的区别及适用场景" class="headerlink" title="TCP 与 UDP 的区别及适用场景"></a>TCP 与 UDP 的区别及适用场景</h3><h3 id="TCP-的三次握手、四次挥手"><a href="#TCP-的三次握手、四次挥手" class="headerlink" title="TCP 的三次握手、四次挥手"></a>TCP 的三次握手、四次挥手</h3><h3 id="为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><a href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态" class="headerlink" title="为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态"></a>为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</h3><h3 id="UDP-bind-和-connect-有什么用"><a href="#UDP-bind-和-connect-有什么用" class="headerlink" title="UDP bind 和 connect 有什么用"></a>UDP bind 和 connect 有什么用</h3><h3 id="Socket编程中-close-和-shutdown-有什么区别"><a href="#Socket编程中-close-和-shutdown-有什么区别" class="headerlink" title="Socket编程中 close() 和 shutdown() 有什么区别"></a>Socket编程中 <code>close()</code> 和 <code>shutdown()</code> 有什么区别</h3><h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><h3 id="请说明一下-http-和-https-的区别"><a href="#请说明一下-http-和-https-的区别" class="headerlink" title="请说明一下 http 和 https 的区别"></a>请说明一下 http 和 https 的区别</h3><h3 id="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><a href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程" class="headerlink" title="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"></a>浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</h3><h3 id="TCP拥塞控制机制"><a href="#TCP拥塞控制机制" class="headerlink" title="TCP拥塞控制机制"></a>TCP拥塞控制机制</h3><h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tools/">tools</a><a href="/tags/interview/">interview</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/tools/">tools</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/tools-tools/Tencent%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87.html" data-title="2020年腾讯暑期实习面试准备 | Kerry" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/tools-tools/Emacs tutorial 笔记.html"  title="Emacs tutorial 笔记">
+ <strong>NEXT:</strong><br/> 
+ <span>Emacs tutorial 笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-基础"><span class="toc-number">1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数的实现机制"><span class="toc-number">1.1.</span> <span class="toc-text">虚函数的实现机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数-析构函数可不可以virtual"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数&#x2F;析构函数可不可以virtual</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承体系下函数的调用"><span class="toc-number">1.3.</span> <span class="toc-text">继承体系下函数的调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11的一些新特性，如shared-ptr等"><span class="toc-number">1.4.</span> <span class="toc-text">C++11的一些新特性，如shared_ptr等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配、内存对齐、序列化等"><span class="toc-number">1.5.</span> <span class="toc-text">内存分配、内存对齐、序列化等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static关键字的作用"><span class="toc-number">1.6.</span> <span class="toc-text">Static关键字的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数和纯虚函数的区别"><span class="toc-number">1.7.</span> <span class="toc-text">虚函数和纯虚函数的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数以及构造函数执行顺序的一些特性"><span class="toc-number">1.8.</span> <span class="toc-text">虚函数以及构造函数执行顺序的一些特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#struct-class-以及-union-内存对齐的四个原则"><span class="toc-number">1.9.</span> <span class="toc-text">struct&#x2F;class 以及 union 内存对齐的四个原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有虚析构函数"><span class="toc-number">1.10.</span> <span class="toc-text">为什么要有虚析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让-h文件不被重复引用"><span class="toc-number">1.11.</span> <span class="toc-text">如何让.h文件不被重复引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">2.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-与-UDP-的区别及适用场景"><span class="toc-number">2.1.</span> <span class="toc-text">TCP 与 UDP 的区别及适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-的三次握手、四次挥手"><span class="toc-number">2.2.</span> <span class="toc-text">TCP 的三次握手、四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><span class="toc-number">2.3.</span> <span class="toc-text">为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-bind-和-connect-有什么用"><span class="toc-number">2.4.</span> <span class="toc-text">UDP bind 和 connect 有什么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket编程中-close-和-shutdown-有什么区别"><span class="toc-number">2.5.</span> <span class="toc-text">Socket编程中 close() 和 shutdown() 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络模型"><span class="toc-number">2.6.</span> <span class="toc-text">网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-请求"><span class="toc-number">2.7.</span> <span class="toc-text">HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请说明一下-http-和-https-的区别"><span class="toc-number">2.8.</span> <span class="toc-text">请说明一下 http 和 https 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><span class="toc-number">2.9.</span> <span class="toc-text">浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制机制"><span class="toc-number">2.10.</span> <span class="toc-text">TCP拥塞控制机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-流量控制"><span class="toc-number">2.11.</span> <span class="toc-text">TCP 流量控制</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/AI/" title="AI">AI<sup>2</sup></a></li>
+		
+			<li><a href="/categories/English/" title="English">English<sup>3</sup></a></li>
+		
+			<li><a href="/categories/HUST/" title="HUST">HUST<sup>2</sup></a></li>
+		
+			<li><a href="/categories/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>5</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/AI/" title="AI">AI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Coursera/" title="Coursera">Coursera<sup>1</sup></a></li>
+		
+			<li><a href="/tags/C方向/" title="C方向">C方向<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Emacs/" title="Emacs">Emacs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/GRE/" title="GRE">GRE<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ML/" title="ML">ML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/MOOC/" title="MOOC">MOOC<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/interview/" title="interview">interview<sup>1</sup></a></li>
+		
+			<li><a href="/tags/kde/" title="kde">kde<sup>1</sup></a></li>
+		
+			<li><a href="/tags/manjaro/" title="manjaro">manjaro<sup>2</sup></a></li>
+		
+			<li><a href="/tags/pytorch/" title="pytorch">pytorch<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tofel/" title="tofel">tofel<sup>2</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>4</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大三上/" title="大三上">大三上<sup>2</sup></a></li>
+		
+			<li><a href="/tags/学习笔记/" title="学习笔记">学习笔记<sup>3</sup></a></li>
+		
+			<li><a href="/tags/对抗样本/" title="对抗样本">对抗样本<sup>1</sup></a></li>
+		
+			<li><a href="/tags/水文章/" title="水文章">水文章<sup>1</sup></a></li>
+		
+			<li><a href="/tags/网络压缩/" title="网络压缩">网络压缩<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Coursera/" style="font-size: 10px;">Coursera</a> <a href="/tags/C%E6%96%B9%E5%90%91/" style="font-size: 10px;">C方向</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GRE/" style="font-size: 10px;">GRE</a> <a href="/tags/ML/" style="font-size: 10px;">ML</a> <a href="/tags/MOOC/" style="font-size: 10px;">MOOC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/kde/" style="font-size: 10px;">kde</a> <a href="/tags/manjaro/" style="font-size: 13.33px;">manjaro</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/tofel/" style="font-size: 13.33px;">tofel</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" style="font-size: 13.33px;">大三上</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC/" style="font-size: 10px;">对抗样本</a> <a href="/tags/%E6%B0%B4%E6%96%87%E7%AB%A0/" style="font-size: 10px;">水文章</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">网络压缩</a> <a href="/tags/%E8%AF%BE%E5%86%85/" style="font-size: 13.33px;">课内</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2020 
+		
+		<a href="http://yoursite.com" target="_blank" title="Kerry">Kerry</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":180,"height":360,"hOffset":15,"vOffset":-15},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
