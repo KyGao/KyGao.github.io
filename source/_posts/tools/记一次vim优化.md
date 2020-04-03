@@ -99,7 +99,12 @@ cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
   > 参考[Vim安装插件](https://juejin.im/entry/5b62cdc5e51d4519885635f0)
 
 
-
+### Vim之用到哪学到哪
+1. 键位映射
+2. 复制粘贴
+   `v` 进入view模式相当于 shift，可以选择ROI，然后选择完毕后按 `y` ，再在insert模式下按 `p` 就是粘贴
+3. 撤销
+   insert模式下 `:u`
 
 
 > **注**：最后还是因为vim似乎不支持python2依赖所以YCM还是装不上，哎，反正暂时也不用vim写脚本，以后再说吧
