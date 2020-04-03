@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Manjaro+Win10双系统安装和配置 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="纪念一下大三上考试成绩创新高：93.35，寒假也终于有时间来安装心心念念的manjaro了。因为是第一次自己安装双系统，还是收获很大的">
+  <meta name="description" content="距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Manjaro+Win10双系统安装和配置">
 <meta property="og:url" content="http://yoursite.com/tools-tools/Manjaro+win10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="纪念一下大三上考试成绩创新高：93.35，寒假也终于有时间来安装心心念念的manjaro了。因为是第一次自己安装双系统，还是收获很大的">
+<meta property="og:description" content="距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-30T12:30:43.000Z">
-<meta property="article:modified_time" content="2020-01-31T05:33:31.000Z">
+<meta property="article:modified_time" content="2020-04-03T05:01:04.304Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="tools">
 <meta property="article:tag" content="manjaro">
@@ -26,7 +26,7 @@
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
   
-    <link rel="icon" href="/assets/img/head.jpg">
+    <link rel="icon" href="/assets/img/head.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -50,7 +50,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/head.jpg" class="js-avatar">
+			<img src="/assets/img/head.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Kerry</a></h1>
@@ -66,6 +66,8 @@
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
+				<li><a href="/categories">分类</a></li>
+	        
 			</ul>
 		</nav>
 
@@ -73,7 +75,7 @@
     总文章数 15
     </nav>
     <nav>
-    总字数 <span class="post-count">20.8k</span>
+    总字数 <span class="post-count">21.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -112,7 +114,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/head.jpg" class="js-avatar">
+				<img src="/assets/img/head.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Kerry</h1>
@@ -121,6 +123,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Blog in Manjaro<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -137,12 +141,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -182,7 +188,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常优质了，但可惜我还是薅不动nvidia，以后再说吧。下面开始正题：</p>
+        <p>距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常优质了，但可惜我还是薅不动nvidia，以后再说吧。</p>
+<a id="more"></a>
+<p>下面开始正题：</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装这块其实网上教程非常详细了，建议看底下放的B站链接，照着来就好了，我装的是KDE，感觉很棒。</p>
 <h4 id="U盘刻录"><a href="#U盘刻录" class="headerlink" title="U盘刻录"></a>U盘刻录</h4><p>听说好像是新版的rufus没有dd模式刻录这个弹出了，当时也是折腾了挺久，最后用的USBWriter-1.3刻录的，没有问题</p>
 <h4 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h4><p>因为aur源下载的东西好像是安装到/opt目录下的，然后当时看各种教程，分区特别细，所以只分给了opt4个G的磁盘空间，所以装一个anaconda就满了… 最后还是重装系统，512M给efi分区，其他100多个G全给了根目录/，真香。</p>
@@ -513,7 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,7 +529,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,15 +545,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MOOC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,11 +581,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,27 +645,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://github.com/KyGao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
             </li>
           
         </ul>

@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
   
-    <link rel="icon" href="/assets/img/head.jpg">
+    <link rel="icon" href="/assets/img/head.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/head.jpg" class="js-avatar">
+			<img src="/assets/img/head.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Kerry</a></h1>
@@ -59,6 +59,8 @@
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
+				<li><a href="/categories">分类</a></li>
+	        
 			</ul>
 		</nav>
 
@@ -66,7 +68,7 @@
     总文章数 15
     </nav>
     <nav>
-    总字数 <span class="post-count">20.8k</span>
+    总字数 <span class="post-count">21.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -105,7 +107,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/head.jpg" class="js-avatar">
+				<img src="/assets/img/head.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Kerry</h1>
@@ -114,6 +116,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Blog in Manjaro<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -130,12 +134,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -171,23 +177,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：98字 | 预计阅读时长：1分钟
+      字数：108字 | 预计阅读时长：1分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>机器学习就是自动找函式, 机器学习任务的区分就是看你要找什么样的函式，方向性任务可以分为：</p>
-<p><strong>Regression</strong>, <strong>Classification</strong>, <strong>Generation</strong></p>
-<blockquote>
-<p>alpha go 是先 Supervise Learning 认识棋谱，然后再 Reinforcement Learning 学习棋法，<br>alpha zero 是完全采用 Reinforcement Learning</p>
-</blockquote>
-<ul>
-<li>Anomaly Detection: 如何知道我不知道</li>
-<li>Domain Adversarial Learning: 迁移学习</li>
-<li>Meta Learning: 学习如何学习</li>
-</ul>
-
+        <p>2020更新的课，趁热来上啦</p>
+        
+          <a class="article-more-a" href="/MOOC-MOOC/HungyiLee.html#more">more >></a>
+        
       
 
       
@@ -274,40 +273,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：280字 | 预计阅读时长：1分钟
+      字数：301字 | 预计阅读时长：1分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Git-安装配置"><a href="#Git-安装配置" class="headerlink" title="Git 安装配置"></a>Git 安装配置</h3><ul>
-<li>看看是否装成功<br>查看版本信息：<code>git --version</code> </li>
-<li>添加用户信息<ol>
-<li><code>git config --global user.name &quot;KyGao&quot;</code></li>
-<li><code>git config --global user.email &quot;im_gky@outlook.com&quot;</code><br>可以通过 <code>git config --list</code> 查看添加的信息有没有错</li>
-</ol>
-</li>
-</ul>
-<h3 id="Git-远程提交"><a href="#Git-远程提交" class="headerlink" title="Git 远程提交"></a>Git 远程提交</h3><ol>
-<li>先在 github 创建一个仓库</li>
-<li>本地 <code>git init</code> 建立本地仓库</li>
-<li><code>git status</code>  <code>git add .</code>  <code>git commit -m &quot;description&quot;</code>三连进行本地git操作</li>
-<li>建立本地和远端的连接<code>git remote add origin https://github.com/***/***.git</code></li>
-<li>每次在这个本地仓库都要：先 <code>git pull origin master</code>，如果报错就加上参数 <code>--allow-unrelated-histories</code> 强制拉取线上到本地合并。 然后 <code>git push -u origin master</code>，第一次以后不用 -u 参数</li>
-</ol>
-<p>一些时常用到的操作</p>
-<ul>
-<li>想在暂存区删除某个文件（不删除本地文件）：<code>git rm --cache &lt;file&gt;</code></li>
-</ul>
-<h3 id="Git出问题了"><a href="#Git出问题了" class="headerlink" title="Git出问题了"></a>Git出问题了</h3><ul>
-<li>在github的仓库里有文件夹是灰色的，打不开<br><strong>原因</strong>：本地 .git 所在文件夹嵌套 .git 了<br><strong>解决办法</strong>：<ol>
-<li><code>git rm -r --cached &quot;file path &amp; name&quot;</code></li>
-<li>本地文件夹找到内嵌的 .git，删除</li>
-<li>重新add三连</li>
-</ol>
-</li>
-</ul>
-
+        <p>学到哪记到哪</p>
+        
+          <a class="article-more-a" href="/tools-tools/git%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C.html#more">more >></a>
+        
       
 
       
@@ -400,68 +375,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="虚函数的实现机制"><a href="#虚函数的实现机制" class="headerlink" title="虚函数的实现机制"></a>虚函数的实现机制</h3><p>虚函数的作用主要是实现了多态的机制即动态联编</p>
-<ul>
-<li><strong>动态联编</strong><br>首先函数名联编是指将源代码中的函数调用为特定代码块，在C++中，由于函数重载，需要根据<strong>函数名</strong>和<strong>函数参数</strong>一起来确定使用哪个函数块，在编译过程中实现这个过程的联编叫做<strong>静态联编</strong>，但是C++还提供了一个情况，就是函数名和函数参数都一样的情况也可以有不同功能，这就必须要在程序运行时才能实现，就是<strong>动态联编</strong>，在这时，编译器必须生成能够在程序运行时选择正确的虚方法的代码。注意，动态绑定要求采用 <code>指针-&gt;函数()</code> 或 <code>引用变量.函数()</code> 的方式调用C++类中的虚函数才能实现。</li>
-</ul>
-<p><strong>答</strong>：主要是依靠<strong>虚函数表</strong>和<strong>虚表指针</strong>实现的，每个类使用一个虚函数表，每个类对象用一个虚表指针。比如基类对象包含一个虚表指针，指向基类所有虚函数的地址表，派生类对象也有一个虚表指针，指向派生类所有虚函数的地址表。如果派生类重写了基类的虚方法，派生类的虚函数表将保存重写的虚函数的地址；如果派生类没有重写基类的虚方法，即将继承基类的虚方法，那么派生类的虚函数表中将保存基类未被重写的虚函数的地址。</p>
-<h3 id="构造函数-析构函数可不可以virtual"><a href="#构造函数-析构函数可不可以virtual" class="headerlink" title="构造函数/析构函数可不可以virtual"></a>构造函数/析构函数可不可以virtual</h3><p><strong>答</strong>：<strong>构造函数</strong>：C++之父对这个问题做过回答，大概含义是说：虚函数调用是在部分信息下完成工作的机制，允许我们只知道接口而不知道对象的类型。然而，要创建一个对象，就一定要知道对象的完整信息，特别是想要创建对象的确切类型，所以构造函数不应被定义为虚函数。所以结论是这样的：构造函数任何时候都不能声明为虚函数，并且不能在构造函数内调用虚函数。具体来看，虚函数的调用需要找到虚函数表，虚函数表是存储在内存空间的，但是在调用构造函数时，对象还未被实例化，也就没有该对象的内存空间，也就无法找到虚函数表，所以说虚函数表是在构造对象之后才建立的，也就不可以 virtual。<br><strong>析构函数</strong>却有点不一样，基类的析构函数通常需要 virtual 虚析构函数，目的是防止内存泄漏。假如基类采用的是非虚析构函数，那么在派生类的析构函数释放派生类对象内存的时候，删除基类指针指向派生类对象时不会触发动态绑定，即只会调用基类的析构函数而不会调用派生类析构函数，所以派生类申请的空间就得不到释放而产生内存泄漏。但是依然不能在析构函数中调用虚函数，因为析构一旦开始执行，先是派生类成员就会呈现未定义值，进入基类析构后，对象就成为了一个基类对象，动态调用也没有意义了。</p>
-<h3 id="继承体系下函数的调用"><a href="#继承体系下函数的调用" class="headerlink" title="继承体系下函数的调用"></a>继承体系下函数的调用</h3><p><img src="https://img-blog.csdn.net/20150706123206122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="C++继承体系"></p>
-<p><strong>答</strong>：实函数和虚函数调用机制不相同，静态调用时用的是类的编译信息，实函数与虚函数的静态调用时采用，动态调用只能是虚函数，用的是虚函数表的函数信息。在单继承体制中，子类的虚函数会把基类的虚函数表拷贝过来，同时子类的虚函数会覆盖同名的虚函数，对于这种虚函数，就可以静态调用实现基类的功能或者动态调用实现派生类重载的功能了。<br>从另一个角度来看，有三种继承方式：公有，受保护和私有。public继承时，派生类继承基类的公有和保护成员，且成员属性不变，基类中类外能访问的在派生类中也能类外访问；protected继承时，也是继承基类的公有和保护成员，但是成员属性都变为保护，即类外不能访问成员，只能通过成员函数访问；private继承时，基类的公有和保护成员均变为派生类的私有成员，无法通过子类访问。同时要注意的一点是，友元关系不能继承。</p>
-<h3 id="C-11的一些新特性，如shared-ptr等"><a href="#C-11的一些新特性，如shared-ptr等" class="headerlink" title="C++11的一些新特性，如shared_ptr等"></a>C++11的一些新特性，如shared_ptr等</h3><ul>
-<li><strong>shared_ptr</strong><br>是一种智能指针，能够构造一个保存在栈上的智能指针对象，shared_ptr 使用引用计数，每个shared_ptr的拷贝都指向相同的内存。</li>
-</ul>
-<p><strong>答</strong>：新增了一些关键字如 nullptr , auto类型推导等，具体不是很了解，因为之前也没有需求。</p>
-<h3 id="内存分配、内存对齐、序列化等"><a href="#内存分配、内存对齐、序列化等" class="headerlink" title="内存分配、内存对齐、序列化等"></a>内存分配、内存对齐、序列化等</h3><ul>
-<li><strong>堆栈对比</strong><br>栈是系统提供的功能，由编译器自动分配释放，优点是快速高效，缺点是有限制，数据不灵活；堆是函数库提供的功能，一般由程序员分配释放优点是灵活方便，数据适应面广泛，但是效率有一定降低</li>
-<li><strong>内存分配</strong><br>程序占用的内存一般分为以下几个部分：栈区，堆区，全局区（也成为静态区），文字常量区和程序代码区</li>
-<li><strong>内存对齐</strong><br>现代计算机中内存空间都是按byte划分的，通常会要求数据的首地址的值是某个数的 k 倍，这样可以匹配计算机的字长，加快数据存储的速度，而不用花时间计算某个数据的哪几位是int哪几位是char</li>
-<li><strong>序列化</strong><br>序列化就是将对象变成字节流的形式传出去，反序列化就是从字节流恢复成原来的对象。实现存储和传输数据时的必需操作，比如可以序列化一个对象，然后使用 HTTP 通过 Internet 在客户端和服务器之间传输该对象。常用方法如Google Protocol Buffers 的 protobuf等。</li>
-</ul>
-<h3 id="Static关键字的作用"><a href="#Static关键字的作用" class="headerlink" title="Static关键字的作用"></a>Static关键字的作用</h3><p>有五处使用场景：</p>
-<ul>
-<li><strong>全局静态变量</strong><br>全局静态变量加上 static 就变成了全局静态变量，作用域：定义之处开始，到文件结尾，存在于静态存储区（文件外不可见）</li>
-<li><strong>局部静态变量</strong><br>局部静态变量加上 static 就变成了局部静态变量，作用域：定义之处开始，到定义他的函数或语句块结束，只初始化一次（放在 while 里不会重复赋值）</li>
-<li><strong>静态函数</strong><br>函数返回类型前加上 static 就变成了静态函数，将函数限制在该文件内才有用，从而不会和其他文件的同名函数发生冲突</li>
-<li><strong>类的静态数据成员</strong><br>静态数据成员是类的所有对象中共享的成员，而不是某个特定对象的成员。优点是不会破坏类的隐藏原则，保证了安全性</li>
-<li><strong>类的静态成员函数</strong><br>类的静态成员函数和静态数据成员一样，他们都属于类的静态成员，都不是对象成员。特点：静态成员函数实现时不能引用类的非静态成员，只能引用静态成员（毕竟是基于静态成员实现的方法），如果静态成员函数中要引用非静态成员时，可通过对象来引用</li>
-</ul>
-<h3 id="虚函数和纯虚函数的区别"><a href="#虚函数和纯虚函数的区别" class="headerlink" title="虚函数和纯虚函数的区别"></a>虚函数和纯虚函数的区别</h3><ul>
-<li><strong>抽象类</strong>：包含纯虚函数的类<br>这种类不能声明对象，只是作为基类为派生类服务。除非在派生类中实现了基类中所有纯虚函数，否则·派生类也变成了抽象类，不能实例化对象。</li>
-</ul>
-<p><strong>答</strong>：虚函数可以直接使用，也可以在子类中重载以多态的形式调用，而纯虚函数在基类中只有声明没有定义，所以只能在子类中实现了该函数才可以以多态的形式调用。这么来看的话，虚函数在子类中可以不被重载，但是纯虚函数必须在子类中实现。</p>
-<h3 id="虚函数以及构造函数执行顺序的一些特性"><a href="#虚函数以及构造函数执行顺序的一些特性" class="headerlink" title="虚函数以及构造函数执行顺序的一些特性"></a>虚函数以及构造函数执行顺序的一些特性</h3><p><strong>答</strong>：构造函数时先构造基类，再构造派生类；析构函数时先析构派生类，再析构基类。</p>
-<h3 id="struct-class-以及-union-内存对齐的四个原则"><a href="#struct-class-以及-union-内存对齐的四个原则" class="headerlink" title="struct/class 以及 union 内存对齐的四个原则"></a>struct/class 以及 union 内存对齐的四个原则</h3><p><strong>答</strong>：该四原则适用于 struct / class / union ：</p>
-<ol>
-<li>数据成员对齐规则：结构或联合的数据成员，第一个数据成员放在 offset 为 0 的地方，以后每个数据成员存储的起始位置要从该成员大小或者成员的子成员大小（子成员可能是数组、结构体等）的整数倍开始（比如 int 在32位机为4字节，则要从4的整数倍地址开始存储）</li>
-<li>结构体作为成员：如果一个结构里有某些结构体的成员，则结构体成员要从其内部“最宽基本类型成员”的整数倍地址开始存储（struct a里有struct b，b里有char, int, double等元素，那么b应该从8的整数倍开始存储）</li>
-<li>收尾工作：结构体的总大小，也就是sizeof的结果，必须是其内部最大成员的“最宽基本类型成员”的整数倍，不足的要补齐</li>
-<li>sizeof(union)，以结构里面size最大元素为union的size。因为在某一时刻，union只有一个成员真正存储于该地址</li>
-</ol>
-<h3 id="为什么要有虚析构函数"><a href="#为什么要有虚析构函数" class="headerlink" title="为什么要有虚析构函数"></a>为什么要有虚析构函数</h3><h3 id="如何让-h文件不被重复引用"><a href="#如何让-h文件不被重复引用" class="headerlink" title="如何让.h文件不被重复引用"></a>如何让.h文件不被重复引用</h3><p><strong>答</strong>：可以使用条件编译，就是<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _HEADERNAME_H</span></span><br><span class="line">#DEFINE _HEADERNAME_H</span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure><br>  但是无法保证变量不被重复定义（可以用定义成静态变量的方法）<br>  另一种方法是 <code>#pragmaonce</code> 但是这个方法可能会有跨平台的问题，因为并不是所有编译器都支持这个操作</p>
-<hr>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h3><p><strong>答</strong>: 四句话</p>
-<ol>
-<li>操作系统是管理计算机硬件与软件资源的程序，是计算机系统的内核与基石。</li>
-<li>操作系统本质上是运行在计算机上的软件程序。</li>
-<li>操作系统为用户提供一个与系统交互的操作界面。</li>
-<li>操作系统分内核和外壳，内核负责管理系统进程、内存、设备驱动程序等操作硬件的程序，外壳指的是围绕内核的应用程序</li>
-</ol>
-<h3 id="什么是系统调用"><a href="#什么是系统调用" class="headerlink" title="什么是系统调用"></a>什么是系统调用</h3><ul>
-<li><strong>用户态和系统态</strong>: 根据进程访问资源的特点，我们可以把进程在系统上的运行分为两个级别。<strong>用户态</strong>运行的进程或可以直接读取用户程序的数据，<strong>系统态</strong>运行的进程或程序几乎可以访问计算机的任何资源，不受限制。</li>
-</ul>
-<p><strong>答</strong>: 我们运行的程序基本都是运行在用户态，如果我们需要调用系统态级别的资源时，比如文件管理、进程控制、内存管理等，都必须通过系统调用方式向操作系统提出服务请求，并由操作系统代为完成。</p>
-<h3 id="大致可以分为哪几类系统调用"><a href="#大致可以分为哪几类系统调用" class="headerlink" title="大致可以分为哪几类系统调用"></a>大致可以分为哪几类系统调用</h3><p><strong>答</strong>: </p>
-<ol>
-<li>设备管理。设备的请求、释放、启动等</li>
-<li>文件管理。文件的读、写、创建删除等</li>
-<li>进程控制。进程的创建、撤销、阻塞、唤醒等</li>
-<li>进程通信。进程间消息传递</li>
-<li>内存管理。内存的分配回收，获取作业占用内存等</li>
-</ol>
-<h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><p><strong>答</strong>: 线程是进程划分成的更小的运行单位，一个进程在其执行的过程中可以产生多个线程。线程和进程最大不同在于基本上各进程是独立的，而各线程则不一定，因为同一进程中的线程极有可能相互影响。线程执行开销小，但不利于资源的管理和保护，而进程正好相反。</p>
-<h3 id="进程有哪几种状态"><a href="#进程有哪几种状态" class="headerlink" title="进程有哪几种状态"></a>进程有哪几种状态</h3><hr>
-<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="TCP-与-UDP-的区别及适用场景"><a href="#TCP-与-UDP-的区别及适用场景" class="headerlink" title="TCP 与 UDP 的区别及适用场景"></a>TCP 与 UDP 的区别及适用场景</h3><h3 id="TCP-的三次握手、四次挥手"><a href="#TCP-的三次握手、四次挥手" class="headerlink" title="TCP 的三次握手、四次挥手"></a>TCP 的三次握手、四次挥手</h3><h3 id="为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><a href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态" class="headerlink" title="为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态"></a>为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</h3><h3 id="UDP-bind-和-connect-有什么用"><a href="#UDP-bind-和-connect-有什么用" class="headerlink" title="UDP bind 和 connect 有什么用"></a>UDP bind 和 connect 有什么用</h3><h3 id="Socket编程中-close-和-shutdown-有什么区别"><a href="#Socket编程中-close-和-shutdown-有什么区别" class="headerlink" title="Socket编程中 close() 和 shutdown() 有什么区别"></a>Socket编程中 <code>close()</code> 和 <code>shutdown()</code> 有什么区别</h3><h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><h3 id="请说明一下-http-和-https-的区别"><a href="#请说明一下-http-和-https-的区别" class="headerlink" title="请说明一下 http 和 https 的区别"></a>请说明一下 http 和 https 的区别</h3><h3 id="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><a href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程" class="headerlink" title="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"></a>浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</h3><h3 id="TCP拥塞控制机制"><a href="#TCP拥塞控制机制" class="headerlink" title="TCP拥塞控制机制"></a>TCP拥塞控制机制</h3><h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3>
+        <p>真的学得太不扎实了，找工作时只能回过头来重学，暂时有C++，计算机基础，和计算机网络的内容</p>
+        
+          <a class="article-more-a" href="/tools-tools/Tencent%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87.html#more">more >></a>
+        
       
 
       
@@ -554,250 +471,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        个人感觉Emacs官网的 <a href="https://www.gnu.org/software/emacs/tour/" target="_blank" rel="noopener">guide</a> 比emacs自带的tutorial清晰很多，可能主要是因为富文本的原因。这里我仅放上可能常用的操作作为索引。有更多需要的小伙伴请移步官网guide。</p>
-<h3 id="Above-all"><a href="#Above-all" class="headerlink" title="Above all"></a>Above all</h3><p>扩展符C-x 跟单个character，M-x 跟单词</p>
-<ul>
-<li><p><strong>tutorial</strong></p>
-<p><code>C-h t</code></p>
-</li>
-<li><p><strong>Abortion</strong><br><code>C-g</code>: cmd中的ctrl+z</p>
-</li>
-<li><p><strong>CloseAndMinimize</strong><br><code>C-x C-c</code>: Close<br><code>C-z</code>: Minimize</p>
-</li>
-</ul>
-<h3 id="Basic-editing-commands"><a href="#Basic-editing-commands" class="headerlink" title="Basic editing commands"></a>Basic editing commands</h3><ul>
-<li><strong>moving around in buffers</strong><br>crtl跟着的是文章结构上的跳动（逐行逐字母），meta跟着的是内容结构上的跳动（逐句逐单词）</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">操作</th>
-<th align="center">目的</th>
-<th align="center">操作</th>
-<th align="center">目的</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C-f</td>
-<td align="center">下一个字母</td>
-<td align="center">C-b</td>
-<td align="center">上一个字母</td>
-</tr>
-<tr>
-<td align="center">C-n</td>
-<td align="center">下一行</td>
-<td align="center">C-e</td>
-<td align="center">上一行</td>
-</tr>
-<tr>
-<td align="center">C-a</td>
-<td align="center">回到行首</td>
-<td align="center">C-e</td>
-<td align="center">回到行尾</td>
-</tr>
-<tr>
-<td align="center">M-f</td>
-<td align="center">下一个单词</td>
-<td align="center">M-b</td>
-<td align="center">上一个单词</td>
-</tr>
-<tr>
-<td align="center">M-a</td>
-<td align="center">上一句</td>
-<td align="center">M-e</td>
-<td align="center">下一句</td>
-</tr>
-<tr>
-<td align="center">C-v</td>
-<td align="center">page down</td>
-<td align="center">M-v</td>
-<td align="center">page up</td>
-</tr>
-<tr>
-<td align="center">M-&lt;</td>
-<td align="center">Home</td>
-<td align="center">M-&gt;</td>
-<td align="center">End</td>
-</tr>
-<tr>
-<td align="center">C-l (L not 1)</td>
-<td align="center">将光标位置移到Top/Bot/Cen</td>
-<td align="center">M-g g 3</td>
-<td align="center">前往第3行</td>
-</tr>
-<tr>
-<td align="center">C-s</td>
-<td align="center">向后查询</td>
-<td align="center">C-r</td>
-<td align="center">向前查询</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>注：C-l 一般用两次即 C-l C-l，将当前行移到窗口顶端</p>
-</blockquote>
-<ul>
-<li><p><strong>Mark</strong><br>Mark几乎始终存在，在进行页面内跳转时跨度过大emacs都会自动标记原位置，只需要C-x C-x即可回去 </p>
-<table style="text-align:center">
-  <tr>
-      <td>C-SPC</td> 
-      <td>Set mark to the current location</td> 
- </tr>
- <tr>
-      <td>C-x C-x</td> 
-      <td>Swap point and mark</td> 
- </tr>
-
-
-</li>
-</ul>
-  </table>
-
-<ul>
-<li><p><strong>Region</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x h</td> 
-      <td>全选</td> 
-      <td>M-h</td> 
-      <td>选中该段</td> 
- </tr>
- <tr>
-      <td>C-x n n</td> 
-      <td>单独拎出目标区域</td> 
-      <td>C-x n w</td> 
-      <td>恢复原样</td> 
- </tr>
-</table>
-</li>
-<li><p><strong>Killing, Copying and Yanking</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-k</td> 
-      <td>删除该行</td> 
-      <td>M-k</td> 
-      <td>删除该句</td> 
- </tr>
- <tr>
-      <td>C-w</td> 
-      <td>剪切选中区域</td> 
-      <td>M-w</td> 
-      <td>复制选中区域</td> 
- </tr>
-  <tr>
-      <td>C-y</td> 
-      <td>粘贴</td> 
-      <td>M-y</td> 
-      <td>粘贴剪贴板之前内容</td> 
- </tr>
-</table>
-</li>
-<li><p><strong>Undo</strong><br>3种方式：<br><code>C-/</code><br><code>C-_</code><br><code>C-x u</code></p>
-</li>
-<li><p><strong>Incremental Search</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-s</td> 
-      <td>向后搜索</td> 
-      <td>C-r</td> 
-      <td>向前搜索</td> 
- </tr>
-</table>
-搜索之后再按 C-s 跳到下一项， Backspace 跳到前一项
-
-
-
-
-</li>
-</ul>
-<h3 id="Buffers"><a href="#Buffers" class="headerlink" title="Buffers"></a>Buffers</h3><p>正文部分是buffer，最下面一行是minibuffer<br>是Buffer不一定是文件，但是文件就一定是Buffer</p>
-<ul>
-<li><strong>FIles</strong><table style="text-align:center">
-  <tr>
-      <td>C-x C-f</td> 
-      <td>Find 查找 (创建) 文件</td> 
-  </tr>
-  <tr>
-      <td>C-x C-s</td> 
-      <td>保存文件</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-
-<ul>
-<li><p><strong>Buffers</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x C-b</td> 
-      <td>List Buffers</td> 
-      <td>C-x b [Buffer]</td> 
-      <td>前往指定Buffer</td> 
-  </tr>
-  <tr>
-      <td>C-x 1</td> 
-      <td>Kill All other Windows</td> 
-      <td>C-x s</td> 
-      <td>逐一保存所有Buffer</td> 
-  </tr>
-  <tr>
-      <td>C-x k</td> 
-      <td>关闭当前Buffer</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-<ul>
-<li><p><strong>Extending</strong></p>
-<ul>
-<li>替换<br>M-x repl s<Return> (支持补全)</li>
-<li>格式化输入<br>M-x text-mode<br>M-x auto-fill-mode<br>C-x f <digit><br>M-q :re-fill</li>
-</ul>
-</li>
-<li><p><strong>Multiple Windows</strong></p>
-<table style="text-align:center">
-  <tr>
-      <td>C-x 2</td> 
-      <td>复制当前buffer建立新对话 (上下)</td> 
-      <td>C-M-v</td> 
-      <td>scroll 另一个窗口</td> 
-  </tr>
-  <tr>
-      <td>C-x 4 C-f <Filename></td> 
-      <td>新建对话打开文件 (左右)</td> 
-      <td>C-x o</td> 
-      <td>Jump to the other window</td> 
-  </tr>
-  <tr>
-      <td>C-x 2 <Filename></td> 
-      <td>上下扩展</td> 
-      <td>C-x 3</td> 
-      <td>左右扩展</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-<ul>
-<li><strong>Multiple Frames</strong><br>Window是在同一个GUI里的，Frames是新建了一个GUI<table style="text-align:center">
-  <tr>
-      <td>C-x 5 2</td> 
-      <td>复制当前buffer建立新窗口 (上下)</td> 
-  </tr>
-  <tr>
-      <td>C-x 5 0 <Filename></td> 
-      <td>新建窗口打开文件 (左右)</td> 
-  </tr>
-
-</li>
-</ul>
-</table>
-
-
+        <p>个人感觉Emacs官网的 <a href="https://www.gnu.org/software/emacs/tour/" target="_blank" rel="noopener">guide</a> 比emacs自带的tutorial清晰很多，可能主要是因为富文本的原因。这里我仅放上可能常用的操作作为索引。有更多需要的小伙伴请移步官网guide。</p>
+        
+          <a class="article-more-a" href="/tools-tools/Emacs%20tutorial%20%E7%AC%94%E8%AE%B0.html#more">more >></a>
+        
       
 
       
@@ -880,350 +557,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：4.3k字 | 预计阅读时长：19分钟
+      字数：4.4k字 | 预计阅读时长：20分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Week-1-Introduction"><a href="#Week-1-Introduction" class="headerlink" title="Week 1: Introduction"></a>Week 1: Introduction</h2><h3 id="Welcome-to-this-course"><a href="#Welcome-to-this-course" class="headerlink" title="Welcome to this course"></a>Welcome to this course</h3><ul>
-<li>Initial Motivation</li>
-</ul>
-<p>This course is neither particularly theoretical nor just about programming specifics – it will give you <strong>a framework for understanding how to use language constructs effectively and how to design correct and elegant programs</strong>. By using different languages, you will learn to think more deeply than in terms of the particular syntax of one language. The emphasis on functional programming is essential for learning how to write <strong>robust, reusable, composable, and elegant programs</strong>. </p>
-<ul>
-<li><p>Recommended Background</p>
-<ul>
-<li>Variables, if, loops, arrays</li>
-<li>Recursion (递归)</li>
-<li>Implementation vs. Interface</li>
-<li>linked lists, binary tree</li>
-<li>Dynamic-dispatch</li>
-<li>Python or Javascript</li>
-</ul>
-</li>
-<li><p>Why Part A, Part B, Part C</p>
-</li>
-<li><ul>
-<li>huge contents</li>
-<li>reasonable stopping point</li>
-</ul>
-</li>
-<li><p>Grading Policy</p>
-<ul>
-<li>Auto-Grader Policy (resubmit at most once per day (must exceed 80%))</li>
-<li>Challenge Problem</li>
-<li>Peer assesment</li>
-<li>Exams (resubmit at most once per day (must exceed 80%))</li>
-</ul>
-</li>
-<li><p>Course Overview</p>
-<ul>
-<li><strong>Part A</strong></li>
-</ul>
-<ol start="0">
-<li>Software Installation</li>
-<li>Basics, functions, recursion, scope, variable, tuples, lists, …</li>
-<li>Datatypes, pattern-matching, tail recursion</li>
-<li>First-class functions, closures</li>
-<li>Type inference, modules</li>
-</ol>
-<ul>
-<li><strong>Part B</strong></li>
-</ul>
-<ol start="5">
-<li>Quick “re-do” in a dynamically typed language</li>
-<li>Implementing languages with interpreters (Static vs. dynamic typing)</li>
-</ol>
-<ul>
-<li><strong>Part C</strong></li>
-</ul>
-<ol start="7">
-<li>Dynamically-typed Object-Oriented Programming</li>
-<li>OOP vs. Functional decomposition</li>
-</ol>
-</li>
-</ul>
-<h3 id="Software-Installation-and-Test"><a href="#Software-Installation-and-Test" class="headerlink" title="Software Installation and Test"></a>Software Installation and Test</h3><p><em>OS: Manjaro (Linux)</em></p>
-<ol>
-<li><p><strong>Emacs</strong></p>
-<ul>
-<li><strong>Installation</strong>:  <code>yay -Sy emacs</code></li>
-<li><strong>Usage</strong>: check over <a href="/2020/02/tools/Emacs%20tutorial%20笔记/">here</a></li>
-</ul>
-</li>
-<li><p><strong>SML/NJ</strong></p>
-<ul>
-<li><strong>Installation</strong><br>follow the step <a href="http://www.smlnj.org/dist/working/110.80/INSTALL" target="_blank" rel="noopener">here</a> , quite easy but remember to <code>sudo</code>for all that commands .<br>My Version is <strong>110.87</strong></li>
-<li><strong>Test</strong><br>add the path like: <code>export PATH=&quot;/usr/share/smlnj/bin:$PATH&quot;</code> (in .zshrc)<br>type <code>sml</code> and then <code>1+1;</code> to check if it works</li>
-</ul>
-</li>
-<li><p>SML Mode for Emacs</p>
-<ul>
-<li><strong>Installation</strong><br>In emacs: <code>M-x package-install RET sml-mode RET</code><br>add SML/NJ  into ~/.emacs:<br><code>(setenv &quot;PATH&quot; (concat &quot;/usr/share/smlnj/bin:&quot; (getenv &quot;PATH&quot;)))
-(setq exec-path (cons &quot;/usr/share/smlnj/bin&quot;  exec-path))</code></li>
-<li><strong>Test</strong><ol>
-<li><code>C-x C-f test.sml</code> to create a new sml file</li>
-<li><code>val n = 1;</code> to see if it’s high-lightened</li>
-<li><code>C-c C-s &lt;Return&gt;</code> to see if emacs open a new buffer as the SML prompt</li>
-<li><code>1 + 1;</code> in the prompt to see if it is working</li>
-<li><code>M-p</code> to see history commands</li>
-<li><code>C-d</code> to end the prompt normally</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h3><p>​        第一周的作业被官方称为 “fake assignment” , 只是为了让我们熟悉提交作业的流程。以后每次作业都需要自己编写 <code>test.sml</code> 来测试作业的完成度，这个方式还是挺新鲜的。举个例子，这一周的作业就是在 <code>hw0provided.sml</code> 里面改一个符号，来实现乘幂的函数。但是我们又不能直接测试这个函数，所以官方提供了另一个 <code>hw0test.sml</code> 来辅助检测我们作业完成的正确性。Assignment中也提到了在以后的作业中，需要我们自己考虑边界情况进行测试，他们不会直接提示，只会通过 auto-grader 来检测我们代码的 robustness。<br>​        在此有一个tricks可以分享一下，在用emacs编辑的时候，可以开三个窗口（其中<code>C-x 2</code> 和 <code>C-x 3</code>分别是上下镜像和左右镜像），右边窗口是REPL，左边是两个窗口，上面是函数，下面是test，看起来就很舒服了</p>
-<hr>
-<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h3 id="Welcome-Message"><a href="#Welcome-Message" class="headerlink" title="Welcome Message"></a>Welcome Message</h3><p>这一周先学习各种数据类型，然后学习函数的”scope”和”shadowing”概念，接着学习”pairs”和”list”来组合成复合数据类型，再然后学习”let expressions”。那就开始吧！</p>
-<h3 id="ML-Variable-Bindings-and-Expressions"><a href="#ML-Variable-Bindings-and-Expressions" class="headerlink" title="ML Variable Bindings and Expressions"></a>ML Variable Bindings and Expressions</h3><ul>
-<li><p><strong>static environment</strong>: 记录数据的类型 (Type)<br><strong>dynamic environment</strong>: 记录数据的值 (Value)<br>程序运行之前，需要在 static environment 中进行一次 “Type check”，通过之后才会运行程序 (“Evaluation”)，即更新dynamic environment</p>
-</li>
-<li><p><strong>A variable binding</strong></p>
-<figure class="highlight ml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = [expression]</span><br></pre></td></tr></table></figure>
-<p>一个 variable（就是程序中的 <code>val</code>）会受到3个约束：</p>
-<ol>
-<li>等号右边的 expression 的 syntax 要正确</li>
-<li>static environment 中的 type-check 要通过</li>
-<li>dynamic environment 中的 evaluation 要满足</li>
-</ol>
-</li>
-</ul>
-<h3 id="Rules-for-Expressions"><a href="#Rules-for-Expressions" class="headerlink" title="Rules for Expressions"></a>Rules for Expressions</h3><p>  每个expression同样也会受到上面三种约束 (Expression bindings)，例如if .. then .. else .. 语句：</p>
-<p>doesn’t typecheck</p>
-<h3 id="The-REPL-and-Errors"><a href="#The-REPL-and-Errors" class="headerlink" title="The REPL and Errors"></a>The REPL and Errors</h3><ul>
-<li><p><strong>REPL</strong><br>Read-Evaluate-Print-Loop<br>就是在 <code>use</code> 调用sml的时候进行的操作，调试很方便，但是注意每次 use 的时候都要重启REPL（C-d C-c C-s）</p>
-</li>
-<li><p>Errors<br>4种错误：syntax, type-check, evaluation, result<br>编译器会先查看是否出现 syntax error (if then else的完整性 / 变量命名是否用到了关键词等等)，在解决之后再会来检查 type-check (-5要用~5表示 / 4/5要用4 div 5表示等等)，然后程序会开始运行，继续检查在 evaluation 的时候出的错 (除数不能为0等等)。接着就是程序运行通过了，但是结果不如我们的意，这时候就需要我们自己去查看代码发现问题了。</p>
-</li>
-</ul>
-<h3 id="Shadowing"><a href="#Shadowing" class="headerlink" title="Shadowing"></a>Shadowing</h3><p>  当变量被重新赋值的时候，原来的值就被shadowing了，在REPL原赋值语句的输出也会变成 <hidden-value>，所以dynamic environment就是指在程序运行时也是dynamic的</p>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
-<li><p><strong>Function bindings</strong></p>
-<ul>
-<li><strong>A function is a value</strong>: 当我们调用func的时候才开始对func进行evaluate，一直可以把func当作值为0的value</li>
-<li>函数的返回值类型由程序自动赋给（程序通过recursion得到）</li>
-</ul>
-</li>
-<li><p>Unless a function has exactly one argument, you need to use parentheses (括号) to call it</p>
-</li>
-<li><p>Type syntax 中表示函数的type时会用 * 来表示and，比如上面的函数type就是 <code>int * int -&gt; int</code></p>
-</li>
-<li><p>所有编程要用到 Loop 的都可以用 Recursion 来替代</p>
-</li>
-<li><p><strong>Calling the Function</strong><br>调用函数时也要检查这三样东西：Syntax, Type-checking and Evaluation</p>
-<ul>
-<li>Syntax: <code>e0 (e1,...,en)</code> （ML不支持可选参数）</li>
-<li>Type-cheking<br>检查两个东西，一个是函数参数的数据类型是否和定义的相同，一个是函数名的数据类型( <code>(t1 * ,,, * tn) -&gt; t</code> )是否和定义相同，如果这两点满足了，就将数据类型t赋给 e0(e1,..,en)</li>
-<li>Evaluation<ol>
-<li>evaluate e0. 找到 e0 这个函数; </li>
-<li>evaluate all arguments. 比如2+2的参数要算成4;</li>
-<li>evaluate the function. 将参数代进去是否能够运行函数（会新开一片区域放临时变量）; </li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>Pairs and Tuples</strong></p>
-<ul>
-<li>Pairs (2-tuples)<ul>
-<li>Syntax: `(e1, e2)</li>
-<li>Type-cheking: <code>ta * tb</code></li>
-<li>Evaluate: e1, e2分别赋两个值可以运行</li>
-</ul>
-</li>
-<li>Tuples<ul>
-<li>就是不只两个元素的pair</li>
-</ul>
-</li>
-<li>Nesting<ul>
-<li>tuples很重要的用法，可以tuples嵌套tuples，取出其中的元素就用 <code>#1 x1</code> 来取出x1这个tuple的第一个元素，甭管什么类型都可以取</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Lists</strong></p>
-<ul>
-<li>lists和tuples的区别<br>lists可以含有任意数量的元素，但是必须是同一类型<br>tuples可以拥有不同数据类型，但是只能含有有限数量的元素</li>
-<li>用法：<table>
-  <tr>
-    <td><b>构造</b></td>
-    <td>`[6, 5, 1]`</td>
-    <td>`6::5::1;`</td>
-  </tr>
-  <tr>
-    <td><b>检查为空</b></td>
-    <td>`null x` </td>
-    <td>返回true则为空 ->bool</td>
-  </tr>
-  <tr>
-    <td><b>掐头</b></td>
-    <td>`hd x` </td>
-    <td>返回第一个元素 ->a</td>
-  </tr>
-      <tr>
-    <td><b>取尾</b></td>
-    <td>`tl x` </td>
-    <td>返回除了第一个元素的所有元素 ->a list</td>
-  </tr>
-</table></li>
-<li>type-checking: 只能是同一种数据类型，但是又可以是嵌套的数据类型。空list是alpha类型，可以变成任意类型（所以null实际上是检测是否为alpha类型）</li>
-<li>function example<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">append</span> <span class="params">(xs : <span class="keyword">int</span> list, ys : <span class="keyword">int</span> list)</span> </span>= </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">null</span> xs</span><br><span class="line">    then ys</span><br><span class="line">    <span class="keyword">else</span> (hd xs) :: append((tl xs), ys)</span><br><span class="line">    </span><br><span class="line"><span class="function">fun <span class="title">sum_pair_list</span> <span class="params">(xs : (<span class="keyword">int</span> * <span class="keyword">int</span>)</span> list) </span>=</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">null</span> xs</span><br><span class="line">    then <span class="number">0</span></span><br><span class="line">    else #1 (hd xs) + #2 (hd xs) + sum_pair_list(tl xs)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><strong>Let expressions</strong></p>
-<ul>
-<li>Syntax: <code>let b1 b2 ... bn in e end</code> 返回类型由 e 决定</li>
-<li>创建局部作用域 (<em>scope</em>)，在bi中定义的值出了lei就不复存在</li>
-<li><strong>Nested Functions</strong>: 将函数内嵌在let语句中，使得函数变为局部函数<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">countup_from1</span> <span class="params">(x : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">    let</span><br><span class="line">        <span class="function">fun <span class="title">count</span> <span class="params">(from : <span class="keyword">int</span>, to : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">            <span class="keyword">if</span> from=to</span><br><span class="line">            then to::[]</span><br><span class="line">            <span class="keyword">else</span> from :: count(from+<span class="number">1</span>, to)</span><br><span class="line">    in</span><br><span class="line">        count(<span class="number">1</span>, x)</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 甚至更为简洁</span></span><br><span class="line"><span class="function">fun <span class="title">countup_from1</span> <span class="params">(x : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">    let</span><br><span class="line">        <span class="function">fun <span class="title">count</span> <span class="params">(from : <span class="keyword">int</span>)</span> </span>=</span><br><span class="line">            <span class="keyword">if</span> from=x</span><br><span class="line">            then x::[]</span><br><span class="line">            <span class="keyword">else</span> from :: count(from+<span class="number">1</span>)</span><br><span class="line">    in</span><br><span class="line">        count(<span class="number">1</span>)</span><br><span class="line">    end</span><br></pre></td></tr></table></figure></li>
-<li>Note: <strong>Avoid repeated recursion</strong></li>
-</ul>
-</li>
-<li><p><strong>Options</strong><br>允许返回不同类型的函数</p>
-  <table>
-    <tr>
-      <td rowspan="2"><b>构造</b></td>
-      <td>`NONE`</td>
-      <td>type: 'a option</td>
-    </tr>
-    <tr>
-      <td>`SOME`</td>
-      <td>type: t option</td>
-    </tr>
-    <tr>
-      <td rowspan="2"><b>调用</b></td>
-      <td>`isSome`</td>
-      <td>type: 'a option -> bool</td>
-    </tr>
-    <tr>
-      <td>`valOf`</td>
-      <td>type: 'a potion -> 'a</td>
-    </tr>
-</table>
-</li>
-<li><p><strong>Booleans and Comparison Operations</strong></p>
-<ul>
-<li>e都必须要是bool类型：<code>e1 andalso e2</code>  <code>e1 orelse</code>  <code>not e</code></li>
-<li>comparison两边必须是同类型(int就不等于real): <code>=</code> <code>&lt;&gt;</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></li>
-<li>对于real类型不能使用 <code>=</code> 和 <code>&lt;&gt;</code>来比较，因为real本来就不准确</li>
-</ul>
-</li>
-<li><p><strong>No Mutation</strong><br><code>reference=alias vs. copy</code><br>ML是不允许mutation的（不知道是不是指静态语言的意思），因此，不需要考虑aliases和copies的区别（指向的存储空间的存储类型不会发生冲突），像java这种编程语言就需要考虑aliases，但都有好有坏。所以Java在安全性上会做的更好：比如在登录注册的时候，数据库调用已有的用户信息与当前登录信息进行匹配，如果得到的是alias，就很容易通过客户端修改数据库，但如果客户端得到的是copy，就无法篡改数据库</p>
-</li>
-<li><p><strong>Five different things</strong> (shouldn’t confused)</p>
-<ol>
-<li><em>Syntax</em>: how</li>
-<li><em>Semantics</em>: mean</li>
-<li><em>Idioms</em>: typical patterns</li>
-<li><em>Libraries</em>: standard facilities</li>
-<li><em>Tools</em>: implementations<br>2 和 3是这门课侧重的</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="Week-3-Building-Compound-Types"><a href="#Week-3-Building-Compound-Types" class="headerlink" title="Week 3: Building Compound Types"></a>Week 3: Building Compound Types</h2><h3 id="Building-Compound-Types"><a href="#Building-Compound-Types" class="headerlink" title="Building Compound Types"></a>Building Compound Types</h3><p>分清两个概念：</p>
-<ul>
-<li>base types: <code>int</code> <code>bool</code> <code>unit</code> <code>char</code></li>
-<li>compound types: <code>tuples</code> <code>lists</code> <code>options</code><br>三个意识：</li>
-<li><strong>Each of</strong>: contains every</li>
-<li><strong>One of</strong>: contains one of</li>
-<li><strong>Self reference</strong>: refer<blockquote>
-<p>eg: tuples: each  //  options: one of  // lists: all three</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="Records"><a href="#Records" class="headerlink" title="Records"></a>Records</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val x = &#123;bar=(<span class="number">1</span>+<span class="number">2</span>, <span class="keyword">true</span> andalso <span class="keyword">true</span>), foo=<span class="number">3</span>+<span class="number">4</span>, baz=(<span class="keyword">false</span>,<span class="number">9</span>)&#125;;</span><br><span class="line"><span class="comment">// type:&#123;bar:int * boot=l, baz:bool * int, foo:int&#125;</span></span><br><span class="line">#bar x</span><br><span class="line"><span class="comment">// return (3, true)</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>By name vs. by position (tuple好还是record好)<br>tuples会更短，但是当参数多的话record更容易记也更容易理解</li>
-</ul>
-<h3 id="Tuples-as-Syntactic-Sugar"><a href="#Tuples-as-Syntactic-Sugar" class="headerlink" title="Tuples as Syntactic Sugar"></a>Tuples as Syntactic Sugar</h3><p>事实上，tuples只是records的特例:<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// try using number as the name (reference)</span></span><br><span class="line">val use_num = &#123;<span class="number">3</span>=<span class="string">"hi"</span>, <span class="number">1</span>=<span class="keyword">true</span>&#125;</span><br><span class="line"><span class="comment">// return val use_num = &#123;1:true, 3="hi"&#125; : &#123;1:bool, 3:string&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// but when the number is in a continuous sequence</span></span><br><span class="line">val strange_thing = &#123;<span class="number">3</span>:<span class="string">"hi"</span>, <span class="number">1</span>=<span class="keyword">true</span>, <span class="number">2</span>=<span class="number">3</span>+<span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">// return val strange_thing = (true, 5, "hi") : bool * int * string</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>Syntactic sugar<br>make the language sweeter: simplify <em>understanding</em> and <em>implementing</em> the language. another example: <code>andalso</code> <code>orelse</code></li>
-</ul>
-<h3 id="Datatype-Bindings"><a href="#Datatype-Bindings" class="headerlink" title="Datatype Bindings"></a>Datatype Bindings</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// "one of" </span></span><br><span class="line">datatype mytype = TwoInts of <span class="keyword">int</span> * <span class="keyword">int</span></span><br><span class="line">                | Str of string</span><br><span class="line">                | Pizza</span><br><span class="line">                </span><br><span class="line"><span class="comment">// these are all legal usage, all the types are "mytype"</span></span><br><span class="line">val a = Str <span class="string">"hi"</span>  <span class="comment">// type: mytype</span></span><br><span class="line">val b = Str  <span class="comment">// is a programming error, but it does type check</span></span><br><span class="line">val c = Pizza  <span class="comment">// Pizza is a value and its type is mytype</span></span><br><span class="line">val d = TwoInts(<span class="number">1</span>+<span class="number">2</span>, <span class="number">3</span>+<span class="number">4</span>)</span><br><span class="line">VAL e = a</span><br></pre></td></tr></table></figure>
-<p>  以上构造了一个新的type: <code>mytype</code>, 构造了三个constructors：<code>TwoInts</code> <code>Str</code> <code>Pizza</code>, 在变量定义时只需要满足其中任何一个类型即可，并且即使满足了该类型，该变量的类型依然是mytype</p>
-<h3 id="Case-Expression"><a href="#Case-Expression" class="headerlink" title="Case Expression"></a>Case Expression</h3><p>ML 使用了两种方法来处理 one-of 的类型：<code>case expression</code> and <code>pattern-matcing</code>，后者会更强大，在这里先学习 case：<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mytype 的定义方式同上</span></span><br><span class="line"><span class="function">fun <span class="title">f</span> <span class="params">(x : mytype)</span> </span>=   <span class="comment">// 函数功能: mytype -&gt; int</span></span><br><span class="line">    <span class="keyword">case</span> x of</span><br><span class="line">        Pizza =&gt; <span class="number">3</span></span><br><span class="line">      | Str s =&gt; <span class="number">8</span></span><br><span class="line">      | TwoInts(i1, i2) =&gt; i1 + i2</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage</span></span><br><span class="line">f Pizza;      <span class="comment">// return 3</span></span><br><span class="line">f (Str <span class="string">"hi"</span>); <span class="comment">// return 8</span></span><br><span class="line"><span class="comment">//f "hi"      // error, not mytype</span></span><br><span class="line">f (TwoInts (<span class="number">7</span>,<span class="number">9</span>)); <span class="comment">// return 16</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>就像在不断讨论if else if else</li>
-<li>case 必须要讨论完整，<strong>不能漏项</strong>也<strong>不能重复冗余</strong></li>
-<li>像这样同一类型但是参数不同的各种个体就叫做 <strong>Patterns</strong> , 不同Pattern不能重名</li>
-</ul>
-<h3 id="Useful-Datatypes"><a href="#Useful-Datatypes" class="headerlink" title="Useful Datatypes"></a>Useful Datatypes</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Use as enumeration</span></span><br><span class="line">datatype suit = Club | Diamond | Heart | Spade</span><br><span class="line">datatype rank = Jack | Queen | King | Ace | Num of <span class="keyword">int</span></span><br><span class="line"><span class="comment">// Then we can combine these 2 types into (suit * rank) type</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Use as identifying</span></span><br><span class="line">datatype id = StudentNum of <span class="keyword">int</span></span><br><span class="line">            | Name of string </span><br><span class="line">                      * (string option)</span><br><span class="line">                      * string      <span class="comment">// Name的三个string表示的是firstName (secondName) thirdName</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>关于学生的id和姓名是要用 one-of (datatype) 还是each-of (tuple) 需要根据实际需求确定</p>
-</li>
-<li><p>利用<strong>树结构（递归）</strong>解法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// definition of datatype</span></span><br><span class="line">datatype exp = Constant of <span class="keyword">int</span></span><br><span class="line">             | Negate of exp</span><br><span class="line">             | Add of exp * exp</span><br><span class="line">             | Multiply of exp * exp</span><br><span class="line"></span><br><span class="line"><span class="comment">// case function</span></span><br><span class="line">fun eval e = </span><br><span class="line">    <span class="keyword">case</span> e of </span><br><span class="line">        Constant i =&gt; i</span><br><span class="line">      | Negate e2  =&gt; ~ (eval e2)</span><br><span class="line">      | Add(e1,e2) =&gt; (eval e1) + (eval e2)</span><br><span class="line">      | Multiply(e1,e2) =&gt; (eval e1) * (eval e2)</span><br><span class="line">      </span><br><span class="line"><span class="comment">// usage</span></span><br><span class="line">eval (Add(Constant <span class="number">19</span>, Negate (Constant <span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Type-Synonyms"><a href="#Type-Synonyms" class="headerlink" title="Type Synonyms"></a>Type Synonyms</h3><ul>
-<li>datatype vs. type synonym<br>datatype 独特于所有数据类型，只能通过constructor进行调用<br>type synonym 只是某种数据类型的别名，REPL会把他们当作一样的<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">datatype suit = Club | Diamond | Heart | Spade</span><br><span class="line">datetype rank = Jack | Queen | King | Ace | Num of <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line">type card = suit * rank</span><br><span class="line">type name_record = &#123; student_num : <span class="keyword">int</span> option,</span><br><span class="line">                     first       : string,</span><br><span class="line">                     middle      : string option,</span><br><span class="line">                     last        : string &#125;</span><br><span class="line">                     </span><br><span class="line"><span class="function">fun <span class="title">is_Queen_of_Spades</span> <span class="params">(c : card)</span> </span>=</span><br><span class="line">    #1 c = Spade andalso #2 c = Queen</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 以下三个既是 card 类型，又是 suit * rank 类型</span></span><br><span class="line">val c1 : card = (Diamond, Ace)</span><br><span class="line">val c2 : suit * rank = (Heart, Ace)</span><br><span class="line">val c3 = (Spade, Ace)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Lists-and-Options-are-Datatypes"><a href="#Lists-and-Options-are-Datatypes" class="headerlink" title="Lists and Options are Datatypes"></a>Lists and Options are Datatypes</h3><ul>
-<li><strong>Lists</strong> 可以这么定义，[]确实是不带任何东西的constructor，::确实是带两个东西的constructor：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">datatype my_int_list = Empty</span><br><span class="line">                     | Cons of <span class="keyword">int</span> * my_int_list</span><br><span class="line">val x = Cons(<span class="number">4</span>, Cons(<span class="number">23</span>, Cons(<span class="number">2008</span>, Empty)))</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">append_my_list</span> <span class="params">(xs, ys)</span> </span>= </span><br><span class="line">    <span class="keyword">case</span> xs of </span><br><span class="line">        Empty =&gt; ys</span><br><span class="line">      | Cons(x, xs<span class="string">') =&gt; Cons(x, append_my_list(xs'</span>, ys)) <span class="comment">// ML支持'用在变量名里</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>Options</strong> 中 <code>NONE</code> and <code>Some</code> 其实是constructor而不是functions<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun inc_or_zero_intoption =</span><br><span class="line">    <span class="keyword">case</span> intoption of  </span><br><span class="line">        NONE =&gt; <span class="number">0</span>      <span class="comment">// 是不会发生重复的，所以顺序不重要</span></span><br><span class="line">      | SOME i =&gt; i+<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
-<li>事实上，像这样通过 Pattern-matching 的方法定义 List 和 Option 是更合理更安全的，之所以又会有<code>hd</code>,<code>valOf</code>存在是因为在传递参数的时候很有用，hw2不要用这些已经定义的constructor</li>
-</ul>
-<h3 id="Polymorphic-Datatypes"><a href="#Polymorphic-Datatypes" class="headerlink" title="Polymorphic Datatypes"></a>Polymorphic Datatypes</h3><p>数据类型的多态性<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datatype <span class="string">'a option = NONE | SOME of a'</span></span><br><span class="line">datatype <span class="string">'a mylist = Empty | Cons of a'</span> * a<span class="string">' mylist</span></span><br><span class="line"><span class="string">datatype ('</span>a, <span class="string">'b) tree = </span></span><br><span class="line"><span class="string">       Node of '</span>a * (<span class="string">'a, '</span>b) tree * (<span class="string">'a, '</span>b) tree   <span class="comment">// a' 就是该点值</span></span><br><span class="line">     | Leaf of <span class="string">'b</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Each-Of-Pattern-Matching-Truth-About-Functions"><a href="#Each-Of-Pattern-Matching-Truth-About-Functions" class="headerlink" title="Each-Of Pattern-Matching / Truth About Functions"></a>Each-Of Pattern-Matching / Truth About Functions</h3><ol>
-<li>事实上所有bindings都是通过Pattern-Matching做到的</li>
-<li>事实上每个function都只接受一个参数</li>
-</ol>
-<ul>
-<li>之前的学习Pattern-Maching都是<strong>One-of</strong>的，但是他也可以做到<strong>Each-of</strong>，比如去match <strong>tuples</strong> 或者 <strong>record</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun sum_triple triple =</span><br><span class="line">    <span class="keyword">case</span> triple of </span><br><span class="line">        (x, y, z) =&gt; x + y + z</span><br><span class="line"></span><br><span class="line">fun full_name r = </span><br><span class="line">    <span class="keyword">case</span> r of </span><br><span class="line">        &#123;first=x, middle=y, last=z&#125; =&gt; </span><br><span class="line">            x ^ <span class="string">" "</span> ^ y ^ <span class="string">" "</span> ^ z</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Val Bindings</strong> 其实也是在做 Pattern-Matching，比如当这么定义：<code>val NONE = SOME 2;</code>，会进入死循环(runtime exception)，因为找不到可以匹配的数据类型去对应SOME 和NONE</li>
-<li><strong>Func bindings</strong>：所有fun只有一个参数，那就Pattern，比如(int * int * int)就是一个参数（一种triple Pattern），可以引申出三种函数的定义方式：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">sum_triple1</span> <span class="params">(triple : <span class="keyword">int</span> * <span class="keyword">int</span> * <span class="keyword">int</span>)</span> </span>= </span><br><span class="line">    <span class="keyword">case</span> triple of </span><br><span class="line">        (x, y, z) =&gt; x + y + z</span><br><span class="line"></span><br><span class="line">fun sum_triple2 triple =</span><br><span class="line">    <span class="function">let <span class="title">val</span> <span class="params">(x,y,z)</span> </span>= triple</span><br><span class="line">    in </span><br><span class="line">        x + y + z</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">sum_triple3</span> <span class="params">(x,y,z)</span> </span>=    <span class="comment">// 最简洁 </span></span><br><span class="line">    x + y + z</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Type-Inference"><a href="#Type-Inference" class="headerlink" title="Type Inference"></a>Type Inference</h3><p>如果没有用到某个参数时，REPL会自动把那个参数当作 <code>a&#39;</code>，即这个参数随便是什么都可以</p>
-<h3 id="Polymorphic-and-Equality-Types"><a href="#Polymorphic-and-Equality-Types" class="headerlink" title="Polymorphic and Equality Types"></a>Polymorphic and Equality Types</h3><ul>
-<li>type 有 more general 这种说法，比如 <code>&#39;a * int</code> 就比 <code>int * int</code> 更general，所以当函数参数为 <code>&#39;a * int</code>时，利用多态性，就可以接收 <code>int * int</code> 或者 <code>string * int</code>参数了</li>
-<li><strong>Equality Types</strong>: 当函数内部出现等号的时候，编译器会自动检测类型是否需要定死，比如<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有定死所以类型是 'a * 'a -&gt; string</span></span><br><span class="line"><span class="function">fun <span class="title">same_thing</span> <span class="params">(x, y)</span> </span>=     </span><br><span class="line">    <span class="keyword">if</span> x=y then <span class="string">"yes"</span> <span class="keyword">else</span> <span class="string">"no"</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">//  定死了所以类型是 int -&gt; string</span></span><br><span class="line">fun is_three x =</span><br><span class="line">    <span class="keyword">if</span> x=<span class="number">3</span> then <span class="string">"yes"</span> <span class="keyword">else</span> <span class="string">"no"</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Nested-Patterns"><a href="#Nested-Patterns" class="headerlink" title="Nested Patterns"></a>Nested Patterns</h3><p>有了nested pattern这个概念，if和else可以直接用pattern-matching替代了</p>
-<ul>
-<li>zip和unzip：zip是打包成 <code>(int * int * int)list</code>，unzip是拆成<code>int list * int list * int list</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fun zip3 list_triple = </span><br><span class="line">    <span class="keyword">case</span> list_triple of </span><br><span class="line">        ([],[],[]) =&gt; []</span><br><span class="line">      | (hd1::tl1,hd2::tl2,hd3::tl3) =&gt; (hd1,hd2,hd3)::zip3(tl1,tl2,tl3)</span><br><span class="line">      | _ =&gt; raise ListLengthMismatch</span><br><span class="line"></span><br><span class="line">fun unzip3 lst = </span><br><span class="line">    <span class="keyword">case</span> lst of</span><br><span class="line">        [] =&gt; ([],[],[])</span><br><span class="line">      | (a,b,c)::tl =&gt; <span class="function">let <span class="title">val</span> <span class="params">(l1,l2,l3)</span> </span>= unzip3 tl</span><br><span class="line">                       in</span><br><span class="line">                           (a::l1, b::l2, c::l3)</span><br><span class="line">                       end</span><br></pre></td></tr></table></figure></li>
-<li>非下降的list<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun nondecreasing xs = (* <span class="keyword">int</span> list -&gt; bool *)</span><br><span class="line">    <span class="keyword">case</span> xs of </span><br><span class="line">        [] =&gt; <span class="keyword">true</span>  <span class="comment">// 没有元素话肯定是非下降的</span></span><br><span class="line">      | _::[] =&gt; <span class="keyword">true</span>  <span class="comment">// 只有1个元素的话肯定也是非下降的</span></span><br><span class="line">      | head::(neck::rest) =&gt; head &gt;= neck    <span class="comment">// 2个及以上则需要判断了 </span></span><br><span class="line">                              <span class="function">andalso <span class="title">nondecreasing</span> <span class="params">(neck::rest)</span></span></span><br></pre></td></tr></table></figure></li>
-<li>两数相乘后的符号<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">datatype sgn = P | N | Z</span><br><span class="line"><span class="function">fun <span class="title">multsign</span> <span class="params">(x1, x2)</span> </span>= (* <span class="keyword">int</span> * <span class="keyword">int</span> -&gt; sgn *)</span><br><span class="line">    let fun sign x = <span class="keyword">if</span> x=<span class="number">0</span> then Z <span class="keyword">else</span> <span class="keyword">if</span> x&gt;<span class="number">0</span> then P <span class="keyword">else</span> Z</span><br><span class="line">    in </span><br><span class="line">        <span class="keyword">case</span> (sign x1, sign x2) of</span><br><span class="line">            (Z,_) =&gt; Z</span><br><span class="line">          | (_,Z) =&gt; Z</span><br><span class="line">          | (P,P) =&gt; P</span><br><span class="line">          | (N,N) =&gt; P</span><br><span class="line">          | _ =&gt; N     <span class="comment">// 相当于otherwise</span></span><br><span class="line">      <span class="comment">//  但是下面这么写更保险，因为编译器会帮我们检查是否漏了哪种情况</span></span><br><span class="line">      <span class="comment">//  | (N,P) =&gt; N</span></span><br><span class="line">      <span class="comment">//  | (P,N) =&gt; N</span></span><br></pre></td></tr></table></figure></li>
-<li>Nested Pattern可以使得代码更简洁优雅，避免使用 nested 的 case expression 和 不必要的分支或者let语句，善用通配符(wildcard)_</li>
-</ul>
-<h3 id="Nested-Patterns-Precisely"><a href="#Nested-Patterns-Precisely" class="headerlink" title="Nested Patterns Precisely"></a>Nested Patterns Precisely</h3><p>过程：先确认 type 是否 match，然后再 bind 变量到一个值上去</p>
-<ul>
-<li>Pattern <code>a::b::c::d</code> matches all lists with &gt;=3 elements</li>
-<li>Pattern <code>a::b::c::[]</code> mathces all lists with 3 elements</li>
-<li>Pattern <code>((a,b),(c,d))::e</code> matches all non-empty lists of pairs of pairs</li>
-</ul>
-<h3 id="Optional-Function-Patterns"><a href="#Optional-Function-Patterns" class="headerlink" title="Optional: Function Patterns"></a>Optional: Function Patterns</h3><p>一般函数定义：<code>fun f p = e</code><br>之前用到 Nested Pattern 的时候，都是对 e 下工夫，进行分类，但是function pattern就像是函数重载，支持多种输入，直接对f p进行分类，如：<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">append</span> <span class="params">([],ys)</span> </span>= ys</span><br><span class="line">  | append (x::xs<span class="string">', ys) = x :: append(xs'</span>, ys)</span><br></pre></td></tr></table></figure><br>  但事实上，这个用case expression完全也可以表示的好，没有必要</p>
-<h3 id="Exceptions"><a href="#Exceptions" class="headerlink" title="Exceptions"></a>Exceptions</h3><p>exception 的 数据类型是 exn, 也就是说可以作为参数传进函数，通过 raise 触发中断：<br>需要掌握：</p>
-<ol>
-<li><strong>exception binding</strong>: <code>exception [Name]</code> 可以加上 <code>of int *int</code>表示同名exception也可以有不同的处理方式  </li>
-<li><strong>throw an exception</strong>: <code>raise [Name]</code> 如果是of定义了exception的参数就需要赋上</li>
-<li><strong>catch an exception</strong>: <code>e1 handle [Name] =&gt; e2</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义自己的exception，当然也有已有的exception</span></span><br><span class="line">exception MyUndesirableCondition</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用实例</span></span><br><span class="line"><span class="function">fun <span class="title">mydiv</span> <span class="params">(x, y)</span> </span>=</span><br><span class="line">    <span class="keyword">if</span> y = <span class="number">0</span></span><br><span class="line">    then raise MyUndesirableCondition</span><br><span class="line">    <span class="keyword">else</span> x div y</span><br><span class="line">    </span><br><span class="line"><span class="comment">// exception作为参数传递</span></span><br><span class="line"><span class="function">fun <span class="title">maxlist</span> <span class="params">(xs, es)</span> </span>= <span class="comment">// int list * exn -&gt; int</span></span><br><span class="line">    <span class="keyword">case</span> xs of</span><br><span class="line">        []    =&gt; raise ex</span><br><span class="line">      | x::[] =&gt; x</span><br><span class="line">      | x::xs =&gt; Int.max(x, maxlist(xs<span class="string">', ex))</span></span><br><span class="line"><span class="string">      </span></span><br><span class="line"><span class="string">// catch the exception，避免程序报错, x会被赋为42</span></span><br><span class="line"><span class="string">val x = maxlist ([], MyUndersirableCondition)</span></span><br><span class="line"><span class="string">    handle MyUndesirableCondition =&gt; 42</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="Tail-Recursion"><a href="#Tail-Recursion" class="headerlink" title="Tail Recursion"></a>Tail Recursion</h3><ul>
-<li>Efficiency<br>程序运行时，存在一个 <strong>call stack</strong> 记录所有开始了但是还没有返回的函数，rucursion 会导致 call stack中很多指针指向同一个函数</li>
-<li><strong>Tail Recursion</strong><br>是提高recursion效率的一种优化方法，当递归获取的结果不需要额外的操作时，可以直接返回递归从底层(<strong>tail position</strong>)准备返回的值,最后一次递归（在tail position调用函数）也叫做 <strong>tail call</strong>:<br><strong>Methodology</strong>: <ol>
-<li>创建一个包含 <strong>accumulator</strong> 的 helper 函数。accumulator暂存需要累加的值</li>
-<li>上一步递归的结果变成新一次递归的初值</li>
-<li>这一步递归的acc变成这一步的结果<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// traditional recursion</span></span><br><span class="line">fun rev xs =</span><br><span class="line">    <span class="keyword">case</span> xs of</span><br><span class="line">        [] =&gt; []</span><br><span class="line">      | x::xs<span class="string">' =&gt; (rev xs) @ [x]    </span></span><br><span class="line"><span class="string">  // 以上append操作在递归来看是 1+2+...+n次操作，所以时间复杂度是O(n^2)</span></span><br><span class="line"><span class="string">  // 而以下的tail recursion是O(n)</span></span><br><span class="line"><span class="string">// tail recursion</span></span><br><span class="line"><span class="string">fun rev xs = </span></span><br><span class="line"><span class="string">    let fun aux(xs, acc) =    // helper func</span></span><br><span class="line"><span class="string">            case xs of</span></span><br><span class="line"><span class="string">                [] =&gt; acc</span></span><br><span class="line"><span class="string">              | x::xs'</span> =&gt; aux(xs<span class="string">', x::acc)	</span></span><br><span class="line"><span class="string">              // 在help func上不会做任何操作</span></span><br><span class="line"><span class="string">              // 只改变 accumulator</span></span><br><span class="line"><span class="string">    in</span></span><br><span class="line"><span class="string">        aux(xs, [])</span></span><br><span class="line"><span class="string">    end</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li>Complexity<br>事实上，考虑空间复杂度，tail recursion 并不是万能药，比如处理树的时候</li>
-</ul>
-
+        <p>Coursera上据说很有挑战的一门课，课程目的是学会如何设计优美的程序结构，掌握对编程语言的统一宏观概念。在Part A中利用ML语言和Emacs编辑器作为工具，Part B 和 Part C分别是 Rocket 和 Ruby。</p>
+        
+          <a class="article-more-a" href="/MOOC-MOOC/ProgramLangPartA.html#more">more >></a>
+        
       
 
       
@@ -1236,15 +579,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Coursera</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Coursera</a>
         		</li>
       		
 		</ul>
@@ -1314,206 +657,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：3.1k字 | 预计阅读时长：14分钟
+      字数：3.2k字 | 预计阅读时长：14分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-1-PyTorch简介"><a href="#1-1-PyTorch简介" class="headerlink" title="1.1 PyTorch简介"></a>1.1 PyTorch简介</h2><blockquote>
-<p>Torch是一个与Numpy类似的张量（Tensor）操作库，与Numpy不同的是Torch对GPU支持的很好，Lua是Torch的上层包装。</p>
-</blockquote>
-<p>Pytorch与Torch共享底层，Pytorch本身是一个python包，提供两个高级功能：</p>
-<ul>
-<li>GPU加速的张量计算</li>
-<li>自动求导的深度神经网络</li>
-</ul>
-<h2 id="1-2-Pytorch环境搭建"><a href="#1-2-Pytorch环境搭建" class="headerlink" title="1.2 Pytorch环境搭建"></a>1.2 Pytorch环境搭建</h2><ol>
-<li>安装 Pytorch<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#默认 使用 cuda10.<span class="number">1</span></span><br><span class="line">pip3 install torch===<span class="number">1</span>.<span class="number">3</span>.<span class="number">0</span> torchvision===<span class="number">0</span>.<span class="number">4</span>.<span class="number">1</span> -f https://download.pytorch.org/whl/torch_stable.</span><br><span class="line"></span><br><span class="line">#cuda <span class="number">9</span>.<span class="number">2</span></span><br><span class="line">pip3 install torch==<span class="number">1</span>.<span class="number">3</span>.<span class="number">0</span>+cu92 torchvision==<span class="number">0</span>.<span class="number">4</span>.<span class="number">1</span>+cu92 -f https://download.pytorch.org/whl/torch_stable.html</span><br><span class="line"></span><br><span class="line">#cpu版本</span><br><span class="line">pip3 install torch==<span class="number">1</span>.<span class="number">3</span>.<span class="number">0</span>+cpu torchvision==<span class="number">0</span>.<span class="number">4</span>.<span class="number">1</span>+cpu -f https://download.pytorch.org/whl/torch_stable.html</span><br></pre></td></tr></table></figure></li>
-<li>配置 Jupyter Notebook<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装ipykernel</span><br><span class="line">conda install ipykernel</span><br><span class="line">#写入环境</span><br><span class="line">python -m ipykernel install  --name pytorch --display-name "Pytorch <span class="keyword">for</span> Deeplearning"</span><br><span class="line">#切换回基础环境</span><br><span class="line">activate base</span><br><span class="line">#创建jupyter notebook配置文件</span><br><span class="line">jupyter notebook --generate-config</span><br><span class="line">## 这里会显示创建jupyter_notebook_config.py的具体位置</span><br></pre></td></tr></table></figure>
-​        打开文件，修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.notebook_dir &#x3D; &#39;&#39; 默认目录位置</span><br><span class="line">c.NotebookApp.iopub_data_rate_limit &#x3D; 100000000 这个改大一些否则有可能报错</span><br></pre></td></tr></table></figure></li>
-<li>至此 Pytorch 的开发环境安装完成，可以在开始菜单中打开Jupyter Notebook 在New 菜单中创建文件时选择Pytorch for Deeplearning 创建PyTorch的相关开发环境了</li>
-</ol>
-<hr>
-<h2 id="1-3-60分钟快速入门"><a href="#1-3-60分钟快速入门" class="headerlink" title="1.3 60分钟快速入门"></a>1.3 60分钟快速入门</h2><h3 id="1-3-1-Tensor-tutorial"><a href="#1-3-1-Tensor-tutorial" class="headerlink" title="1.3.1 Tensor_tutorial"></a>1.3.1 Tensor_tutorial</h3><p>tensor的概念和用法参考numpy即可</p>
-<ul>
-<li><p><code>torch.empty(m, n)</code>不是零张量，其初值是分配的存储空间的值</p>
-</li>
-<li><p>允许以相同的size重载tensor：<code>torch.randn_like(x, dtype=torch.float)</code></p>
-</li>
-<li><p>一些定义tensor的方式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = torch.empty(<span class="number">5</span>, <span class="number">3</span>) <span class="comment">#分配空间</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>) <span class="comment">#随机</span></span><br><span class="line">x = torch.zeros(<span class="number">5</span>, <span class="number">3</span>, dtype=torch.long) <span class="comment">#全零</span></span><br><span class="line">x = torch.tensor([[<span class="number">5</span>,<span class="number">3</span>], [<span class="number">5</span>,<span class="number">3</span>]]) <span class="comment">#直接定义</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tensor的四则运算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设x和y是相同大小的tensor，以add示范，其他的参考</span></span><br><span class="line">result = x + y</span><br><span class="line">result = torch.add(x, y)</span><br><span class="line">torch.add(x, y, out=result)</span><br><span class="line">y.add_(x) <span class="comment"># in-place addition</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>所有in-place的运算都是正常的操作符加一个下划线 <strong>_</strong><br>如<code>x.copy_(y)</code> , <code>x.t_()</code></p>
-</li>
-<li><p>支持切片操作（<code>x[:, 1]</code>）</p>
-</li>
-<li><p>torch本身可以通过<code>x.view</code>来实现reshape</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = torch.rand(<span class="number">4</span>, <span class="number">4</span>) <span class="comment"># size: [4,4]</span></span><br><span class="line">y = x.view(<span class="number">16</span>) <span class="comment"># size: [16], 注意不是二维的[16,1]</span></span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">8</span>) <span class="comment"># size:[2,8], -1即由另一个维度决定，没有决定权的意思</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tensor和numpy可以相互转换，他们<strong>共享同一个存储单元</strong></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tensor to numpy</span></span><br><span class="line">a = torch.ones(<span class="number">5</span>)</span><br><span class="line">b = a.numpy()</span><br><span class="line"><span class="comment"># numpy to tensor</span></span><br><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = torch.from_numpy(a)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="1-3-2-Autograd-tutorial"><a href="#1-3-2-Autograd-tutorial" class="headerlink" title="1.3.2 Autograd_tutorial"></a>1.3.2 Autograd_tutorial</h3><pre><code>`autograd`本身是一个包，也是PyTorch中最重要的一个包，其中`torch.Tensor`就是这个包中最重要的一个类</code></pre><ul>
-<li><p>内部操作<br>每个变量有两个标志：<code>requires_grad</code> 和 <code>volatile</code></p>
-<ul>
-<li><p><strong>requires_grad</strong></p>
-<blockquote>
-<p>如果有一个单一的输入操作需要梯度，它的输出也需要梯度。相反，只有所有输入都不需要梯度，输出才不需要。如果其中所有的变量都不需要梯度进行，后向计算不会在子图中执行。</p>
-</blockquote>
-<pre><code>即对于某一`requires_grad`为`True`的tensor输出方向的tensor都要为`True`，输入方向的tensor不做要求。
-
-因此在冻结模型某部分的时候不需要改变网络结构，只需要切换`requires_grad`的地方就可以了</code></pre></li>
-<li><p><strong>volatile</strong><br>利用这个标志的前提是所有tensor的<code>requires_grad</code>都为<code>False</code>，优势是梯度更容易传递，会使用绝对最小的内存来评估模型。感觉用不上所以就没有细看了</p>
-</li>
-</ul>
-</li>
-<li><p>如果不想自动计算所有梯度（应该用不上）： <code>with torch.no_grad():</code>, 把想要计算梯度的tensor的<code>requires_grad</code>标志置为<code>True</code>即可。在评估模型时很有用</p>
-</li>
-</ul>
-<hr>
-<h3 id="1-3-3-Neural-Networks-tutorial"><a href="#1-3-3-Neural-Networks-tutorial" class="headerlink" title="1.3.3 Neural_Networks_tutorial"></a>1.3.3 Neural_Networks_tutorial</h3><pre><code>利用`torch.nn`包来搭建神经网络</code></pre><ul>
-<li><p><strong>Define the network</strong></p>
-<p>一般定义网络即定义一个类（先不考虑后面的实例化），其中必须定义的两个成员函数是<code>__init__(self)</code> 和 <code>forward(self, x)</code>。其中<strong>init</strong>函数用来定义每层的结构，forward函数用来按顺序排列每层的结构。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    super(Net, self).__init__()</span><br><span class="line">    <span class="comment"># 1 input image channel, 6 output channels, 5x5 square convolution</span></span><br><span class="line">    <span class="comment"># kernel</span></span><br><span class="line">    self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">    self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br><span class="line">    <span class="comment"># an affine operation: y = Wx + b</span></span><br><span class="line">    self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>)</span><br><span class="line">    self.fc2 = nn.Linear(<span class="number">120</span>, <span class="number">84</span>)</span><br><span class="line">    self.fc3 = nn.Linear(<span class="number">84</span>, <span class="number">10</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">    <span class="comment"># Max pooling over a (2, 2) window</span></span><br><span class="line">    x = F.max_pool2d(F.relu(self.conv1(x)), (<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">    <span class="comment"># If the size is a square you can only specify a single number</span></span><br><span class="line">    x = F.max_pool2d(F.relu(self.conv2(x)), <span class="number">2</span>)</span><br><span class="line">    x = x.view(<span class="number">-1</span>, self.num_flat_features(x))</span><br><span class="line">    x = F.relu(self.fc1(x))</span><br><span class="line">    x = F.relu(self.fc2(x))</span><br><span class="line">    x = self.fc3(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">num_flat_features</span><span class="params">(self, x)</span>:</span></span><br><span class="line">    size = x.size()[<span class="number">1</span>:]  <span class="comment"># all dimensions except the batch dimension</span></span><br><span class="line">    num_features = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> size:</span><br><span class="line">        num_features *= s</span><br><span class="line">    <span class="keyword">return</span> num_features</span><br><span class="line"></span><br><span class="line">net = Net()	<span class="comment"># 实例化</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Processing inputs and calling backward</strong></p>
-<p>​        对于LeNet来说，图像大小是32×32的，<strong>不要把conv卷积核大小和输入大小混淆</strong>，所以定义输入和反向传播计算如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment"># 因为第一层是conv，所以要按照nn.Conv2d的输入参数来定</span></span><br><span class="line">  <span class="comment"># nn.Conv2d接受一个4维的张量，sSamples * nChannels * Height * Width（样本数*通道数*高*宽）</span></span><br><span class="line">  input = torch.randn(<span class="number">1</span>, <span class="number">1</span>, <span class="number">32</span>, <span class="number">32</span>) <span class="comment"># torch.nn不支持单个样本，所以必须多一个维度来表示个数</span></span><br><span class="line">  out = net(input)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 反向传播</span></span><br><span class="line">  net.zero_grad() <span class="comment"># 将所有参数的梯度缓存清零</span></span><br><span class="line">out.backward(torch.randn(<span class="number">1</span>, <span class="number">10</span>)) <span class="comment"># 随机梯度的反向传播</span></span><br><span class="line">  <span class="comment"># （1是输入决定的样本个数，10是网络定义的输出个数）</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Compute the loss</strong></p>
-<p>​        即构造一个损失函数，以一对 <code>(output, target)</code> 作为输入，计算一个scalar估计网络输出和目标值的差值。 nn包中有很多不同的损失函数，比如 <code>nn.MSELoss</code>。</p>
-<p>​        用法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">output = net(input)</span><br><span class="line">target = torch.randn(<span class="number">10</span>)  <span class="comment"># 随机值作为样例</span></span><br><span class="line">target = target.view(<span class="number">1</span>, <span class="number">-1</span>)  <span class="comment"># 使target和output的shape相同</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line"></span><br><span class="line">loss = criterion(output, target)</span><br><span class="line">print(loss)</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Backprop</strong></p>
-<p>​        简单来说，一句 <code>loss.backward()</code> 即可。以下展示调用 <code>loss.backward()</code> 的效果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">net.zero_grad()     <span class="comment"># 一定记得清除梯度</span></span><br><span class="line"><span class="comment"># 这里仅展示conv1层的bias项在反响传播前后的梯度，因为有6个output channel，所以有6项</span></span><br><span class="line">print(<span class="string">'conv1.bias.grad before backward'</span>) </span><br><span class="line">print(net.conv1.bias.grad)</span><br><span class="line"></span><br><span class="line">loss.backward()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'conv1.bias.grad after backward'</span>)</span><br><span class="line">print(net.conv1.bias.grad)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Update the weights</strong></p>
-<p>​            Pytorch构建了一个包 <code>torch.optim</code> 实现了各种更新规则，使用方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># create your optimizer</span></span><br><span class="line">  optimizer = optim.SGD(net.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># in your training loop:</span></span><br><span class="line">  optimizer.zero_grad()   <span class="comment"># zero the gradient buffers （注意也要将梯度缓冲区置零</span></span><br><span class="line">  output = net(input)</span><br><span class="line">  loss = criterion(output, target)</span><br><span class="line">  loss.backward()</span><br><span class="line">  optimizer.step()    <span class="comment"># Does the update</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h3 id="1-3-4-Cifar10-tutorial"><a href="#1-3-4-Cifar10-tutorial" class="headerlink" title="1.3.4 Cifar10_tutorial"></a>1.3.4 Cifar10_tutorial</h3><blockquote>
-<p>依次按照下列顺序进行：</p>
-<ol>
-<li>使用torchvision加载和归一化CIFAR10训练集和测试集</li>
-<li>定义一个卷积神经网络（CNN）</li>
-<li>定义损失函数（Loss func）</li>
-<li>在训练集上训练网络</li>
-<li>在测试集上测试网络</li>
-</ol>
-</blockquote>
-<ul>
-<li><p><strong>处理数据集</strong></p>
-<blockquote>
-<p>CIFAR10数据集有如下10个类别：‘airplane’, ‘automobile’, ‘bird’, ‘cat’, ‘deer’, ‘dog’, ‘frog’, ‘horse’, ‘ship’, ‘truck’。CIFAR-10的图像都是 3x32x32大小的，即，3颜色通道，32x32像素。</p>
-</blockquote>
-<p>​        <code>torchvision</code> 包可以直接处理CIFAR10等基本图像数据集，可以用图像转换器<code>torchvision.datasets</code> 和 <code>torch.utils.data.Dataloader</code>来分别得到 test 和 train 数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"></span><br><span class="line"><span class="comment"># torchvision的输出是[0,1]的PILImage图像，我们把它转换为归一化范围为[-1, 1]的张量</span></span><br><span class="line">transform = transforms.Compose(</span><br><span class="line">    [transforms.ToTensor(),</span><br><span class="line">     transforms.Normalize((<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>), (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>))])</span><br><span class="line"><span class="comment"># 下载训练集并读取</span></span><br><span class="line">trainset = torchvision.datasets.CIFAR10(root=<span class="string">'./data'</span>, train=<span class="literal">True</span>,</span><br><span class="line">                                        download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">trainloader = torch.utils.data.DataLoader(trainset, batch_size=<span class="number">4</span>,</span><br><span class="line">                                          shuffle=<span class="literal">True</span>, num_workers=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 下载测试集并读取</span></span><br><span class="line">testset = torchvision.datasets.CIFAR10(root=<span class="string">'./data'</span>, train=<span class="literal">False</span>,</span><br><span class="line">                                       download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">testloader = torch.utils.data.DataLoader(testset, batch_size=<span class="number">4</span>,</span><br><span class="line">                                         shuffle=<span class="literal">False</span>, num_workers=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 10个tuple贴上标签</span></span><br><span class="line">classes = (<span class="string">'plane'</span>, <span class="string">'car'</span>, <span class="string">'bird'</span>, <span class="string">'cat'</span>,</span><br><span class="line">           <span class="string">'deer'</span>, <span class="string">'dog'</span>, <span class="string">'frog'</span>, <span class="string">'horse'</span>, <span class="string">'ship'</span>, <span class="string">'truck'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>​        通过以下方法<strong>展示图像</strong>：</p>
-<blockquote>
-<p>plt.imshow()函数负责对图像进行处理，并显示其格式，而plt.show()则是将plt.imshow()处理后的函数显示出来。</p>
-<p>关于np.transpose: <a href="https://blog.csdn.net/u012762410/article/details/78912667" target="_blank" rel="noopener">https://blog.csdn.net/u012762410/article/details/78912667</a></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示图像的函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">imshow</span><span class="params">(img)</span>:</span></span><br><span class="line">    img = img / <span class="number">2</span> + <span class="number">0.5</span>     <span class="comment"># unnormalize, 从[-1, 1]变回[0, 1]</span></span><br><span class="line">    npimg = img.numpy()		<span class="comment"># 转换成numpy格式</span></span><br><span class="line">    plt.imshow(np.transpose(npimg, (<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>)))	</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># **获取随机数据**</span></span><br><span class="line">dataiter = iter(trainloader)	<span class="comment"># iter的对象是Dataloader</span></span><br><span class="line">images, labels = dataiter.next()</span><br><span class="line"><span class="comment"># 展示图像</span></span><br><span class="line">imshow(torchvision.utils.make_grid(images))	<span class="comment"># make_grid的作用是把四张图片拼在一起</span></span><br><span class="line"><span class="comment"># 显示图像标签</span></span><br><span class="line">print(<span class="string">' '</span>.join(<span class="string">'%5s'</span> % classes[labels[j]] <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>定义CNN</strong></p>
-<p>参考上一节（只是把单通道变为三通道）：</p>
-<pre><code>- relu等激活函数在 `torch.nn.functional` 包中
-- conv层，pooling层，fc层等layer在 `torch.nn` 包中</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">        self.pool = nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">120</span>, <span class="number">84</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">84</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.pool(F.relu(self.conv1(x)))</span><br><span class="line">        x = self.pool(F.relu(self.conv2(x)))</span><br><span class="line">        x = x.view(<span class="number">-1</span>, <span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>)</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">net = Net()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>定义Loss Function 和 Optimizer</strong></p>
-<p>​        交叉熵作为损失函数，带动量的SGD作为优化器（RMS Prop）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=<span class="number">0.001</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Training</strong></p>
-<p>几个要点：</p>
-<ul>
-<li>两个循环，先放外面的大循环表示epoch，循环次数为超参; 里面的小循环表示遍历训练集，标准语句为<code>for i, data in enumerate(trainloader, 0):</code></li>
-<li>running_loss 每次清零要在两个循环之间，即只是统计每个 epoch 的 loss</li>
-<li>小循环中：获取输入，梯度清零，正向传播，计算损失，反向传播，优化，更新loss状态并打印</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">2</span>):  <span class="comment"># 多批次循环</span></span><br><span class="line"></span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i, data <span class="keyword">in</span> enumerate(trainloader, <span class="number">0</span>):</span><br><span class="line">        <span class="comment"># 获取输入</span></span><br><span class="line">        inputs, labels = data</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 梯度置0</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 正向传播，反向传播，优化</span></span><br><span class="line">        outputs = net(inputs)	<span class="comment"># 正向传播</span></span><br><span class="line">        loss = criterion(outputs, labels)	<span class="comment"># 计算损失</span></span><br><span class="line">        loss.backward()		<span class="comment"># 反向传播</span></span><br><span class="line">        optimizer.step()	<span class="comment"># 优化</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 打印状态信息</span></span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2000</span> == <span class="number">1999</span>:    <span class="comment"># 每2000批次打印一次</span></span><br><span class="line">            print(<span class="string">'[%d, %5d] loss: %.3f'</span> %</span><br><span class="line">                  (epoch + <span class="number">1</span>, i + <span class="number">1</span>, running_loss / <span class="number">2000</span>))</span><br><span class="line">            running_loss = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Finished Training'</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>Test</strong></p>
-<p>​        通常采用全体测试集进行检验，计算正确率，这里先具象展示训练效果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dataiter = iter(testloader)</span><br><span class="line">images, labels = dataiter.next()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图片和GroundTruth</span></span><br><span class="line">imshow(torchvision.utils.make_grid(images))</span><br><span class="line">print(<span class="string">'GroundTruth: '</span>, <span class="string">' '</span>.join(<span class="string">'%5s'</span> % classes[labels[j]] <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">4</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示预测结果</span></span><br><span class="line">outputs = net(images)</span><br><span class="line">_, predicted = torch.max(outputs, <span class="number">1</span>)	<span class="comment"># 最高概率的标签</span></span><br><span class="line">print(<span class="string">'Predicted: '</span>, <span class="string">' '</span>.join(<span class="string">'%5s'</span> % classes[predicted[j]] <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
-
-<p>​        计算整体正确率的代码这样来写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> testloader:</span><br><span class="line">        images, labels = data</span><br><span class="line">        outputs = net(images)</span><br><span class="line">        _, predicted = torch.max(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).sum().item()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Accuracy of the network on the 10000 test images: %d %%'</span> % (<span class="number">100</span> * correct / total))</span><br></pre></td></tr></table></figure>
-
-<p>​        具体看某一类的正确率：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class_correct = list(<span class="number">0.</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line">class_total = list(<span class="number">0.</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> testloader:</span><br><span class="line">        images, labels = data</span><br><span class="line">        outputs = net(images)</span><br><span class="line">        _, predicted = torch.max(outputs, <span class="number">1</span>)</span><br><span class="line">        c = (predicted == labels).squeeze()	<span class="comment">#二维变一维</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            label = labels[i]</span><br><span class="line">            class_correct[label] += c[i].item()</span><br><span class="line">            class_total[label] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">'Accuracy of %5s : %2d %%'</span> % (classes[i], <span class="number">100</span> * class_correct[i] / class_total[i]))</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-</li>
-</ul>
-<h2 id="1-4-Data-Loading"><a href="#1-4-Data-Loading" class="headerlink" title="1.4 Data Loading"></a>1.4 Data Loading</h2><h3 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h3><p>​        Dataset是一个抽象类，为了能够方便的读取，需要将要使用的数据包装为Dataset类。 自定义的Dataset需要继承它并且实现两个成员方法：</p>
-<ol>
-<li><p><code>__getitem__()</code> 该方法定义用索引(<code>0</code> 到 <code>len(self)</code>)获取一条数据或一个样本</p>
-</li>
-<li><p><code>__len__()</code> 该方法返回数据集的总长度</p>
-<p>​        以下举一个姿态估计的例子，label通过<code>__init__()</code>函数获取，训练图片通过<code>__getitem__()</code>函数获取，这样比较节约内存，一般是通过字典存储，格式如<code>{&#39;image&#39;: image, &#39;landmarks&#39;: landmarks}</code>。Dataset 的定义和调用方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定义数据集</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyData</span><span class="params">(Dataset)</span>:</span></span><br><span class="line">	</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, csv_file, root_dir, transform=None)</span>:</span></span><br><span class="line">      self.landmarks_frame = pd.read_csv(csv_file)</span><br><span class="line">      self.root_dir = root_dir</span><br><span class="line">      self.transform = transform</span><br><span class="line">      </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">  	<span class="keyword">return</span> len(self.landmarks_frame)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, idx)</span>:</span></span><br><span class="line">      <span class="keyword">if</span> torch.is_tensor(idx):</span><br><span class="line">          idx = idx.tolist()</span><br><span class="line">          </span><br><span class="line">      img_name = os.path.join(self.root_dir, </span><br><span class="line">                              self.landmarks_frame.iloc[idx, <span class="number">0</span>])</span><br><span class="line">      image = io.imread(img_name)</span><br><span class="line">      landmarks = self.landmarks_frame.iloc[idx, <span class="number">1</span>:]</span><br><span class="line">      landmarks = np.array([landmarks])</span><br><span class="line">      sample = &#123;<span class="string">'image'</span>: image, <span class="string">'landmarks'</span>: landmarks&#125;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span> self.transform:</span><br><span class="line">          sample = self.transform(sample)</span><br><span class="line">          </span><br><span class="line">      <span class="keyword">return</span> sample</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">   <span class="comment"># 调用数据集</span></span><br><span class="line">  face_dataset = MyData(csv_file=<span class="string">'data/faces/face_landmark.csv'</span>, </span><br><span class="line">                        root_dir=<span class="string">'data/faces'</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(len(face_dataset)):</span><br><span class="line">      sample = face_dataset[i]</span><br><span class="line">      <span class="comment"># 至此即可通过调用sample['image']或者sample['landmarks']来获取某一项的img和label</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Transforms"><a href="#Transforms" class="headerlink" title="Transforms"></a>Transforms</h3></li>
-</ol>
-<p>实际场景中，经常需要对图像进行预处理，其中必要的就是统一图像大小 (Rescale)，常见的有RandomCrop进行数据增强，一般来说需要建立一个类，成员函数由<code>__init__()</code> 和 <code>__call__()</code> 组成：</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rescale</span><span class="params">(object)</span>:</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="DataLoader"><a href="#DataLoader" class="headerlink" title="DataLoader"></a>DataLoader</h3><p>DataLoader为我们提供了对Dataset的读取操作，常用参数有：batch_size(每个batch的大小)、 shuffle(是否进行shuffle操作)、 num_workers(加载数据的时候使用几个子进程)。下面做一些简单的操作：<br>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dataloader = DataLoader(face_dataset, batch_size=<span class="number">4</span>,</span><br><span class="line">                        shuffle=<span class="literal">True</span>, num_workers=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 一般通过for循环处理每一个batch</span></span><br><span class="line"><span class="keyword">for</span> i_batch, sample_batched <span class="keyword">in</span> enumerate(dataloader):</span><br></pre></td></tr></table></figure></p>
-
+        <p>PyTorch中文手册第一章：PyTorch入门。包括简介，环境搭建，相关资源介绍和60分钟快速入门</p>
+        
+          <a class="article-more-a" href="/AI-AI/PyTorch/PyTorch%E5%85%A5%E9%97%A8.html#more">more >></a>
+        
       
 
       
@@ -1606,52 +759,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常优质了，但可惜我还是薅不动nvidia，以后再说吧。下面开始正题：</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装这块其实网上教程非常详细了，建议看底下放的B站链接，照着来就好了，我装的是KDE，感觉很棒。</p>
-<h4 id="U盘刻录"><a href="#U盘刻录" class="headerlink" title="U盘刻录"></a>U盘刻录</h4><p>听说好像是新版的rufus没有dd模式刻录这个弹出了，当时也是折腾了挺久，最后用的USBWriter-1.3刻录的，没有问题</p>
-<h4 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h4><p>因为aur源下载的东西好像是安装到/opt目录下的，然后当时看各种教程，分区特别细，所以只分给了opt4个G的磁盘空间，所以装一个anaconda就满了… 最后还是重装系统，512M给efi分区，其他100多个G全给了根目录/，真香。</p>
-<h4 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h4><p>英文真的看的懂，还少了很多bug，安装时闪退的可以试试这个。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><blockquote>
-<p>注：meta指的是windows那个标标</p>
-</blockquote>
-<p> <strong>alt+space</strong>: search<br> <strong>meta+space</strong> : 下拉式终端Yakuake (原本是F12的，建议换成这个，和search搭配)<br> <strong>ctrl+alt+t</strong>：konsole<br>建议多去逛逛settings，算是初步了解一下manjaro</p>
-<ul>
-<li><p>可以在输入输出设备中修改成双击确认和touchpad的垂直滚动，更符合人的习惯    </p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4></li>
-<li><p>下载工具：yay<br>  可以替代pacman（下载AUR中的东西）：<code>sudo pacman -Sy yay</code></p>
-</li>
-<li><p>更换各种源</p>
-<ol>
-<li>国内镜像源<br><code>sudo pacman-mirrors -i -c China -m rank</code> 然后选中想要的源（清华中科大上交都可以）</li>
-<li>软件源<br><code>./etc/pacman.conf</code>中添加：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel &#x3D; Optional TrustedOnly</span><br><span class="line">Server &#x3D; https:&#x2F;&#x2F;mirrows.utsc.edu.cn&#x2F;archlinuxcn&#x2F;$arch</span><br></pre></td></tr></table></figure>
-然后修改软件源配置<br><code>sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</code></li>
-</ol>
-</li>
-<li><p>更新一下系统（这个操作常用）<br><code>sudo pacman -Syy</code></p>
-</li>
-<li><p>输入法<br><code>/home/hugvgngj/.xprofile</code>中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- export GTK_IM_MODULE&#x3D;fcitx</span><br><span class="line">  export QT_IM_MODULE&#x3D;fcitx</span><br><span class="line">  export XMODIFIERS&#x3D;@im&#x3D;fcitx</span><br></pre></td></tr></table></figure>
-<p>然后安装fcitx</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yay -Sy fcitx-im</span><br><span class="line">yay -Sy fcitx-configtool</span><br><span class="line">yay -Sy fcitx-googlepinyin</span><br></pre></td></tr></table></figure>
-<p>可能重启还是没变，需要到输入法的config里去找</p>
-</li>
-<li><p>安装各种软件</p>
-<ol>
-<li><strong>chrome</strong>: <code>yay -Sy google-chrome</code></li>
-<li><strong>Tim</strong>：对于折腾了很久还是装不上tim的小伙伴们可以看这里：<br> 反正最后只是想用tim传点东西，聊天什么的都在手机上，所以能满足基本功能个就行<br>所以看这里：<a href="https://github.com/askme765cs/Wine-QQ-TIM" target="_blank" rel="noopener">github链接</a>，下载即用</li>
-<li><strong>VS code</strong>：看<a href="https://www.jianshu.com/p/f033c52f5f3f" target="_blank" rel="noopener">这里</a></li>
-<li><strong>anaconda</strong>：看<a href="https://www.cnblogs.com/yangruiGB2312/p/9004335.html" target="_blank" rel="noopener">这里</a><br>（我是直接在pacmac应用商店下载的）<br> 对了，当时一直找不到navigator，后来才发现要进入自己的环境之后才可以用命令<code>anaconda-navigator</code>打开熟悉的gui界面</li>
-</ol>
-</li>
-</ul>
-<p>很好的值得参考的博客：</p>
-<ol>
-<li>首推B站上有个安装系统的讲解，对小白真的很有用：</li>
-<li><a href="https://blog.triplez.cn/manjaro-quick-start/#i-5" target="_blank" rel="noopener">将干净的 Manjaro 快速配置为工作环境</a></li>
-<li><a href="https://www.cnblogs.com/yangruiGB2312/p/9004335.html" target="_blank" rel="noopener">Manjaro折腾笔记：我的数据科学环境搭建之路</a></li>
-<li><a href="https://queensferry.coding.me/2018/06/22/Manjaro-Linux-KDE-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%89%8B%E8%AE%B0/" target="_blank" rel="noopener">Manjaro Linux + KDE 安装使用手记</a></li>
-</ol>
-
+        <p>距离安装双系统已经过了好久…终于过来填这个坑了。在填坑之前，还是想感谢一下联想拯救者，想当初我就是因为在Ubuntu上一直和网卡驱动过不去，查了各种解决方法也解决不了问题，当然还是有收获的，就是知道了大多数遇到这个问题的都是拯救者电脑。所以就一直拖拖拖，大三的寒假才有时间重新上手linux。那么感谢拯救者的原因是什么呢？就是让我发现了宝藏manjaro，虽然manjaro对于显卡驱动的管理已经非常优质了，但可惜我还是薅不动nvidia，以后再说吧。</p>
+        
+          <a class="article-more-a" href="/tools-tools/Manjaro+win10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE.html#more">more >></a>
+        
       
 
       
@@ -1742,69 +853,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：586字 | 预计阅读时长：2分钟
+      字数：616字 | 预计阅读时长：2分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>起因</strong>：因为实在受不了默认的hjkl上下左右，想要修改vim的快捷键，才看到vim竟然还有插件和配置这种东西，原来和zsh一样，看来是我才疏学浅了，于是临时兴起又随便照着别人的配置优化了一下，之后有需要再回来完善。</p>
-<h3 id="安装vundle"><a href="#安装vundle" class="headerlink" title="安装vundle"></a>安装vundle</h3><p>vundle是vim的插件管理器，参考官网安装即可：<a href="https://github.com/VundleVim/Vundle.vim" target="_blank" rel="noopener">https://github.com/VundleVim/Vundle.vim</a></p>
-<p>这里放一点vundle的常见操作：</p>
-<ul>
-<li>安装插件<ol>
-<li>vim中<code>:PluginInstall</code></li>
-<li>命令行<code>vim +PluginInstall +qall</code></li>
-</ol>
-</li>
-<li>移除插件<br>在.vimrc中注释掉对应的Plugin，保存退出后输入命令<code>:BundleClean</code></li>
-<li>更新插件<br><code>:BundleUpdate</code></li>
-<li>列出所有插件<br><code>:BundleList</code></li>
-<li>查找插件<br><code>:BundleSearch</code></li>
-</ul>
-<h3 id="安装YouCompleteMe"><a href="#安装YouCompleteMe" class="headerlink" title="安装YouCompleteMe"></a>安装YouCompleteMe</h3><p>官网地址：<a href="https://github.com/ycm-core/YouCompleteMe" target="_blank" rel="noopener">https://github.com/ycm-core/YouCompleteMe</a></p>
-<p>官网杂七杂八的说太多了，我是参考这个博文安装的：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/35626421" target="_blank" rel="noopener">YouCompleteMe 安装配置方法</a></p>
-<blockquote>
-<p>这里在安装（./install.py –all）的时候报错</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File ~/.vim/bundle/YouCompleteMe/third_party/ycmd/build.py does <span class="keyword">not</span> <span class="keyword">exist</span>; you probably forgot to run:</span><br><span class="line">        git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
-
-<p>按照他的提示执行</p>
-<p><code>git submodule update --init --recursive</code></p>
-<p>即可</p>
-</blockquote>
-<p>emmm因为安装太久了实在受不了，就参考官网说的只安装C的全家福了</p>
-<p><code>python3 install.py --clangd-completer</code></p>
-<h3 id="配置-vimrc和其他插件"><a href="#配置-vimrc和其他插件" class="headerlink" title="配置.vimrc和其他插件"></a>配置.vimrc和其他插件</h3><p>为了方便我直接用的一个博主的配置（<strong>NERDTree</strong>什么的直接通过这里就可以安装好了）</p>
-<p><a href="https://blog.csdn.net/amoscykl/article/details/80616688" target="_blank" rel="noopener">Vim的终极配置方案，完美的写代码界面</a></p>
-<h3 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h3><p>安装方式：在.vimrc中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#39;jnurmine&#x2F;Zenburn&#39;</span><br><span class="line">Plugin &#39;altercation&#x2F;vim-colors-solarized&#39;</span><br></pre></td></tr></table></figure>
-
-<p>诸如此类的字符串就当插件一样的安装了，但是在安装完成之后需要</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkidr ~/.vim/colors</span><br><span class="line">cp ~/.vim/bundle/Zenburn/colors/zenburn.vim ~/.vim/colors/</span><br><span class="line">cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/</span><br></pre></td></tr></table></figure>
-
-<p>这样才可以通过命令在控制台修改主题</p>
-<p><strong>常见命令</strong></p>
-<ul>
-<li><p>查看当前主题<br><code>:colorscheme</code></p>
-</li>
-<li><p>列出所有主题<br><code>:colorscheme [space] [tab]</code></p>
-</li>
-<li><p>切换主题<br><code>:colorscheme [your-theme]</code></p>
-<blockquote>
-<p>参考<a href="https://juejin.im/entry/5b62cdc5e51d4519885635f0" target="_blank" rel="noopener">Vim安装插件</a></p>
-</blockquote>
-</li>
-</ul>
-<h3 id="Vim之用到哪学到哪"><a href="#Vim之用到哪学到哪" class="headerlink" title="Vim之用到哪学到哪"></a>Vim之用到哪学到哪</h3><ol>
-<li>键位映射</li>
-<li>复制粘贴<br><code>v</code> 进入view模式相当于 shift，可以选择ROI，然后选择完毕后按 <code>y</code> ，再在insert模式下按 <code>p</code> 就是粘贴</li>
-<li>撤销<br>insert模式下 <code>:u</code></li>
-</ol>
-<blockquote>
-<p><strong>注</strong>：最后还是因为vim似乎不支持python2依赖所以YCM还是装不上，哎，反正暂时也不用vim写脚本，以后再说吧</p>
-</blockquote>
-
+        <p>初次尝试修改vim插件，效果一般，想到暂时对vim的需求不大，故先搁置于此</p>
+        
+          <a class="article-more-a" href="/tools-tools/%E8%AE%B0%E4%B8%80%E6%AC%A1vim%E4%BC%98%E5%8C%96.html#more">more >></a>
+        
       
 
       
@@ -1891,30 +949,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：283字 | 预计阅读时长：1分钟
+      字数：328字 | 预计阅读时长：1分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h2><p>Winsows上其实是已经有一个hexo了，并且在gihub部署好了，但是迁移的时候好像还挺麻烦的，需要在一开始就建立一个分支（我当然没有建立）。反正也不急，主要是想自己整理自己看，所以就新建一个啦。话说Pacman主题我真的喜欢，因为Manjaro的安装软件就是pacman，所以选这个主题也没有由于太久hhh。下面进入正题哈哈哈哈：</p>
-<p>Manjaro上安装Hexo相当方便，因为编译环境基本上已经配置好了，像npm什么的安装也非常简单（如果已经在win上安装过的话）。</p>
-<p>参考这篇博客即可：<a href="https://www.jianshu.com/p/a6d03d13788b" target="_blank" rel="noopener">linux 下 Hexo + Github 搭建个人博客</a></p>
-<p>码一下关于动画小人的预览网址：<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">Live2d</a></p>
-<h2 id="官方的Hello-World"><a href="#官方的Hello-World" class="headerlink" title="官方的Hello-World"></a>官方的Hello-World</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h5 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h5 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h5 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h5 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>在Linux上配置hexo果然方便多了，应该是因为nodejs比较好配置。现在还没有部署到github上，反正也只是自己看，以后再说啦</p>
+        
+          <a class="article-more-a" href="/tools-tools/%E5%9C%A8Manjaro%E4%B8%8A%E4%BD%BF%E7%94%A8Hexo.html#more">more >></a>
+        
       
 
       
@@ -2005,54 +1049,16 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：595字 | 预计阅读时长：2分钟
+      字数：617字 | 预计阅读时长：2分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="论文名称"><a href="#论文名称" class="headerlink" title="论文名称"></a>论文名称</h3><p><a href="https://arxiv.org/pdf/1810.00208.pdf" target="_blank" rel="noopener">To Compress or Not to Compress: Understanding the Interactions between Adversarial Attacks and Neural Network Compression</a></p>
-<h3 id="论文重述"><a href="#论文重述" class="headerlink" title="论文重述"></a>论文重述</h3><p>该论文主要是讨论对抗攻击在压缩模型上的可迁移性 (Transferability)，分为三种情形：</p>
-<ul>
-<li>compressed 产生对抗样本测试自身</li>
-<li>baseline 产生对抗样本测试 compressed</li>
-<li>compressed 产生对抗样本测试 baseline<br>比较的压缩方式为：剪枝 和 量化<br>比较的攻击方法为：IFGSM, IFGM, Deepfool</li>
-</ul>
-<h3 id="比较结果"><a href="#比较结果" class="headerlink" title="比较结果"></a>比较结果</h3><ul>
-<li><p>剪枝方法</p>
-<ol>
-<li><p>对于 IFGM 和 IFGSM 方法，对抗样本的迁移性是受到剪枝过后密度减小造成影响的。具体表现在：</p>
-<ul>
-<li>当密度小的时候，用compressed生成的对抗样本去攻击baseline的效果不错，从小到大迁移性好</li>
-<li>当密度小的时候，用baseline生成的对抗样本去攻击compressed效果不好，从大到小迁移性不好</li>
-</ul>
-</li>
-<li><p>对于 Deepfool 方法，小的生成样本攻击自身，小的生成样本攻击大的，这两种情况在密度减小的时候迁移性都更好。</p>
-</li>
-<li><p>因为clipped的原因，对于有clipped的方法（IFGSM and IFGM），小的生成样本攻击自身，大的生成样本攻击小的，这两种情况在密度减小的时候迁移性都更不好。</p>
-</li>
-</ol>
-</li>
-<li><p>量化方法</p>
-<ol>
-<li><p>当量化精度高的时候，在量化与不量化之间的攻击效果不受影响</p>
-</li>
-<li><p>当小数位数减小的很厉害时类似fine-grained pruning（剪枝权重）的效果</p>
-</li>
-<li><p>整数位数很少的时候，小的产生样本攻击大的会变得异常困难，表明类别的语义信息保存在activations and weights中</p>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong><em>（以下仅表示个人观点，欢迎讨论指正）</em></strong></p>
-<p>就像看了一份实验报告一样，没有新方法，主要是比较结果。</p>
-<p>个人感觉方法分的太细了，特别是攻击方法，感觉 ①没有从攻击原理的角度阐释可迁移性，②只是众多攻击模型中的典型三种，且IFGSM，IFGM和Deepfool的区别还挺大的，感觉又只像两类攻击方法。总之感觉脱离数学原理的比较都显得不那么全面。</p>
-<p>亮点：</p>
-<ul>
-<li>use Mayo tool to generate pruned and quantised models</li>
-<li>对于应用的讨论，作者最终的结论是公司用压缩模型发行并不会增加大模型的安全性</li>
-</ul>
-
+        <p>一篇讨论对抗攻击在压缩模型上的可迁移性的论文</p>
+        
+          <a class="article-more-a" href="/AI-AI/adversarial.html#more">more >></a>
+        
       
 
       
@@ -2233,7 +1239,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2241,7 +1247,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2257,15 +1263,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MOOC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2293,11 +1299,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2357,27 +1363,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://github.com/KyGao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
             </li>
           
         </ul>

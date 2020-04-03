@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>图像实验SDK配置 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。  我先按照...\E_EM\Doc路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）  然后后来其实用不上这个了，才知道老师是允许用opencv">
+  <meta name="description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像实验SDK配置">
 <meta property="og:url" content="http://yoursite.com/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。  我先按照...\E_EM\Doc路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）  然后后来其实用不上这个了，才知道老师是允许用opencv">
+<meta property="og:description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/HUST-HUST/.../dll.PNG">
 <meta property="og:image" content="http://yoursite.com/HUST-HUST/.../out.PNG">
 <meta property="article:published_time" content="2019-12-06T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-03-06T11:37:07.234Z">
+<meta property="article:modified_time" content="2020-04-03T05:04:32.759Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="课内">
 <meta property="article:tag" content="大三上">
@@ -29,7 +29,7 @@
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
   
-    <link rel="icon" href="/assets/img/head.jpg">
+    <link rel="icon" href="/assets/img/head.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -53,7 +53,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/head.jpg" class="js-avatar">
+			<img src="/assets/img/head.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Kerry</a></h1>
@@ -69,6 +69,8 @@
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
+				<li><a href="/categories">分类</a></li>
+	        
 			</ul>
 		</nav>
 
@@ -76,7 +78,7 @@
     总文章数 15
     </nav>
     <nav>
-    总字数 <span class="post-count">20.8k</span>
+    总字数 <span class="post-count">21.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -115,7 +117,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/head.jpg" class="js-avatar">
+				<img src="/assets/img/head.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Kerry</h1>
@@ -124,6 +126,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Blog in Manjaro<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -140,12 +144,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -185,7 +191,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。<br>以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。</p>
+        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。</p>
+<a id="more"></a>
+
 <ol>
 <li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
 </li>
@@ -496,7 +504,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +512,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,15 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MOOC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,27 +628,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://github.com/KyGao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
             </li>
           
         </ul>

@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>2020年暑期实习准备 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个非常业余的准备笔记，完全0基础的准备过程">
+  <meta name="description" content="真的学得太不扎实了，找工作时只能回过头来重学，暂时有C++，计算机基础，和计算机网络的内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2020年暑期实习准备">
 <meta property="og:url" content="http://yoursite.com/tools-tools/Tencent%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="这是一个非常业余的准备笔记，完全0基础的准备过程">
+<meta property="og:description" content="真的学得太不扎实了，找工作时只能回过头来重学，暂时有C++，计算机基础，和计算机网络的内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20150706123206122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="article:published_time" content="2020-03-07T11:52:43.000Z">
-<meta property="article:modified_time" content="2020-04-02T10:08:26.883Z">
+<meta property="article:modified_time" content="2020-04-03T05:00:19.663Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="tools">
 <meta property="article:tag" content="interview">
@@ -27,7 +27,7 @@
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
   
-    <link rel="icon" href="/assets/img/head.jpg">
+    <link rel="icon" href="/assets/img/head.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -51,7 +51,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/head.jpg" class="js-avatar">
+			<img src="/assets/img/head.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Kerry</a></h1>
@@ -67,6 +67,8 @@
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
+				<li><a href="/categories">分类</a></li>
+	        
 			</ul>
 		</nav>
 
@@ -74,7 +76,7 @@
     总文章数 15
     </nav>
     <nav>
-    总字数 <span class="post-count">20.8k</span>
+    总字数 <span class="post-count">21.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -113,7 +115,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/head.jpg" class="js-avatar">
+				<img src="/assets/img/head.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Kerry</h1>
@@ -122,6 +124,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Blog in Manjaro<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -138,12 +142,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -183,7 +189,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="虚函数的实现机制"><a href="#虚函数的实现机制" class="headerlink" title="虚函数的实现机制"></a>虚函数的实现机制</h3><p>虚函数的作用主要是实现了多态的机制即动态联编</p>
+        <p>真的学得太不扎实了，找工作时只能回过头来重学，暂时有C++，计算机基础，和计算机网络的内容</p>
+<a id="more"></a>
+
+<h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="虚函数的实现机制"><a href="#虚函数的实现机制" class="headerlink" title="虚函数的实现机制"></a>虚函数的实现机制</h3><p>虚函数的作用主要是实现了多态的机制即动态联编</p>
 <ul>
 <li><strong>动态联编</strong><br>首先函数名联编是指将源代码中的函数调用为特定代码块，在C++中，由于函数重载，需要根据<strong>函数名</strong>和<strong>函数参数</strong>一起来确定使用哪个函数块，在编译过程中实现这个过程的联编叫做<strong>静态联编</strong>，但是C++还提供了一个情况，就是函数名和函数参数都一样的情况也可以有不同功能，这就必须要在程序运行时才能实现，就是<strong>动态联编</strong>，在这时，编译器必须生成能够在程序运行时选择正确的虚方法的代码。注意，动态绑定要求采用 <code>指针-&gt;函数()</code> 或 <code>引用变量.函数()</code> 的方式调用C++类中的虚函数才能实现。</li>
 </ul>
@@ -526,7 +535,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,15 +559,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MOOC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Coursera</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,11 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,27 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://github.com/KyGao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
             </li>
           
         </ul>
