@@ -152,71 +152,48 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-AI/adversarial" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-English/TofelListening" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/adversarial.html">比较 对抗样本 在 压缩模型 上的可迁移性</a>
+      <a class="article-title" href="/English-English/TofelListening.html">托福听力笔记</a>
     </h1>
   
 
         
-        <a href="/AI-AI/adversarial.html" class="archive-article-date">
+        <a href="/English-English/TofelListening.html" class="archive-article-date">
   	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：595字 | 预计阅读时长：2分钟
+      字数：229字 | 预计阅读时长：1分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="论文名称"><a href="#论文名称" class="headerlink" title="论文名称"></a>论文名称</h3><p><a href="https://arxiv.org/pdf/1810.00208.pdf" target="_blank" rel="noopener">To Compress or Not to Compress: Understanding the Interactions between Adversarial Attacks and Neural Network Compression</a></p>
-<h3 id="论文重述"><a href="#论文重述" class="headerlink" title="论文重述"></a>论文重述</h3><p>该论文主要是讨论对抗攻击在压缩模型上的可迁移性 (Transferability)，分为三种情形：</p>
-<ul>
-<li>compressed 产生对抗样本测试自身</li>
-<li>baseline 产生对抗样本测试 compressed</li>
-<li>compressed 产生对抗样本测试 baseline<br>比较的压缩方式为：剪枝 和 量化<br>比较的攻击方法为：IFGSM, IFGM, Deepfool</li>
-</ul>
-<h3 id="比较结果"><a href="#比较结果" class="headerlink" title="比较结果"></a>比较结果</h3><ul>
-<li><p>剪枝方法</p>
-<ol>
-<li><p>对于 IFGM 和 IFGSM 方法，对抗样本的迁移性是受到剪枝过后密度减小造成影响的。具体表现在：</p>
-<ul>
-<li>当密度小的时候，用compressed生成的对抗样本去攻击baseline的效果不错，从小到大迁移性好</li>
-<li>当密度小的时候，用baseline生成的对抗样本去攻击compressed效果不好，从大到小迁移性不好</li>
-</ul>
-</li>
-<li><p>对于 Deepfool 方法，小的生成样本攻击自身，小的生成样本攻击大的，这两种情况在密度减小的时候迁移性都更好。</p>
-</li>
-<li><p>因为clipped的原因，对于有clipped的方法（IFGSM and IFGM），小的生成样本攻击自身，大的生成样本攻击小的，这两种情况在密度减小的时候迁移性都更不好。</p>
-</li>
+        <ul>
+<li>Now,…画一条长长的线（要讲下一个话题了）</li>
+<li>不会考定义，所以定义只要听懂就行。重点是要注意提到ta干什么</li>
+<li>转折之后的信息很关键，可以用^表示</li>
+<li>考古：今昔对比很喜欢考</li>
+<li>What do you  think… 回答很重要</li>
+<li>for example的例子（<strong>对象</strong>）一定要记！而且只记核心名词（Many year ago…）故事内容（更深一层）相对不重要</li>
+<li>长难句只要求听懂，记笔记舍本逐末</li>
+<li>mainly discuss 有细节有笼统，选笼统（一般字也少）</li>
+<li>一般没有考全文的题目，最后一题也划片到最后一个part就行</li>
+<li>完美笔记原则：一定是为了帮助做对题目<ol>
+<li>优先记实义名词动词</li>
+<li>学会用符号和缩写</li>
+<li>具体的数字和时间不用管</li>
+<li>注重结构和段落 句间逻辑（学会画层次）</li>
 </ol>
 </li>
-<li><p>量化方法</p>
-<ol>
-<li><p>当量化精度高的时候，在量化与不量化之间的攻击效果不受影响</p>
-</li>
-<li><p>当小数位数减小的很厉害时类似fine-grained pruning（剪枝权重）的效果</p>
-</li>
-<li><p>整数位数很少的时候，小的产生样本攻击大的会变得异常困难，表明类别的语义信息保存在activations and weights中</p>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong><em>（以下仅表示个人观点，欢迎讨论指正）</em></strong></p>
-<p>就像看了一份实验报告一样，没有新方法，主要是比较结果。</p>
-<p>个人感觉方法分的太细了，特别是攻击方法，感觉 ①没有从攻击原理的角度阐释可迁移性，②只是众多攻击模型中的典型三种，且IFGSM，IFGM和Deepfool的区别还挺大的，感觉又只像两类攻击方法。总之感觉脱离数学原理的比较都显得不那么全面。</p>
-<p>亮点：</p>
-<ul>
-<li>use Mayo tool to generate pruned and quantised models</li>
-<li>对于应用的讨论，作者最终的结论是公司用压缩模型发行并不会增加大模型的安全性</li>
 </ul>
 
       
@@ -231,15 +208,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tofel</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对抗样本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">水文章</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -251,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
         		</li>
       		
 		</ul>
@@ -260,7 +233,571 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/adversarial.html">展开全文 >></a>
+          <a class="article-more-a" href="/English-English/TofelListening.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-English/GREWriting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/English-English/GREWriting.html">GRE写作笔记</a>
+    </h1>
+  
+
+        
+        <a href="/English-English/GREWriting.html" class="archive-article-date">
+  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：3k字 | 预计阅读时长：11分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>微臣GRE2017年全程班写作课笔记（王耕伟老师）</p>
+</blockquote>
+<h2 id="第一章-GRE写作简介"><a href="#第一章-GRE写作简介" class="headerlink" title="第一章 GRE写作简介"></a>第一章 GRE写作简介</h2><h3 id="怎么考？"><a href="#怎么考？" class="headerlink" title="怎么考？"></a>怎么考？</h3><ul>
+<li><strong>Issue</strong>：立论（观点自己提） + <strong>Argument</strong>：评论（看重推理论证过程）</li>
+<li>各30min</li>
+<li>考题库中的原题（Issue152 + Argument177）</li>
+<li>先保证把题目先看完，再来斟酌语言<h3 id="考什么？"><a href="#考什么？" class="headerlink" title="考什么？"></a>考什么？</h3></li>
+<li>Critical Thinking：广而深</li>
+<li>Analytical Thinking：议论文<h3 id="授课框架"><a href="#授课框架" class="headerlink" title="授课框架"></a>授课框架</h3></li>
+</ul>
+<ol>
+<li>破题原理：想  从无到有</li>
+<li>段落写法：写  从有到多</li>
+<li>语言修饰：改  从多到好</li>
+</ol>
+<h2 id="第二章-Analyze-an-Issue-Task"><a href="#第二章-Analyze-an-Issue-Task" class="headerlink" title="第二章 Analyze an Issue Task"></a>第二章 Analyze an Issue Task</h2><p>《OG》原话：</p>
+<blockquote>
+<p>The Analyze an Issue Task assesses your ability to think critically about <strong>a topic of general interest according to specific instructions</strong>, and to clearly express your thoughts about it in writing… Your task is to <strong>present a compelling case for your own position</strong> on the issue <strong>according to the specific instructions</strong>.</p>
+</blockquote>
+<h3 id="GRE-Issue-instruction"><a href="#GRE-Issue-instruction" class="headerlink" title="GRE Issue instruction"></a>GRE Issue instruction</h3><h4 id="1-是非判断类"><a href="#1-是非判断类" class="headerlink" title="1 是非判断类"></a>1 是非判断类</h4><ul>
+<li><p>语言表达扩展<br>领域：field, area, realm, domain, dimension, subject, discipline, universe, world, kingdom</p>
+</li>
+<li><p><strong>3s</strong>：最安全的instruction</p>
+</li>
+<li><p><strong>方法论</strong>：</p>
+<ul>
+<li>立场不重要，如何论述最重要（可以一边倒 ）</li>
+<li>面对有 ”field“ 的作文题目，直接分领域讨论（总 -&gt; 科技 -&gt; 艺术 -&gt; 教育 -&gt; 总）</li>
+</ul>
+</li>
+<li><p><strong>参考提纲</strong>：</p>
+<blockquote>
+<p>In any field of inquiry, the beginner is more likely than the expert to make important contributions.</p>
+</blockquote>
+</li>
+</ul>
+<p>总观点：绝大多数情况下反对作者观点<br>中间段1：有些情况下，Beginner的贡献比expert更重要，因为beginner敢于创新（比如艺术领域）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In the realm of arts, however, beginners&#39; contributions would dwarf those of experts.</span><br></pre></td></tr></table></figure>
+<p>中间段2：另一些情况下，expert的贡献更重要，因为experts的经验和知识更丰富（比如科技领域）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In the field of science, experts would achieve further conspicuous accomplishments than beginners do.</span><br></pre></td></tr></table></figure>
+<p>中间段3：还有一些情况，我们不能把 Beginner 和 expert 割裂开来看，因为一个人既可以是beginner，又可以是expoert（比如专家进行创新）</p>
+<p><strong><del>有些时候是A对，有些时候是B对</del> 应该说A和B其实不矛盾</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In addition to the aforementioned two cases, we would benefit from taking into consideration some scenarios, education, for example, in which the significance of beginners&#39; and experts&#39; contributions are rather conditional.</span><br></pre></td></tr></table></figure>
+<h4 id="2-因果类"><a href="#2-因果类" class="headerlink" title="2 因果类"></a>2 因果类</h4><ul>
+<li><p><strong>3s</strong>：题目中的claim和reason都要提到</p>
+</li>
+<li><p><strong>方法论</strong></p>
+<ul>
+<li>一段写claim的看法，一段写reason的看法，再一段写两者之间的assumption</li>
+<li>着重关注推理过程</li>
+</ul>
+</li>
+<li><p><strong>参考提纲</strong></p>
+<blockquote>
+<p>Claim: Reaserchers should not limit their investigations to only those areas in which they expect to discover something that has an immediate practical application.<br>Reason: It is impossible to predict the outcome of a line of research with any certainty</p>
+</blockquote>
+</li>
+</ul>
+<p>总观点：对 Claim 和 Reason 都是同意反对参半<br>中间段1：在一些情况下，我们确实不应该只关注结果确定的领域，因为结果不确定的领域也能给我们带来惊喜（同意 Claim）<br>中间段2：但在经费一定的情况，确实应该只关注结果确定的领域（反对Claim）<br>中间段3：在一些时候我们确实不能预测研究的结果（同意Reason）<br>中间段4：但人有主观能动性（<strong>initiative</strong>），因此很多时候我们是能够预测其研究结果的（反对Reason）<br>4选3即可，更推荐写两者之间的 assumption（推理过程，即是否支持 Reason 可以作为 Claim 的理由）</p>
+<h4 id="3-两种看法类"><a href="#3-两种看法类" class="headerlink" title="3 两种看法类"></a>3 两种看法类</h4><ul>
+<li><strong>3s</strong>：题目中的两种观点都要讨论</li>
+<li><strong>方法论</strong><ul>
+<li>改写题目得到开头段；结尾段再改写开头段；结尾+开头差不多200字</li>
+<li>中间三段各写100字左右</li>
+</ul>
+</li>
+<li><strong>参考提纲</strong></li>
+</ul>
+<p><strong>The debate concerning</strong> education, including the role it should assume and the consequence deriving from it <strong>has never ceased and even gain further vigor in the current society. Some people emphasize</strong> the goal of education to liberate students’ soul; <strong>at the other side of this debate, however, lies other people’s aversion</strong> to education since it is believed to impede our thinking. <strong>Taking these two views into consideration, I argue that …</strong></p>
+<h4 id="4-敌方看法类"><a href="#4-敌方看法类" class="headerlink" title="4 敌方看法类"></a>4 敌方看法类</h4><ul>
+<li><strong>3s</strong>: 提到敌方观点（相对于自己观点）</li>
+<li><strong>方法论</strong><ul>
+<li>两个我方观点 + 一个敌方观点</li>
+<li>敌方观点用让步写，but不能为了让步而让步<br>敌方看法+我对敌方看法的分析（敌方的理由+支撑理由的例子）+我对敌方看法的评价</li>
+</ul>
+</li>
+<li><strong>参考提纲</strong></li>
+</ul>
+<p>中间段3：有些人会反对我，他们认为应该推翻不正义的法律。他们会举出历史上的一系列以推翻不正义的法律为目的的运动、起义或革命。在他们看来 ，当法律威胁到人们根本利益时就应该推翻。但我认为，就算法律威胁到了我们的根本利益，也不代表我们应该推翻这些法律。面对不正义的法律，我们首先要确认它是对大多数人都不正义的，并且要确认我们是有能力推翻它的</p>
+<h4 id="5-建议结果类"><a href="#5-建议结果类" class="headerlink" title="5 建议结果类"></a>5 建议结果类</h4><ul>
+<li>语言表达拓展<ul>
+<li>表示结果：consequence, result, outcome, effect, ramification (错综复杂的结果)</li>
+<li>好的结果：positive, desirable, beneficial, promising</li>
+<li>坏的结果：negative, undesirable, detrimental, deleterious</li>
+<li>眼下的结果：short-term consequence / benefit</li>
+<li>长远的结果：long-term consequence / ultimate</li>
+<li>导致XX结果：lead to / cause / result in / contribute to / bring about / trigger / generate / invite (love invites hatred)<h5 id="形式1"><a href="#形式1" class="headerlink" title="形式1"></a>形式1</h5></li>
+</ul>
+</li>
+<li><strong>3s</strong>：讨论什么情况下会产生什么有利或不利的结果（有specific circumstances）</li>
+<li><strong>方法论</strong><ul>
+<li>一定要讨论结果！不是可行性（可以作为可行性的延伸）<br>eg. <del>政府没钱</del>  采取这种措施会给政府造成巨大经济负担</li>
+<li>好结果坏结果无所谓</li>
+<li>中间段1让步，23给两种结果</li>
+<li>从小到大考虑结果（学生老师-&gt;国家社会）</li>
+</ul>
+</li>
+<li><strong>参考提纲</strong><br>总论点：家长被要求去学校弊大于利<br>中间段1：我承认家长被要求去学校有一定好处，可以便于家长了解孩子在学校接受着什么教育，从而更好地配合学校（有利结果）<br>中间段2：这种活动难免流于形式（<strong>remain superficial</strong>），校方可能作假，家长无法了解到真实情况（不利结果）<br>中间段3：让家长去学校本意是促进亲子关系，但如果有家长无法参加，可能会给部分孩子留下心理阴影（<strong>Students would intuitively draw a link between parents’ absence and indifference</strong>）<h5 id="形式2"><a href="#形式2" class="headerlink" title="形式2"></a>形式2</h5></li>
+<li><strong>3s</strong>：讨论政策可能带来的结果（没有specific circumstances，但是还是需要写，所以归为一类）</li>
+<li><strong>参考提纲</strong><br><del>无法甄别学生的真实经济水平</del>  这样说还是可行性，得说这些情况都可能导致物资的浪费，一定要扣到<strong>导致</strong>上</li>
+</ul>
+<h3 id="破题原理"><a href="#破题原理" class="headerlink" title="破题原理"></a>破题原理</h3><ol>
+<li>越空的越宽泛的词越容易玩出花来 </li>
+<li>A+B+A&amp;B不互斥 (<strong>not mutually exclusive</strong>)   (<strong>A superficial conflict between A and B <font color='red'>conceals</font> a harmonious relationship of them</strong>)<br>矛盾：conflict, gap, paradox, debate, contradiction</li>
+</ol>
+<p>考场写作 = 90%回忆性写作 + 10%临场发挥</p>
+<p>所以，一定要列提纲！长度没要求，不一定是英文，列四个点到时候取三个，不需要列全部题库的提纲 (80/152)</p>
+<h2 id="第三章-段落写法"><a href="#第三章-段落写法" class="headerlink" title="第三章 段落写法"></a>第三章 段落写法</h2><h3 id="单段写法"><a href="#单段写法" class="headerlink" title="单段写法"></a>单段写法</h3><h4 id="开头结尾"><a href="#开头结尾" class="headerlink" title="开头结尾"></a>开头结尾</h4><p><del>模板式: With the fast developments…</del><br><del>开头抄题目，结尾抄开头</del></p>
+<p>不是去用对的例子而是要把例子用对</p>
+<p>事理解释：Bridge Concept: A1 - A2 - A3 - A</p>
+<p>事例解释：事理解释部分和事例解释部分一一对应（几句事理解释就来几句事例解释，同义改写）</p>
+<p>Just imagine, such a artist </p>
+<p>事例词汇是事理词汇的下义词</p>
+<h3 id="段落连接"><a href="#段落连接" class="headerlink" title="段落连接"></a>段落连接</h3><p>狂用、用准连接词</p>
+<h3 id="Sentence-Variety"><a href="#Sentence-Variety" class="headerlink" title="Sentence Variety"></a>Sentence Variety</h3><p>简单好还是复杂好</p>
+<ul>
+<li><p><strong>从句误用造成因果不清</strong>：<br>最想表达的意思要在主句来表达，不要放在从句里面去。<br>eg. 主句后面跟 “, which…” 来表达观点<br>可以将中文的一句用两句来表达，如把”因此“另开一段用Therefore, it is reasonable to conclude that承接</p>
+</li>
+<li><p><strong>长难句的表意更加清晰</strong>：</p>
+<p>表现在1：逻辑取同取反（逻辑连接词）2：句子间重要程度（重要放主句，次要放从句，不重要放插入语）</p>
+</li>
+<li><p><strong>总结</strong>：<br>选择简单还是复杂的句子，是取决于我们想要表达的意思是简单还是复杂的</p>
+</li>
+</ul>
+<p>如何增加句子多样性 </p>
+<ul>
+<li><strong>换主语</strong>：<br>It is / We need to / What we need to / Something requires / To …</li>
+</ul>
+<h3 id="Minor-Error"><a href="#Minor-Error" class="headerlink" title="Minor Error"></a>Minor Error</h3><p>(x) Personally speaking, I agree…    冗余（in my perspective, I agree…也是i）</p>
+<p>(x) <del>the</del> differences  没有定指就不要加the</p>
+<p>(x) by discussing 指的是differences discussing   分词结构倒装注意和主语搭配不要出错</p>
+<p>(x) view可数</p>
+<p>(x) however作插入语小写的时候是副词，不能连接两个完整句子，需要大写分两句；but小写可以作为连词</p>
+<p>(x) 后置定语的修饰同样起限定作用，所以 有后置修饰如in that field时前面的名词要加the</p>
+<p>(x) <del>such issue</del>    such an issue</p>
+<p>(x) in that field 中 that 指代不明，以后可以写成 in some fields / in certain field</p>
+<p>(x) inhibit<del>s</del>  and隔开之后两边的谓语断篇了导致时态不一致</p>
+<p>(x) in turn 后面是完整的句子（主语是无头句省略，省略了disagreement），所以两个句子间不能用逗号连接，应该把逗号改成 and </p>
+<p>(x) may end<del>ing</del> up</p>
+<p>(x) disagreement 不能 learning  主谓搭配出错</p>
+<h3 id="6分标准"><a href="#6分标准" class="headerlink" title="6分标准"></a>6分标准</h3><p><strong>clear and insightful within the assigned task</strong><br>insightful: 涉及field的时候分类讨论不同的领域 / 两种看法时探讨两种看法之间的关系 / 建议类讨论建议的对象</p>
+<p><strong>compelling reasons and/or persuasive examples</strong></p>
+<p>bridge concept 事理解释+事例解释</p>
+<p><strong>well-focused, well-organized, connecting ideas logically</strong></p>
+<p>狂用，用准连接词</p>
+<p><strong>effective vocabulary and sentence variety</strong></p>
+<p>词汇有效性和句式多样性</p>
+<p><strong>standard written English with minor error</strong></p>
+<p>中国人没有什么oral的积累，witten English主要是针对native不要加入太多俚语俗语的</p>
+<p>minor error指的是程度轻 数量少</p>
+<h2 id="备考"><a href="#备考" class="headerlink" title="备考"></a>备考</h2><ol>
+<li>写提纲（152/2=76）注意论点的深刻和丰富，兼顾instruction的要求，多写一个论点怕考场上忘记</li>
+<li>按高频题练习，按领域练习</li>
+<li>评分软件：ScoritNow（GRE官网，20刀一次）</li>
+</ol>
+<p>yield yield yield yield yield yieldt yieldt yieldt yieldt deay delay delay delay, delay arrange arrange arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy arrangy</p>
+<p>in addition, therby, hence. however. accordingly. </p>
+<h2 id="第二章-Analyze-an-Argument-Task"><a href="#第二章-Analyze-an-Argument-Task" class="headerlink" title="第二章 Analyze an Argument Task"></a>第二章 Analyze an Argument Task</h2><h3 id="破题原理-1"><a href="#破题原理-1" class="headerlink" title="破题原理"></a>破题原理</h3><p>还原推理过程 + 结合 Instruction (4种)<br><strong>还原推理过程</strong></p>
+<ul>
+<li>借助逻辑图<blockquote>
+<p>找出事实性的信息（放上面）和非事实性的信息（放中间(Assumption)和下面(Conclusion)），中间部分虚线表示隐含的assumptions，实线表示原文提到的assumptions，画出逻辑图  </p>
+</blockquote>
+</li>
+</ul>
+<p>决定了我们写几段以及每一段写什么</p>
+<p><strong>结合Instruction</strong><br>决定了怎么来写（每种 Instruction 的论证过程是互斥的）</p>
+<ul>
+<li><strong>Evidence类</strong><br>每段这么来写：</li>
+</ul>
+<ol>
+<li>旧证据不足</li>
+<li>提出新证据（根据题中各对应证据的漏洞获取能够强化assumptions的例子）</li>
+<li>用新证据正反评价原Argument<br>一旦作者提出了新的证据，我们就能更好地评价作者的结论了</li>
+</ol>
+<ul>
+<li><strong>Assumption类</strong><br>逻辑图中间部分虚线是 unstated，实线是 stated</li>
+</ul>
+<ol>
+<li>找出assumption（点明 unstated / stated）</li>
+<li>指出assumption被证伪时会怎样（削弱论证）以及什么情况下会被证伪（12345）</li>
+<li>指出</li>
+</ol>
+<ul>
+<li><strong>Question类</strong></li>
+</ul>
+<ol>
+<li>问问题</li>
+<li>问题会有什么答案（正反）</li>
+<li>用问题的答案正反评价原argument</li>
+</ol>
+<ul>
+<li><strong>Explanation类</strong><br>一个现象的一个解释 / 所有现象的共同解释</li>
+</ul>
+<ol>
+<li>针对文中各现象给出其他解释</li>
+<li>具体阐释这些解释</li>
+</ol>
+<h3 id="段落写法"><a href="#段落写法" class="headerlink" title="段落写法"></a>段落写法</h3><ul>
+<li><p><strong>单段写法</strong><br>多多提到Instruction的词（可以不用同义替换）<br>开头结尾：复述文章（结论/推理过程）以及结合Instruction<br>中间段：同上</p>
+</li>
+<li><p><strong>段落衔接</strong><br>不会出现转折，建议只有并列In addition, What’s more, Furthermore</p>
+</li>
+</ul>
+<h3 id="语言修饰"><a href="#语言修饰" class="headerlink" title="语言修饰"></a>语言修饰</h3><h3 id="段落模板"><a href="#段落模板" class="headerlink" title="段落模板"></a>段落模板</h3><h3 id="备考步骤"><a href="#备考步骤" class="headerlink" title="备考步骤"></a>备考步骤</h3><p>基本功：提高打字速度</p>
+<ol>
+<li>通读所有题目</li>
+<li>画出逻辑图</li>
+<li>积累语言模板</li>
+<li>全文练习（考前20天）</li>
+</ol>
+<h2 id="Writing-同义替换"><a href="#Writing-同义替换" class="headerlink" title="Writing 同义替换"></a>Writing 同义替换</h2><ul>
+<li>very = rather</li>
+<li>more = further</li>
+<li>同意：<br>appreciate sth<br>give support to sth<br>sympathize with sth<br>do not reserve any approval of sth</li>
+<li>反对：<br>单词：disagree, oppose, object, reject, refute, repudiate<br>fail to concede sth<br>oppose to sth<br>my perspective diverges from sth<br>reserve approval of sth</li>
+<li>修改法律：revise, amend, modify</li>
+</ul>
+<p><del>good bad make let</del><br><del>vice versa</del></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/English-English/GREWriting.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-English/TofelWriting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/English-English/TofelWriting.html">托福写作笔记</a>
+    </h1>
+  
+
+        
+        <a href="/English-English/TofelWriting.html" class="archive-article-date">
+  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：640字 | 预计阅读时长：3分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://toefl.kmf.com/erater/writeresult/156455091588395176/e1f9tj" target="_blank" rel="noopener">https://toefl.kmf.com/erater/writeresult/156455091588395176/e1f9tj</a></p>
+<p><a href="https://toefl.kmf.com/erater/writeresult/155203273015149680/a1f6bj" target="_blank" rel="noopener">https://toefl.kmf.com/erater/writeresult/155203273015149680/a1f6bj</a></p>
+<p>Generally, it seems plausible that movies and television, serving as a distraction when young people are learning, will impose a negative impact on their behavior. However, it is not the whole case; otherwise, with the optimization of the contents, movies and television have become gradually conducive to young people. Therefore, from my perspective, I believe those modern products will have more positive effects on young people.<br>    Of all reasons leading to my judgment, it is the most rudimentary that the various world, both real and virtual, provided by movies and television, can inspire young people’s imagination and promising life path. In old times, say the time before such products were invented, young people’s horizons are constrained by some trivial games within a village or even a yard. children at that times can hardly imagine what the world would be like and what terrific things they could achieve, which may be the intrinsic motivation during their studying and working. Nevertheless, with the favor of modern products, like movies and television, young people have significantly more access to diverse things outside their countries or even outside the planet. As a result, they are able to imagine more practical and magnificent, directing their life path as well.<br>    Often neglected but no less important is the educational function of movies and television is attracting more producers and parents, which is developing increasingly inspiring. As we can observe, a huge variety of educational applications spring up in television, such as the contest of Mandarin, composition and something like that, attracting more young people to watch while learn. Likewise, more authentic knowledge are added to some section of movie, especially for those movies aiming for the young people. In this case, young people can easily immerse themselves in the condition of absorbing knowledge even without noticing.<br>    In short, admittedly, although there exists some negative contents in these products, such as violence and sexuality, more positive aspects need to be considered when movies and television are criticized. And I believe with the more attention paid by the content producer, the quality of movies and television are bound to enhance with young people as they grow up.</p>
+<h3 id="Integrated-Writing-模板（150-225个字！记得别超…）"><a href="#Integrated-Writing-模板（150-225个字！记得别超…）" class="headerlink" title="Integrated Writing 模板（150-225个字！记得别超…）"></a>Integrated Writing 模板（150-225个字！记得别超…）</h3><ul>
+<li><p><strong>首段引入</strong><br>  The passage states that … for several reasons. </p>
+<p>  ·But the professor <em>casts doubts to all of these reasons</em>, she thinks, on the other hand, that …</p>
+</li>
+<li><p><strong>第一个观点</strong><br>  First, the writer argues that … since …</p>
+<p>  However, the professor holds a converse opinion about the theory, because usually, …</p>
+<p>  Therefore, this possibility that the writer states does not hold up.</p>
+</li>
+<li><p><strong>第二个观点</strong><br>  Second, the author points out that …</p>
+<p>  Nevertheless, the professor in the lecture disagrees with it because …</p>
+<p>  Thus, this point the professor made is not possible.</p>
+</li>
+<li><p><strong>第三个观点</strong><br>  Finally, the author suggests that …</p>
+<p>  Nonetheless, the professor argues against this idea, because…</p>
+<p>  So this possibility is not correct as well.</p>
+</li>
+</ul>
+<h3 id="individual-Writing-模板"><a href="#individual-Writing-模板" class="headerlink" title="individual Writing 模板"></a>individual Writing 模板</h3><ul>
+<li><p><strong>首段引入</strong></p>
+<p>Generally, it seems plausible that … , since …</p>
+<p>However, it is not the whole case; otherwise, …</p>
+<p>Therefore, from my perspective, …</p>
+</li>
+<li><p><strong>第一个观点</strong><br>Of all reasons leading to my judgment, it is the most rudimentary that …<br>To be more specific, …</p>
+</li>
+<li><p><strong>第二个观点</strong><br>What should be equally worth discussing is that …<br>Initially, … To explain further, …</p>
+</li>
+<li><p><strong>第三个观点</strong>（没时间就不写（一般肯定没时间））<br>Often neglected but no less important, …<br>One time I …</p>
+</li>
+<li><p><strong>让步论证</strong>（没时间就不写，优先级比第三个观点高）<br>Admittedly, some people may argue that …<br>But actually …</p>
+</li>
+<li><p><strong>结尾</strong><br>In short, it is fairly safe to draw a conclusion that …</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tofel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/English-English/TofelWriting.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-HUST/SDK配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">图像实验SDK配置</a>
+    </h1>
+  
+
+        
+        <a href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" class="archive-article-date">
+  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：810字 | 预计阅读时长：2分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。<br>以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。</p>
+<ol>
+<li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
+</li>
+<li><p>然后后来其实用不上这个了，才知道老师是允许用opencv的数据类型，所以又转到opencv开发去了（不然用二维矩阵的形式表示图像实在太鸡肋了，因为想保存在数组里还需要大量压缩一下图像，不然没办法开辟那么大的数组）。opencv的话不需要参照doc里的opencv开发手册（说多了都是泪），只需要跑通<code>...\E_EM\SDK\Samples_CV</code>里面的例程就好了。</p>
+</li>
+<li><p>例程这里两个应该都可以，我用的是<strong>openCV_IplImage</strong>，具体的环境配置方法还是可以参考opencv开发手册，添加<code>VC++目录-包含目录</code>，添加<code>VC++目录-库目录</code>，修改<code>连接器-输入-附加依赖项</code>，这里注意直接用sample里的opencv2的目录即可，不需要下载opencv。</p>
+</li>
+<li><p>这里提一下开发手册没有提到的但是会遇到的问题：</p>
+<ul>
+<li>首先记得改平台为x64！！</li>
+<li>一个是说int8出现类型重定义<br>这个是因为opencv定义了一个int8，相机的SDK库也定义了一个int8，所以随意注释掉其中一个的定义就好</li>
+<li>一个是<img src=".../dll.PNG" alt=""><br>这个是因为没有添加动态链接库，需要把bin里面带dll后缀的（怎么查看文件扩展名我就不说了）全部拷贝到该工程目录下，比如我用的OpenCV_IplImage，就放在<code>Samples_CV\OpenCV_IplImage\</code>目录下就好了</li>
+<li>一个是会报找不到输出文件什么什么的，具体错误我就不回去截图了，没看到的可以忽略<br>这个是因为输出文件设置的不合理，按如下方式填写即可：<br><img src=".../out.PNG" alt=""></li>
+</ul>
+</li>
+<li><p>到这里应该可以跑通demo了，那怎么加入自己的代码呢？先在前面引入头文件，我也不知道该引什么，所以我就都引了，报错的注释掉就好:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/core_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/types_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc_c.h"</span> </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/types_c.h"</span>  </span></span><br><span class="line"><span class="comment">//#include "opencv2/highgui/cap_ios.h"  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui_c.h"</span></span></span><br></pre></td></tr></table></figure>
+<p>在<strong>GCapDlg.cpp</strong>文件中，<code>CGCapDlg::OnStreamCB( MV_IMAGE_INFO *pInfo)</code>函数内，应该可以发现可以直接截到Iplimage的数据类型，（有if分支，是根据相机采集图像的方式决定的，大家可以一个个试）。然后通过</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat my_img = cv::cvarrToMat(iplSrc);</span><br></pre></td></tr></table></figure>
+<p>就可以直接变成我们熟悉的Mat数据类型了（如果用了cv的命名空间的话就不需要前面加上cv::了），需要转灰度的就<code>cvtColor(my_img, m, CV_BGR2GRAY);</code>这样转就行了。<br>然后在这一行以下的就是我们的TODO了，我们只需要构造函数实现</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************</span></span><br><span class="line"><span class="comment">	<span class="doctag">TODO:</span> Add function here	</span></span><br><span class="line"><span class="comment">	input: Mat original_img</span></span><br><span class="line"><span class="comment">	output: Mat processed_img</span></span><br><span class="line"><span class="comment">************************/</span></span><br></pre></td></tr></table></figure>
+<p>就可以啦</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">课内</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大三上</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C方向</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HUST//" class="article-tag-list-link color5">HUST</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">展开全文 >></a>
         </p>
       
 
@@ -674,369 +1211,6 @@
 
 
   
-    <article id="post-English/TofelListening" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/TofelListening.html">托福听力笔记</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/TofelListening.html" class="archive-article-date">
-  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：229字 | 预计阅读时长：1分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Now,…画一条长长的线（要讲下一个话题了）</li>
-<li>不会考定义，所以定义只要听懂就行。重点是要注意提到ta干什么</li>
-<li>转折之后的信息很关键，可以用^表示</li>
-<li>考古：今昔对比很喜欢考</li>
-<li>What do you  think… 回答很重要</li>
-<li>for example的例子（<strong>对象</strong>）一定要记！而且只记核心名词（Many year ago…）故事内容（更深一层）相对不重要</li>
-<li>长难句只要求听懂，记笔记舍本逐末</li>
-<li>mainly discuss 有细节有笼统，选笼统（一般字也少）</li>
-<li>一般没有考全文的题目，最后一题也划片到最后一个part就行</li>
-<li>完美笔记原则：一定是为了帮助做对题目<ol>
-<li>优先记实义名词动词</li>
-<li>学会用符号和缩写</li>
-<li>具体的数字和时间不用管</li>
-<li>注重结构和段落 句间逻辑（学会画层次）</li>
-</ol>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tofel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/TofelListening.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-English/TofelWriting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/TofelWriting.html">托福写作笔记</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/TofelWriting.html" class="archive-article-date">
-  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：640字 | 预计阅读时长：3分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://toefl.kmf.com/erater/writeresult/156455091588395176/e1f9tj" target="_blank" rel="noopener">https://toefl.kmf.com/erater/writeresult/156455091588395176/e1f9tj</a></p>
-<p><a href="https://toefl.kmf.com/erater/writeresult/155203273015149680/a1f6bj" target="_blank" rel="noopener">https://toefl.kmf.com/erater/writeresult/155203273015149680/a1f6bj</a></p>
-<p>Generally, it seems plausible that movies and television, serving as a distraction when young people are learning, will impose a negative impact on their behavior. However, it is not the whole case; otherwise, with the optimization of the contents, movies and television have become gradually conducive to young people. Therefore, from my perspective, I believe those modern products will have more positive effects on young people.<br>    Of all reasons leading to my judgment, it is the most rudimentary that the various world, both real and virtual, provided by movies and television, can inspire young people’s imagination and promising life path. In old times, say the time before such products were invented, young people’s horizons are constrained by some trivial games within a village or even a yard. children at that times can hardly imagine what the world would be like and what terrific things they could achieve, which may be the intrinsic motivation during their studying and working. Nevertheless, with the favor of modern products, like movies and television, young people have significantly more access to diverse things outside their countries or even outside the planet. As a result, they are able to imagine more practical and magnificent, directing their life path as well.<br>    Often neglected but no less important is the educational function of movies and television is attracting more producers and parents, which is developing increasingly inspiring. As we can observe, a huge variety of educational applications spring up in television, such as the contest of Mandarin, composition and something like that, attracting more young people to watch while learn. Likewise, more authentic knowledge are added to some section of movie, especially for those movies aiming for the young people. In this case, young people can easily immerse themselves in the condition of absorbing knowledge even without noticing.<br>    In short, admittedly, although there exists some negative contents in these products, such as violence and sexuality, more positive aspects need to be considered when movies and television are criticized. And I believe with the more attention paid by the content producer, the quality of movies and television are bound to enhance with young people as they grow up.</p>
-<h3 id="Integrated-Writing-模板（150-225个字！记得别超…）"><a href="#Integrated-Writing-模板（150-225个字！记得别超…）" class="headerlink" title="Integrated Writing 模板（150-225个字！记得别超…）"></a>Integrated Writing 模板（150-225个字！记得别超…）</h3><ul>
-<li><p><strong>首段引入</strong><br>  The passage states that … for several reasons. </p>
-<p>  ·But the professor <em>casts doubts to all of these reasons</em>, she thinks, on the other hand, that …</p>
-</li>
-<li><p><strong>第一个观点</strong><br>  First, the writer argues that … since …</p>
-<p>  However, the professor holds a converse opinion about the theory, because usually, …</p>
-<p>  Therefore, this possibility that the writer states does not hold up.</p>
-</li>
-<li><p><strong>第二个观点</strong><br>  Second, the author points out that …</p>
-<p>  Nevertheless, the professor in the lecture disagrees with it because …</p>
-<p>  Thus, this point the professor made is not possible.</p>
-</li>
-<li><p><strong>第三个观点</strong><br>  Finally, the author suggests that …</p>
-<p>  Nonetheless, the professor argues against this idea, because…</p>
-<p>  So this possibility is not correct as well.</p>
-</li>
-</ul>
-<h3 id="individual-Writing-模板"><a href="#individual-Writing-模板" class="headerlink" title="individual Writing 模板"></a>individual Writing 模板</h3><ul>
-<li><p><strong>首段引入</strong></p>
-<p>Generally, it seems plausible that … , since …</p>
-<p>However, it is not the whole case; otherwise, …</p>
-<p>Therefore, from my perspective, …</p>
-</li>
-<li><p><strong>第一个观点</strong><br>Of all reasons leading to my judgment, it is the most rudimentary that …<br>To be more specific, …</p>
-</li>
-<li><p><strong>第二个观点</strong><br>What should be equally worth discussing is that …<br>Initially, … To explain further, …</p>
-</li>
-<li><p><strong>第三个观点</strong>（没时间就不写（一般肯定没时间））<br>Often neglected but no less important, …<br>One time I …</p>
-</li>
-<li><p><strong>让步论证</strong>（没时间就不写，优先级比第三个观点高）<br>Admittedly, some people may argue that …<br>But actually …</p>
-</li>
-<li><p><strong>结尾</strong><br>In short, it is fairly safe to draw a conclusion that …</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tofel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/TofelWriting.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HUST/SDK配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">图像实验SDK配置</a>
-    </h1>
-  
-
-        
-        <a href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" class="archive-article-date">
-  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：810字 | 预计阅读时长：2分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。<br>以下为个人历程，并非最快速的配置方案，欢迎提出建议（虽然没开通评论功能哈哈哈）。</p>
-<ol>
-<li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
-</li>
-<li><p>然后后来其实用不上这个了，才知道老师是允许用opencv的数据类型，所以又转到opencv开发去了（不然用二维矩阵的形式表示图像实在太鸡肋了，因为想保存在数组里还需要大量压缩一下图像，不然没办法开辟那么大的数组）。opencv的话不需要参照doc里的opencv开发手册（说多了都是泪），只需要跑通<code>...\E_EM\SDK\Samples_CV</code>里面的例程就好了。</p>
-</li>
-<li><p>例程这里两个应该都可以，我用的是<strong>openCV_IplImage</strong>，具体的环境配置方法还是可以参考opencv开发手册，添加<code>VC++目录-包含目录</code>，添加<code>VC++目录-库目录</code>，修改<code>连接器-输入-附加依赖项</code>，这里注意直接用sample里的opencv2的目录即可，不需要下载opencv。</p>
-</li>
-<li><p>这里提一下开发手册没有提到的但是会遇到的问题：</p>
-<ul>
-<li>首先记得改平台为x64！！</li>
-<li>一个是说int8出现类型重定义<br>这个是因为opencv定义了一个int8，相机的SDK库也定义了一个int8，所以随意注释掉其中一个的定义就好</li>
-<li>一个是<img src=".../dll.PNG" alt=""><br>这个是因为没有添加动态链接库，需要把bin里面带dll后缀的（怎么查看文件扩展名我就不说了）全部拷贝到该工程目录下，比如我用的OpenCV_IplImage，就放在<code>Samples_CV\OpenCV_IplImage\</code>目录下就好了</li>
-<li>一个是会报找不到输出文件什么什么的，具体错误我就不回去截图了，没看到的可以忽略<br>这个是因为输出文件设置的不合理，按如下方式填写即可：<br><img src=".../out.PNG" alt=""></li>
-</ul>
-</li>
-<li><p>到这里应该可以跑通demo了，那怎么加入自己的代码呢？先在前面引入头文件，我也不知道该引什么，所以我就都引了，报错的注释掉就好:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/core_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/types_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc_c.h"</span> </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/types_c.h"</span>  </span></span><br><span class="line"><span class="comment">//#include "opencv2/highgui/cap_ios.h"  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui_c.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>在<strong>GCapDlg.cpp</strong>文件中，<code>CGCapDlg::OnStreamCB( MV_IMAGE_INFO *pInfo)</code>函数内，应该可以发现可以直接截到Iplimage的数据类型，（有if分支，是根据相机采集图像的方式决定的，大家可以一个个试）。然后通过</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat my_img = cv::cvarrToMat(iplSrc);</span><br></pre></td></tr></table></figure>
-<p>就可以直接变成我们熟悉的Mat数据类型了（如果用了cv的命名空间的话就不需要前面加上cv::了），需要转灰度的就<code>cvtColor(my_img, m, CV_BGR2GRAY);</code>这样转就行了。<br>然后在这一行以下的就是我们的TODO了，我们只需要构造函数实现</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************</span></span><br><span class="line"><span class="comment">	<span class="doctag">TODO:</span> Add function here	</span></span><br><span class="line"><span class="comment">	input: Mat original_img</span></span><br><span class="line"><span class="comment">	output: Mat processed_img</span></span><br><span class="line"><span class="comment">************************/</span></span><br></pre></td></tr></table></figure>
-<p>就可以啦</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">课内</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大三上</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C方向</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/HUST//" class="article-tag-list-link color5">HUST</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
@@ -1134,14 +1308,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络压缩</a>
               </li>
              
@@ -1154,15 +1320,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">课内</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大三上</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tofel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1182,6 +1356,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Emacs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
@@ -1194,15 +1372,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Emacs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,6 +1381,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
