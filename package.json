@@ -28,6 +28,6 @@
     "hexo-wordcount": "^6.0.1",
     "install": "^0.13.0",
     "live2d-widget-model-koharu": "^1.0.5",
-    "npm": "^6.13.7"
+    "npm": "^6.14.6"
   }
 }
