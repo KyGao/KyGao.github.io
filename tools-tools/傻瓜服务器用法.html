@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: ML | Kerry</title>
+  <title>如何傻瓜式地使用服务器 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kerry">
-<meta property="og:url" content="http://yoursite.com/tags/ML/index.html">
+  <meta name="description" content="碎片式地记录一下使用服务器跑模型要用的必须操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何傻瓜式地使用服务器">
+<meta property="og:url" content="http://yoursite.com/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html">
 <meta property="og:site_name" content="Kerry">
+<meta property="og:description" content="碎片式地记录一下使用服务器跑模型要用的必须操作">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-22T01:52:43.000Z">
+<meta property="article:modified_time" content="2020-04-23T09:11:44.835Z">
 <meta property="article:author" content="Kerry">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
@@ -156,132 +162,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-tools/傻瓜服务器用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MOOC-MOOC/HungyiLee.html" class="archive-article-date">
-  	<time datetime="2020-03-16T05:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MOOC-MOOC/HungyiLee.html">李宏毅 (Hung-yi Lee) 老师的ML课堂笔记</a>
+    <h1 class="article-title" itemprop="name">
+      如何傻瓜式地使用服务器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html" class="archive-article-date">
+  	<time datetime="2020-04-22T01:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：214字 | 预计阅读时长：1分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>碎片式地记录一下使用服务器跑模型要用的必须操作</p>
+<a id="more"></a>
+
+<p>windows的话我当时是用的 Xshell 搭配 winscp，傻瓜式操作。现在转到了linux，还用图形化程序的话对不起这个系统hhh，所以就重新学了下基础的服务器用法</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><h3 id="ssh命令"><a href="#ssh命令" class="headerlink" title="ssh命令"></a>ssh命令</h3><p><code>ssh username@ipaddress -p &lt;portnum&gt;</code></p>
+<blockquote>
+<p>偷偷记录一下我用的ipaddress域名是ngrok.derryhub.club，端口是8031 8032 8033，应该没人看得到这里吧</p>
+</blockquote>
+<h3 id="scp命令"><a href="#scp命令" class="headerlink" title="scp命令"></a>scp命令</h3><p>如果只是单个文件不需要加 <strong>-r</strong><br>1、从服务器下载整个文件夹<br><code>scp -r username@servername:remote_dir/ /tmp/local_dir</code><br>2、上传文件夹到服务器<br><code>scp  -r /tmp/local_dir username@servername:remote_dir</code><br>我的话是需要分端口号的，如果有端口号就应该加 <strong>-P num</strong>，注意这里的 P 是大写</p>
+<h3 id="查看显卡使用情况"><a href="#查看显卡使用情况" class="headerlink" title="查看显卡使用情况"></a>查看显卡使用情况</h3><p><code>nvidia-smi</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MOOC//" class="article-tag-list-link color5">MOOC</a>
+        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MOOC-MOOC/ProgramLangPartA.html" class="archive-article-date">
-  	<time datetime="2020-02-14T05:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/AI-AI/ma/0723.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          暑研记录（五）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/tools-tools/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bvscode%E5%BF%AB%E6%8D%B7%E9%94%AE.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VS code的一些快捷键</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MOOC-MOOC/ProgramLangPartA.html">Programming Language (Part A)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Coursera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MOOC//" class="article-tag-list-link color5">MOOC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录"><span class="toc-number">1.</span> <span class="toc-text">登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh命令"><span class="toc-number">1.1.</span> <span class="toc-text">ssh命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scp命令"><span class="toc-number">1.2.</span> <span class="toc-text">scp命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看显卡使用情况"><span class="toc-number">1.3.</span> <span class="toc-text">查看显卡使用情况</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -304,9 +397,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

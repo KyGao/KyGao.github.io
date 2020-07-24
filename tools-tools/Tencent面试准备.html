@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20150706123206122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="article:published_time" content="2020-03-07T11:52:43.000Z">
-<meta property="article:modified_time" content="2020-04-03T05:00:19.663Z">
+<meta property="article:modified_time" content="2020-04-04T23:42:43.820Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="tools">
 <meta property="article:tag" content="interview">
@@ -73,10 +73,10 @@
 		</nav>
 
 		<nav>
-    总文章数 15
+    总文章数 18
     </nav>
     <nav>
-    总字数 <span class="post-count">21.2k</span>
+    总字数 <span class="post-count">25.1k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -183,7 +183,7 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：3.3k字 | 预计阅读时长：11分钟
+      字数：5.9k字 | 预计阅读时长：20分钟
       </div>
 
     
@@ -252,7 +252,74 @@
 <li>内存管理。内存的分配回收，获取作业占用内存等</li>
 </ol>
 <h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><p><strong>答</strong>: 线程是进程划分成的更小的运行单位，一个进程在其执行的过程中可以产生多个线程。线程和进程最大不同在于基本上各进程是独立的，而各线程则不一定，因为同一进程中的线程极有可能相互影响。线程执行开销小，但不利于资源的管理和保护，而进程正好相反。</p>
-<h3 id="进程有哪几种状态"><a href="#进程有哪几种状态" class="headerlink" title="进程有哪几种状态"></a>进程有哪几种状态</h3><hr>
+<h3 id="进程有哪几种状态"><a href="#进程有哪几种状态" class="headerlink" title="进程有哪几种状态"></a>进程有哪几种状态</h3><p><strong>答</strong>: 有五种状态：创建状态，就绪状态，运行状态，阻塞状态，结束状态</p>
+<ol>
+<li><strong>创建</strong>状态 (new): 进程正在被创建，尚未到就绪状态</li>
+<li><strong>就绪</strong>状态 (ready): 进程已处于准备运行状态，即进程获得了除了<strong>处理器</strong>之外的一切所需资源，一旦得到处理器资源（处理器分配的时间片）即可运行</li>
+<li><strong>运行</strong>状态 (running): 进程正在处理器上运行（单核CPU任意时刻只有一个进程处于运行状态）</li>
+<li><strong>阻塞</strong>状态 (waiting): 又称为等待状态，进程正在等待某一事件而暂停运行。如等待某资源变可用或等待IO操作完成，此时即使处理器空闲，该进程也不能运行</li>
+<li><strong>结束</strong>状态 (terminated): 进程正在从系统中消失</li>
+</ol>
+<h3 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h3><p><strong>答</strong>: 大概有7种常见的进程间通信方式，</p>
+<ol>
+<li><strong>管道/匿名管道</strong> (Pipes): 用于具有亲缘关系的父子进程间或兄弟进程间的通信</li>
+<li><strong>有名管道</strong> (Names Pipes): 匿名管道由于没有名字，只能用于亲缘关系的进程间通信，因此提出了有名管道。有名管道严格遵循先进先出(FIFO)，以磁盘文件的方式存在，可以实现本机任意两个进程通信。</li>
+<li><strong>信号</strong> (Signals): 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生</li>
+<li><strong>消息队列</strong> (Message Queuing): 消息队列是消息的链表，具有特定的格式，存放在内存中，既可以FIFO读取，又可以按消息类型读取</li>
+<li><strong>信号量</strong> (Semaphores): 信号量是一个计数器，用于多进程对共享数据的访问，意图在于实现进程间的同步。</li>
+<li><strong>共享内存</strong> (Shared memory): 使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。是最有用的进程间通信方式</li>
+<li><strong>套接字</strong> (Sockets): 主要用于在客户端和服务器之间通过网络进行通信。套接字是支持TCP/IP的网络通信的基本操作单元</li>
+</ol>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>定义</strong>: 当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<br>产生的四个条件：</p>
+<ol>
+<li><strong>禁止抢占</strong>（no preemption）：系统资源不能被强制从一个进程中退出。</li>
+<li><strong>持有和等待</strong>（hold and wait）：一个进程可以在等待时持有系统资源。</li>
+<li><strong>互斥</strong>（mutual exclusion）：资源只能同时分配给一个行程，无法多个行程共享。</li>
+<li><strong>循环等待</strong>（circular waiting）：一系列进程互相持有其他进程所需要的资源。<br>死锁只有在四个条件同时满足时发生，预防死锁必须至少破坏其中一项。</li>
+</ol>
+<h3 id="线程间的同步方式"><a href="#线程间的同步方式" class="headerlink" title="线程间的同步方式"></a>线程间的同步方式</h3><p><strong>答</strong>: 线程没有独立资源，只能和属于同一进程的其他线程共享进程的系统资源。单个资源在多个用户之间共享就会存在一致性的问题，因此需要通过一定的方法来对线程共享资源进行同步。操作系统一般有下面三种线程同步的方式：</p>
+<ol>
+<li><strong>互斥量</strong> (Mutex): 只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。</li>
+<li><strong>信号</strong> (Semphares): 它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件</strong> (Events):  通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</li>
+</ol>
+<h3 id="进程的调度算法"><a href="#进程的调度算法" class="headerlink" title="进程的调度算法"></a>进程的调度算法</h3><p><strong>答</strong>: 为了确定首先执行哪个进程以及最后执行哪个进程以实现最大CPU利用率，计算机科学家已经定义了一些算法：</p>
+<ol>
+<li><strong>先到先服务(FCFS)调度算法</strong> : 从就绪队列中选择一个最先进入该队列的进程为之分配资源，使它立即执行并一直执行到完成或发生某事件而被阻塞放弃占用CPU时再重新调度。</li>
+<li><strong>短作业优先(SJF)的调度算法</strong> : 从就绪队列中选出一个估计运行时间最短的进程为之分配资源，使它立即执行并一直执行到完成或发生某事件而被阻塞放弃占用CPU时再重新调度。</li>
+<li><strong>时间片轮转调度算法</strong> : 时间片轮转调度是一种最古老，最简单，最公平且使用最广的算法，又称RR(Round robin)调度。每个进程被分配一个时间段，称作它的时间片，即该进程允许运行的时间。</li>
+<li><strong>多级反馈队列调度算法</strong> ：前面介绍的几种进程调度的算法都有一定的局限性。如短进程优先的调度算法，仅照顾了短进程而忽略了长进程 。多级反馈队列调度算法既能使高优先级的作业得到响应又能使短作业（进程）迅速完成。，因而它是目前被公认的一种较好的进程调度算法，UNIX操作系统采取的便是这种调度算法。</li>
+<li><strong>优先级调度</strong> ：为每个流程分配优先级，首先执行具有最高优先级的进程，依此类推。具有相同优先级的进程以FCFS方式执行。可以根据内存要求，时间要求或任何其他资源要求来确定优先级。</li>
+</ol>
+<h3 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h3><p><strong>答</strong>: 简单分为<strong>连续分配管理方式</strong>和<strong>非连续分配管理方式</strong>这两种。连续分配管理方式是指为一个用户程序分配一个连续的内存空间，常见的如<strong>块式管理</strong>。同样地，非连续分配管理方式允许一个程序使用的内存分布在离散或者说不相邻的内存中，常见的如<strong>页式管理</strong>和<strong>段式管理</strong>。</p>
+<ol>
+<li><strong>块式管理</strong> ：远古时代的计算机操系统的内存管理方式。将内存分为几个固定大小的块，每个块中只包含一个进程。如果程序运行需要内存的话，操作系统就分配给它一块，如果程序运行只需要很小的空间的话，分配的这块内存很大一部分几乎被浪费了。这些在每个块中未被利用的空间，我们称之为碎片。</li>
+<li><strong>页式管理</strong> ：把主存分为大小相等且固定的一页一页的形式，页较小，相对相比于块式管理的划分力度更大，提高了内存利用率，减少了碎片。页式管理通过页表对应逻辑地址和物理地址。</li>
+<li><strong>段式管理</strong> ：页式管理虽然提高了内存利用率，但是页式管理其中的页实际并无任何实际意义。段式管理把主存分为一段段的，每一段的空间又要比一页的空间小很多 。但是，最重要的是段是有实际意义的，每个段定义了一组逻辑信息，例如,有主程序段 MAIN、子程序段 X、数据段 D 及栈段 S 等。段式管理通过段表对应逻辑地址和物理地址。</li>
+<li><strong>段页式管理机制</strong> : 段页式管理机制结合了段式管理和页式管理的优点。简单来说段页式管理机制就是把主存先分成若干段，每个段又分成若干页，也就是说 段页式管理机制 中段与段之间以及段的内部的都是离散的。</li>
+</ol>
+<h3 id="快表和多级页表"><a href="#快表和多级页表" class="headerlink" title="快表和多级页表"></a>快表和多级页表</h3><p><strong>答</strong>: 在分页内存管理中，很重要的两点是</p>
+<ol>
+<li>虚拟地址到物理地址的转换要快。</li>
+<li>解决虚拟地址空间大，页表也会很大的问题。<br>为了解决问题1，提出了<strong>快表</strong>:<br>我们可以把块表理解为一种特殊的高速缓冲存储器（Cache），其中的内容是页表的一部分或者全部内容。作为页表的Cache，它的作用与页表相似，但是提高了访问速率。由于采用页表做地址转换，读写内存数据时CPU要访问两次主存。有了快表，有时只要访问一次高速缓冲存储器，一次主存，这样可加速查找并提高指令执行速度。<br>使用快表之后的地址转换流程是这样的：<ol>
+<li>根据虚拟地址中的页号查快表；</li>
+<li>如果该页在快表中，直接从快表中读取相应的物理地址；</li>
+<li>如果该页不在快表中，就访问内存中的页表，再从页表中得到物理地址，同时将页表中的该映射表项添加到快表中；</li>
+<li>当快表填满后，又要登记新页时，就按照一定的淘汰策略淘汰掉快表中的一个页。<br>为了解决问题2，提出了<strong>多级页表</strong>:<br>避免把全部页表放在内存中占用过多空间，可以将不需要的页表移出内存</li>
+</ol>
+</li>
+</ol>
+<h3 id="分页机制和分段机制的共同点和区别"><a href="#分页机制和分段机制的共同点和区别" class="headerlink" title="分页机制和分段机制的共同点和区别"></a>分页机制和分段机制的共同点和区别</h3><p><strong>答</strong>:<br><strong>共同点</strong> ：</p>
+<ol>
+<li>分页机制和分段机制都是<strong>为了提高内存利用率</strong>，较少内存碎片。</li>
+<li>页和段都是<strong>离散存储</strong>的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。</li>
+</ol>
+<p><strong>区别</strong> ：</p>
+<ol>
+<li><strong>页的大小</strong>是固定的，由操作系统决定；而<strong>段的大小</strong>不固定，取决于我们当前运行的程序。</li>
+<li>分页仅仅是为了满足操作系统<strong>内存管理</strong>的需求，而段是<strong>逻辑信息</strong>的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。</li>
+</ol>
+<hr>
 <h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="TCP-与-UDP-的区别及适用场景"><a href="#TCP-与-UDP-的区别及适用场景" class="headerlink" title="TCP 与 UDP 的区别及适用场景"></a>TCP 与 UDP 的区别及适用场景</h3><h3 id="TCP-的三次握手、四次挥手"><a href="#TCP-的三次握手、四次挥手" class="headerlink" title="TCP 的三次握手、四次挥手"></a>TCP 的三次握手、四次挥手</h3><h3 id="为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><a href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态" class="headerlink" title="为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态"></a>为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</h3><h3 id="UDP-bind-和-connect-有什么用"><a href="#UDP-bind-和-connect-有什么用" class="headerlink" title="UDP bind 和 connect 有什么用"></a>UDP bind 和 connect 有什么用</h3><h3 id="Socket编程中-close-和-shutdown-有什么区别"><a href="#Socket编程中-close-和-shutdown-有什么区别" class="headerlink" title="Socket编程中 close() 和 shutdown() 有什么区别"></a>Socket编程中 <code>close()</code> 和 <code>shutdown()</code> 有什么区别</h3><h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><h3 id="请说明一下-http-和-https-的区别"><a href="#请说明一下-http-和-https-的区别" class="headerlink" title="请说明一下 http 和 https 的区别"></a>请说明一下 http 和 https 的区别</h3><h3 id="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><a href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程" class="headerlink" title="浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"></a>浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</h3><h3 id="TCP拥塞控制机制"><a href="#TCP拥塞控制机制" class="headerlink" title="TCP拥塞控制机制"></a>TCP拥塞控制机制</h3><h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3>
       
 
@@ -411,7 +478,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-基础"><span class="toc-number">1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数的实现机制"><span class="toc-number">1.1.</span> <span class="toc-text">虚函数的实现机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数-析构函数可不可以virtual"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数&#x2F;析构函数可不可以virtual</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承体系下函数的调用"><span class="toc-number">1.3.</span> <span class="toc-text">继承体系下函数的调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11的一些新特性，如shared-ptr等"><span class="toc-number">1.4.</span> <span class="toc-text">C++11的一些新特性，如shared_ptr等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配、内存对齐、序列化等"><span class="toc-number">1.5.</span> <span class="toc-text">内存分配、内存对齐、序列化等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static关键字的作用"><span class="toc-number">1.6.</span> <span class="toc-text">Static关键字的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数和纯虚函数的区别"><span class="toc-number">1.7.</span> <span class="toc-text">虚函数和纯虚函数的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数以及构造函数执行顺序的一些特性"><span class="toc-number">1.8.</span> <span class="toc-text">虚函数以及构造函数执行顺序的一些特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#struct-class-以及-union-内存对齐的四个原则"><span class="toc-number">1.9.</span> <span class="toc-text">struct&#x2F;class 以及 union 内存对齐的四个原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有虚析构函数"><span class="toc-number">1.10.</span> <span class="toc-text">为什么要有虚析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让-h文件不被重复引用"><span class="toc-number">1.11.</span> <span class="toc-text">如何让.h文件不被重复引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">2.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是操作系统"><span class="toc-number">2.1.</span> <span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是系统调用"><span class="toc-number">2.2.</span> <span class="toc-text">什么是系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大致可以分为哪几类系统调用"><span class="toc-number">2.3.</span> <span class="toc-text">大致可以分为哪几类系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程和线程的区别"><span class="toc-number">2.4.</span> <span class="toc-text">进程和线程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程有哪几种状态"><span class="toc-number">2.5.</span> <span class="toc-text">进程有哪几种状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">3.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-与-UDP-的区别及适用场景"><span class="toc-number">3.1.</span> <span class="toc-text">TCP 与 UDP 的区别及适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-的三次握手、四次挥手"><span class="toc-number">3.2.</span> <span class="toc-text">TCP 的三次握手、四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><span class="toc-number">3.3.</span> <span class="toc-text">为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-bind-和-connect-有什么用"><span class="toc-number">3.4.</span> <span class="toc-text">UDP bind 和 connect 有什么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket编程中-close-和-shutdown-有什么区别"><span class="toc-number">3.5.</span> <span class="toc-text">Socket编程中 close() 和 shutdown() 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络模型"><span class="toc-number">3.6.</span> <span class="toc-text">网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-请求"><span class="toc-number">3.7.</span> <span class="toc-text">HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请说明一下-http-和-https-的区别"><span class="toc-number">3.8.</span> <span class="toc-text">请说明一下 http 和 https 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><span class="toc-number">3.9.</span> <span class="toc-text">浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制机制"><span class="toc-number">3.10.</span> <span class="toc-text">TCP拥塞控制机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-流量控制"><span class="toc-number">3.11.</span> <span class="toc-text">TCP 流量控制</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-基础"><span class="toc-number">1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数的实现机制"><span class="toc-number">1.1.</span> <span class="toc-text">虚函数的实现机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数-析构函数可不可以virtual"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数&#x2F;析构函数可不可以virtual</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承体系下函数的调用"><span class="toc-number">1.3.</span> <span class="toc-text">继承体系下函数的调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11的一些新特性，如shared-ptr等"><span class="toc-number">1.4.</span> <span class="toc-text">C++11的一些新特性，如shared_ptr等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配、内存对齐、序列化等"><span class="toc-number">1.5.</span> <span class="toc-text">内存分配、内存对齐、序列化等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static关键字的作用"><span class="toc-number">1.6.</span> <span class="toc-text">Static关键字的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数和纯虚函数的区别"><span class="toc-number">1.7.</span> <span class="toc-text">虚函数和纯虚函数的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数以及构造函数执行顺序的一些特性"><span class="toc-number">1.8.</span> <span class="toc-text">虚函数以及构造函数执行顺序的一些特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#struct-class-以及-union-内存对齐的四个原则"><span class="toc-number">1.9.</span> <span class="toc-text">struct&#x2F;class 以及 union 内存对齐的四个原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有虚析构函数"><span class="toc-number">1.10.</span> <span class="toc-text">为什么要有虚析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让-h文件不被重复引用"><span class="toc-number">1.11.</span> <span class="toc-text">如何让.h文件不被重复引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">2.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是操作系统"><span class="toc-number">2.1.</span> <span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是系统调用"><span class="toc-number">2.2.</span> <span class="toc-text">什么是系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大致可以分为哪几类系统调用"><span class="toc-number">2.3.</span> <span class="toc-text">大致可以分为哪几类系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程和线程的区别"><span class="toc-number">2.4.</span> <span class="toc-text">进程和线程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程有哪几种状态"><span class="toc-number">2.5.</span> <span class="toc-text">进程有哪几种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程间的通信方式"><span class="toc-number">2.6.</span> <span class="toc-text">进程间的通信方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">2.7.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程间的同步方式"><span class="toc-number">2.8.</span> <span class="toc-text">线程间的同步方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的调度算法"><span class="toc-number">2.9.</span> <span class="toc-text">进程的调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理机制"><span class="toc-number">2.10.</span> <span class="toc-text">内存管理机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快表和多级页表"><span class="toc-number">2.11.</span> <span class="toc-text">快表和多级页表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页机制和分段机制的共同点和区别"><span class="toc-number">2.12.</span> <span class="toc-text">分页机制和分段机制的共同点和区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">3.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-与-UDP-的区别及适用场景"><span class="toc-number">3.1.</span> <span class="toc-text">TCP 与 UDP 的区别及适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-的三次握手、四次挥手"><span class="toc-number">3.2.</span> <span class="toc-text">TCP 的三次握手、四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-TIME-WAIT-状态需要经过-2MSL-最大报文段生存时间-才能返回-CLOSE-状态"><span class="toc-number">3.3.</span> <span class="toc-text">为什么 TIME_WAIT 状态需要经过 2MSL(最大报文段生存时间)才能返回 CLOSE 状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-bind-和-connect-有什么用"><span class="toc-number">3.4.</span> <span class="toc-text">UDP bind 和 connect 有什么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket编程中-close-和-shutdown-有什么区别"><span class="toc-number">3.5.</span> <span class="toc-text">Socket编程中 close() 和 shutdown() 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络模型"><span class="toc-number">3.6.</span> <span class="toc-text">网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-请求"><span class="toc-number">3.7.</span> <span class="toc-text">HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请说明一下-http-和-https-的区别"><span class="toc-number">3.8.</span> <span class="toc-text">请说明一下 http 和 https 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程"><span class="toc-number">3.9.</span> <span class="toc-text">浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制机制"><span class="toc-number">3.10.</span> <span class="toc-text">TCP拥塞控制机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-流量控制"><span class="toc-number">3.11.</span> <span class="toc-text">TCP 流量控制</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -608,6 +675,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LID</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: ML | Kerry</title>
+  <title>暑研记录（五） | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kerry">
-<meta property="og:url" content="http://yoursite.com/tags/ML/index.html">
+  <meta name="description" content="确定了三个实验方案，看看借助LID生成mask能玩出什么花来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暑研记录（五）">
+<meta property="og:url" content="http://yoursite.com/AI-AI/ma/0723.html">
 <meta property="og:site_name" content="Kerry">
+<meta property="og:description" content="确定了三个实验方案，看看借助LID生成mask能玩出什么花来。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-23T02:50:43.000Z">
+<meta property="article:modified_time" content="2020-07-24T04:17:47.656Z">
 <meta property="article:author" content="Kerry">
+<meta property="article:tag" content="网络压缩">
+<meta property="article:tag" content="LID">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
@@ -156,132 +162,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AI/ma/0723" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MOOC-MOOC/HungyiLee.html" class="archive-article-date">
-  	<time datetime="2020-03-16T05:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MOOC-MOOC/HungyiLee.html">李宏毅 (Hung-yi Lee) 老师的ML课堂笔记</a>
+    <h1 class="article-title" itemprop="name">
+      暑研记录（五）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/AI-AI/ma/0723.html" class="archive-article-date">
+  	<time datetime="2020-07-23T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：988字 | 预计阅读时长：3分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>确定了三个实验方案，看看借助LID生成mask能玩出什么花来。</p>
+<a id="more"></a>
+
+<h3 id="上次实验修正"><a href="#上次实验修正" class="headerlink" title="上次实验修正"></a>上次实验修正</h3><p>之前检测剪枝后模型的 LID 时踩了个大坑，PyTroch 的 nn.Module 中有个属性叫 children 如果没有在 <code>__init__</code> 中声明该成员（这点我其实不太确定，但确实是这么解决的），仅仅在<code>forward</code>中调用了函数，是不算在 children 的结构中的。BTW, 下次 debug 想看结构完不完整或者看怎么调用其中某个步骤时可以用 <code>model.named_parameters</code> 查看每层的name。如此一来，我们在网络中定义的 self. 可以用 model.name. 来调用了。举个例子如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 通过这个来调用ResNet中第一个block中的第一层（两组conv算一层）中的第一个conv的调用</span></span><br><span class="line">out = model.layer1[<span class="number">0</span>].conv1(out)</span><br></pre></td></tr></table></figure>
+<p>所以修正在于，上次在计算LID时block之前的relu没有加上，这次补上如下：</p>
+<p>发现浅层的relu加入会大量增加LID，老师的解释是relu本身会把一些本来LID小的负数据置为0，因此加入relu会增加LID，使得feature map需要表达的能力提高了。</p>
+<h3 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h3><p>因为考试还有各种实验等诸多原因，这段时间我没有做很多实验。所以我这次讨论只是将实验设计方案与老师讨论，最终确定如下方案：</p>
+<h4 id="1-Data-free-LID-Filter-level-pruning"><a href="#1-Data-free-LID-Filter-level-pruning" class="headerlink" title="1. Data-free LID Filter-level pruning"></a>1. Data-free LID Filter-level pruning</h4><p>假设conv1的weight结构是 [64, 3, 3, 3] (out_channel, in_channel, filter size)。首先data-free指的是直接利用weight信息进行LID计算，不需要送入数据；filter level指的是剪就剪一整个输出通道。比如这里就是把3×3×3看做数据的长度，然后64个输出通道看作样本，最后变成 (64, 27) 的数据送进去算LID。初步设想是剪 LID小 的，因为LID小意味着这两个通道作用差不多，是可以去掉的，这个具体实验时可以做尝试。</p>
+<h4 id="2-Data-driven-LID-Feature-map-masking"><a href="#2-Data-driven-LID-Feature-map-masking" class="headerlink" title="2. Data-driven LID Feature map masking"></a>2. Data-driven LID Feature map masking</h4><p>data-driven指的是纵向的送入一串数据；featuremap mask指的是对relu后面直接跟个mask。比如这里就是送入128个样本（一个batch），然后在feature map上的某个点就可以得到长度128的数据，然后加入这个feature map的大小是512×4,那么把它展平变成2048,就得到 (2048, 128) 的数据送进去计算LID。这个剪大剪小都是可以解释的。老师升华了一下，这个mask其实没有做剪枝，而是做了一个sparsify，是从infomation geometric可以解释的，或许对网络鲁棒性有好的影响。</p>
+<h4 id="3-LID-regularization-in-latent-space"><a href="#3-LID-regularization-in-latent-space" class="headerlink" title="3. LID regularization in latent space"></a>3. LID regularization in latent space</h4><p>这是老师之前有进行过一个实验，对 logits 的 LID做了个正则项计算，希望以减小对抗样本的LID为目的进行，但是效果并不好，老师觉得或许在中间层尝试效果会不一样（比如AvgPool之后）。具体来看，先送入一个batch的NE，假设在avgpool之后得到的结构是 128×1024，然后再送入一个batch的AE，则在avgpool得到的结构也是 128×1024,然后用AE的128个数据分别与NE的128×1024组合变成129×1024,分别计算出AE和NE的LID（也印证了 <code>mle_batch()</code>函数中的输入为什么调用时都是X，但是定义时两个名字不一样，就是因为一开始想着这个情况，NE和AE）。这样之后可以得到128组LID（AE的），然后用某种手段把他们融合起来，作为正则化项的表达，然后$\lambda$ 可以设为0.1</p>
+<h4 id="Add-on"><a href="#Add-on" class="headerlink" title="Add on"></a>Add on</h4><p>老师提了一点，就是在实验设计的时候，对于有BatchNorm层的网络进行实验设计时一定要以一个batch为单位设计实验，而不能只看某一个样本的表现。因为单独用一个样本的话BN层实际上是扭曲了他的表达的。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LID</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MOOC//" class="article-tag-list-link color5">MOOC</a>
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/ma/0723.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MOOC-MOOC/ProgramLangPartA.html" class="archive-article-date">
-  	<time datetime="2020-02-14T05:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何傻瓜式地使用服务器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MOOC-MOOC/ProgramLangPartA.html">Programming Language (Part A)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Coursera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MOOC//" class="article-tag-list-link color5">MOOC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#上次实验修正"><span class="toc-number">1.</span> <span class="toc-text">上次实验修正</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验设计"><span class="toc-number">2.</span> <span class="toc-text">实验设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Data-free-LID-Filter-level-pruning"><span class="toc-number">2.1.</span> <span class="toc-text">1. Data-free LID Filter-level pruning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Data-driven-LID-Feature-map-masking"><span class="toc-number">2.2.</span> <span class="toc-text">2. Data-driven LID Feature map masking</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-LID-regularization-in-latent-space"><span class="toc-number">2.3.</span> <span class="toc-text">3. LID regularization in latent space</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Add-on"><span class="toc-number">2.4.</span> <span class="toc-text">Add on</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -304,9 +390,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
