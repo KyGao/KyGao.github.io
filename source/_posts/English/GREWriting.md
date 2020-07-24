@@ -4,10 +4,9 @@ date: 2019-12-06 10:50:43
 tags: [GRE,学习笔记]
 categories: 
 - English
-description: 微臣GRE2017年全程班写作课笔记（王耕伟老师）
 ---
 > 微臣GRE2017年全程班写作课笔记（王耕伟老师）
-
+<!--more-->
 
 ## 第一章 GRE写作简介
 ### 怎么考？

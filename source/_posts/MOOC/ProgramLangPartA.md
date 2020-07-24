@@ -7,8 +7,11 @@ tags:
 categories:
   - MOOC
 date: 2020-02-14 13:10:43
-description: Coursera上据说很有挑战的一门课，课程目的是学会如何设计优美的程序结构，掌握对编程语言的统一宏观概念。在Part A中利用ML语言和Emacs编辑器作为工具，Part B 和 Part C分别是 Rocket 和 Ruby。
+
 ---
+
+Coursera上据说很有挑战的一门课，课程目的是学会如何设计优美的程序结构，掌握对编程语言的统一宏观概念。在Part A中利用ML语言和Emacs编辑器作为工具，Part B 和 Part C分别是 Rocket 和 Ruby。
+<!--more-->
 
 ## Week 1: Introduction
 
@@ -600,3 +603,13 @@ exception 的 数据类型是 exn, 也就是说可以作为参数传进函数，
   ```
 - Complexity
   事实上，考虑空间复杂度，tail recursion 并不是万能药，比如处理树的时候
+  
+  
+
+## Week 4: First-class functions
+anonymous map and filter polymorphic
+
+### Introduction to First-class Functions
+先搞清楚 **Functional Programming** 函数式编程：
+1. 大多数情况下避免 mutation 突变
+2. 将函数当作值（本节内容）

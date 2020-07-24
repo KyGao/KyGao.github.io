@@ -5,10 +5,10 @@ tags: [tools,hexo,manjaro]
 abbrlink: tools/hexoinmanjaro
 categories: 
 - tools
-description: "在Linux上配置hexo果然方便多了，应该是因为nodejs比较好配置。现在还没有部署到github上，反正也只是自己看，以后再说啦"
 ---
 
-
+在Linux上配置hexo果然方便多了，应该是因为nodejs比较好配置。现在还没有部署到github上，反正也只是自己看，以后再说啦
+<!--more-->
 
 ## 新建博客
 

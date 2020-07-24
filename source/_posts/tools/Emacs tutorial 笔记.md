@@ -4,11 +4,11 @@ tags:
   - Emacs
 categories:
   - tools
-description: 最早是看yhm同学大力使用，然而自己学习主要是因为Coursera上面一门课程的要求，便也开始尝试一下传说中的编辑器（操作系统）
 date: 2020-02-14 13:12:43
 ---
 
-​		个人感觉Emacs官网的 [guide](https://www.gnu.org/software/emacs/tour/) 比emacs自带的tutorial清晰很多，可能主要是因为富文本的原因。这里我仅放上可能常用的操作作为索引。有更多需要的小伙伴请移步官网guide。
+个人感觉Emacs官网的 [guide](https://www.gnu.org/software/emacs/tour/) 比emacs自带的tutorial清晰很多，可能主要是因为富文本的原因。这里我仅放上可能常用的操作作为索引。有更多需要的小伙伴请移步官网guide。
+<!--more-->
 
 ### Above all
 

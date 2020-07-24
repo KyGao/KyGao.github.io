@@ -4,8 +4,10 @@ date: 2019-12-06 10:50:43
 tags: [tofel,学习笔记]
 categories: 
 - English
-descirption: 托福写作的简单模板（简单简单简单模板）
 ---
+
+托福写作的简单模板（简单简单简单模板）
+<!--more-->
 
 https://toefl.kmf.com/erater/writeresult/156455091588395176/e1f9tj
 

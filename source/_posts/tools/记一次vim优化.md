@@ -5,9 +5,10 @@ tags: [tools,vim]
 categories: tools
 abbrlink: tools/vim
 search: [vim,vundle,YouCompleteMe] 
-description: "初次尝试修改vim插件，效果一般，想到暂时对vim的需求不大，故先搁置于此"
 ---
 
+初次尝试修改vim插件，效果一般，想到暂时对vim的需求不大，故先搁置于此
+<!--more-->
 **起因**：因为实在受不了默认的hjkl上下左右，想要修改vim的快捷键，才看到vim竟然还有插件和配置这种东西，原来和zsh一样，看来是我才疏学浅了，于是临时兴起又随便照着别人的配置优化了一下，之后有需要再回来完善。
 
 

@@ -7,8 +7,10 @@ categories:
   - AI
 abbrlink: AI/pytorch/pytorch_01
 date: 2020-01-31 11:48:43
-description: "PyTorch中文手册第一章：PyTorch入门。包括简介，环境搭建，相关资源介绍和60分钟快速入门"
 ---
+
+PyTorch中文手册第一章：PyTorch入门。包括简介，环境搭建，相关资源介绍和60分钟快速入门
+<!--more-->
 
 ## 1.1 PyTorch简介
 
@@ -124,7 +126,7 @@ b = torch.from_numpy(a)
     > 如果有一个单一的输入操作需要梯度，它的输出也需要梯度。相反，只有所有输入都不需要梯度，输出才不需要。如果其中所有的变量都不需要梯度进行，后向计算不会在子图中执行。
 
     		即对于某一`requires_grad`为`True`的tensor输出方向的tensor都要为`True`，输入方向的tensor不做要求。
-																																											
+																																													
     		因此在冻结模型某部分的时候不需要改变网络结构，只需要切换`requires_grad`的地方就可以了
 
   - **volatile**

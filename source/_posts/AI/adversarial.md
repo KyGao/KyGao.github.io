@@ -6,7 +6,11 @@ categories:
 - AI
 ---
 
+一篇讨论对抗攻击在压缩模型上的可迁移性的论文
+<!--more-->
+
 ### 论文名称
+
 [To Compress or Not to Compress: Understanding the Interactions between Adversarial Attacks and Neural Network Compression](https://arxiv.org/pdf/1810.00208.pdf)
 
 ### 论文重述

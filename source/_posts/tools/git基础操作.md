@@ -3,10 +3,11 @@ title: Git 基础操作
 tags: [Git,tools]
 categories:
   - tools
-description: 学到哪记到哪
 date: 2020-03-14 13:12:43
 ---
 
+学到哪记到哪
+<!--more-->
 ### Git 安装配置
 - 看看是否装成功
 查看版本信息：`git --version` 
@@ -27,10 +28,11 @@ date: 2020-03-14 13:12:43
 - 想在暂存区删除某个文件（不删除本地文件）：`git rm --cache <file>`
 
 ### Git出问题了
-- 在github的仓库里有文件夹是灰色的，打不开
+  在github的仓库里有文件夹是灰色的，打不开
   **原因**：本地 .git 所在文件夹嵌套 .git 了
   **解决办法**：
   1. `git rm -r --cached "file path & name"`
   2. 本地文件夹找到内嵌的 .git，删除
   3. 重新add三连
+  btw, 一定记得git不要嵌套，不然很麻烦的
 
