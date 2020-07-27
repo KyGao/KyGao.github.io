@@ -161,3 +161,28 @@ categories:
    
     return visited
   ```
+
+### 剪枝
+1. **典型例题**:N皇后,数独,生成有效括号组合
+
+### 二分查找
+1. 二分查找要求: Sorted, Bounded. Accessible by index
+2. 模板
+    ```python
+  left, right = 0, len(array) - 1
+  while left <= right:
+    mid = left + (right - left) / 2
+    if array[mid] == target:
+      return or break
+    elif array[mid] < target:
+      left = mid + 1
+    else:
+      right = mid - 1
+    ```
+3. **典型例题**:sqrt
+
+### 位运算
+1. 实战常用的位运算操作:
+  - `x & 1 == 1` 判断奇偶 (`x % 2 == 1`)
+  - `x = x & (x - 1)`:清除最低位的1
+2. **典型例题**:位1的个数,2的幂次方
