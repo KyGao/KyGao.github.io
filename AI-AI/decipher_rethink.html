@@ -16,7 +16,7 @@
 <meta property="og:description" content="不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-27T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-07-28T01:54:44.701Z">
+<meta property="article:modified_time" content="2020-07-28T02:12:13.908Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="网络压缩">
 <meta property="article:tag" content="剪枝">
@@ -181,7 +181,7 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：959字 | 预计阅读时长：4分钟
+      字数：962字 | 预计阅读时长：4分钟
       </div>
 
     
@@ -189,15 +189,15 @@
       
         <p>不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.</p>
 <a id="more"></a>
-
 <p>原论文:<a href="https://arxiv.org/abs/1810.05270" target="_blank" rel="noopener">Rethinking the Value of Network Pruning</a></p>
 <p>这里只解析resnet56的网络(最实用并且比较简单的网络),其他结构大同小异.</p>
 <h3 id="l1-norm-pruning"><a href="#l1-norm-pruning" class="headerlink" title="l1-norm-pruning"></a>l1-norm-pruning</h3><p>原论文:<a href="https://arxiv.org/abs/1608.08710" target="_blank" rel="noopener">L1-norm based channel pruning</a></p>
 <ol>
-<li><p><strong>代码结构:</strong><br>|- models<br>|  |- <strong>init</strong>.py<br>|  |- resnet.py<br>|  |- vgg.py<br>|- compute_flops.py<br>|- main_B.py<br>|- main_E.py<br>|- main_finetune.py     # finetune<br>|- main.py              # 训练<br>|- res56prune.py        # 剪枝在此<br>|- res110prune.py<br>|- vggprune.py</p>
+<li><p><strong>代码结构:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">|- models</span><br><span class="line">|  |- __init__.py</span><br><span class="line">|  |- resnet.py</span><br><span class="line">|  |- vgg.py</span><br><span class="line">|- compute_flops.py</span><br><span class="line">|- main_B.py</span><br><span class="line">|- main_E.py</span><br><span class="line">|- main_finetune.py     # finetune</span><br><span class="line">|- main.py              # 训练</span><br><span class="line">|- res56prune.py        # 剪枝在此</span><br><span class="line">|- res110prune.py</span><br><span class="line">|- vggprune.py</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>网络结构:</strong>对于resnet56来说, 3layers,每个layers有9个block =&gt; 18 layer<br>(conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>(bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br>(relu): ReLU(inplace=True)<br>(layer1): Sequential(<br> (0): BasicBlock(<br>   (conv1): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>   (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br>   (relu): ReLU(inplace=True)<br>   (conv2): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>   (bn2): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br> )<br> 相同Block结构一直到(8),总共9个block,此处省略8个<br>)<br>(layer2): Sequential(<br> layer1的所有16变32,所以此处省略18层<br>)<br>(layer3): Sequential(<br> layer1的所有16变64,所以此处省略18层<br>)<br>(avgpool): AvgPool2d(kernel_size=8, stride=8, padding=0)<br>(fc): Linear(in_features=64, out_features=10, bias=True)</p>
-</li>
+<li><p><strong>网络结构:</strong>对于resnet56来说, 3layers,每个layers有9个block =&gt; 18 layer</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)</span><br><span class="line">  (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)</span><br><span class="line">  (relu): ReLU(inplace=True)</span><br><span class="line">  (layer1): Sequential(</span><br><span class="line">    (0): BasicBlock(</span><br><span class="line">      (conv1): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)</span><br><span class="line">      (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)</span><br><span class="line">      (relu): ReLU(inplace=True)</span><br><span class="line">      (conv2): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)</span><br><span class="line">      (bn2): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)</span><br><span class="line">    )</span><br><span class="line">    相同Block结构一直到(8),总共9个block,此处省略8个</span><br><span class="line">  )</span><br><span class="line">  (layer2): Sequential(</span><br><span class="line">    layer1的所有16变32,所以此处省略18层</span><br><span class="line">  )</span><br><span class="line">  (layer3): Sequential(</span><br><span class="line">    layer1的所有16变64,所以此处省略18层</span><br><span class="line">  )</span><br><span class="line">  (avgpool): AvgPool2d(kernel_size=8, stride=8, padding=0)</span><br><span class="line">  (fc): Linear(in_features=64, out_features=10, bias=True)</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>快速上手</strong><br> <code>compute_flops.py</code> 是给 <code>main_B.py</code> 准备的,<code>main_B.py</code>和<code>main_E.py</code>可以一样看待,他们作用都是最后类似fine-tune的工作,所以和<code>main_finetune.py</code>差不多,但是比他多了调整lr的操作,同时B比E多考虑了flops变化作为终止条件.然后<code>main.py</code>就是正常训练.<code>models/resnet.py</code>和<code>res56prune.py</code>这两个文件就是核心所在了.</p>
 <ul>
 <li><code>resnet.py</code>:网络结构重述:1+18+18+18+1.里面有个cfg的参数,因为剪的是通道,即网络结构有在改变,而cfg就是固定网络结构的参数.</li>
@@ -213,8 +213,8 @@
 </ol>
 <h3 id="weight-level"><a href="#weight-level" class="headerlink" title="weight-level"></a>weight-level</h3><p>原论文:<a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener">Non-structured weight-level pruning</a></p>
 <ol>
-<li><p><strong>代码结构</strong>:其实和上一个一模一样<br>|- models<br>|  |- <strong>init</strong>.py<br>|  |- cifar<br>|  |  |- <strong>init</strong>.py<br>|  |  |- resnet.py<br>|  |  |- vgg.py<br>|  |  |- preresnet.py<br>|  |  |- densenet.py<br>|  |  |- alexnet.py<br>|- utils                # acc, logger, getters, visualize一些真正辅助的东西<br>|- cifar_B.py<br>|- cifar_E.py<br>|- cifar_finetune.py    # 正常finetune<br>|- cifar.py             # 正常train<br>|- cifar_prune.py       # 正常prune<br>|- count_flops.py<br>|- vggprune.py</p>
-</li>
+<li><p><strong>代码结构</strong>:其实和上一个一模一样</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">|- models</span><br><span class="line">|  |- __init__.py</span><br><span class="line">|  |- cifar</span><br><span class="line">|  |  |- __init__.py</span><br><span class="line">|  |  |- resnet.py</span><br><span class="line">|  |  |- vgg.py</span><br><span class="line">|  |  |- preresnet.py</span><br><span class="line">|  |  |- densenet.py</span><br><span class="line">|  |  |- alexnet.py</span><br><span class="line">|- utils                # acc, logger, getters, visualize一些真正辅助的东西</span><br><span class="line">|- cifar_B.py</span><br><span class="line">|- cifar_E.py</span><br><span class="line">|- cifar_finetune.py    # 正常finetune</span><br><span class="line">|- cifar.py             # 正常train</span><br><span class="line">|- cifar_prune.py       # 正常prune</span><br><span class="line">|- count_flops.py</span><br><span class="line">|- vggprune.py</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>网络结构</strong><br>因为都是resnet56,所以与上一个网络模型一样</p>
 </li>
 <li><p><strong>快速上手</strong><br><code>models/cifar/resnet.py</code>会比上一个的更完整,上一个只有BasicBlock,这一部分的resnet还有BottleNeck,其他一模一样.重点说说<code>cifar_prune.py</code>:先获取所有conv2d的weights并排序,通过先验的args.percent确定thre.之后开始剪,剪的部分也非常简单粗暴,根据是否大于thre生成一个mask,然后直接<code>m.weight.data.mul_(mask)</code>就好</p>
