@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Kerry</title>
+  <title>代码解析 for &lt;Rethinking the value of Network Pruning&gt; | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kerry">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码解析 for &lt;Rethinking the value of Network Pruning&gt;">
+<meta property="og:url" content="http://yoursite.com/AI-AI/decipher_rethink.html">
 <meta property="og:site_name" content="Kerry">
+<meta property="og:description" content="不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-27T02:50:43.000Z">
+<meta property="article:modified_time" content="2020-07-28T01:54:44.701Z">
 <meta property="article:author" content="Kerry">
+<meta property="article:tag" content="网络压缩">
+<meta property="article:tag" content="剪枝">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
@@ -156,36 +162,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AI/decipher_rethink" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/AI-AI/decipher_rethink.html" class="archive-article-date">
-  	<time datetime="2020-07-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/AI-AI/decipher_rethink.html">代码解析 for &lt;Rethinking the value of Network Pruning&gt;</a>
+    <h1 class="article-title" itemprop="name">
+      代码解析 for &lt;Rethinking the value of Network Pruning&gt;
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/AI-AI/decipher_rethink.html" class="archive-article-date">
+  	<time datetime="2020-07-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：959字 | 预计阅读时长：4分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.</p>
+<a id="more"></a>
+
+<p>原论文:<a href="https://arxiv.org/abs/1810.05270" target="_blank" rel="noopener">Rethinking the Value of Network Pruning</a></p>
+<p>这里只解析resnet56的网络(最实用并且比较简单的网络),其他结构大同小异.</p>
+<h3 id="l1-norm-pruning"><a href="#l1-norm-pruning" class="headerlink" title="l1-norm-pruning"></a>l1-norm-pruning</h3><p>原论文:<a href="https://arxiv.org/abs/1608.08710" target="_blank" rel="noopener">L1-norm based channel pruning</a></p>
+<ol>
+<li><p><strong>代码结构:</strong><br>|- models<br>|  |- <strong>init</strong>.py<br>|  |- resnet.py<br>|  |- vgg.py<br>|- compute_flops.py<br>|- main_B.py<br>|- main_E.py<br>|- main_finetune.py     # finetune<br>|- main.py              # 训练<br>|- res56prune.py        # 剪枝在此<br>|- res110prune.py<br>|- vggprune.py</p>
+</li>
+<li><p><strong>网络结构:</strong>对于resnet56来说, 3layers,每个layers有9个block =&gt; 18 layer<br>(conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>(bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br>(relu): ReLU(inplace=True)<br>(layer1): Sequential(<br> (0): BasicBlock(<br>   (conv1): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>   (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br>   (relu): ReLU(inplace=True)<br>   (conv2): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)<br>   (bn2): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)<br> )<br> 相同Block结构一直到(8),总共9个block,此处省略8个<br>)<br>(layer2): Sequential(<br> layer1的所有16变32,所以此处省略18层<br>)<br>(layer3): Sequential(<br> layer1的所有16变64,所以此处省略18层<br>)<br>(avgpool): AvgPool2d(kernel_size=8, stride=8, padding=0)<br>(fc): Linear(in_features=64, out_features=10, bias=True)</p>
+</li>
+<li><p><strong>快速上手</strong><br> <code>compute_flops.py</code> 是给 <code>main_B.py</code> 准备的,<code>main_B.py</code>和<code>main_E.py</code>可以一样看待,他们作用都是最后类似fine-tune的工作,所以和<code>main_finetune.py</code>差不多,但是比他多了调整lr的操作,同时B比E多考虑了flops变化作为终止条件.然后<code>main.py</code>就是正常训练.<code>models/resnet.py</code>和<code>res56prune.py</code>这两个文件就是核心所在了.</p>
+<ul>
+<li><code>resnet.py</code>:网络结构重述:1+18+18+18+1.里面有个cfg的参数,因为剪的是通道,即网络结构有在改变,而cfg就是固定网络结构的参数.</li>
+<li><code>res56prune.py</code>:<ul>
+<li>注意哪些要剪的:1. 偶数层(刚好就是无跳连的层=&gt;有跳连的层不剪,第一层conv不剪)；2. 原文提到了一些比较脆弱的部分(与featuremap改变有关的层)不剪,即部分偶数层不剪 .</li>
+<li>原文有两种剪枝模式:A/B,差别在于剪枝力度(same/weighted)和剪枝对象的略微不同(B不剪的对象会更多一点).</li>
+<li>过两遍model,第一遍根据weight.data确定cfg_mask,第二遍根据cfg_mask生成新网络.这也解决了我一直以来的困惑,究竟怎么剪掉一整个通道,原来是生成一个新网络啊.注意cfg_mask标识的是每层的具体哪些filter要剪,cfg标识的是每层剪了剩下多少个filter,然后在保存模型时只保存了cfg,没有保存cfg_nask.</li>
+<li>new_model继承的时候注意其他参数也要一并跟上(BN,不剪的conv等)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="weight-level"><a href="#weight-level" class="headerlink" title="weight-level"></a>weight-level</h3><p>原论文:<a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener">Non-structured weight-level pruning</a></p>
+<ol>
+<li><p><strong>代码结构</strong>:其实和上一个一模一样<br>|- models<br>|  |- <strong>init</strong>.py<br>|  |- cifar<br>|  |  |- <strong>init</strong>.py<br>|  |  |- resnet.py<br>|  |  |- vgg.py<br>|  |  |- preresnet.py<br>|  |  |- densenet.py<br>|  |  |- alexnet.py<br>|- utils                # acc, logger, getters, visualize一些真正辅助的东西<br>|- cifar_B.py<br>|- cifar_E.py<br>|- cifar_finetune.py    # 正常finetune<br>|- cifar.py             # 正常train<br>|- cifar_prune.py       # 正常prune<br>|- count_flops.py<br>|- vggprune.py</p>
+</li>
+<li><p><strong>网络结构</strong><br>因为都是resnet56,所以与上一个网络模型一样</p>
+</li>
+<li><p><strong>快速上手</strong><br><code>models/cifar/resnet.py</code>会比上一个的更完整,上一个只有BasicBlock,这一部分的resnet还有BottleNeck,其他一模一样.重点说说<code>cifar_prune.py</code>:先获取所有conv2d的weights并排序,通过先验的args.percent确定thre.之后开始剪,剪的部分也非常简单粗暴,根据是否大于thre生成一个mask,然后直接<code>m.weight.data.mul_(mask)</code>就好</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,7 +243,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -214,501 +256,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/decipher_rethink.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/AI-AI/ma/0723.html" class="archive-article-date">
-  	<time datetime="2020-07-23T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/AI-AI/ma/0723.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">暑研记录（五）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/AI-AI/ma/0723.html">暑研记录（五）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LID</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#l1-norm-pruning"><span class="toc-number">1.</span> <span class="toc-text">l1-norm-pruning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#weight-level"><span class="toc-number">2.</span> <span class="toc-text">weight-level</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html" class="archive-article-date">
-  	<time datetime="2020-04-22T01:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html">如何傻瓜式地使用服务器</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bvscode%E5%BF%AB%E6%8D%B7%E9%94%AE.html" class="archive-article-date">
-  	<time datetime="2020-04-14T05:12:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bvscode%E5%BF%AB%E6%8D%B7%E9%94%AE.html">VS code的一些快捷键</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/git%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C.html" class="archive-article-date">
-  	<time datetime="2020-03-14T05:12:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/git%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C.html">Git 基础操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/Tencent%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87.html" class="archive-article-date">
-  	<time datetime="2020-03-07T11:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/Tencent%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87.html">2020年暑期实习准备</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/Emacs%20tutorial%20%E7%AC%94%E8%AE%B0.html" class="archive-article-date">
-  	<time datetime="2020-02-14T05:12:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/Emacs%20tutorial%20%E7%AC%94%E8%AE%B0.html">Emacs tutorial 笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Emacs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MOOC-MOOC/ProgramLangPartA.html" class="archive-article-date">
-  	<time datetime="2020-02-14T05:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MOOC-MOOC/ProgramLangPartA.html">Programming Language (Part A)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MOOC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Coursera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MOOC//" class="article-tag-list-link color5">MOOC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/AI-AI/PyTorch/PyTorch%E5%85%A5%E9%97%A8.html" class="archive-article-date">
-  	<time datetime="2020-01-31T03:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/AI-AI/PyTorch/PyTorch%E5%85%A5%E9%97%A8.html">Pytorch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tools-tools/Manjaro+win10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE.html" class="archive-article-date">
-  	<time datetime="2020-01-30T12:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tools-tools/Manjaro+win10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE.html">Manjaro+Win10双系统安装和配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">manjaro</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">kde</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -732,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
