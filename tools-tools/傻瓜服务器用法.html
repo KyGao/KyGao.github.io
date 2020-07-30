@@ -16,7 +16,7 @@
 <meta property="og:description" content="碎片式地记录一下使用服务器跑模型要用的必须操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-22T01:52:43.000Z">
-<meta property="article:modified_time" content="2020-04-23T09:11:44.835Z">
+<meta property="article:modified_time" content="2020-07-30T02:17:27.493Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="tools">
 <meta property="article:tag" content="linux">
@@ -74,7 +74,7 @@
     总文章数 18
     </nav>
     <nav>
-    总字数 <span class="post-count">25.9k</span>
+    总字数 <span class="post-count">26.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -181,7 +181,7 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：214字 | 预计阅读时长：1分钟
+      字数：352字 | 预计阅读时长：1分钟
       </div>
 
     
@@ -197,6 +197,16 @@
 </blockquote>
 <h3 id="scp命令"><a href="#scp命令" class="headerlink" title="scp命令"></a>scp命令</h3><p>如果只是单个文件不需要加 <strong>-r</strong><br>1、从服务器下载整个文件夹<br><code>scp -r username@servername:remote_dir/ /tmp/local_dir</code><br>2、上传文件夹到服务器<br><code>scp  -r /tmp/local_dir username@servername:remote_dir</code><br>我的话是需要分端口号的，如果有端口号就应该加 <strong>-P num</strong>，注意这里的 P 是大写</p>
 <h3 id="查看显卡使用情况"><a href="#查看显卡使用情况" class="headerlink" title="查看显卡使用情况"></a>查看显卡使用情况</h3><p><code>nvidia-smi</code></p>
+<h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>之前一直像个小白chi,听说tmux在服务器上很好用,我就也去下来用,结果发现没有什么差别.后来才知道,原来是要在服务器上开tmux…这样才能在服务器后台托管程序.</p>
+<p>具体操作如下:</p>
+<ol>
+<li>先与服务器建立连接:<br><code>ssh blabla</code></li>
+<li>在服务器那里开一个tmux<br><code>tmux new -s your_session_name</code></li>
+<li>do what you want</li>
+<li>托管代码:<br><code>ctrl+b d</code></li>
+<li>然后就放着跑了,完全可以结束与服务器的连接</li>
+<li>重新接回托管:<br><code>tmux attach -t your_session_name</code></li>
+</ol>
 
       
 
@@ -334,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录"><span class="toc-number">1.</span> <span class="toc-text">登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh命令"><span class="toc-number">1.1.</span> <span class="toc-text">ssh命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scp命令"><span class="toc-number">1.2.</span> <span class="toc-text">scp命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看显卡使用情况"><span class="toc-number">1.3.</span> <span class="toc-text">查看显卡使用情况</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录"><span class="toc-number">1.</span> <span class="toc-text">登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh命令"><span class="toc-number">1.1.</span> <span class="toc-text">ssh命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scp命令"><span class="toc-number">1.2.</span> <span class="toc-text">scp命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看显卡使用情况"><span class="toc-number">1.3.</span> <span class="toc-text">查看显卡使用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux"><span class="toc-number">2.</span> <span class="toc-text">tmux</span></a></li></ol>
                     </div>
                 </span>
             </div>

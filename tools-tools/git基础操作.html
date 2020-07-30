@@ -16,7 +16,7 @@
 <meta property="og:description" content="学到哪记到哪">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-14T05:12:43.000Z">
-<meta property="article:modified_time" content="2020-04-03T05:02:02.664Z">
+<meta property="article:modified_time" content="2020-07-30T02:52:21.492Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="tools">
 <meta property="article:tag" content="Git">
@@ -74,7 +74,7 @@
     总文章数 18
     </nav>
     <nav>
-    总字数 <span class="post-count">25.9k</span>
+    总字数 <span class="post-count">26.2k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -181,7 +181,7 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：301字 | 预计阅读时长：1分钟
+      字数：434字 | 预计阅读时长：1分钟
       </div>
 
     
@@ -208,12 +208,16 @@
 <ul>
 <li>想在暂存区删除某个文件（不删除本地文件）：<code>git rm --cache &lt;file&gt;</code></li>
 </ul>
-<h3 id="Git出问题了"><a href="#Git出问题了" class="headerlink" title="Git出问题了"></a>Git出问题了</h3><p>  在github的仓库里有文件夹是灰色的，打不开<br>  <strong>原因</strong>：本地 .git 所在文件夹嵌套 .git 了<br>  <strong>解决办法</strong>：</p>
-<ol>
+<h3 id="Git出问题了"><a href="#Git出问题了" class="headerlink" title="Git出问题了"></a>Git出问题了</h3><ol>
+<li>在github的仓库里有文件夹是灰色的，打不开<br><strong>原因</strong>：本地 .git 所在文件夹嵌套 .git 了<br><strong>解决办法</strong>：<ol>
 <li><code>git rm -r --cached &quot;file path &amp; name&quot;</code></li>
 <li>本地文件夹找到内嵌的 .git，删除</li>
 <li>重新add三连<br>btw, 一定记得git不要嵌套，不然很麻烦的</li>
 </ol>
+</li>
+</ol>
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><p>一般作为协作者,要做的就是先自己创建新分支,一定注意在合适的分支创建(一般都是dev分支):<br><code>git checkout -b mew</code><br>每次开发完就:<br><code>git pull</code>拉下来,<br>如果有冲突就借助 vs code 来 merge,注意从哪merge到哪(应该都一样), 命令加一个–no-ff表示不回退<br><code>git merge --no-ff jiangjun</code><br>最后push就好<br><code>git push origin your_branch</code></p>
+<p>VS Code的插件:git lens.用来merge非常方便<br>(current change ) vs. (incoming change)<br>两边都要的就手动chage</p>
 
       
 
@@ -351,7 +355,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-安装配置"><span class="toc-number">1.</span> <span class="toc-text">Git 安装配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-远程提交"><span class="toc-number">2.</span> <span class="toc-text">Git 远程提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git出问题了"><span class="toc-number">3.</span> <span class="toc-text">Git出问题了</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-安装配置"><span class="toc-number">1.</span> <span class="toc-text">Git 安装配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-远程提交"><span class="toc-number">2.</span> <span class="toc-text">Git 远程提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git出问题了"><span class="toc-number">3.</span> <span class="toc-text">Git出问题了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">4.</span> <span class="toc-text">多人协作</span></a></li></ol>
                     </div>
                 </span>
             </div>
