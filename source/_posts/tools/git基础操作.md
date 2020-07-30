@@ -28,7 +28,7 @@ date: 2020-03-14 13:12:43
 - 想在暂存区删除某个文件（不删除本地文件）：`git rm --cache <file>`
 
 ### Git出问题了
-  在github的仓库里有文件夹是灰色的，打不开
+1. 在github的仓库里有文件夹是灰色的，打不开
   **原因**：本地 .git 所在文件夹嵌套 .git 了
   **解决办法**：
   1. `git rm -r --cached "file path & name"`
@@ -36,3 +36,17 @@ date: 2020-03-14 13:12:43
   3. 重新add三连
   btw, 一定记得git不要嵌套，不然很麻烦的
 
+
+### 多人协作
+一般作为协作者,要做的就是先自己创建新分支,一定注意在合适的分支创建(一般都是dev分支):
+`git checkout -b mew`
+每次开发完就:
+`git pull`拉下来,
+如果有冲突就借助 vs code 来 merge,注意从哪merge到哪(应该都一样), 命令加一个--no-ff表示不回退
+`git merge --no-ff jiangjun`
+最后push就好
+`git push origin your_branch`
+
+VS Code的插件:git lens.用来merge非常方便
+(current change ) vs. (incoming change)
+两边都要的就手动chage
