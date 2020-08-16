@@ -6,25 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图像实验SDK配置 | Kerry</title>
+  <title>GRE Verbal vocabulary | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
+  <meta name="description" content="some complex &#x2F; error-prone words sorting">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像实验SDK配置">
-<meta property="og:url" content="http://yoursite.com/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">
+<meta property="og:title" content="GRE Verbal vocabulary">
+<meta property="og:url" content="http://yoursite.com/English-English/vocabulary.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
+<meta property="og:description" content="some complex &#x2F; error-prone words sorting">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/HUST-HUST/.../dll.PNG">
-<meta property="og:image" content="http://yoursite.com/HUST-HUST/.../out.PNG">
-<meta property="article:published_time" content="2019-12-06T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-04-03T05:04:32.759Z">
+<meta property="article:published_time" content="2020-08-15T02:51:43.000Z">
+<meta property="article:modified_time" content="2020-08-15T13:30:49.696Z">
 <meta property="article:author" content="Kerry">
-<meta property="article:tag" content="课内">
-<meta property="article:tag" content="大三上">
-<meta property="article:tag" content="C方向">
+<meta property="article:tag" content="GRE">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/HUST-HUST/.../dll.PNG">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
@@ -166,57 +162,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HUST/SDK配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-English/vocabulary" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图像实验SDK配置
+      GRE Verbal vocabulary
     </h1>
   
 
         
-        <a href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" class="archive-article-date">
-  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+        <a href="/English-English/vocabulary.html" class="archive-article-date">
+  	<time datetime="2020-08-15T02:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：810字 | 预计阅读时长：2分钟
+      字数：36字 | 预计阅读时长：1分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。</p>
+        <p>some complex / error-prone words sorting</p>
 <a id="more"></a>
 
 <ol>
-<li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
-</li>
-<li><p>然后后来其实用不上这个了，才知道老师是允许用opencv的数据类型，所以又转到opencv开发去了（不然用二维矩阵的形式表示图像实在太鸡肋了，因为想保存在数组里还需要大量压缩一下图像，不然没办法开辟那么大的数组）。opencv的话不需要参照doc里的opencv开发手册（说多了都是泪），只需要跑通<code>...\E_EM\SDK\Samples_CV</code>里面的例程就好了。</p>
-</li>
-<li><p>例程这里两个应该都可以，我用的是<strong>openCV_IplImage</strong>，具体的环境配置方法还是可以参考opencv开发手册，添加<code>VC++目录-包含目录</code>，添加<code>VC++目录-库目录</code>，修改<code>连接器-输入-附加依赖项</code>，这里注意直接用sample里的opencv2的目录即可，不需要下载opencv。</p>
-</li>
-<li><p>这里提一下开发手册没有提到的但是会遇到的问题：</p>
-<ul>
-<li>首先记得改平台为x64！！</li>
-<li>一个是说int8出现类型重定义<br>这个是因为opencv定义了一个int8，相机的SDK库也定义了一个int8，所以随意注释掉其中一个的定义就好</li>
-<li>一个是<img src=".../dll.PNG" alt=""><br>这个是因为没有添加动态链接库，需要把bin里面带dll后缀的（怎么查看文件扩展名我就不说了）全部拷贝到该工程目录下，比如我用的OpenCV_IplImage，就放在<code>Samples_CV\OpenCV_IplImage\</code>目录下就好了</li>
-<li>一个是会报找不到输出文件什么什么的，具体错误我就不回去截图了，没看到的可以忽略<br>这个是因为输出文件设置的不合理，按如下方式填写即可：<br><img src=".../out.PNG" alt=""></li>
-</ul>
-</li>
-<li><p>到这里应该可以跑通demo了，那怎么加入自己的代码呢？先在前面引入头文件，我也不知道该引什么，所以我就都引了，报错的注释掉就好:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/core_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/types_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc_c.h"</span> </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/types_c.h"</span>  </span></span><br><span class="line"><span class="comment">//#include "opencv2/highgui/cap_ios.h"  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui_c.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>在<strong>GCapDlg.cpp</strong>文件中，<code>CGCapDlg::OnStreamCB( MV_IMAGE_INFO *pInfo)</code>函数内，应该可以发现可以直接截到Iplimage的数据类型，（有if分支，是根据相机采集图像的方式决定的，大家可以一个个试）。然后通过</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat my_img = cv::cvarrToMat(iplSrc);</span><br></pre></td></tr></table></figure>
-<p>就可以直接变成我们熟悉的Mat数据类型了（如果用了cv的命名空间的话就不需要前面加上cv::了），需要转灰度的就<code>cvtColor(my_img, m, CV_BGR2GRAY);</code>这样转就行了。<br>然后在这一行以下的就是我们的TODO了，我们只需要构造函数实现</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************</span></span><br><span class="line"><span class="comment">	<span class="doctag">TODO:</span> Add function here	</span></span><br><span class="line"><span class="comment">	input: Mat original_img</span></span><br><span class="line"><span class="comment">	output: Mat processed_img</span></span><br><span class="line"><span class="comment">************************/</span></span><br></pre></td></tr></table></figure>
-<p>就可以啦</p>
-</li>
+<li>-feit, -fact (做)<br>counterfeit = fake<br>forfeit 丧失, 没收<br>surfeit 过量</li>
+<li>-scient (知道的)<br>prescient = prophetic</li>
+<li>apathetic $\times$ empathetic<br>a: -   em: +</li>
+<li>brook: n. 小溪 v. 容忍(=tolerate)</li>
 </ol>
 
       
@@ -231,15 +209,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">课内</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大三上</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C方向</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
         		</li>
       		
 		</ul>
@@ -251,7 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HUST//" class="article-tag-list-link color5">HUST</a>
+        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
         		</li>
       		
 		</ul>
@@ -306,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/English-English/vocabulary.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/English-English/TofelWriting.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          托福写作笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/HUST-HUST/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">电子商务</div>
+    <a href="/English-English/verbal.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GRE Verbal notes</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,25 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图像实验SDK配置 | Kerry</title>
+  <title>暑研记录（六） | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
+  <meta name="description" content="暑研记录(五)中的三个实验完成了, 效果不是特别有趣, 三个实验和baseline对比效果差不多, 甚至不如baseline. 这次与老师讨论了一下之后做的方向, 最后会来说, 主要还是继续探索一下这三个实验的property, 然后不行再试试别的办法…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像实验SDK配置">
-<meta property="og:url" content="http://yoursite.com/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html">
+<meta property="og:title" content="暑研记录（六）">
+<meta property="og:url" content="http://yoursite.com/AI-AI/ma/0814.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。">
+<meta property="og:description" content="暑研记录(五)中的三个实验完成了, 效果不是特别有趣, 三个实验和baseline对比效果差不多, 甚至不如baseline. 这次与老师讨论了一下之后做的方向, 最后会来说, 主要还是继续探索一下这三个实验的property, 然后不行再试试别的办法…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/HUST-HUST/.../dll.PNG">
-<meta property="og:image" content="http://yoursite.com/HUST-HUST/.../out.PNG">
-<meta property="article:published_time" content="2019-12-06T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-04-03T05:04:32.759Z">
+<meta property="article:published_time" content="2020-08-14T02:50:43.000Z">
+<meta property="article:modified_time" content="2020-08-16T07:37:30.137Z">
 <meta property="article:author" content="Kerry">
-<meta property="article:tag" content="课内">
-<meta property="article:tag" content="大三上">
-<meta property="article:tag" content="C方向">
+<meta property="article:tag" content="网络压缩">
+<meta property="article:tag" content="对抗样本">
+<meta property="article:tag" content="LID">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/HUST-HUST/.../dll.PNG">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
@@ -166,58 +163,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HUST/SDK配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-AI/ma/0814" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图像实验SDK配置
+      暑研记录（六）
     </h1>
   
 
         
-        <a href="/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" class="archive-article-date">
-  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+        <a href="/AI-AI/ma/0814.html" class="archive-article-date">
+  	<time datetime="2020-08-14T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：810字 | 预计阅读时长：2分钟
+      字数：1.9k字 | 预计阅读时长：7分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当时捣鼓怎么写相机的接口属实捣鼓了很久，也在这里感谢苏新明大佬的鼎力相助，希望能帮到大家。以下为个人历程，并非最快速的配置方案，欢迎提出建议（我的qq: 945563793，学长欢迎大家来撩）。</p>
+        <p>暑研记录(五)中的三个实验完成了, 效果不是特别有趣, 三个实验和baseline对比效果差不多, 甚至不如baseline. 这次与老师讨论了一下之后做的方向, 最后会来说, 主要还是继续探索一下这三个实验的property, 然后不行再试试别的办法…</p>
 <a id="more"></a>
 
+<h2 id="实验复盘"><a href="#实验复盘" class="headerlink" title="实验复盘"></a>实验复盘</h2><h3 id="实验一：DATA-FREE-LID-FILTER-LEVEL-PRUNING"><a href="#实验一：DATA-FREE-LID-FILTER-LEVEL-PRUNING" class="headerlink" title="实验一：DATA-FREE LID FILTER-LEVEL PRUNING"></a>实验一：DATA-FREE LID FILTER-LEVEL PRUNING</h3><h4 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h4><p>假设conv1的weight结构是 [64, 3, 3, 3] (out_channel, in_channel, filter size)。首先data-free指的是直接利用weight信息进行LID计算，不需要送入数据；filter level指的是剪就剪一整个输出通道。比如这里就是把3×3×3看做数据的长度，然后64个输出通道看作样本，最后变成 (64, 27) 的数据送进去算LID。<br>具体可以寻求这些结果：</p>
 <ol>
-<li><p>我先按照<code>...\E_EM\Doc</code>路径下的VS开发手册学习vs的配置过程走了一遍，安装MFC<br>（有一个很迷的bug，按照他的文档配好之后会有20多个错，需要在属性页修改）</p>
-</li>
-<li><p>然后后来其实用不上这个了，才知道老师是允许用opencv的数据类型，所以又转到opencv开发去了（不然用二维矩阵的形式表示图像实在太鸡肋了，因为想保存在数组里还需要大量压缩一下图像，不然没办法开辟那么大的数组）。opencv的话不需要参照doc里的opencv开发手册（说多了都是泪），只需要跑通<code>...\E_EM\SDK\Samples_CV</code>里面的例程就好了。</p>
-</li>
-<li><p>例程这里两个应该都可以，我用的是<strong>openCV_IplImage</strong>，具体的环境配置方法还是可以参考opencv开发手册，添加<code>VC++目录-包含目录</code>，添加<code>VC++目录-库目录</code>，修改<code>连接器-输入-附加依赖项</code>，这里注意直接用sample里的opencv2的目录即可，不需要下载opencv。</p>
-</li>
-<li><p>这里提一下开发手册没有提到的但是会遇到的问题：</p>
-<ul>
-<li>首先记得改平台为x64！！</li>
-<li>一个是说int8出现类型重定义<br>这个是因为opencv定义了一个int8，相机的SDK库也定义了一个int8，所以随意注释掉其中一个的定义就好</li>
-<li>一个是<img src=".../dll.PNG" alt=""><br>这个是因为没有添加动态链接库，需要把bin里面带dll后缀的（怎么查看文件扩展名我就不说了）全部拷贝到该工程目录下，比如我用的OpenCV_IplImage，就放在<code>Samples_CV\OpenCV_IplImage\</code>目录下就好了</li>
-<li>一个是会报找不到输出文件什么什么的，具体错误我就不回去截图了，没看到的可以忽略<br>这个是因为输出文件设置的不合理，按如下方式填写即可：<br><img src=".../out.PNG" alt=""></li>
-</ul>
-</li>
-<li><p>到这里应该可以跑通demo了，那怎么加入自己的代码呢？先在前面引入头文件，我也不知道该引什么，所以我就都引了，报错的注释掉就好:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/core_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/core/types_c.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc_c.h"</span> </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/types_c.h"</span>  </span></span><br><span class="line"><span class="comment">//#include "opencv2/highgui/cap_ios.h"  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui_c.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>在<strong>GCapDlg.cpp</strong>文件中，<code>CGCapDlg::OnStreamCB( MV_IMAGE_INFO *pInfo)</code>函数内，应该可以发现可以直接截到Iplimage的数据类型，（有if分支，是根据相机采集图像的方式决定的，大家可以一个个试）。然后通过</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat my_img = cv::cvarrToMat(iplSrc);</span><br></pre></td></tr></table></figure>
-<p>就可以直接变成我们熟悉的Mat数据类型了（如果用了cv的命名空间的话就不需要前面加上cv::了），需要转灰度的就<code>cvtColor(my_img, m, CV_BGR2GRAY);</code>这样转就行了。<br>然后在这一行以下的就是我们的TODO了，我们只需要构造函数实现</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************</span></span><br><span class="line"><span class="comment">	<span class="doctag">TODO:</span> Add function here	</span></span><br><span class="line"><span class="comment">	input: Mat original_img</span></span><br><span class="line"><span class="comment">	output: Mat processed_img</span></span><br><span class="line"><span class="comment">************************/</span></span><br></pre></td></tr></table></figure>
-<p>就可以啦</p>
+<li>prune large / prune small  哪个更好</li>
+<li>layer-wise / global 哪个更好</li>
+<li>和 original 对比呢</li>
+</ol>
+<h4 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h4><ol>
+<li>因为是filter-level的剪枝, 为了真正减小计算量, layer-wise 的程序设计思路是: 遍历每层 Conv2d, 根据 LID 的大小生成相应的 mask ,筛选每个 Conv2d 的输出通道. 之后构建新模型, 根据每层的 mask 进行通道选择, 同时也更新下一个 Conv2d 的输入通道和 BN 的通道数量</li>
+<li>filter-level剪枝一般到10%~30%就不行了, 然而 fine-grained 可以到80%甚至90%</li>
+<li>在进行相应实验之前, 我先进行调参找到最合适的参数设置: 分别比较了不同邻居数量(可变的/固定的/所有邻居), 是否对conv的weight取绝对值等. 最终确定为: 对每个 Conv2d 的 weight 取绝对值, 对每个 out_channel 拉直, 送入计算 LID, 邻居个数取每层输出通道总数的1/3. </li>
+</ol>
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><ol>
+<li>prune large / prune small</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">剪枝力度</th>
+<th align="center">Original</th>
+<th align="center">Prune Large LID</th>
+<th align="center">Prune Small LID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10%</td>
+<td align="center">8017/10000 (80.2%)</td>
+<td align="center">7290/10000 (72.9%)</td>
+<td align="center">8180/10000 (81.8%)</td>
+</tr>
+</tbody></table>
+<p>  =&gt; 因为没有fine-tune过所以掉的点比较多, 最后发现还是剪 LID 小的效果更好, 即希望每个 Conv层之间差异比较大, 表征能力比较强</p>
+<ol start="2">
+<li>layer-wise / global</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">剪枝力度</th>
+<th align="center">Original</th>
+<th align="center">Layer-wise LID</th>
+<th align="center">Global LID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10%</td>
+<td align="center">9137/10000 (91.3%)</td>
+<td align="center">9128/10000 (91.3%)</td>
+<td align="center">9011/10000 (90.1%)</td>
+</tr>
+<tr>
+<td align="center">30%</td>
+<td align="center">9078/10000 (90.8%)</td>
+<td align="center">9086/10000 (90.9%)</td>
+<td align="center">8947/10000 (89.5%)</td>
+</tr>
+</tbody></table>
+<p>  =&gt; 调参过后layer-wise的LID剪枝和原来的L1-Norm剪枝才差不多, 感觉单独拿LID来做剪枝还是比较难做有用的工作.</p>
+<h3 id="实验二-DATA-DRIVEN-LID-FEATURE-MAP-MASKING"><a href="#实验二-DATA-DRIVEN-LID-FEATURE-MAP-MASKING" class="headerlink" title="实验二: DATA-DRIVEN LID FEATURE MAP MASKING"></a>实验二: DATA-DRIVEN LID FEATURE MAP MASKING</h3><h4 id="实验设计-1"><a href="#实验设计-1" class="headerlink" title="实验设计"></a>实验设计</h4><p>data-driven指的是纵向的送入一串数据；featuremap mask指的是对relu后面直接跟个mask。比如这里就是送入128个样本（一个batch），然后在feature map上的某个点就可以得到长度128的数据，然后加入这个feature map的大小是512×4,那么把它展平变成2048,就得到 (2048, 128) 的数据送进去计算LID。这个剪大剪小都是可以解释的。</p>
+<ol>
+<li>比较三个东西: weight-magnitude 和 剪LID大 和 剪LID小</li>
+<li>mask 两个地方: avgpool前和avgpool后</li>
+</ol>
+<h4 id="实验准备-1"><a href="#实验准备-1" class="headerlink" title="实验准备"></a>实验准备</h4><ol>
+<li>feature map只取了最后一层想先看看效果, 如果LID有明显优势就继续设计所有feature map的mask.</li>
+<li>具体来说, 128个样本和 feature map 上4096个待mask的参数组成 (4096, 128)格式的数据送入计算LID, 得到 (4096,)维的mask, 转换成该feature map的格式.</li>
+</ol>
+<h4 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h4><table>
+<thead>
+<tr>
+<th align="center">mask力度</th>
+<th align="center">Original</th>
+<th align="center">Weight</th>
+<th align="center">Prune Large LID</th>
+<th align="center">Prune Small LID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">60%</td>
+<td align="center">92.17%</td>
+<td align="center">91.68%</td>
+<td align="center">68.56%</td>
+<td align="center">91.20%</td>
+</tr>
+<tr>
+<td align="center">90%</td>
+<td align="center">92.17%</td>
+<td align="center">86.41%</td>
+<td align="center">25.43%</td>
+<td align="center">87.03%</td>
+</tr>
+<tr>
+<td align="center">95%</td>
+<td align="center">92.17%</td>
+<td align="center">82.54%</td>
+<td align="center">14.15%</td>
+<td align="center">82.45%</td>
+</tr>
+</tbody></table>
+<p>  =&gt; LID 效果又和 weight magnitude的差不多, 不过没有比较fine-tune过后的效果.</p>
+<p>  还有一个情况就是发现虽然定了剪枝比例,但最终查看当前feature map中0的个数时发现真正0值比剪掉的比例多, 比如设定mask掉90%, 最终weight magnitute方法剩下的非0个数只剩下6%<del>7%, mask大的LID方法(保留小LID)剩下2%</del>3%, mask小的LID方法(保留大LID)剩下4%~5%. 设定mask掉60%, 最终weight magnitute方法剩下的非0个数只剩下22%, mask大的LID方法(保留小LID)剩下14%, mask小的LID方法(保留大LID)剩下18%.</p>
+<p>  60%的情况比较有趣的地方是,这个是没有fine-tune的结果, 18% * 64</p>
+<p>  mask放在avgpool后的情况十分不理想, LID的做出来非常不稳定, 感觉没有办法提到非常鲁棒的特征.<br>  举个例子<br>|     mask60%     | 第一次 | 第二次 | 第三次 | 第四次 |<br>| :————-: | :—-: | :—-: | :—-: | :—-: |<br>|     Weight      | 74.01  | 73.35  | 75.30  | 72.68  |<br>| Prune Large LID | 79.69  | 81.51  | 79.30  | 77.48  |<br>| Prune Small LID | 68.09  | 82.87  | 68.94  | 78.08  |</p>
+<h3 id="实验三-LID-REGULARIZATION-IN-LATENT-SPACE"><a href="#实验三-LID-REGULARIZATION-IN-LATENT-SPACE" class="headerlink" title="实验三: LID REGULARIZATION IN LATENT SPACE"></a>实验三: LID REGULARIZATION IN LATENT SPACE</h3><h4 id="实验设计-2"><a href="#实验设计-2" class="headerlink" title="实验设计"></a>实验设计</h4><p>先送入一个batch的NE，假设在avgpool之后得到的结构是 128×1024，然后再送入一个batch的AE，则在avgpool得到的结构也是 128×1024,然后用AE的128个数据分别与NE的128×1024组合变成129×1024,分别计算出AE和NE的LID。这样之后可以得到128组LID（AE的），然后用某种手段把他们融合起来，作为正则化项的表达，然后$\lambda$ 可以设为0.1</p>
+<h4 id="实验细节"><a href="#实验细节" class="headerlink" title="实验细节"></a>实验细节</h4><ol>
+<li>对抗训练的模式为先进行200个epoch用正常样本训练, 然后再进行200个epoch用对抗样本训练,其中对抗样本训练中每一个epoch的对抗样本都是根据新模型生成.</li>
+<li>LID的计算放在AvgPool之前, 正则项计算如下, $\lambda$设置为0.1<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_both_lids</span><span class="params">(basic_net, nat_inputs, adv_inputs, k=<span class="number">20</span>, batch_size=<span class="number">128</span>)</span>:</span></span><br><span class="line"> new_model = nn.Sequential(*list(basic_net.children())[:<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line"> nat_outputs = new_model(nat_inputs)</span><br><span class="line"> nat_batch = np.asarray(nat_outputs.detach().numpy(), dtype=np.float32).reshape((len(nat_outputs), <span class="number">-1</span>))</span><br><span class="line"> </span><br><span class="line"> adv_outputs = new_model(adv_inputs)</span><br><span class="line"> adv_batch = np.asarray(adv_outputs.detach().numpy(), dtype=np.float32).reshape((len(adv_outputs), <span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"> lid_sum = np.zeros(shape=(<span class="number">1</span>))</span><br><span class="line"> <span class="keyword">for</span> i <span class="keyword">in</span> range(len(adv_inputs)):</span><br><span class="line">     data = np.asarray(nat_batch, dtype=np.float32)</span><br><span class="line">     batch = np.asarray(adv_batch[i:i+<span class="number">1</span>], dtype=np.float32)</span><br><span class="line">     </span><br><span class="line">     k = min(k, len(data) - <span class="number">1</span>)   </span><br><span class="line">     f = <span class="keyword">lambda</span> v: - k / np.sum(np.log(v / v[<span class="number">-1</span>] + <span class="number">1e-8</span>))        </span><br><span class="line">     a = cdist(batch, data)      </span><br><span class="line">     a = np.apply_along_axis(np.sort, axis=<span class="number">1</span>, arr=a)[:, <span class="number">1</span>:k + <span class="number">1</span>]  </span><br><span class="line">     a = np.apply_along_axis(f, axis=<span class="number">1</span>, arr=a)   </span><br><span class="line">     </span><br><span class="line">     lid_sum += a</span><br><span class="line"> lid_sum /= len(adv_inputs)</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">return</span> torch.from_numpy(lid_sum).float().cuda()</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
+<h4 id="实验结果-2"><a href="#实验结果-2" class="headerlink" title="实验结果"></a>实验结果</h4><p>好像和不加正则项的区别不是很大诶, 收敛速度也没有加快, 最佳的效果分别是:<br><br>正常对抗训练: 第33个epoch达到最优, acc为48.93%<br><br>LID正则训练: 第38个epoch达到最优, acc为49.34%<br><br>从详细acc记录可以看出二者的训练历程是非常相似的<br></p>
+<h2 id="新实验设计"><a href="#新实验设计" class="headerlink" title="新实验设计"></a>新实验设计</h2><h3 id="1-继续探究-LID-剪枝的-Property"><a href="#1-继续探究-LID-剪枝的-Property" class="headerlink" title="1. 继续探究 LID+剪枝的 Property"></a>1. 继续探究 LID+剪枝的 Property</h3><p>上次实验中的1, 2都是纯LID+剪枝的, 但是都只检测了 clean sample 的 acc, 发现和baseline 几乎完全一样, 接下来需要加入 adv sample进去检测一下鲁棒性, 看看LID选择出来的结果会不会更鲁棒.</p>
+<h3 id="2-AT-Prune"><a href="#2-AT-Prune" class="headerlink" title="2. AT + Prune"></a>2. AT + Prune</h3><p>之前的 AT 和 Prune 是分开做的, 还不知道合起来效果如何. 这里合起来的思路还是比较清晰, 就是边 Prune 边 AT, 即 sparsify -&gt; train_with_adv -&gt; test_both_acc.</p>
+<p>但是在这之前, 需要弄清楚 auto attack 上面排名的对抗防御第二名(AT+Prune)究竟是怎么回事, 当时知道这个拿了第二名还是挺意外的, 之前只是以为AT+Prune有水灌, 真没想到效果这么好.</p>
+<h3 id="3-修改relu"><a href="#3-修改relu" class="headerlink" title="3. 修改relu"></a>3. 修改relu</h3><p>网络训练完之后调整relu的映射从 <code>x = max(0, x)</code> 变成 <code>x = max(0, 0.1x)</code>这样子, 希望把网络调整的更平滑, 这样当 pixel-level 的攻击出现时网络不会影响那么大, 希望通过调整激活函数使网络更鲁棒.</p>
 
       
 
@@ -231,15 +318,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">课内</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大三上</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对抗样本</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C方向</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LID</a>
         		</li>
       		
 		</ul>
@@ -251,7 +338,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HUST//" class="article-tag-list-link color5">HUST</a>
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
         		</li>
       		
 		</ul>
@@ -306,7 +393,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/HUST-HUST/SDK%E9%85%8D%E7%BD%AE.html" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/ma/0814.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +408,18 @@
   
 <nav id="article-nav">
   
-    <a href="/English-English/TofelWriting.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/English-English/verbal.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          托福写作笔记
+          GRE Verbal notes
         
       </div>
     </a>
   
   
-    <a href="/HUST-HUST/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">电子商务</div>
+    <a href="/English-English/learnEngWithTVSeries.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Learning English with TV Series</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +446,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验复盘"><span class="toc-number">1.</span> <span class="toc-text">实验复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验一：DATA-FREE-LID-FILTER-LEVEL-PRUNING"><span class="toc-number">1.1.</span> <span class="toc-text">实验一：DATA-FREE LID FILTER-LEVEL PRUNING</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实验设计"><span class="toc-number">1.1.1.</span> <span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验准备"><span class="toc-number">1.1.2.</span> <span class="toc-text">实验准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验结果"><span class="toc-number">1.1.3.</span> <span class="toc-text">实验结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验二-DATA-DRIVEN-LID-FEATURE-MAP-MASKING"><span class="toc-number">1.2.</span> <span class="toc-text">实验二: DATA-DRIVEN LID FEATURE MAP MASKING</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实验设计-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验准备-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">实验准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验结果-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">实验结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验三-LID-REGULARIZATION-IN-LATENT-SPACE"><span class="toc-number">1.3.</span> <span class="toc-text">实验三: LID REGULARIZATION IN LATENT SPACE</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实验设计-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验细节"><span class="toc-number">1.3.2.</span> <span class="toc-text">实验细节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验结果-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">实验结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新实验设计"><span class="toc-number">2.</span> <span class="toc-text">新实验设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-继续探究-LID-剪枝的-Property"><span class="toc-number">2.1.</span> <span class="toc-text">1. 继续探究 LID+剪枝的 Property</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-AT-Prune"><span class="toc-number">2.2.</span> <span class="toc-text">2. AT + Prune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-修改relu"><span class="toc-number">2.3.</span> <span class="toc-text">3. 修改relu</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
