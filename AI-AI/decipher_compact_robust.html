@@ -16,7 +16,7 @@
 <meta property="og:description" content="这一套代码是在auto-attack榜上防御效果第二的方法(还是剪掉90%连接的情况下), 论文改名了, 原名是 [On Pruning Adversarially Robust Neural Networks]. 这篇就是用剪枝对抗实现的, 论文中方法不同于常规剪枝方法着眼于 scoring methods, 而是在权重初始化 &#x2F; 对抗训练方法上下了很多功夫, 所以结果还是比较难调到这么好的,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-27T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-09-02T13:19:58.986Z">
+<meta property="article:modified_time" content="2020-09-25T00:47:39.611Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="网络压缩">
 <meta property="article:tag" content="剪枝">
@@ -72,10 +72,10 @@
 		</nav>
 
 		<nav>
-    总文章数 26
+    总文章数 35
     </nav>
     <nav>
-    总字数 <span class="post-count">40.7k</span>
+    总字数 <span class="post-count">51.4k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -182,7 +182,7 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：536字 | 预计阅读时长：2分钟
+      字数：676字 | 预计阅读时长：2分钟
       </div>
 
     
@@ -192,14 +192,17 @@
 <a id="more"></a>
 <p>原论文: <a href="https://arxiv.org/abs/2002.10509" target="_blank" rel="noopener">HYDRA: Pruning Adversarially Robust Neural Networks</a><br>代码地址: <a href="https://github.com/inspire-group/compactness-robustness" target="_blank" rel="noopener">code_for_compactness-robustness</a></p>
 <p>参考代码的 Readme 文件, 我也按照 <code>Pre-training</code> -&gt; <code>Pruning</code> -&gt; <code>Fine-tuning</code> 这个顺序来整理</p>
-<p>CIFAR-10 和 SVHN dataset 的实现都是在 <code>train.py</code> 中, 而 ImageNet 的实现是在 <code>train_imagenet.py</code> 中. 且 pretrain, prune, finetune 步骤均在此文件中实现. 剪枝部分该文参考<a href="https://arxiv.org/abs/1911.13299" target="_blank" rel="noopener">&lt;What’s Hidden in a Randomly Weighted Neural Network?&gt;</a>, 所以代码部分比如mask层的设定都参考了剪枝文章的<a href="https://github.com/allenai/hidden-networks" target="_blank" rel="noopener">代码</a></p>
+<p>CIFAR-10 和 SVHN dataset 的实现都是在 <code>train.py</code> 中, 而 ImageNet 的实现是在 <code>train_imagenet.py</code> 中. 且 pretrain, prune, finetune 步骤均在此文件中实现. 剪枝部分该文参考<a href="https://arxiv.org/abs/1911.13299" target="_blank" rel="noopener">&lt;What’s Hidden in a Randomly Weighted Neural Network?&gt;</a>, 所以代码部分比如mask层的设定都参考了剪枝文章的<a href="https://github.com/allenai/hidden-networks" target="_blank" rel="noopener">代码</a>. 然后注意所有的训练都是用TRADES方法训练的.</p>
 <h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">|- configs/</span><br><span class="line">|  |- configs_xxx.yml   <span class="comment"># 所有参数的配置 (训练/剪枝/微调)</span></span><br><span class="line">|- crown/</span><br><span class="line">|  |- bound_layers.py   <span class="comment"># </span></span><br><span class="line">|  |- converter.py      <span class="comment">#</span></span><br><span class="line">|  |- eps_scheduler.py  <span class="comment">#</span></span><br><span class="line">|- data/                <span class="comment"># 数据集的导入和预处理api</span></span><br><span class="line">|- locuslab_smoothing/</span><br><span class="line">|  |- analyze.py        <span class="comment"># 实验结果的绘制 (似乎都是certified的acc)</span></span><br><span class="line">|- models/              <span class="comment"># 带mask的层以参数形式传入, 所以长相和普通的网络定义是一样的</span></span><br><span class="line">|- symbolic_interval/   <span class="comment"># 竟然还是CROWN-IBP的IBP部分</span></span><br><span class="line">|  |- interval.py</span><br><span class="line">|  |- symbolic_network.py</span><br><span class="line">|- trainer/</span><br><span class="line">|  |- adv.py</span><br><span class="line">|- utils/</span><br><span class="line">|  |- adv.py</span><br><span class="line">|  |- model.py</span><br><span class="line">|  |- semisup.py        <span class="comment"># </span></span><br><span class="line">|- args.py              <span class="comment"># 将yml的参数配置导入到parser里</span></span><br><span class="line">|- train.py             <span class="comment"># 所有功能都在这里集成实现</span></span><br><span class="line">|- get_xxx.sh           <span class="comment"># 脚本:获取LWM和提出的方法得到的压缩模型</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>网络给mask的方式是args.layer_type给出的</li>
 <li>exp_mode: select from pretrain, prune, finetune<br><br>trainer: benign (base), iterative adversarial training (adv),<br> randomized smoothing (smooth), mix train, crown-imp</li>
 </ul>
-<h4 id="train-py"><a href="#train-py" class="headerlink" title="train.py"></a>train.py</h4><p>在 <code>utils/model.py</code> 文件中有 <code>prepare_model</code> 函数, 是在这里区分 <code>pretrain</code>, <code>prune</code>, <code>finetune</code> 三种模式的, 区分的方式就是分别固定/解冻 popup-score和模型参数 (改变 requires_grad), 顺带定了一下剪枝比例和初始化 popup-score(kaiming/xavier…)</p>
+<h4 id="train-py"><a href="#train-py" class="headerlink" title="train.py"></a>train.py</h4><p>在 <code>utils/model.py</code> 文件中有 <code>prepare_model</code> 函数, 是在这里区分 <code>pretrain</code>, <code>prune</code>, <code>finetune</code> 三种模式的, 区分的方式就是分别 <strong>freeze/unfreeze</strong>  popup-score和模型参数 (改变 requires_grad), 顺带定了一下剪枝比例和初始化 popup-score(kaiming/xavier…)</p>
 <h3 id="Pre-training"><a href="#Pre-training" class="headerlink" title="Pre-training"></a>Pre-training</h3><p><code>python train.py --arch wrn_28_4 --exp-mode pretrain --configs configs/configs.yml --trainer adv --val_method adv --k 1.0</code></p>
+<h3 id="Pruning"><a href="#Pruning" class="headerlink" title="Pruning"></a>Pruning</h3><p><code>python train.py --arch wrn_28_4 --exp-mode prune --configs configs/configs.yml --trainer adv --val_method adv --k 0.1 --scaled-score-init --source-net pretrained_net_checkpoint_path --epochs 20 --save-dense</code></p>
+<h3 id="Fine-tuning"><a href="#Fine-tuning" class="headerlink" title="Fine-tuning"></a>Fine-tuning</h3><p><code>python train.py --arch wrn_28_4 --exp-mode finetune --configs configs/configs.yml --trainer adv --val_method adv --k 0.1 --source-net pruned_net_checkpoint_path --save-dense --lr 0.01</code></p>
+<h3 id="Tensorboard"><a href="#Tensorboard" class="headerlink" title="Tensorboard"></a>Tensorboard</h3><p>说来惭愧, 这是我第一次用 Tensorboard 查看训练情况, 具体用法就是找到 <code>events.out.tfevents....</code> 这个文件, 在她的上一级目录下, 先 <code>pip install</code> 下载 <code>tensorboard</code>, 然后在上一级目录下用 <code>tensorboard --logdir=xxx</code> 这样来查看.</p>
 
       
 
@@ -313,8 +316,8 @@
     </a>
   
   
-    <a href="/AI-AI/RL%E5%85%A5%E9%97%A8.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">强化学习入门</div>
+    <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">统计学习方法 第二章 感知机</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件结构"><span class="toc-number">1.</span> <span class="toc-text">文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#train-py"><span class="toc-number">1.1.</span> <span class="toc-text">train.py</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pre-training"><span class="toc-number">2.</span> <span class="toc-text">Pre-training</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件结构"><span class="toc-number">1.</span> <span class="toc-text">文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#train-py"><span class="toc-number">1.1.</span> <span class="toc-text">train.py</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pre-training"><span class="toc-number">2.</span> <span class="toc-text">Pre-training</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pruning"><span class="toc-number">3.</span> <span class="toc-text">Pruning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fine-tuning"><span class="toc-number">4.</span> <span class="toc-text">Fine-tuning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tensorboard"><span class="toc-number">5.</span> <span class="toc-text">Tensorboard</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -607,6 +610,42 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">神经科学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数理基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高考数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">立体几何</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">统计学习方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">决策树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k近邻</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">感知机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">贝叶斯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
               </li>
             
             <div class="clearfix"></div>
