@@ -67,10 +67,10 @@
 		</nav>
 
 		<nav>
-    总文章数 35
+    总文章数 43
     </nav>
     <nav>
-    总字数 <span class="post-count">51.9k</span>
+    总字数 <span class="post-count">65.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -159,6 +159,879 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-AI/HangLi/朴素贝叶斯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/HangLi/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html">统计学习方法 第四章 朴素贝叶斯</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/HangLi/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html" class="archive-article-date">
+  	<time datetime="2020-09-30T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.2k字 | 预计阅读时长：4分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
+<p>朴素贝叶斯法并不是贝叶斯估计，贝叶斯估计可以是朴素贝叶斯法中估计先验概率和条件概率的一种方式。</p>
+<h2 id="4-1-朴素贝叶斯法的学习与分类"><a href="#4-1-朴素贝叶斯法的学习与分类" class="headerlink" title="4.1 朴素贝叶斯法的学习与分类"></a>4.1 朴素贝叶斯法的学习与分类</h2><p>其实朴素贝叶斯法的公式非常简单，就是普通的贝叶斯公式（但是起名并不是因为这个），即通过先验概率和条件概率生成后验概率。先放一个朴素贝叶斯法的基本公式：</p>
+<p>$$<br>P(Y=c_k|X=x) = \frac{P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_k P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}<br>$$</p>
+<p>简单来看就是根据标签分布和标签=&gt;数据分布来预测后验概率（从数据分类标签），感觉有三个特点：</p>
+<ul>
+<li>学习的是 <strong>标签 =&gt; 数据分布</strong>。朴素贝叶斯法的先验概率公式是标签的分布 $P(Y=c_k)$，条件概率公式也是标签=&gt;数据 $P(X=x|Y=c_k)$，然后最终的后验概率就是正常的分类预测 $P(Y=c_k|X=x)$。虽然最后做的是判别模型做的事（分类），但是因为在学习过程中学习到的是标签=&gt;数据，学习到的是生成数据的机制，所以朴素贝叶斯法属于 <strong>生成模型</strong>。</li>
+<li><strong>条件独立性假设</strong>。注意到得到条件概率的过程中需要考虑特征各个维度之间的相关性，比如身高和体重的关系，但是这样计算量就大绝了（指数级数量的参数）。因此朴素贝叶斯法在这里做了这个假设，即<br>$$<br>P(X^{(1)}=x^{(1)},\cdots,X^{(n)}=x^{(n)}|Y=c_k) = \prod^n_{j=1}P(X^{(j)}=x^{(j)}|Y=c_k)<br>$$<br>而这是个很强的约束，这才是朴素贝叶斯法名字的由来，因为这个想法很幼稚（误）</li>
+<li><strong>期望风险最小化=&gt;后验概率最大化</strong>。通过取后验概率最大作为分类结果是数学证明出来的，从期望风险最小化（没错就是之前提到的考虑联合概率分布的那个目标）推到对错分的 $X=x$ 逐个极小化（从而对每对联合概率分布都让风险最小），也就是取一个让后验概率最大的分类（错误分类对的概率最小就是正确分类的概率最大）。有个疑问：这么看来，推理过程不管联合概率分布怎么样，统一对所有分布的Loss都最小化，不需要提前知道联合概率分布的情况，所以不是病态的？</li>
+</ul>
+<h2 id="4-2-朴素贝叶斯法的参数估计"><a href="#4-2-朴素贝叶斯法的参数估计" class="headerlink" title="4.2 朴素贝叶斯法的参数估计"></a>4.2 朴素贝叶斯法的参数估计</h2><p>上一节说的先验概率和条件概率显然不是事先知道的，还是需要估计得到，有两种估计方法：<strong>极大似然估计</strong> 和 <strong>贝叶斯估计</strong>。（其实都是从频率估计概率）</p>
+<ul>
+<li>极大似然估计。也不需要细说，直接把公式丢上来就知道怎么回事了：<br>$$<br>P(Y=c_k) = \frac{\sum^N_{i=1}I(y_i=c_k)}{N}\<br>P(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum^N_{i=1}I(x^{(j)}<em>i=a</em>{jl}, y_i=c_k)}{\sum^N_{i=1}I(y_i=c_k)}<br>$$</li>
+<li>贝叶斯估计。其实算是对极大似然估计的改进，因为极大似然估计可能出现概率为0的情况，会影响到后验概率的计算结果，所以贝叶斯估计就是在极大似然估计的基础上加了一个保护项 $\lambda$。当 $\lambda$ 取1时就称作 <strong>拉普拉斯平滑</strong> 。公式如下：<br>$$<br>P(Y=c_k) = \frac{\sum^N_{i=1}I(y_i=c_k)+\lambda}{N+K\lambda}\<br>P(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum^N_{i=1}I(x^{(j)}<em>i=a</em>{jl}, y_i=c_k)+\lambda}{\sum^N_{i=1}I(y_i=c_k)+S_j\lambda}<br>$$<br>其中 $K$ 就是标签的种类数量，$S_j$是该特征的种类数量，都是为了达到概率之和为1而加入的</li>
+</ul>
+<h2 id="4-3-学习与分类算法"><a href="#4-3-学习与分类算法" class="headerlink" title="4.3 学习与分类算法"></a>4.3 学习与分类算法</h2><p>直接总结一下</p>
+<blockquote>
+<p>算法4.1 <strong>朴素贝叶斯算法</strong></p>
+<ol>
+<li>计算先验概率与条件概率（极大似然估计 / 贝叶斯估计）</li>
+<li>对于给定的实例 $x$，计算后验概率（贝叶斯公式）</li>
+<li>确定实例 $x$ 的类（取个最大的后验概率对应的类）</li>
+</ol>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">贝叶斯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/HangLi/k近邻" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/HangLi/k%E8%BF%91%E9%82%BB.html">统计学习方法 第三章 k近邻</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/HangLi/k%E8%BF%91%E9%82%BB.html" class="archive-article-date">
+  	<time datetime="2020-09-29T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.5k字 | 预计阅读时长：5分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
+        
+          <a class="article-more-a" href="/AI-AI/HangLi/k%E8%BF%91%E9%82%BB.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k近邻</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/HangLi/k%E8%BF%91%E9%82%BB.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/HangLi/统计学习方法/第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/HangLi/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">统计学习方法 第一章 统计学习及监督学习概论</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/HangLi/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" class="archive-article-date">
+  	<time datetime="2020-09-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.3k字 | 预计阅读时长：4分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-1-统计学习"><a href="#1-1-统计学习" class="headerlink" title="1.1 统计学习"></a>1.1 统计学习</h2><p>统计学习的方法值得再说一下：统计学习方法有三要素：<strong>模型，策略和算法</strong>。假设空间是待选函数（模型）的集合，我们需要用评价准则（策略）与训练数据通过算法来选出最优函数（模型）出来。</p>
+<h2 id="1-2-统计学习的分类"><a href="#1-2-统计学习的分类" class="headerlink" title="1.2 统计学习的分类"></a>1.2 统计学习的分类</h2><p>这个就真多了，从不同角度简要摘抄一下：</p>
+<h3 id="1-2-1-基本分类"><a href="#1-2-1-基本分类" class="headerlink" title="1.2.1 基本分类"></a>1.2.1 基本分类</h3><p>监督学习，无监督学习，强化学习，半监督学习和主动学习…</p>
+<p>监督学习有这么几个要素（无监督学习也差不多）：</p>
+<ol>
+<li><strong>空间组成</strong>。输入样本的集合即输入空间，每个输入样本的特征向量所构成的集合即特征空间，输出样本的集合即输出空间。</li>
+<li><strong>联合概率分布</strong>。训练集训练之后在测试集效果也不错的前提是：二者的数据被看作是依联合概率分布$P(X,Y)$独立同分布产生的。</li>
+<li><strong>假设空间</strong>。输入到输出空间的映射集合。</li>
+<li><strong>问题的形式化</strong>。监督学习分为学习和预测两个系统完成</li>
+</ol>
+<p>强化学习特点就是：</p>
+<ol>
+<li>马尔可夫决策过程的<strong>五元组</strong>：状态集合$S$，动作集合$A$，状态转移概率函数$P$，奖励函数$r$，衰减系数$\gamma$</li>
+<li><strong>策略</strong>：由价值函数的选择决定（值迭代和策略迭代）</li>
+</ol>
+<h3 id="1-2-2-按模型分类"><a href="#1-2-2-按模型分类" class="headerlink" title="1.2.2 按模型分类"></a>1.2.2 按模型分类</h3><p>另外两个 <strong>线性模型和非线性模型</strong> / <strong>参数化模型和非参数化模型</strong> 还算比较熟悉，但是 <strong>概率模型与非概率模型</strong> 还是要学一下，概率模型就是学习条件概率$P(y|x)$，非概率模型就是学习函数$y=f(x)$。但其实条件概率分布最大化后就是一个函数，而函数归一化后（比如softmax）就得到条件概率分布。所以二者的区别不在于输入与输出之间的映射关系，而在于模型的内在结构 =&gt; 概率模型一定可以表示为联合概率分布的形式（输入，输出，隐变量甚至参数的联合概率）</p>
+<h3 id="1-2-3-按算法分类"><a href="#1-2-3-按算法分类" class="headerlink" title="1.2.3 按算法分类"></a>1.2.3 按算法分类</h3><p><strong>在线学习</strong> vs. <strong>批量学习</strong>。批量学习就是常见的算法，而在线学习的特点就是在预测之后才能得到真实的反馈值，当数据无法存储 / 数据规模很大等等情况可能用到。</p>
+<h3 id="1-2-4-按技巧分类"><a href="#1-2-4-按技巧分类" class="headerlink" title="1.2.4 按技巧分类"></a>1.2.4 按技巧分类</h3><p>一些很有趣的技巧：<strong>贝叶斯学习</strong>（贝叶斯估计 vs. 极大似然估计），<strong>核方法</strong>（非线性化提高模型表达能力）</p>
+<h2 id="1-3-统计学习方法三要素"><a href="#1-3-统计学习方法三要素" class="headerlink" title="1.3 统计学习方法三要素"></a>1.3 统计学习方法三要素</h2><p>模型，策略，算法。模型和算法没有什么说的，在策略这里提了一个很有趣的概念：监督学习是一个<strong>病态问题</strong>：为了得到期望损失（也叫风险函数），又因为正常学习中都是以batch为单位训练得到损失，所以在计算期望的时候需要对$P(x,y)$联合分布作加权和（积分），即根据期望风险最小的学习模型要用到联合分布，但是联合分布又是未知的 =&gt; 监督学习是一个病态问题。</p>
+<p>但是事实上，根据大数定律（样本数量越多，则其算术平均值就有越高的概率接近期望值）可以知道，当样本容量趋于无穷时，经验风险（训练集的平均损失）就等于期望风险。由于样本有限，只用经验风险并不理想，所以关系到监督学习的两个策略：经验风险最小化和结构风险最小化。事实上这个经验风险就是人为定义对于每个batch的误差函数，而结构风险指的就是正则项，对过于复杂的模型有惩罚。</p>
+<h2 id="1-4-模型评估与模型选择"><a href="#1-4-模型评估与模型选择" class="headerlink" title="1.4 模型评估与模型选择"></a>1.4 模型评估与模型选择</h2><p>这一节和下一节西瓜书里有整理，大体是训练误差vs.测试误差 / 过拟合 / 正则化与交叉验证 等问题。</p>
+<h2 id="1-5-正则化与交叉验证"><a href="#1-5-正则化与交叉验证" class="headerlink" title="1.5 正则化与交叉验证"></a>1.5 正则化与交叉验证</h2><p>都是防止过拟合的两个方法，具体同上</p>
+<h2 id="1-6-泛化能力"><a href="#1-6-泛化能力" class="headerlink" title="1.6 泛化能力"></a>1.6 泛化能力</h2><p>泛化误差指的是对未知数据的预测误差，事实上，就是所学习到的模型的期望风险。泛化误差的上界是可以确定的，由训练误差和训练集大小假设空间大小决定：具体证明上限是本书第一个定理（定理1.1）证明的，关键步骤就是借助<strong>Hoeffding不等式</strong>，同时有约束假设空间的函数选择数量必须是有限个，不然就麻烦多了。</p>
+<h2 id="1-7-生成模型与判别模型"><a href="#1-7-生成模型与判别模型" class="headerlink" title="1.7 生成模型与判别模型"></a>1.7 生成模型与判别模型</h2><p>典型的生成模型有朴素贝叶斯和隐马尔可夫模型，判别模型就多了，什么knn，感知机，决策树啥的都是。因为不太了解生成模型，之后学习方法之后再回来补充。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/HangLi/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/HangLi/概论/第二章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html">西瓜书 第二章 模型评估与选择</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html" class="archive-article-date">
+  	<time datetime="2020-09-26T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：2.4k字 | 预计阅读时长：8分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2-1-经验误差与过拟合"><a href="#2-1-经验误差与过拟合" class="headerlink" title="2.1 经验误差与过拟合"></a>2.1 经验误差与过拟合</h2><p>主要讲了一些过拟合与欠拟合，有一句话很有意思：</p>
+<blockquote>
+<p>只要相信”P $\ne$ NP”，过拟合就不可避免。</p>
+</blockquote>
+<p>简单解释就是说机器学习问题大部分都是NP问题，而有效的机器学习算法都是在多项式时间内得到解，即P，如果相信误差最小化之后就能得到最优解，就说明P=NP，就矛盾了。</p>
+<h2 id="2-2-评估方法"><a href="#2-2-评估方法" class="headerlink" title="2.2 评估方法"></a>2.2 评估方法</h2><p>不说为啥要划分训练集和测试集了，直接上划分方法。注意为了选择模型和调参，以下的测试集在真正训练过程中都叫做验证集：</p>
+<h3 id="2-2-1-留出法-hold-out"><a href="#2-2-1-留出法-hold-out" class="headerlink" title="2.2.1 留出法 (hold-out)"></a>2.2.1 留出法 (hold-out)</h3><p>直接将数据集$D$划分为两个互斥集合作为训练集和测试集，注意3点：</p>
+<ol>
+<li>训练/测试集的划分要尽可能保持数据分布的一致性，采用“<strong>分层采样</strong>”，即保持各类样本的比例相似</li>
+<li>单次使用留出法可能不太可靠，一般采用<strong>若干次随机划分</strong>，重复实验后取平均值作为留出法的结果</li>
+<li>保真性和泛化性的Trade-off：大约 <strong>2/3~4/5</strong> 划分为训练集，剩下的用作测试</li>
+</ol>
+<h3 id="2-2-2交叉验证法-cross-validation"><a href="#2-2-2交叉验证法-cross-validation" class="headerlink" title="2.2.2交叉验证法 (cross validation)"></a>2.2.2交叉验证法 (cross validation)</h3><p>也叫做k折交叉验证法，就是把数据集$D划分为k份，每次用k-1个子集的并集作为训练集，余下作为测试集，然后改变组合进行k次。注意：</p>
+<ol>
+<li>分层采样</li>
+<li>若干次随机划分（eg.10次10折交叉验证）</li>
+<li>若$D$中包含m个样本，令k=m，则变为“留一法”(Leave-One-Out)，即每次测试集都是一个样本。优点是绝大多数情况都比较准确，缺点是计算开销太大</li>
+</ol>
+<h3 id="2-2-3-自助法-bootstrapping"><a href="#2-2-3-自助法-bootstrapping" class="headerlink" title="2.2.3 自助法 (bootstrapping)"></a>2.2.3 自助法 (bootstrapping)</h3><p>要先知道自助采样也叫做有放回采样，假设数据集$D$有m个样本，每次就有放回的取出一个样本加入训练集$D’$中，重复m次，这样算一下每个样本始终不被采集到的概率是$(1-1/m)^m$，算一下极限可以得到是$1/e$，约为0.368。而没被采集的部分就作为测试集。注意：</p>
+<ol>
+<li>自助法在数据集较小，难以有效划分训练/测试集时很有用</li>
+<li>但是会改变初始数据集的分布，引入估计偏差</li>
+</ol>
+<h2 id="2-3-性能度量"><a href="#2-3-性能度量" class="headerlink" title="2.3 性能度量"></a>2.3 性能度量</h2><p>直接上模型评价方法了：</p>
+<h3 id="2-3-1-错误率与精度"><a href="#2-3-1-错误率与精度" class="headerlink" title="2.3.1 错误率与精度"></a>2.3.1 错误率与精度</h3><p>一句话：</p>
+<blockquote>
+<p><strong>错误率</strong>是分类错误的样本数占总数的比例<br><br><strong>精度</strong>则是分类正确的样本数占总数的比例</p>
+</blockquote>
+<h3 id="2-3-2-查准率、查全率与F1"><a href="#2-3-2-查准率、查全率与F1" class="headerlink" title="2.3.2 查准率、查全率与F1"></a>2.3.2 查准率、查全率与F1</h3><p>前两个也叫<strong>准确率</strong>(precision)$P$和<strong>召回率</strong>(recall)$R$，这里先不放那个TPFPTNFN的表了，$P$和$R$老是记不清公式，其实就是二者都是以TP作为目标分子，对于分母来说$P$注重预测结果的准确率，所以是$TP+FP$，$R$注重真实情况的准确率，所以是$TP+FN$。</p>
+<p>为了把这俩独立的评价方法结合起来作为综合评估的方法，最直接的方法就是用“平衡点”(Break-Even Point)时的值作为评价标准，此时$P=R$。但是最常用的是<strong>F1度量</strong>：$\frac{2PR}{P+R}$</p>
+<h3 id="2-3-3-ROC与AUC"><a href="#2-3-3-ROC与AUC" class="headerlink" title="2.3.3 ROC与AUC"></a>2.3.3 ROC与AUC</h3><p>很多学习器测试样本时是生成一个连续值概率，然后我们手动将这个概率和threshold比较，大于的当作正样本，小于的当作负样本，为了评价这个连续值的排序质量而提出了ROC曲线这个概念。换一句话说就是利用ROC曲线来看这个学习器的排序质量怎么样，所以这个就主要是看图了。与P-R图用Precision做纵轴，Recall做横轴不同，ROC曲线用<strong>真正例率</strong>作为纵轴，用<strong>假正例率</strong>作为横轴，一个是正例中(TP+FN)预测正确(TP)的比例，一个是反例中(TN+FP)预测错误(FP)的比例。</p>
+<p>这种情况下y=x就对应“随机猜测”的情况，而AUC就是指ROC曲线下的面积，表示样本预测的排序质量。</p>
+<p>关于P-R曲线和ROC曲线的绘制值得实践一下，这里摘录书中ROC曲线的绘制方法：</p>
+<blockquote>
+<p>给定$m^+$个正例和$m^-$个反例，根据学习器预测结果对样例进行排序，然后把分类阈值设为最大，即把所有样例均预测为反例，此时真正例率和假正例率均为0,在坐标 (0,0) 处标记一个点。</p>
+</blockquote>
+<h3 id="2-3-4-代价敏感错误率与代价曲线"><a href="#2-3-4-代价敏感错误率与代价曲线" class="headerlink" title="2.3.4 代价敏感错误率与代价曲线"></a>2.3.4 代价敏感错误率与代价曲线</h3><p>之前的评价方法都隐式假设了<strong>均等代价</strong>，即两种预测错误的情况(FP和FN)的代价都是一样的。在<strong>非均等代价</strong>（疾病检测/门禁系统等）下，所希望的不再是简单地最小化错误次数，而是希望最小化<strong>总体代价</strong>。</p>
+<p>因此很自然地提出了<strong>代价敏感错误率</strong>，就是把不同情况的错分比例乘以相应的代价再求和作为度量。好像有点绕，简单来讲就是说比如对于二分类问题，FP代价乘以FP数量，FN代价乘以FN数量，求和之后除以总样本数即代价敏感错误率。</p>
+<p>与之相应的就提出了<strong>代价曲线</strong>来可视化代价敏感度，这个还是比较麻烦的，这里就简单意思一下。首先曲线图本身横轴是正例概率代价，纵轴是归一化代价，然后具体作图又是借助ROC曲线每个点映射到代价曲线中就是一条线段，这些线段集的下界围成的面积就是学习器的期望总体代价。</p>
+<h2 id="2-4-比较检验"><a href="#2-4-比较检验" class="headerlink" title="2.4 比较检验"></a>2.4 比较检验</h2><p>机器学习中进行模型的性能比较非常复杂，核心原因是因为我们希望比较的是泛化性能，而不是测试集性能，表现在这么几个方面：</p>
+<ol>
+<li>测试集的大小或样例不同都会导致测试结果不同，所以不能代表泛化性能</li>
+<li>很多学习算法本身具有随机性，用在相同测试集上可能每次效果也不同</li>
+</ol>
+<p>因此，我们需要采用<strong>统计假设检验</strong>来从概率统计角度进行性能比较。</p>
+<p>假设检验的检验方法过于复杂，这里就主要梳理一下假设检验的步骤，具体的检验方法(二项检验，t检验，McNemar检验…)都以后补了概统基础之后再说吧…</p>
+<p>以二分类问题和相应的二项检验为例，假设检验大致可以分为四步：</p>
+<ol>
+<li>提出零假设和备选假设：一般是互斥的，其中备选假设为想证明的情况（在这里单边假设的话就是指<strong>泛化错误率$\hat{\epsilon}$&lt;测试错误率$\epsilon$</strong>，当然也有双边假设即<strong>泛化错误率$\hat{\epsilon}$ = 测试错误率$\epsilon$</strong>），而零假设就是其补集说法，之后是要被推翻的</li>
+<li>计算检验统计量的实际值：在零假设的前提下，计算出证据发生的概率（在这里就是<strong>测试错误率$\epsilon$</strong>）</li>
+<li>给定显著性水平和确定相应的临界值：设置了一个<strong>泛化错误率</strong>$\hat{\epsilon}$的上界对应的临界值（这里需要知道怎么判断二者之间的关系的，要用到公式$P(\hat{\epsilon};\epsilon)=C^{\hat{\epsilon}\times m}_m \epsilon^{\hat{\epsilon}\times m}(1-\epsilon)^{m-\hat{\epsilon}\times m}$，其实就是正常的二项分布概率，然后再套二项检验设计检验统计量的公式得到临界值和显著性水平）</li>
+<li>检验统计量的实际值，与临界值比较，视实际值落入接受区域还是拒绝区域，做出接受或拒绝零假设的结论</li>
+</ol>
+<h2 id="2-5-偏差与方差"><a href="#2-5-偏差与方差" class="headerlink" title="2.5 偏差与方差"></a>2.5 偏差与方差</h2><p>这一节主要讲了 <strong>偏差-方差分解</strong> (bias-variance decomposition)这个概念，对于真正使用没有太大帮助，但是对理解泛化误差来自何处有一些帮助。直接上结论就是：泛化误差可以分解为偏差，方差和噪声之和。</p>
+<ul>
+<li><strong>偏差</strong>指的是学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力</li>
+<li><strong>方差</strong>指的是同样大小的训练集变动所导致的学习性能的变化（不同评估方法），即刻画了数据扰动所造成的影响</li>
+<li><strong>噪声</strong>指的是当前任务上任何学习算法所能达到的期望误差的下界，即刻画了学习问题本身的难度。看原公式似乎可以理解为数据集的标注错误就是噪声，标注都错了学习肯定就更难了</li>
+</ul>
+<p>一般来说，偏差与方差是有冲突的，称为 <strong>偏差-方差窘境</strong>，还是比较容易理解的。</p>
+<p>这里的证明就是基于这么一个公式：$E(f;D)=\mathbb{E}_D[(f(x;D)-y_D)^2]$，左边是指对于模型$f$数据集$D$的泛化误差，右边就是正常的计算误差的公式。注意左边的$E$是误差，右边的$\mathbb{E}$是期望。在推演过程中引入了学习算法的期望预测$\overline{f}$，用这个实际预测结果的差平方作为偏差的度量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">西瓜书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/HangLi/概论/第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">西瓜书 第一章 绪论</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" class="archive-article-date">
+  	<time datetime="2020-09-26T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.2k字 | 预计阅读时长：4分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一章印象最深的就是NFL的证明了，<a href="https://datawhalechina.github.io/pumpkin-book/#/chapter1/chapter1?id=_12" target="_blank" rel="noopener">南瓜书</a>的推导非常靠谱！</p>
+        
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">西瓜书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-English/GREReading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/English-English/GREReading.html">GRE Reading notes</a>
+    </h1>
+  
+
+        
+        <a href="/English-English/GREReading.html" class="archive-article-date">
+  	<time datetime="2020-09-08T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.5k字 | 预计阅读时长：5分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>考满分杨杨老师的阅读课笔记</p>
+        
+          <a class="article-more-a" href="/English-English/GREReading.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/English-English/GREReading.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-NeuSci/0827" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/NeuSci-NeuSci/0827.html">前脑叶白质切除术</a>
+    </h1>
+  
+
+        
+        <a href="/NeuSci-NeuSci/0827.html" class="archive-article-date">
+  	<time datetime="2020-08-27T07:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.2k字 | 预计阅读时长：4分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>脑白质切除术（lobotomy）是一种神经外科手术，包括切除前额叶皮质的连接组织。脑白质切除术主要于1930年代到1950年代用来医治一些精神病，这也是世界上第一种精神外科手术[1]。该技术曾获得1949年诺贝尔生理学或医学奖，但现在对脑白质切除术的评价一般都是负面的，这主要是因为在当时的简陋条件下，对大脑所实施的手术精准度很低，对术后效果的评价也没有客观、可信的标准，而且手术对象在经过手术后往往丧失精神冲动，被认为侵害人权。</p>
+        
+          <a class="article-more-a" href="/NeuSci-NeuSci/0827.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自说自话的总裁</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经科学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/NeuSci//" class="article-tag-list-link color2">NeuSci</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/NeuSci-NeuSci/0827.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-NeuSci/0903" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/NeuSci-NeuSci/0903.html">前脑叶白质切除术</a>
+    </h1>
+  
+
+        
+        <a href="/NeuSci-NeuSci/0903.html" class="archive-article-date">
+  	<time datetime="2020-08-27T07:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：0字 | 预计阅读时长：1分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自说自话的总裁</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经科学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/NeuSci//" class="article-tag-list-link color2">NeuSci</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/NeuSci-NeuSci/0903.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-AI/decipher_compact_robust" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -260,19 +1133,19 @@
 
 
   
-    <article id="post-AI/统计西瓜/感知机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-AI/HangLi/感知机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html">统计学习方法 第二章 感知机</a>
+      <a class="article-title" href="/AI-AI/HangLi/%E6%84%9F%E7%9F%A5%E6%9C%BA.html">统计学习方法 第二章 感知机</a>
     </h1>
   
 
         
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html" class="archive-article-date">
+        <a href="/AI-AI/HangLi/%E6%84%9F%E7%9F%A5%E6%9C%BA.html" class="archive-article-date">
   	<time datetime="2020-08-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
 </a>
         
@@ -287,7 +1160,7 @@
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
         
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html#more">more >></a>
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%84%9F%E7%9F%A5%E6%9C%BA.html#more">more >></a>
         
       
 
@@ -330,787 +1203,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/RL入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/RL%E5%85%A5%E9%97%A8.html">强化学习入门</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/RL%E5%85%A5%E9%97%A8.html" class="archive-article-date">
-  	<time datetime="2020-08-18T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.9k字 | 预计阅读时长：8分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>没错就是广告漫天打的开课吧. 开课吧日常免费公开课, 质量还不错, 报了本次强化学习课程希望能入个门.</p>
-        
-          <a class="article-more-a" href="/AI-AI/RL%E5%85%A5%E9%97%A8.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">kaikeba</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/RL%E5%85%A5%E9%97%A8.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-English/GREvocabulary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/GREvocabulary.html">GRE Verbal vocabulary</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/GREvocabulary.html" class="archive-article-date">
-  	<time datetime="2020-08-15T02:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：4.8k字 | 预计阅读时长：21分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&lt;&lt;GRE镇考机经词6.0&gt;&gt; 里面的等价词真是宝藏, 全是机经里出现的选项</p>
-        
-          <a class="article-more-a" href="/English-English/GREvocabulary.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vocabulary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/GREvocabulary.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-English/GREVerbal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/GREVerbal.html">GRE Verbal notes</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/GREVerbal.html" class="archive-article-date">
-  	<time datetime="2020-08-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：3.9k字 | 预计阅读时长：16分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Recording the mistakes taken during the exercise.</p>
-        
-          <a class="article-more-a" href="/English-English/GREVerbal.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/GREVerbal.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/ma/0814" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/ma/0814.html">暑研记录（六）</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/ma/0814.html" class="archive-article-date">
-  	<time datetime="2020-08-14T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.9k字 | 预计阅读时长：7分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>暑研记录(五)中的三个实验完成了, 效果不是特别有趣, 三个实验和baseline对比效果差不多, 甚至不如baseline. 这次与老师讨论了一下之后做的方向, 最后会来说, 主要还是继续探索一下这三个实验的property, 然后不行再试试别的办法…</p>
-        
-          <a class="article-more-a" href="/AI-AI/ma/0814.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对抗样本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LID</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/ma/0814.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-English/learnEngWithTVSeries" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/learnEngWithTVSeries.html">Learning English with TV Series</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/learnEngWithTVSeries.html" class="archive-article-date">
-  	<time datetime="2020-08-05T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：151字 | 预计阅读时长：1分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Remember to subscribe at <a href="https://www.youtube.com/channel/UCKgpamMlm872zkGDcBJHYDg" target="_blank" rel="noopener">Learn English With TV Series</a></p>
-        
-          <a class="article-more-a" href="/English-English/learnEngWithTVSeries.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Leisure</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/learnEngWithTVSeries.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/decipher_rethink" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/decipher_rethink.html">代码解析 for &lt;Rethinking the value of Network Pruning&gt;</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/decipher_rethink.html" class="archive-article-date">
-  	<time datetime="2020-07-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：967字 | 预计阅读时长：4分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>不得不说有这么个资源整合的论文,配套的开源代码还是非常友好的,在CIFAR-10数据集上分别使用了layerwise的l1-norm通道剪枝和ThiNet,global的network slim,unstructured的song han的开山之作,还有个soft prune,涉及面非常广,代码易读性强.而且因为代码风格一样,所以看懂一个就可以非常快速的掌握剩下三个.</p>
-        
-          <a class="article-more-a" href="/AI-AI/decipher_rethink.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剪枝</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/decipher_rethink.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/ma/0723" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/ma/0723.html">暑研记录（五）</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/ma/0723.html" class="archive-article-date">
-  	<time datetime="2020-07-23T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：988字 | 预计阅读时长：3分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>确定了三个实验方案，看看借助LID生成mask能玩出什么花来。</p>
-        
-          <a class="article-more-a" href="/AI-AI/ma/0723.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对抗样本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LID</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/ma/0723.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tools/傻瓜服务器用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html">如何傻瓜式地使用服务器</a>
-    </h1>
-  
-
-        
-        <a href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html" class="archive-article-date">
-  	<time datetime="2020-04-22T01:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：352字 | 预计阅读时长：1分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>碎片式地记录一下使用服务器跑模型要用的必须操作</p>
-        
-          <a class="article-more-a" href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tools-tools/%E5%82%BB%E7%93%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%B3%95.html">展开全文 >></a>
+          <a class="article-more-a" href="/AI-AI/HangLi/%E6%84%9F%E7%9F%A5%E6%9C%BA.html">展开全文 >></a>
         </p>
       
 
@@ -1142,7 +1235,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1427,6 +1520,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
               </li>
             
             <div class="clearfix"></div>

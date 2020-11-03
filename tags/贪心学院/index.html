@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>统计学习方法 第二章 感知机 | Kerry</title>
+  <title>Tag: 贪心学院 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="统计学习方法 第二章 感知机">
-<meta property="og:url" content="http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html">
+  <meta name="description" content="一个记忆力不好的人的随手笔记">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kerry">
+<meta property="og:url" content="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83%E5%AD%A6%E9%99%A2/index.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
+<meta property="og:description" content="一个记忆力不好的人的随手笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-27T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-09-30T03:33:46.966Z">
 <meta property="article:author" content="Kerry">
-<meta property="article:tag" content="数理基础">
-<meta property="article:tag" content="统计学习方法">
-<meta property="article:tag" content="感知机">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
@@ -72,10 +67,10 @@
 		</nav>
 
 		<nav>
-    总文章数 35
+    总文章数 43
     </nav>
     <nav>
-    总字数 <span class="post-count">51.9k</span>
+    总字数 <span class="post-count">65.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -163,98 +158,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-AI/统计西瓜/感知机" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      统计学习方法 第二章 感知机
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html" class="archive-article-date">
+  	<time datetime="2020-10-28T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html">Transformer之后 - 贪心学院NLP</a>
     </h1>
   
 
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html" class="archive-article-date">
-  	<time datetime="2020-08-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.4k字 | 预计阅读时长：5分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-<a id="more"></a>
-
-<p>感知机是模式识别课程学过的印象比较深刻的知识点，可能主要还是因为相对不难，虽然现在还没有能力把它和其他算法体系联系起来。</p>
-<h2 id="2-1-感知机模型"><a href="#2-1-感知机模型" class="headerlink" title="2.1 感知机模型"></a>2.1 感知机模型</h2><p>首先肯定要搞清楚的是这个模型长啥样：</p>
-<p>$$<br>f(x) = sign(w \cdot x + b)<br>$$</p>
-<p>显然，x和f(x)即y是训练集给了的数据对，要优化的参数就是 $w$ 和 $b$。关于怎么优化之后再说，现在可以从模型中得到的信息就是决策边界，即令$f(x)=0$得到的方程 =&gt; $wx+b=0$，看到感知机这种模型能习惯性地推出决策边界也是比较重要的一个敏感度。在这里决策边界也叫做超平面$S$</p>
-<h2 id="2-2-感知机学习策略"><a href="#2-2-感知机学习策略" class="headerlink" title="2.2 感知机学习策略"></a>2.2 感知机学习策略</h2><p>学习策略即损失函数设计并极小化损失函数，所以首先来看看损失函数是什么。感知机的损失函数几何意义比较明确，意味着比较形象易懂。</p>
-<p>感知机的损失函数思路很简单，就是所有误分样本到超平面$S$的距离之和。高中我们知道点到直线距离$d=\frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$，所以落实到误分类点上就是$\frac{1}{||w||}|wx_0+b|$，这个看起来虽然和点到直线距离不一样，但是其实就是把x,y变成了x1,x2然后挤成向量塞进x里了，同理w在这里也是挤成向量了。</p>
-<p>因为误分类有正负之分，所以为了规范损失都是相同符号，我们利用y取值是{-1,+1}这个特点，将其作为指示函数，加入上面单个样本损失函数里，就可以把绝对值去掉变成：$-\frac{1}{||w||}y_i(wx_i+b)$，这个式子恒为非负。求个和然后不考虑$||w||$（因为与xy无关）就变成了感知机的损失函数：</p>
-<p>$$<br>L(w,b) = -\sum_{x_i\in M}y_i(w\cdot x_i + b)<br>$$</p>
-<p>其中$M$为误分类点的集合。</p>
-<h2 id="2-3-感知机学习算法"><a href="#2-3-感知机学习算法" class="headerlink" title="2.3 感知机学习算法"></a>2.3 感知机学习算法</h2><h3 id="2-3-1-原始形式"><a href="#2-3-1-原始形式" class="headerlink" title="2.3.1 原始形式"></a>2.3.1 原始形式</h3><p>这里指的是原始形式，之后会再讨论对偶形式。更新方法采用的是耳熟能详的随机梯度下降法，但是这里不是深度学习中batch为单位更新，而是单个误分类样本进行更新，其中随机体现在每次选取误分类点都是随机选取的。鉴于以上给出的损失函数偏导非常好算，这里直接给出两个参数（w和b）更新的公式：</p>
-<p>$$<br>w \leftarrow w + \eta y_i x_i  \<br>b \leftarrow b + \eta y_i<br>$$</p>
-<p>$\eta$就是步长（学习率）了。</p>
-<p>把原始形式还是列出来一下：</p>
-<blockquote>
-<ol>
-<li>选取初始值 $w_0, b_0$</li>
-<li>在训练集中选取数据 $(x_i, y_i)$</li>
-<li>如果 $y_i(w \cdot x_i + b) \leqslant 0$，用上述随机梯度下降公式更新</li>
-<li>转至(2)直至训练集中没有误分类点</li>
-</ol>
-</blockquote>
-<p>书上竟然有<em>例题2.1</em>，和模式识别课上做的一模一样，建议都去做一下。</p>
-<p>关于算法的收敛性问题，书中用 <strong>Novikoff定理</strong> 来描述了，对于这种线性可分的问题，(1)一定有超平面将数据集分开，且所有样本离超平面的距离都存在下界；(2)误分类的次数是有上界的，即经过有限次更新可以找到完全分类正确的超平面 =&gt; 收敛。其中(2)的证明还是比较tricky的，假设第k次全部分类成功，然后通过更新等式和(1)不断放宽约束迭代到第一次，参数变成常数，得到k是存在上界的，所以就证明了有限次更新。</p>
-<p>感知机算法存在很多解，两个原因：(1)初值的选择；(2)误分类点的选择顺序</p>
-<h3 id="2-3-2-对偶形式"><a href="#2-3-2-对偶形式" class="headerlink" title="2.3.2 对偶形式"></a>2.3.2 对偶形式</h3><p>运筹学中的对偶形式其实就是约束和变量调换，原始形式中变量是xy，约束（参数）是wb，所以在对偶问题中的表示就变成 <strong>将 $w$ 和 $b$ 表示为实例 $x_i$ 和标记 $y_i$ 的线性组合的形式</strong>，换句话说，把每次更新的增量叠加，当作更新系数，最终一起更新w和b，即表示成：</p>
-<p>$$<br>w = \sum^N_{i=1}\alpha_i y_i x_i\<br>b = \sum^N_{i=1}\alpha_i y_i<br>$$</p>
-<p>算法也直接列出来，其实和原始的长相差不多：</p>
-<blockquote>
-<ol>
-<li>$a\leftarrow 0, b\leftarrow 0$</li>
-<li>在训练集中选取数据 $(x_i, y_i)$</li>
-<li>如果$y_i(\sum^N_{j=1}\alpha_j y_j x_j \cdot x_i+b) \leqslant 0$,<br>$$\alpha_i\leftarrow\alpha_i+\eta\b\leftarrow b+\eta y_i$$</li>
-<li>转到(2)直到没有误分类数据</li>
-</ol>
-</blockquote>
-<p>用对偶形式的一大优势是可以借助 <strong>Gram矩阵</strong>，将实例间的内积提前计算出来，之后更新时可以加速计算（就是在判断那里其实就要频繁计算$x_ix_j$这样的数据），当然这也意味着在样本数量过大时并不可行（不然存不下呀）。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">感知机</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -267,127 +216,282 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%84%9F%E7%9F%A5%E6%9C%BA.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/AI-AI/decipher_compact_robust.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          代码解析 for &lt;HYDRA Pruning Adversarially Robust Neural Networks&gt;
-        
-      </div>
-    </a>
-  
-  
-    <a href="/AI-AI/RL%E5%85%A5%E9%97%A8.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">强化学习入门</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/Transformer.html" class="archive-article-date">
+  	<time datetime="2020-10-23T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-感知机模型"><span class="toc-number">1.</span> <span class="toc-text">2.1 感知机模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-感知机学习策略"><span class="toc-number">2.</span> <span class="toc-text">2.2 感知机学习策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-感知机学习算法"><span class="toc-number">3.</span> <span class="toc-text">2.3 感知机学习算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-原始形式"><span class="toc-number">3.1.</span> <span class="toc-text">2.3.1 原始形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-对偶形式"><span class="toc-number">3.2.</span> <span class="toc-text">2.3.2 对偶形式</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/Transformer.html">Transformer - 贪心学院NLP</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%89%8D.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%89%8D.html">Transformer之前 - 贪心学院NLP</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html">绪论 - 贪心学院NLP</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html">语言模型基础 - 贪心学院NLP</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html">词向量训练 - 贪心学院NLP</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
+  
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -410,9 +514,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -670,6 +774,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>统计学习方法 第五章 决策树 | Kerry</title>
+  <title>Category: AI | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。  决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪  5.1 决策树模型与学习这个定义还是非常准确的：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="统计学习方法 第五章 决策树">
-<meta property="og:url" content="http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html">
+  <meta name="description" content="一个记忆力不好的人的随手笔记">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kerry">
+<meta property="og:url" content="http://yoursite.com/categories/AI/page/3/index.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。  决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪  5.1 决策树模型与学习这个定义还是非常准确的：">
+<meta property="og:description" content="一个记忆力不好的人的随手笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-30T09:50:43.000Z">
-<meta property="article:modified_time" content="2020-09-30T07:46:50.712Z">
 <meta property="article:author" content="Kerry">
-<meta property="article:tag" content="数理基础">
-<meta property="article:tag" content="统计学习方法">
-<meta property="article:tag" content="决策树">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
@@ -72,10 +67,10 @@
 		</nav>
 
 		<nav>
-    总文章数 35
+    总文章数 43
     </nav>
     <nav>
-    总字数 <span class="post-count">51.9k</span>
+    总字数 <span class="post-count">65.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -163,74 +158,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-AI/统计西瓜/决策树" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      统计学习方法 第五章 决策树
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/AI-AI/adversarial.html" class="archive-article-date">
+  	<time datetime="2019-12-06T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/AI-AI/adversarial.html">比较 对抗样本 在 压缩模型 上的可迁移性</a>
     </h1>
   
 
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html" class="archive-article-date">
-  	<time datetime="2020-09-30T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：603字 | 预计阅读时长：2分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-<blockquote>
-<p>决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪</p>
-</blockquote>
-<h2 id="5-1-决策树模型与学习"><a href="#5-1-决策树模型与学习" class="headerlink" title="5.1 决策树模型与学习"></a>5.1 决策树模型与学习</h2><p>这个定义还是非常准确的：</p>
-<blockquote>
-<p>定义5.1 <strong>决策树</strong><br><br>分类决策树模型是一种描述对实例进行分类的树形结构。决策树由结点（node）和有向边（directed edge）组成。结点有两种类型：内部结点（internal node）和叶结点（leaf node）。内部结点表示一个特征或属性，叶节点表示一个类。</p>
-</blockquote>
-<p>分类的过程就是从根节点开始不断的递归分类，最终到的叶结点就是分类结果。</p>
-<p>有两种方式来理解决策树：</p>
-<ul>
-<li><strong>if-then规则</strong><br><br>内部结点就是条件，叶结点就是结论。这么理解的话要注意一个重要性质：路径的集合是 <strong>互斥并且完备</strong> 的。</li>
-<li><strong>条件概率分布</strong><br><br>遍历到每个内部结点都会出一个条件概率 $P(Y|X)$，$X$ 取值于遍历过了的结点情况集合，$Y$ 取值于下一个结点的类的集合，每次分类时决策树就将该结点强行分到条件概率大的那一类去。</li>
-</ul>
-<p>在决策树的生成上，找到一棵最优决策树是非常NP完全的，所以只能通过启发式算法找到次最优的决策树。整个决策树分类的过程就可以理解成：选一个最优特征，作为当前结点的分类依据，不断递归，如果子集能够被正确分开，就构建叶结点，如果不能就继续分割。之后为了增加泛化能力，再需要对决策树进行剪枝…所以还是非常复杂的。其中生成考虑局部最优，剪枝又考虑全局最优。妙啊！</p>
-<h2 id="5-2-特征选择"><a href="#5-2-特征选择" class="headerlink" title="5.2 特征选择"></a>5.2 特征选择</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络压缩</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对抗样本</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">水文章</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -243,126 +220,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/MOOC-MOOC/HighSchoolMath_stereometry.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          高考数学_立体几何题目整理
-        
-      </div>
-    </a>
   
   
-    <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">统计学习方法 第四章 朴素贝叶斯</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-决策树模型与学习"><span class="toc-number">1.</span> <span class="toc-text">5.1 决策树模型与学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-特征选择"><span class="toc-number">2.</span> <span class="toc-text">5.2 特征选择</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
+    </div></section>
   
 
-  
-
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/AI/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/categories/AI/">1</a><a class="page-number" href="/categories/AI/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -386,10 +257,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
@@ -646,6 +517,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
               </li>
             
             <div class="clearfix"></div>

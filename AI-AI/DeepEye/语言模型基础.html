@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>西瓜书 第二章 模型评估与选择 | Kerry</title>
+  <title>语言模型基础 - 贪心学院NLP | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.1 经验误差与过拟合主要讲了一些过拟合与欠拟合，有一句话很有意思：  只要相信”P $\ne$ NP”，过拟合就不可避免。  简单解释就是说机器学习问题大部分都是NP问题，而有效的机器学习算法都是在多项式时间内得到解，即P，如果相信误差最小化之后就能得到最优解，就说明P&#x3D;NP，就矛盾了。 2.2 评估方法不说为啥要划分训练集和测试集了，直接上划分方法。注意为了选择模型和调参，以下的测试集在真正">
+  <meta name="description" content="问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法 正则&#x2F;规则：匹配死板，但是不需要训练数据 Pipeline  分词 (segmentation) 清洗：语法纠错 (spell correcion), 停用词 (stop words), 过滤 (words filtering), 同义词&#x2F;大小写&#x2F;特殊符号&#x2F;… 标准">
 <meta property="og:type" content="article">
-<meta property="og:title" content="西瓜书 第二章 模型评估与选择">
-<meta property="og:url" content="http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html">
+<meta property="og:title" content="语言模型基础 - 贪心学院NLP">
+<meta property="og:url" content="http://yoursite.com/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="2.1 经验误差与过拟合主要讲了一些过拟合与欠拟合，有一句话很有意思：  只要相信”P $\ne$ NP”，过拟合就不可避免。  简单解释就是说机器学习问题大部分都是NP问题，而有效的机器学习算法都是在多项式时间内得到解，即P，如果相信误差最小化之后就能得到最优解，就说明P&#x3D;NP，就矛盾了。 2.2 评估方法不说为啥要划分训练集和测试集了，直接上划分方法。注意为了选择模型和调参，以下的测试集在真正">
+<meta property="og:description" content="问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法 正则&#x2F;规则：匹配死板，但是不需要训练数据 Pipeline  分词 (segmentation) 清洗：语法纠错 (spell correcion), 停用词 (stop words), 过滤 (words filtering), 同义词&#x2F;大小写&#x2F;特殊符号&#x2F;… 标准">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-26T09:50:43.000Z">
-<meta property="article:modified_time" content="2020-09-30T07:18:51.515Z">
+<meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/viterbi.png">
+<meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/unigram.png">
+<meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/bigram.png">
+<meta property="article:published_time" content="2020-10-15T02:50:43.000Z">
+<meta property="article:modified_time" content="2020-10-23T06:28:48.925Z">
 <meta property="article:author" content="Kerry">
-<meta property="article:tag" content="数理基础">
-<meta property="article:tag" content="西瓜书">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="贪心学院">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/AI-AI/DeepEye/viterbi.png">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
@@ -71,10 +75,10 @@
 		</nav>
 
 		<nav>
-    总文章数 35
+    总文章数 43
     </nav>
     <nav>
-    总字数 <span class="post-count">51.9k</span>
+    总字数 <span class="post-count">65.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -162,92 +166,138 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-AI/统计西瓜/概论/第二章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-AI/DeepEye/语言模型基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      西瓜书 第二章 模型评估与选择
+      语言模型基础 - 贪心学院NLP
     </h1>
   
 
         
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html" class="archive-article-date">
-  	<time datetime="2020-09-26T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+        <a href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：2.4k字 | 预计阅读时长：8分钟
+      字数：2.5k字 | 预计阅读时长：9分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2-1-经验误差与过拟合"><a href="#2-1-经验误差与过拟合" class="headerlink" title="2.1 经验误差与过拟合"></a>2.1 经验误差与过拟合</h2><p>主要讲了一些过拟合与欠拟合，有一句话很有意思：</p>
+        <p>问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法</p>
+<p>正则/规则：匹配死板，但是不需要训练数据</p>
+<p>Pipeline</p>
+<ol>
+<li>分词 (segmentation)</li>
+<li>清洗：语法纠错 (spell correcion), 停用词 (stop words), 过滤 (words filtering), 同义词/大小写/特殊符号/…</li>
+<li>标准化：词形还原 (stemming / lemmatization)  eg. apple/apples=&gt;apple, go/going/went=&gt;go</li>
+<li>特征提取：Boolean vector, counts vector, TF-IDF, word2vec, seq2seq</li>
+<li>计算相似度(给定两个向量)：Euclidean distance, Cosine distance, Jaccard similarity</li>
+<li>排序</li>
+</ol>
+<p>=&gt; 很需要工程能力</p>
+<p>DP在文本处理的作用非常大，强烈建议仔细弄明白这十个经典问题：<a href="https://people.cs.clemson.edu/~bcdean/dp_practice/" target="_blank" rel="noopener">https://people.cs.clemson.edu/~bcdean/dp_practice/</a></p>
+<h2 id="Word-Segmentation"><a href="#Word-Segmentation" class="headerlink" title="Word Segmentation"></a>Word Segmentation</h2><p>常用中文分词工具：<a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">Jieba分词</a>，<a href="https://github.com/isnowfy/snownlp" target="_blank" rel="noopener">SnowNLP</a>，<a href="http://www.ltp-cloud.com/" target="_blank" rel="noopener">LTP</a>，<a href="https://github.com/hankcs/HanLP" target="_blank" rel="noopener">HanNLP</a>。这些都是封装好的包，下载后就是可以直接import食用比如<code>jiaba</code>这个库就有<code>jieba.cut</code>来直接搞分词，还有<code>jieba.add_word</code>来增加自己的语料。</p>
+<p>接下来看看分词的具体实现方法（共性是一定要提前有一个词典）：</p>
+<h3 id="Max-Matching-最大匹配"><a href="#Max-Matching-最大匹配" class="headerlink" title="Max Matching (最大匹配)"></a>Max Matching (最大匹配)</h3><p>是个贪心算法，最大指的是希望分出来的词长度尽可能大，也就是尽量匹配词典中最长的词。前向最大匹配就是从前扫到后，后向，双向与此相同。</p>
+<p>举个前向最大匹配的例子，设定一个<code>max_len</code>参数，一开始从左向右拎出max_len个字放进list中，然后匹配词典有没有符合的，没有就把最后一个字踢出list再匹配，直到匹配上或者只剩一个字，迭代到匹配结束的剩余部分重新来做。</p>
+<p>后向匹配其实很类似，就是从后面开始拎。双向是前后都做一次，然后对于结果不一样的地方取分词数量较少的那个。</p>
+<p>具体的例子说明可以参考这个帖子：<a href="https://blog.csdn.net/selinda001/article/details/79345072" target="_blank" rel="noopener">这里</a>。缺点如下：</p>
+<ol>
+<li>贪心法=&gt;只能找到局部最优解，</li>
+<li>效率低，取决于max_len的设置</li>
+<li>不能考虑到语义</li>
+</ol>
+<h3 id="Language-Model-语言模型"><a href="#Language-Model-语言模型" class="headerlink" title="Language Model (语言模型)"></a>Language Model (语言模型)</h3><p>为了把语义也考虑进来，需要用一个工具来评价不同的分词结果，一个很自然的流程就是：</p>
 <blockquote>
-<p>只要相信”P $\ne$ NP”，过拟合就不可避免。</p>
+<p>输入 =&gt; 生成所有分割 =&gt; 选择最好的结果</p>
 </blockquote>
-<p>简单解释就是说机器学习问题大部分都是NP问题，而有效的机器学习算法都是在多项式时间内得到解，即P，如果相信误差最小化之后就能得到最优解，就说明P=NP，就矛盾了。</p>
-<h2 id="2-2-评估方法"><a href="#2-2-评估方法" class="headerlink" title="2.2 评估方法"></a>2.2 评估方法</h2><p>不说为啥要划分训练集和测试集了，直接上划分方法。注意为了选择模型和调参，以下的测试集在真正训练过程中都叫做验证集：</p>
-<h3 id="2-2-1-留出法-hold-out"><a href="#2-2-1-留出法-hold-out" class="headerlink" title="2.2.1 留出法 (hold-out)"></a>2.2.1 留出法 (hold-out)</h3><p>直接将数据集$D$划分为两个互斥集合作为训练集和测试集，注意3点：</p>
+<p>而在这个选择最好的工具，就是 Language Model。比如用unigram model，就是不考虑条件概率: $P(S_1, S_2, S_3) = P(S_1)P(S_2)P(s_3)$。</p>
+<p>然而假如这么做，非常可能出现 <strong>underflow</strong>，因为每个分词的概率都是非常接近0的，乘积就更容易超出double的范围，变成0。=&gt; 解决办法：<strong>取负对数</strong>，所以就化乘积为求和，而且指数变成系数，两方面都改善了这个情况。</p>
+<p>然而以上这种分两步的方法也不是最好的，因为所有可能的分割情况太多太多了。因此就有了以下的维特比算法：</p>
+<h3 id="Viterbi-维特比算法"><a href="#Viterbi-维特比算法" class="headerlink" title="Viterbi (维特比算法)"></a>Viterbi (维特比算法)</h3><p>这里其实是最简单的维特比算法，之后HMM的维特比算法才是真正的维特比算法。这里简单概括如下：</p>
+<p><img src="./viterbi.png" alt="维特比算法"></p>
 <ol>
-<li>训练/测试集的划分要尽可能保持数据分布的一致性，采用“<strong>分层采样</strong>”，即保持各类样本的比例相似</li>
-<li>单次使用留出法可能不太可靠，一般采用<strong>若干次随机划分</strong>，重复实验后取平均值作为留出法的结果</li>
-<li>保真性和泛化性的Trade-off：大约 <strong>2/3~4/5</strong> 划分为训练集，剩下的用作测试</li>
+<li>建立最上面那样的数据链表</li>
+<li>动态规划统计出到最后一个点的最小概率</li>
+<li>反向溯源得到最短路径</li>
 </ol>
-<h3 id="2-2-2交叉验证法-cross-validation"><a href="#2-2-2交叉验证法-cross-validation" class="headerlink" title="2.2.2交叉验证法 (cross validation)"></a>2.2.2交叉验证法 (cross validation)</h3><p>也叫做k折交叉验证法，就是把数据集$D划分为k份，每次用k-1个子集的并集作为训练集，余下作为测试集，然后改变组合进行k次。注意：</p>
+<h2 id="Spell-Correction"><a href="#Spell-Correction" class="headerlink" title="Spell Correction"></a>Spell Correction</h2><p>编辑距离 (edit distance)：insert/delete/replace都是1的编辑成本，从输入到输出最少需要多少次编辑成本，就是两个字符串的最短编辑距离。</p>
+<p>最朴素的想法是遍历词库中所有词，找到最短的编辑距离的词替换，显然这样复杂度太高 =&gt; 改进：生成编辑距离为1、2的字符串，然后去词库找找有没有这个词（过滤）</p>
+<p>重新用数学语言讲解一下spell correction的问题：</p>
+<p>问题：给定一个字符串 $s$，我们要找出最有可能成为正确的字符串 $c$，也就是 $\hat{c} = \argmax_{c\isin candidates}p(c|s)$。</p>
+<p>用贝叶斯公式转化成：$\hat{c} = \argmax_{c\isin candidates}p(s|c)p(c)/p(s)$</p>
+<p>又因为 $p(s)$ 是常数，所以可以转化成：$\hat{c} = \argmax_{c\isin candidates}p(s|c)p(c)$</p>
+<p>其中 $p(s|c)$ 是对于一个正确的字符串c，有多大的概率写成s的形式，$p(c)$ 就是之前的 unigram probability</p>
+<h2 id="Filtering-Words"><a href="#Filtering-Words" class="headerlink" title="Filtering Words"></a>Filtering Words</h2><p>手动删除两种单词：</p>
 <ol>
-<li>分层采样</li>
-<li>若干次随机划分（eg.10次10折交叉验证）</li>
-<li>若$D$中包含m个样本，令k=m，则变为“留一法”(Leave-One-Out)，即每次测试集都是一个样本。优点是绝大多数情况都比较准确，缺点是计算开销太大</li>
+<li>停用词（the, and, their, …, 或者根据应用场景来定）</li>
+<li>出现频率很低的词</li>
 </ol>
-<h3 id="2-2-3-自助法-bootstrapping"><a href="#2-2-3-自助法-bootstrapping" class="headerlink" title="2.2.3 自助法 (bootstrapping)"></a>2.2.3 自助法 (bootstrapping)</h3><p>要先知道自助采样也叫做有放回采样，假设数据集$D$有m个样本，每次就有放回的取出一个样本加入训练集$D’$中，重复m次，这样算一下每个样本始终不被采集到的概率是$(1-1/m)^m$，算一下极限可以得到是$1/e$，约为0.368。而没被采集的部分就作为测试集。注意：</p>
-<ol>
-<li>自助法在数据集较小，难以有效划分训练/测试集时很有用</li>
-<li>但是会改变初始数据集的分布，引入估计偏差</li>
-</ol>
-<h2 id="2-3-性能度量"><a href="#2-3-性能度量" class="headerlink" title="2.3 性能度量"></a>2.3 性能度量</h2><p>直接上模型评价方法了：</p>
-<h3 id="2-3-1-错误率与精度"><a href="#2-3-1-错误率与精度" class="headerlink" title="2.3.1 错误率与精度"></a>2.3.1 错误率与精度</h3><p>一句话：</p>
-<blockquote>
-<p><strong>错误率</strong>是分类错误的样本数占总数的比例<br><br><strong>精度</strong>则是分类正确的样本数占总数的比例</p>
-</blockquote>
-<h3 id="2-3-2-查准率、查全率与F1"><a href="#2-3-2-查准率、查全率与F1" class="headerlink" title="2.3.2 查准率、查全率与F1"></a>2.3.2 查准率、查全率与F1</h3><p>前两个也叫<strong>准确率</strong>(precision)$P$和<strong>召回率</strong>(recall)$R$，这里先不放那个TPFPTNFN的表了，$P$和$R$老是记不清公式，其实就是二者都是以TP作为目标分子，对于分母来说$P$注重预测结果的准确率，所以是$TP+FP$，$R$注重真实情况的准确率，所以是$TP+FN$。</p>
-<p>为了把这俩独立的评价方法结合起来作为综合评估的方法，最直接的方法就是用“平衡点”(Break-Even Point)时的值作为评价标准，此时$P=R$。但是最常用的是<strong>F1度量</strong>：$\frac{2PR}{P+R}$</p>
-<h3 id="2-3-3-ROC与AUC"><a href="#2-3-3-ROC与AUC" class="headerlink" title="2.3.3 ROC与AUC"></a>2.3.3 ROC与AUC</h3><p>很多学习器测试样本时是生成一个连续值概率，然后我们手动将这个概率和threshold比较，大于的当作正样本，小于的当作负样本，为了评价这个连续值的排序质量而提出了ROC曲线这个概念。换一句话说就是利用ROC曲线来看这个学习器的排序质量怎么样，所以这个就主要是看图了。与P-R图用Precision做纵轴，Recall做横轴不同，ROC曲线用<strong>真正例率</strong>作为纵轴，用<strong>假正例率</strong>作为横轴，一个是正例中(TP+FN)预测正确(TP)的比例，一个是反例中(TN+FP)预测错误(FP)的比例。</p>
-<p>这种情况下y=x就对应“随机猜测”的情况，而AUC就是指ROC曲线下的面积，表示样本预测的排序质量。</p>
-<p>关于P-R曲线和ROC曲线的绘制值得实践一下，这里摘录书中ROC曲线的绘制方法：</p>
-<blockquote>
-<p>给定$m^+$个正例和$m^-$个反例，根据学习器预测结果对样例进行排序，然后把分类阈值设为最大，即把所有样例均预测为反例，此时真正例率和假正例率均为0,在坐标 (0,0) 处标记一个点。</p>
-</blockquote>
-<h3 id="2-3-4-代价敏感错误率与代价曲线"><a href="#2-3-4-代价敏感错误率与代价曲线" class="headerlink" title="2.3.4 代价敏感错误率与代价曲线"></a>2.3.4 代价敏感错误率与代价曲线</h3><p>之前的评价方法都隐式假设了<strong>均等代价</strong>，即两种预测错误的情况(FP和FN)的代价都是一样的。在<strong>非均等代价</strong>（疾病检测/门禁系统等）下，所希望的不再是简单地最小化错误次数，而是希望最小化<strong>总体代价</strong>。</p>
-<p>因此很自然地提出了<strong>代价敏感错误率</strong>，就是把不同情况的错分比例乘以相应的代价再求和作为度量。好像有点绕，简单来讲就是说比如对于二分类问题，FP代价乘以FP数量，FN代价乘以FN数量，求和之后除以总样本数即代价敏感错误率。</p>
-<p>与之相应的就提出了<strong>代价曲线</strong>来可视化代价敏感度，这个还是比较麻烦的，这里就简单意思一下。首先曲线图本身横轴是正例概率代价，纵轴是归一化代价，然后具体作图又是借助ROC曲线每个点映射到代价曲线中就是一条线段，这些线段集的下界围成的面积就是学习器的期望总体代价。</p>
-<h2 id="2-4-比较检验"><a href="#2-4-比较检验" class="headerlink" title="2.4 比较检验"></a>2.4 比较检验</h2><p>机器学习中进行模型的性能比较非常复杂，核心原因是因为我们希望比较的是泛化性能，而不是测试集性能，表现在这么几个方面：</p>
-<ol>
-<li>测试集的大小或样例不同都会导致测试结果不同，所以不能代表泛化性能</li>
-<li>很多学习算法本身具有随机性，用在相同测试集上可能每次效果也不同</li>
-</ol>
-<p>因此，我们需要采用<strong>统计假设检验</strong>来从概率统计角度进行性能比较。</p>
-<p>假设检验的检验方法过于复杂，这里就主要梳理一下假设检验的步骤，具体的检验方法(二项检验，t检验，McNemar检验…)都以后补了概统基础之后再说吧…</p>
-<p>以二分类问题和相应的二项检验为例，假设检验大致可以分为四步：</p>
-<ol>
-<li>提出零假设和备选假设：一般是互斥的，其中备选假设为想证明的情况（在这里单边假设的话就是指<strong>泛化错误率$\hat{\epsilon}$&lt;测试错误率$\epsilon$</strong>，当然也有双边假设即<strong>泛化错误率$\hat{\epsilon}$ = 测试错误率$\epsilon$</strong>），而零假设就是其补集说法，之后是要被推翻的</li>
-<li>计算检验统计量的实际值：在零假设的前提下，计算出证据发生的概率（在这里就是<strong>测试错误率$\epsilon$</strong>）</li>
-<li>给定显著性水平和确定相应的临界值：设置了一个<strong>泛化错误率</strong>$\hat{\epsilon}$的上界对应的临界值（这里需要知道怎么判断二者之间的关系的，要用到公式$P(\hat{\epsilon};\epsilon)=C^{\hat{\epsilon}\times m}_m \epsilon^{\hat{\epsilon}\times m}(1-\epsilon)^{m-\hat{\epsilon}\times m}$，其实就是正常的二项分布概率，然后再套二项检验设计检验统计量的公式得到临界值和显著性水平）</li>
-<li>检验统计量的实际值，与临界值比较，视实际值落入接受区域还是拒绝区域，做出接受或拒绝零假设的结论</li>
-</ol>
-<h2 id="2-5-偏差与方差"><a href="#2-5-偏差与方差" class="headerlink" title="2.5 偏差与方差"></a>2.5 偏差与方差</h2><p>这一节主要讲了 <strong>偏差-方差分解</strong> (bias-variance decomposition)这个概念，对于真正使用没有太大帮助，但是对理解泛化误差来自何处有一些帮助。直接上结论就是：泛化误差可以分解为偏差，方差和噪声之和。</p>
+<h2 id="Normalize"><a href="#Normalize" class="headerlink" title="Normalize"></a>Normalize</h2><p>有两种方法：Stemming 和 Lemmatization，其实差不多，前者是比如fly, flies =&gt; fli 归类成一个形式，后者是必须保证这个形式也是严格的在词典中的词，即 Lemmatization 更严格。具体 Stemming操作可以参考：<a href="https://tartarus.org/martin/PorterStemmer/java.txt" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/java.txt</a> (就硬写了很多很多规则…但是是非常有意义的工作！！必须要语言学家来帮忙)</p>
+<h2 id="Word-Representation"><a href="#Word-Representation" class="headerlink" title="Word Representation"></a>Word Representation</h2><h3 id="最经典的方法：One-hot"><a href="#最经典的方法：One-hot" class="headerlink" title="最经典的方法：One-hot"></a>最经典的方法：One-hot</h3><p>关于单词的表示就不需要多说，由字典单词数量决定长度，对应位置为1独热就是了。但是在句子表示上也可以通过one-hot表示，有两种简单的表示方法：boolean 和 count，其实也就是出现了对应单词对应位置就标注，区别在于标识是1还是在句子中出现的次数。</p>
+<p>虽然内容简单，但是这里可以牵出 <strong>文本相似度</strong> 这个知识点，就是比较两个向量之间的距离：</p>
 <ul>
-<li><strong>偏差</strong>指的是学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力</li>
-<li><strong>方差</strong>指的是同样大小的训练集变动所导致的学习性能的变化（不同评估方法），即刻画了数据扰动所造成的影响</li>
-<li><strong>噪声</strong>指的是当前任务上任何学习算法所能达到的期望误差的下界，即刻画了学习问题本身的难度。看原公式似乎可以理解为数据集的标注错误就是噪声，标注都错了学习肯定就更难了</li>
+<li>欧式距离：$d = |s1 - s2|$（只考虑大小）</li>
+<li>余弦距离：$d = \frac{s1 \cdot s2}{|s1|*|s2|}$（既考虑大小又考虑方向）</li>
 </ul>
-<p>一般来说，偏差与方差是有冲突的，称为 <strong>偏差-方差窘境</strong>，还是比较容易理解的。</p>
-<p>这里的证明就是基于这么一个公式：$E(f;D)=\mathbb{E}_D[(f(x;D)-y_D)^2]$，左边是指对于模型$f$数据集$D$的泛化误差，右边就是正常的计算误差的公式。注意左边的$E$是误差，右边的$\mathbb{E}$是期望。在推演过程中引入了学习算法的期望预测$\overline{f}$，用这个实际预测结果的差平方作为偏差的度量。</p>
+<p>缺点：</p>
+<ul>
+<li>并不是出现的越多就越重要！</li>
+<li>并不是出现的越少就越不重要！</li>
+</ul>
+<p>=&gt; tf-idf 方法来了</p>
+<h3 id="最流行的方法：tf-idf"><a href="#最流行的方法：tf-idf" class="headerlink" title="最流行的方法：tf-idf"></a>最流行的方法：tf-idf</h3><p>先放官方定义：</p>
+<p>$$<br>tfidf(w) = tf(d, w) * idf(w)<br>$$</p>
+<p>其中，$tf(d,w)$ 是文档 d 中 w 的词频，$idf(w)=\log\frac{N}{N(w)}$，N是语料库中文档总数，N(w)是词语w出现在多少文档中。</p>
+<p>原来的方法只考虑了tf项，即单词本身的词频，tf-idf额外考虑了idf项，即单词本身的重要性（出现的越少重要性越大）。</p>
+<p>但是其实在这里单词本身还是one-hot的，即句子表示也是从one-hot衍生出来的，因此本质上tf-idf还是一种one-hot方法。</p>
+<p>one-hot缺点：</p>
+<ul>
+<li><p>无法衡量单词两两之间语义的相似度</p>
+</li>
+<li><p>词库一般都很长 ($10^5$~$10^6$)，大部分位置都是0 =&gt; 非常非常稀疏</p>
+<p>=&gt; 需要分布式表示方法</p>
+</li>
+</ul>
+<p>句子长度：one-hot长度等于词典长度，distributed长度自定义</p>
+<p>当把分布式表示方法对应到单词，就带来了<strong>词向量</strong></p>
+<h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>输入：很长很长的字符串（$10^9$ or more）</p>
+<p>输出：单词的分布式表示</p>
+<p>映射：训练模型（skip-gram / Glone / CBOW / RNN,LSTM / MF / Gaussian Embedding）</p>
+<p>最重要的参数：词向量表示的维度 <strong>dim/D</strong>（50～300）</p>
+<p>理想情况下，Word2Vec能代表单词的意思，但是真实情况什么样谁也不知道。因为需要训练样本的量级太大，一般直接用Google等大公司预训练好的词向量，在针对性的应用领域时再来专门来训练单词的词向量。</p>
+<p>如何减少时间复杂度：<strong>层次过滤思想</strong>，一次次筛选找到最有可能的pair，再来算句子相似度进行选择。同时希望越前面的筛选越简单，一步步来变严格，在这里借助倒排表。</p>
+<p><strong>Inverted Index：倒排表</strong>，原先是一个文章中有多少个某某单词的映射，现在是某某单词出现在哪些文章中的映射。因此可以根据question中的单词来看存在在哪些pair中，（至少包含一个单词/两个单词/…越来越严格），最终选出XX个，来算相似度。</p>
+<h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>语言模型用来判断：到底是不是人话。</p>
+<h3 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h3><p><strong>Noisy Channel Model</strong>（几乎所有NLP问题的通用表示）</p>
+<p>$$<br>p(text|source) \propto p(source|text) p(text)<br>$$</p>
+<p>其中 $p(text)$ 就是语言模型。</p>
+<p><strong>Chain Rule</strong>（有sparsity问题）</p>
+<p>$$<br>p(w_1,w_2,\cdots,w_n) = p(w_1)p(w_2|w_1)\cdots p(w_n|w_1,w_2,\cdots,w_{n-1})<br>$$</p>
+<p><strong>Markov Assumption</strong>（HMM, CRF, …）</p>
+<p>=&gt; unigram, bigram（1阶Markov假设，最常用）, N-gram</p>
+<h3 id="N-gram"><a href="#N-gram" class="headerlink" title="N-gram"></a>N-gram</h3><p>就这么算:</p>
+<p><img src="./unigram.png" alt="unigram"><br><img src="./bigram.png" alt="bigram"></p>
+<p>但是注意在这里如果其中一项为0那么所有都为0,显然是不好的，即没有在语料库中出现的句子完全有可能成立，所以一般都会加入平滑项（Smoothing）：</p>
+<ol>
+<li><strong>Add-one Smoothing</strong>：就像是朴素贝叶斯中先验概率用贝叶斯估计保护了一下一样，分子多了一个+1,分母补齐到归一</li>
+<li><strong>Add-K Smoothing</strong>：不同于 add 1，这个就是在分子多加 k。一般用验证集，学习出最佳的K。前两种方法也叫做Laplacian Smoothing</li>
+<li><strong>Interpolation</strong>：在计算 Trigram 概率时，同时考虑 Unigram, Bigram, Trigram 出现的次数 =&gt; 加权平均</li>
+<li><strong>Good-turning Smoothing</strong>：Assumption 已知语料没有占用全部概率空间，留了一点空间给没出现过的物种：$P_{GT}=\frac{N_1}{N}$，同时出现过的物种概率就相应的变小：$P_{GT}=\frac{(c+1)N_{c+1}}{N_c}$</li>
+</ol>
+<p>那么最后如何evaluate哪种模型好：</p>
+<p>$$<br>Perplexity = 2^{-(x)},\<br>x: \text{average log likelihood}<br>$$</p>
+<p>=&gt; likelihood 越大越好 =&gt; Perplexity 越小越好</p>
+<h2 id="承上启下"><a href="#承上启下" class="headerlink" title="承上启下"></a>承上启下</h2><p>至此就可以完成NLG的工作了，比如构建好了bigram模型，就是不断的找最大概率的后继词，组成一句话。</p>
+<p>以上是语言模型的基础，之后就可以进入学习的领域了。总的来说有两个分支，<strong>专家系统</strong> 和 <strong>基于概率的系统</strong>，虽然现在主要都是基于概率的模型，但是还是不能忽视前者。</p>
 
       
 
@@ -261,11 +311,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">西瓜书</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
         		</li>
       		
 		</ul>
@@ -332,7 +382,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +397,18 @@
   
 <nav id="article-nav">
   
-    <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          统计学习方法 第一章 统计学习及监督学习概论
+          绪论 - 贪心学院NLP
         
       </div>
     </a>
   
   
-    <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">西瓜书 第一章 绪论</div>
+    <a href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">词向量训练 - 贪心学院NLP</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -385,7 +435,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-经验误差与过拟合"><span class="toc-number">1.</span> <span class="toc-text">2.1 经验误差与过拟合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-评估方法"><span class="toc-number">2.</span> <span class="toc-text">2.2 评估方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-留出法-hold-out"><span class="toc-number">2.1.</span> <span class="toc-text">2.2.1 留出法 (hold-out)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2交叉验证法-cross-validation"><span class="toc-number">2.2.</span> <span class="toc-text">2.2.2交叉验证法 (cross validation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-自助法-bootstrapping"><span class="toc-number">2.3.</span> <span class="toc-text">2.2.3 自助法 (bootstrapping)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-性能度量"><span class="toc-number">3.</span> <span class="toc-text">2.3 性能度量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-错误率与精度"><span class="toc-number">3.1.</span> <span class="toc-text">2.3.1 错误率与精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-查准率、查全率与F1"><span class="toc-number">3.2.</span> <span class="toc-text">2.3.2 查准率、查全率与F1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-ROC与AUC"><span class="toc-number">3.3.</span> <span class="toc-text">2.3.3 ROC与AUC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-代价敏感错误率与代价曲线"><span class="toc-number">3.4.</span> <span class="toc-text">2.3.4 代价敏感错误率与代价曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-比较检验"><span class="toc-number">4.</span> <span class="toc-text">2.4 比较检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-偏差与方差"><span class="toc-number">5.</span> <span class="toc-text">2.5 偏差与方差</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-Segmentation"><span class="toc-number">1.</span> <span class="toc-text">Word Segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Max-Matching-最大匹配"><span class="toc-number">1.1.</span> <span class="toc-text">Max Matching (最大匹配)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Model-语言模型"><span class="toc-number">1.2.</span> <span class="toc-text">Language Model (语言模型)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Viterbi-维特比算法"><span class="toc-number">1.3.</span> <span class="toc-text">Viterbi (维特比算法)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spell-Correction"><span class="toc-number">2.</span> <span class="toc-text">Spell Correction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filtering-Words"><span class="toc-number">3.</span> <span class="toc-text">Filtering Words</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Normalize"><span class="toc-number">4.</span> <span class="toc-text">Normalize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-Representation"><span class="toc-number">5.</span> <span class="toc-text">Word Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最经典的方法：One-hot"><span class="toc-number">5.1.</span> <span class="toc-text">最经典的方法：One-hot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最流行的方法：tf-idf"><span class="toc-number">5.2.</span> <span class="toc-text">最流行的方法：tf-idf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词向量"><span class="toc-number">5.3.</span> <span class="toc-text">词向量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语言模型"><span class="toc-number">6.</span> <span class="toc-text">语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先验知识"><span class="toc-number">6.1.</span> <span class="toc-text">先验知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N-gram"><span class="toc-number">6.2.</span> <span class="toc-text">N-gram</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#承上启下"><span class="toc-number">7.</span> <span class="toc-text">承上启下</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -687,6 +737,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
               </li>
             
             <div class="clearfix"></div>

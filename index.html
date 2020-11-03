@@ -67,10 +67,10 @@
 		</nav>
 
 		<nav>
-    总文章数 35
+    总文章数 43
     </nav>
     <nav>
-    总字数 <span class="post-count">51.9k</span>
+    总字数 <span class="post-count">65.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -159,6 +159,996 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-AI/flower/绪论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/uncategorized-AI/flower/%E7%BB%AA%E8%AE%BA.html">AI/flower/绪论</a>
+    </h1>
+  
+
+        
+        <a href="/uncategorized-AI/flower/%E7%BB%AA%E8%AE%BA.html" class="archive-article-date">
+  	<time datetime="2020-11-02T06:54:53.338Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-02</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：9字 | 预计阅读时长：1分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>复习线性代数+python：<a href="https://nbviewer.jupyter.org/github/ageron/handson-ml/blob/master/math_linear_algebra.ipynb" target="_blank" rel="noopener">math_linear_algebra.ipynb</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/uncategorized-AI/flower/%E7%BB%AA%E8%AE%BA.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/Transformer之后" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html">Transformer之后 - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html" class="archive-article-date">
+  	<time datetime="2020-10-28T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1k字 | 预计阅读时长：3分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p><a href="www.bing.com">链接</a></p>
+<h2 id="Transformer之后"><a href="#Transformer之后" class="headerlink" title="Transformer之后"></a>Transformer之后</h2><h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT 区别于 Transformer 最大的一点就是训练过程不同</p>
+<p>BERT 本身不是一个elegent的模型，国外的热度也比国内冷很多，在这里也不得不承认 Google 的 PR 做的非常好。</p>
+<h4 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h4><p>有两条路要回顾一下，一条是 Pretraining Embedding 的发展历程：</p>
+<ol>
+<li><strong>Word2Vec</strong> (Skip-gram, GloVe…)，但是同词不同意思的问题无法解决 =&gt;</li>
+<li><strong>Contextualized Representation</strong> 希望找到一个根据上下文决定表征的方法</li>
+</ol>
+<p>一条是如何学习这个 <strong>Contextualized Embedding</strong> 的例子：</p>
+<ol>
+<li><strong>Language Model / LSTM + Unsupervised Data</strong>，这个分为两步，第一步 Pre-training，就是给一个词用下一个词做标签来算loss更新参数；第二步 fine-tuning，就是用pretrain的参数作为初始化参数，再根据下游任务更新参数。</li>
+<li>这个 Language Model 经常有人尝试改善，比如进化到 Bi-directional LM (ELMo)，然而直接拼接双向的显然不合理，因为顺读文章和逆读文章显然不是独立的。再改进一点得到级联的 Bi-directional 模型，强行耦合起来，但是仍然有一个问题，这个问题在 BERT 论文中被称为 “<strong>see itself</strong>”。也正因如此，BERT 提出来的 Masked Language Model 就是希望能解决这个问题。</li>
+</ol>
+<h4 id="Masked-Language-Model"><a href="#Masked-Language-Model" class="headerlink" title="Masked Language Model"></a>Masked Language Model</h4><p>实际上就是 add noise，像 dropout 和 denoising autoencoder(DAE) 等等。</p>
+<p>之前提到了使用 masked LM 的 intuition，而且 Google 已经都考虑了可能出现的问题并且提了一些解决办法：</p>
+<p>mask 之后整个的 objective 是预测 mask 掉的这些单词，但其实我们并不想单纯地做完形填空，而是希望学到所有单词在句子中的意思。因此，Google 对于 mask 提出了三种处理办法。首先是确定要 mask 的词（15% for example），然后：（两层循环）</p>
+<ol>
+<li>80%的概率 mask 掉这个单词然后预测这个单词  eg.[MASK] =&gt; 预测天气</li>
+<li>10%的概率不做mask，保持不变，即已知一个词预测这个词  eg. 天气 =&gt; 预测天气</li>
+<li>10%的概率改成另一个单词，但是还是预测原单词  eg.天气-&gt;适合 =&gt; 预测天气</li>
+</ol>
+<h4 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h4><p>回忆一下 LSTM 做 classification 任务，就是用最后一个输出当作context送去比如cross-entropy进行分类。但是回到Transformer模型，Transformer的每个输出都对应了某个词在句子中的意思，没办法拿某一个输出送去分类。在这里有这几种处理办法(ABC)：</p>
+<p><img src="./bert_classi.png" alt="bert_classi"></p>
+<p>A. 对所有输出向量做个 pooling 降维然后送去 classify</p>
+<p>B. 在第一个单词前加了一个 <code>[CLS]</code> 作为分类的 token，所以对应 Transformer 的第一个输出向量就作为分类的依据</p>
+<p>C. 更进一步，直接确定分类的目标是区分是否是相邻句子，考虑如果句子相邻那么意思相近，可以辅助推理。加入 <code>[SEP]</code> 作为分割句子的 token，所以输出的标签是如果隔了一个 <code>[SEP]</code> 那么就输出0,否则才输出1。比如 $s_1, s_2, s_3, s_4$ 四个句子，预测如上图。</p>
+<p>没错 BERT 就是用的 C 方法来改善模型，这么看来 BERT 有三处 Embedding：<strong>token embedding</strong>（词向量），<strong>position embedding</strong>（位置），<strong>segment embedding</strong>（句子分割）</p>
+<p><img src="./bert_loss.png" alt="bert_loss"></p>
+<p>因此，与之前 masked LM 结合起来，就找到了 BERT 的两个 loss：<strong>分类是否相邻的loss + 单个词的预测loss</strong>。</p>
+<h4 id="咱们咋用"><a href="#咱们咋用" class="headerlink" title="咱们咋用"></a>咱们咋用</h4><p>主要有两种用法：</p>
+<ol>
+<li>利用 BERT 的输出直接送给下游任务<br><img src="./bert_task1.png" alt="bert_task1"></li>
+<li>用 BERT 训练好的中间 feature map 作为特征进行后续操作<br><img src="./bert_task2.png" alt="bert_task2"></li>
+</ol>
+<p>BERT 优点：</p>
+<ol>
+<li>可以考虑上下文信息（双向信息）</li>
+<li>long-term dependency</li>
+</ol>
+<p>BERT 缺点：</p>
+<ol>
+<li>测试数据没有 mask：<strong>discrepancy</strong> =&gt; 测试训练数据不一样</li>
+<li>缺乏生成能力，就是像DAE一样，只是为了复原缺失的信息，没有学到生成能力</li>
+<li>没有考虑 mask 之间的联动问题（陈琦老师的GRE竟然派上用场了）</li>
+</ol>
+<h3 id="Autoregressive-LM"><a href="#Autoregressive-LM" class="headerlink" title="Autoregressive LM"></a>Autoregressive LM</h3><h3 id="AL-BERT"><a href="#AL-BERT" class="headerlink" title="AL-BERT"></a>AL-BERT</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/Transformer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/Transformer.html">Transformer - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/Transformer.html" class="archive-article-date">
+  	<time datetime="2020-10-23T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.8k字 | 预计阅读时长：6分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p>首先放出一个火爆全网的博客：<a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">illustrated-transformer</a>，国内很多transformer教程都是用这里的配图，建议大家直接看原文。</p>
+<p>回顾 RNN/LSTM-based models 的缺点：</p>
+<ol>
+<li>long-term dependency</li>
+<li>linear computation</li>
+<li>shallow model (从时间角度可能算深，但是纵向来看还是浅层的)</li>
+</ol>
+<p>因此提出相应的解决办法：</p>
+<ol>
+<li>需要设计一个模型不依赖于沿着时间的梯度计算</li>
+<li>需要设计一个非时序模型</li>
+<li>设计适合从纵向叠加的模型</li>
+</ol>
+<p>此外我们也先心里有个底，了解一下要弄清楚 Transformer 的三个关键点（Transformer 值得这么多铺垫）：</p>
+<ol>
+<li>How does Transformer implement long-term dependency?</li>
+<li>How does <strong>Self-Attention</strong>, <strong>Encoder-Decoder Attention</strong>, <strong>Decoder Attention</strong> differ?</li>
+<li>How does Transformer encodes <strong>different ordering of words</strong>?</li>
+</ol>
+<p>同时也先挂出来 Transformer 的结构：</p>
+<p><img src="./transformer.jpg" alt="transformer"></p>
+<p>其实这张图算很细了，粗略点理解可以把左边看作 N 个 Encoder 单元，每个单元就是 Self-Atten 接上 FC 层；右边就是 N 个 Decoder 单元，每个单元就是 Self-Atten 接 Encoder-Decoder Atten 接 FC 层，多了个 atten 来获取 encoder 的信息，同时 decoder 和 encoder 的 self-atten 也存在一些区别，但都是针对各自输入独自处理的。</p>
+<h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>这里就对着最经典的图来讲：先借助图上的例子说明，然后从形式的角度再说一遍。</p>
+<p><img src="./selfatten.png" alt="selfatten"></p>
+<p>首先梳理一下已知的参数：$x_1, x_2$ 代表两个词的词向量（<strong>Embedding</strong>），然后有三个矩阵 $W^Q, W^K, W^V$，分别和 俩x 相乘，得到三个向量 $q, k, v$，如图中的 <strong>Queries, Keys, Values</strong>。这些拿来干啥呢，拿来看Machines 对 Thinking 的意思影响有多重要，比如在这里可以把Thinking的意思拆成两块：Thinking 本身对自己意思的影响 + Machines 对 Thinking 意思的影响。算出二者的影响权重，来加权各自意思，其实就预测出了该 meaning space 的大致区间。</p>
+<p>那么回到这三个向量，queries和keys就是来得到这个权重的，而values是来被加权的值。要看某个词的meaning，就是用<strong>自己的 q 和大家的 k</strong> 来算（自己发出查询的请求），因此看到 <strong>Score</strong> 这行，可以看到两个词对 Thinking 意思的权重分别是112和96。但是这里又有个问题，直接算算数加权的话，$\frac{112}{112+96}$ vs. $\frac{96}{112+96}$ 二者相差太小了，显然不符合真正意思（即自己决定自己所占的权重远大于别人的影响）。这时候回想如何求加权平均的方法，其实除了算数平均以外还有一个很常用的方法，就是 <strong>Softmax</strong>，指数平均。但是这里如果直接Softmax，就会出现 $\frac{\exp(112)}{\exp(112)+\exp(96)}$ vs. $\frac{\exp(96)}{\exp(112)+\exp(96)}$，化简一下变成了 1 vs. 0，似乎更奇怪了。</p>
+<p>为了解决无法合适表示权重的问题，于是引入了 $\sqrt{d_k}$ 这个参数。事先说明，这个参数是 Heuristic 的，换句话说，是没有依据的，就是经验性地取值。在这里令 $\sqrt{d_k}=8$。可以看到如图的 <strong>Divide by 8</strong> 一行，即这个意思，然后才来走一个 <strong>Softmax</strong>，得到一个看起来很不错的加权：0.88 vs. 0.12（感觉这个求解就很 ill-posed）。</p>
+<p>像之前说的，把这个 Softmax 得到的权重与 v 做个加权，比如这里一开始是对 Thinking 求的权重，所以加权之后算是 Thinking 走了一遍 block 的词向量。具体来看就是一个 $val * vec$ 的算式，得到 Thinking 的输出向量为 $sum = 0.88 \cdot v_1 + 0.12 \cdot v_2$，这个向量就作为FFN的输入向量冲了。</p>
+<p>最后从形式的角度再来梳理一下，假设有四个词：今天，天气，很，好，分别对应四个词向量：$x_1, x_2, x_3, x_4 \isin \mathcal{R}^{64}$，另外有三个权重矩阵：$W^Q, W^K, W^V \isin \mathcal{R}^{32\times64}$。以上是已知参数，接着通过 $q_1 = W^Q \cdot x_1$ 得到“今天”的$q_1 \isin \mathcal{R}^{32\times1}$，以此类推，得到4*3=12个向量。这时候再用四个词各自的q去乘以所有人的k，比如“今天”的score就表示成 $(q_1^T \cdot k_1, q_1^T \cdot k_2, q_1^T \cdot k_3, q_1^T \cdot k_4)^T$， 得到每个词的 score 都是 $\mathcal{R}^{4\times1}$。这个一直走到 Softmax 之后还是 $\mathcal{R}^{4\times1}$，就作为4个权重，分别和value相乘，就回到了$\mathcal{R}^{32}$。很明显，这个输出和输入的形式是一样的，可以方便之后加一个residual操作，超棒！</p>
+<h3 id="Multihead-Attention"><a href="#Multihead-Attention" class="headerlink" title="Multihead Attention"></a>Multihead Attention</h3><p>这里还有一个 intuition，就是一件事物从不同角度来注意可以得到不一样的结果，比如看到书包，可以从美观性角度关注，可以从实用性角度关注等等，虽然这里例子比较明显，但是有许多虚词是需要从多个角度才能正确理解的。因此，Multihead 就是用来捕获不同注意力的地方的。至于为什么叫 multihead，可能是因为用了很多组 $W^Q, W^K, W^V$ 矩阵，又因为这是 self-attention 的第一步，所以叫 multihead。</p>
+<p><img src="./multihead.png" alt="multihead"></p>
+<p>至于思路其实很简单，就是整很多组 $W^Q, W^K, W^V$ 矩阵（初始化也不一样），有很多组 $q, k, v$ 向量，最后分别都产生一组输出 $z$。然后最后为了让 multihead 输出格式与 self-attention 一样，就是另设一个矩阵 $W^O$，用来把不同的 $z$ concatenate之后的很长的向量转换到之前的长度（降维）。</p>
+<h3 id="Encoder-Block"><a href="#Encoder-Block" class="headerlink" title="Encoder Block"></a>Encoder Block</h3><p>Encoder 部分还算是比较友好，除了以上讲到的东西只是多加了一点点新的，先看示意图：</p>
+<p><img src="./encoder.png" alt="encoder"></p>
+<p>假设之前了解过 residual block 和 FCN 什么的知识的话，这个图已经相当清楚了：</p>
+<ol>
+<li>Feed Forward 是针对每个输出向量做，即一个 block 里有好多好多 FNN 而不是只有一个 FNN 结构</li>
+<li>2 段 residual block 连接</li>
+<li>注意到底下有个 positional encoding，指的是在输入时会加入单词本身的位置信息，比如第一个单词就加一个特定的向量(element-wise)，第二个单词加另一个特定的向量，可以理解成一种位移。</li>
+</ol>
+<h3 id="Decoder-Block"><a href="#Decoder-Block" class="headerlink" title="Decoder Block"></a>Decoder Block</h3><p>相应的，Decoder 端就没有那么简单了。简单来说就是多了一个 Encoder-Decoder Attention，但其实这个结构也是self-attn，只是正常的self-attn是自己和自己，这个是encoder端的向量和自己，本质上还是个注意力机制。虽然理解上有点困难，但是这里直接看代码可能更快看懂，其实这俩在<code>__init__</code>部分代码实现是用的同一个框架，在调用时，self-attn三个输入都是一样的，而enc-dec attn的两个输入是encoder来的，一个输入是decoder来的，就这个最大的区别了。</p>
+<p>最后再次回来看 Transformer 的结构，希望可以看得更懂一些。</p>
+<p><img src="./transformer.jpg" alt="transformer"></p>
+<h2 id="Transformer之后"><a href="#Transformer之后" class="headerlink" title="Transformer之后"></a>Transformer之后</h2><p><a href="www.bing.com">链接</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/Transformer.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/Transformer之前" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%89%8D.html">Transformer之前 - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%89%8D.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：2k字 | 预计阅读时长：7分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="词向量复习"><a href="#词向量复习" class="headerlink" title="词向量复习"></a>词向量复习</h2><p><a href="www.bing.com">链接</a></p>
+<h2 id="DL复习"><a href="#DL复习" class="headerlink" title="DL复习"></a>DL复习</h2><p>RNN最大的好处：可以处理不同时长的数据。</p>
+<h3 id="Vanilla-RNN"><a href="#Vanilla-RNN" class="headerlink" title="Vanilla RNN"></a>Vanilla RNN</h3><p>就是最原始的RNN长相，当然因为缺点太多，所以就是学一下intuition：</p>
+<p>$$<br>h_t = f(w_{hh} \cdot h_{t-1} + w_{xh} \cdot x_t + b_1)\<br>\hat{y}<em>t = g(w</em>{hy} \cdot h_t + b_2)<br>$$</p>
+<p>其中 f 是激活函数，比如 relu，sigmoid 等。g 是输出函数，根据具体任务决定，比如分类任务就是 softmax接cross-entropy，loss 就是这些 loss之和。</p>
+<p>为了说明这个为啥是Vanilla，就来说说他的最大缺点：梯度爆炸/消失。反向求导过程如下：</p>
+<p>$$<br>\frac{\partial J^{(i)}(\theta)}{\partial h_j} = \frac{\partial J^{(i)}(\theta)}{\partial h_i} \cdot \prod_{j &lt; t\leqslant i}\frac{\partial h_t}{\partial h_{t-1}}\<br>= \frac{\partial J^{(i)}(\theta)}{\partial h_i} \cdot \prod_{j &lt; t\leqslant i} diag(\sigma’ (w_{hh} \cdot h_{t-1} + w_{xh} \cdot x_t + b_1)) \cdot w_{hh}\<br>= \frac{\partial J^{(i)}(\theta)}{\partial h_i} \cdot w_{hh}^{i-j} \cdot \prod_{j &lt; t\leqslant i} diag(\sigma’ (w_{hh} \cdot h_{t-1} + w_{xh} \cdot x_t + b_1))<br>$$</p>
+<p>显然，这里不管是 $w_{hh}$ 还是其他项，只要范数偏离了1都可以决定整个更新走向爆炸/消失。虽然 Gradient Clipping（梯度大于threshold就截断成thres） 可以避免梯度爆炸的问题，但是梯度消失可必须得改变模型结构才能解决了。</p>
+<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p>其实并不能解决上述提到的RNN的问题，只是说能捕获更长的时序数据。总的来说就是三个门：forget / input / output</p>
+<p>$$<br>f^{(t)} = \sigma(w_f \cdot h_{t-1} + u_fX_t + b_f)\<br>i^{(t)} = \sigma(w_i \cdot h_{t-1} + u_iX_t + b_i)\<br>o^{(t)} = \sigma(w_o \cdot h_{t-1} + u_oX_t + b_o)<br>$$</p>
+<p>和两个 cell state（c是真正的，f来选择要记忆哪些状态，i选择接受哪些新状态）</p>
+<p>$$<br>\tilde{c}^{(t)} = \tanh(w_c \cdot h_{t-1} + u_cX_t + b_c)\<br>c^{(t)} = f^{(t)} \odot c^{(t-1)} + i^{(t)} \odot \tilde{c}^{(t)}<br>$$</p>
+<p>最终这个隐藏层的输出就是：</p>
+<p>$$<br>h_t = o^{(t)} \odot \tanh(c^{(t)})<br>$$</p>
+<p>最后，关于RNN的应用，贴一个Karpathy大神的文章，非常有意思！</p>
+<p><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener">The Unreasonable Effectiveness of Recurrent Neural Networks</a></p>
+<h3 id="Bi-directional-LSTM"><a href="#Bi-directional-LSTM" class="headerlink" title="Bi-directional LSTM"></a>Bi-directional LSTM</h3><p>之前的LM方法所谓的“上下文”都只是 <strong>上文</strong> 信息，这个BiLSTM才算是真正考虑了 <strong>上下文</strong> 信息。其实实现和LSTM差不多，只是单纯的把两个方向的LSTM进行拼接(concatenate)：</p>
+<p>$$<br>\overrightarrow{h_t} = RNN_{fw}(\overrightarrow{h_{t-1}}, X_t)\<br>\overleftarrow{h_t} = RNN_{bw}(\overleftarrow{h_{t+1}}, X_t)\<br>h_t = (\overrightarrow{h_t}, \overleftarrow{h_t})<br>$$</p>
+<p>最后放一篇形象的对比论文：</p>
+<p><a href="https://www.aclweb.org/anthology/N16-1082.pdf" target="_blank" rel="noopener">Visualizing and Understanding Neural Models in NLP</a></p>
+<p>里面对比介绍了RNN LSTM BiLSTM三种效果，有个非常有意思的图</p>
+<p><img src="./rnnlstm.png" alt="rnnlstm"></p>
+<h3 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h3><p>比LSTM计算复杂度简单，但是效果与LSTM类似。只有两个门，update 和 reset，而且少了 cell state。计算过程和LSTM也是非常类似：</p>
+<p>$$<br>u^{(t)} = \sigma(w_u \cdot h_{t-1} + u_uX_t + b_u)\<br>r^{(t)} = \sigma(w_r \cdot h_{t-1} + u_rX_t + b_r)\<br>\tilde{h}^{(t)} = \tanh(w_h \cdot (r^{(t)} \odot h_{t-1})) + u_hX_t + b_h)\<br>h^{(t)} = (1-u^{(t)}) \odot h_{t-1} + u^{(t)} \odot \tilde{h}^{(t)}<br>$$</p>
+<p>连intuition都一样，都是最后选择遗忘哪些前面传来的，选择记住哪些新学到的。</p>
+<h2 id="Representation-Learning"><a href="#Representation-Learning" class="headerlink" title="Representation Learning"></a>Representation Learning</h2><p>特征工程在做的事情，目的是找到对问题求解效果最好的特征表示，所以比较核心的问题是：(1)怎么去找到更好的表示，(2)什么是好的表示。</p>
+<blockquote>
+<p>真理：<strong>The better representation lies in lower dimensional manifold</strong></p>
+</blockquote>
+<ol>
+<li>Smoothness：凸优化好求解</li>
+<li>Multiple Explanatory Factors：从而对于不同应用可以更新特定参数</li>
+<li>Hierarchical Representation：这样迁移性才好，做Transfer Learning</li>
+<li>Shared Factors Across Tasks：也是Transfer Learning的范畴</li>
+<li>Low Dimensional Manifold：真理</li>
+<li>Temporal / Spatial Coherence：比如推荐系统推荐一个用户在时间上的爱好要保持一致性，2018和2019年的爱好不能变化太大；邻居的表示要类似（像Graph）</li>
+<li>Sparsity：对于可解释性很有帮助</li>
+</ol>
+<blockquote>
+<p>Why Deep?<br><br><strong>Theoretical justification</strong>: a deep architecture represent certain functions exponentially more compact.（越小的变量来表达更大的能力）</p>
+</blockquote>
+<blockquote>
+<p>How to train? (to solve vanishing/explosion)<br><br>Layer-wise Pretraining , activation function , better optimization , larger data</p>
+</blockquote>
+<h2 id="Seq2Seq"><a href="#Seq2Seq" class="headerlink" title="Seq2Seq"></a>Seq2Seq</h2><p>在学习 Seq2Seq 之前，需要先了解一下 Multimodel Learning 和Encoder Decoder。多模态学习方式（Multimodel Learning）=&gt; 两端用不同模型，映射到中间相同的 meaning space。举个机器翻译的例子，整个模型看起来就是 <code>RNN - MeaningSpace - RNN</code>，中间 MS 是个向量。其中，前面的 RNN 也叫做 Encoder，后面的 RNN 也叫做 Decoder，中间的向量也叫 Context（在这里context就是encoder最后一个隐藏层）。参考示意图如下：</p>
+<p><img src="./encdec.png" alt="seq2seq"></p>
+<p>虽然RNN可以做到与时序长度无关，但是我们是以 mini-batch 的方式训练的，需要保证每个 batch 内的长度一致，一般就是选最长的序列长度作为模型长度，然后不到这个长度的样本用特殊符号补齐（预处理）。</p>
+<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><p>这里插一条名词辨析：<strong>Inference</strong>，与训练不同，这里是给定参数，预测输出，而训练就是进行参数估计。Inference 其实就是 Decoding 的过程。</p>
+<p>关于如何评估的问题（毕竟翻译有很多种合理的答案），一般使用 n-gram 方法来进行评估，一般情况就是结合 unigram, bigram, trigram。注意最朴素的inference都是通过 Greedy Search，即每次都选取该隐藏层输出概率最大的词，只能给到一个局部的最优解。有两种解决办法：(1)Exhaustic Search; (2)Beam Search。</p>
+<ol>
+<li><p>Exhaustic Search：每个输出有 v 种情况，若有 T 个输出，则时间复杂度为 $O(|v|^T)$，与上面 Greedy Search 的 $O(T)$ 同为两个极端。</p>
+</li>
+<li><p>Beam Search：上面二者的折衷，即每次都保留最大的 3～5 个 =&gt; 理论上是指数增长的，计算量太大 =&gt; 我们每轮会进行剪枝，比如 k=3,每次保留 3 个，那么第一个结点输出是3个选择，第二个是 3×3=9 个选择，然后只取9个中的3个，以此类推，这样每层都是9。然后注意这里可能<code>&lt;END&gt;</code>出现的时机不一样，所以最后的 score 还需要除以目前为止走过的步数。</p>
+</li>
+</ol>
+<p><strong>Q:</strong> 这样的结构会有什么样的问题：</p>
+<ol>
+<li>还是梯度问题。模型一长就没有办法有效更新以捕获需要的信息</li>
+<li>Bottleneck Problem：公共变量 c 的好坏决定了整个模型的好坏，希望变成动态的，把注意力放在需要注意的地方（比如翻译第一个词更注意原来的第一个词）。</li>
+<li>Linear Computation。没办法并行</li>
+</ol>
+<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>输入向量：词向量直接下载预训练好的参数，然后把 <code>Trainable=False</code>。接着过 Encoder 一路推到 <code>context</code>，进入生成模型。注意这里 $g_i$ 指 Encoder 中各个隐藏层的向量，<strong>（Attention在这里！）</strong>，希望有一个权重可以表示对于Encoder中不同词向量有不同的注意力。而这个权重哪里来？就是从 $g_1^T \cdot h_1$ 来。这里 $g_1^T \cdot h_1$ 是一个具体的数，表示内积，即对于这个词向量的注意力有多大。做完之后因为和不为1,不是严格的权重，所以需要加一层 Normalize 方法（直接取平均 or Softmax），Normalize 过后的向量作为权重，element-wise 地与 $g_i$ 相乘，其和作为 $c’$，与原来计算的 <code>context</code> 直接 concatenate 作为新的计算单元。</p>
+<p><img src="./seq2seqAttent.png" alt="Attention"></p>
+<ul>
+<li>对梯度更新有好处：从本来只看得到 <code>context</code> 到现在能照顾到所有 Encoder 的单元</li>
+<li>可解释性：可以根据加权权值的分布看到模型在翻译时的注意力在哪里（其实就和image的attention可解释性差不多）</li>
+</ul>
+<p>基于 Attention 思路的应用除了这里的 Seq2Seq 以外还有很多，比如看图说话，还有之后 Transformer 的 Self-attention。这里废话也不多说，直接进入 Transformer（终于来了）。</p>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p><a href="www.bing.com">链接</a></p>
+<h2 id="Transformer之后"><a href="#Transformer之后" class="headerlink" title="Transformer之后"></a>Transformer之后</h2><p><a href="www.bing.com">链接</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%89%8D.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/绪论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html">绪论 - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：1.5k字 | 预计阅读时长：5分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>嗷嗷熬还是决定开始NLP的求学了</p>
+        
+          <a class="article-more-a" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/语言模型基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html">语言模型基础 - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：2.5k字 | 预计阅读时长：9分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法</p>
+<p>正则/规则：匹配死板，但是不需要训练数据</p>
+<p>Pipeline</p>
+<ol>
+<li>分词 (segmentation)</li>
+<li>清洗：语法纠错 (spell correcion), 停用词 (stop words), 过滤 (words filtering), 同义词/大小写/特殊符号/…</li>
+<li>标准化：词形还原 (stemming / lemmatization)  eg. apple/apples=&gt;apple, go/going/went=&gt;go</li>
+<li>特征提取：Boolean vector, counts vector, TF-IDF, word2vec, seq2seq</li>
+<li>计算相似度(给定两个向量)：Euclidean distance, Cosine distance, Jaccard similarity</li>
+<li>排序</li>
+</ol>
+<p>=&gt; 很需要工程能力</p>
+<p>DP在文本处理的作用非常大，强烈建议仔细弄明白这十个经典问题：<a href="https://people.cs.clemson.edu/~bcdean/dp_practice/" target="_blank" rel="noopener">https://people.cs.clemson.edu/~bcdean/dp_practice/</a></p>
+<h2 id="Word-Segmentation"><a href="#Word-Segmentation" class="headerlink" title="Word Segmentation"></a>Word Segmentation</h2><p>常用中文分词工具：<a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">Jieba分词</a>，<a href="https://github.com/isnowfy/snownlp" target="_blank" rel="noopener">SnowNLP</a>，<a href="http://www.ltp-cloud.com/" target="_blank" rel="noopener">LTP</a>，<a href="https://github.com/hankcs/HanLP" target="_blank" rel="noopener">HanNLP</a>。这些都是封装好的包，下载后就是可以直接import食用比如<code>jiaba</code>这个库就有<code>jieba.cut</code>来直接搞分词，还有<code>jieba.add_word</code>来增加自己的语料。</p>
+<p>接下来看看分词的具体实现方法（共性是一定要提前有一个词典）：</p>
+<h3 id="Max-Matching-最大匹配"><a href="#Max-Matching-最大匹配" class="headerlink" title="Max Matching (最大匹配)"></a>Max Matching (最大匹配)</h3><p>是个贪心算法，最大指的是希望分出来的词长度尽可能大，也就是尽量匹配词典中最长的词。前向最大匹配就是从前扫到后，后向，双向与此相同。</p>
+<p>举个前向最大匹配的例子，设定一个<code>max_len</code>参数，一开始从左向右拎出max_len个字放进list中，然后匹配词典有没有符合的，没有就把最后一个字踢出list再匹配，直到匹配上或者只剩一个字，迭代到匹配结束的剩余部分重新来做。</p>
+<p>后向匹配其实很类似，就是从后面开始拎。双向是前后都做一次，然后对于结果不一样的地方取分词数量较少的那个。</p>
+<p>具体的例子说明可以参考这个帖子：<a href="https://blog.csdn.net/selinda001/article/details/79345072" target="_blank" rel="noopener">这里</a>。缺点如下：</p>
+<ol>
+<li>贪心法=&gt;只能找到局部最优解，</li>
+<li>效率低，取决于max_len的设置</li>
+<li>不能考虑到语义</li>
+</ol>
+<h3 id="Language-Model-语言模型"><a href="#Language-Model-语言模型" class="headerlink" title="Language Model (语言模型)"></a>Language Model (语言模型)</h3><p>为了把语义也考虑进来，需要用一个工具来评价不同的分词结果，一个很自然的流程就是：</p>
+<blockquote>
+<p>输入 =&gt; 生成所有分割 =&gt; 选择最好的结果</p>
+</blockquote>
+<p>而在这个选择最好的工具，就是 Language Model。比如用unigram model，就是不考虑条件概率: $P(S_1, S_2, S_3) = P(S_1)P(S_2)P(s_3)$。</p>
+<p>然而假如这么做，非常可能出现 <strong>underflow</strong>，因为每个分词的概率都是非常接近0的，乘积就更容易超出double的范围，变成0。=&gt; 解决办法：<strong>取负对数</strong>，所以就化乘积为求和，而且指数变成系数，两方面都改善了这个情况。</p>
+<p>然而以上这种分两步的方法也不是最好的，因为所有可能的分割情况太多太多了。因此就有了以下的维特比算法：</p>
+<h3 id="Viterbi-维特比算法"><a href="#Viterbi-维特比算法" class="headerlink" title="Viterbi (维特比算法)"></a>Viterbi (维特比算法)</h3><p>这里其实是最简单的维特比算法，之后HMM的维特比算法才是真正的维特比算法。这里简单概括如下：</p>
+<p><img src="./viterbi.png" alt="维特比算法"></p>
+<ol>
+<li>建立最上面那样的数据链表</li>
+<li>动态规划统计出到最后一个点的最小概率</li>
+<li>反向溯源得到最短路径</li>
+</ol>
+<h2 id="Spell-Correction"><a href="#Spell-Correction" class="headerlink" title="Spell Correction"></a>Spell Correction</h2><p>编辑距离 (edit distance)：insert/delete/replace都是1的编辑成本，从输入到输出最少需要多少次编辑成本，就是两个字符串的最短编辑距离。</p>
+<p>最朴素的想法是遍历词库中所有词，找到最短的编辑距离的词替换，显然这样复杂度太高 =&gt; 改进：生成编辑距离为1、2的字符串，然后去词库找找有没有这个词（过滤）</p>
+<p>重新用数学语言讲解一下spell correction的问题：</p>
+<p>问题：给定一个字符串 $s$，我们要找出最有可能成为正确的字符串 $c$，也就是 $\hat{c} = \argmax_{c\isin candidates}p(c|s)$。</p>
+<p>用贝叶斯公式转化成：$\hat{c} = \argmax_{c\isin candidates}p(s|c)p(c)/p(s)$</p>
+<p>又因为 $p(s)$ 是常数，所以可以转化成：$\hat{c} = \argmax_{c\isin candidates}p(s|c)p(c)$</p>
+<p>其中 $p(s|c)$ 是对于一个正确的字符串c，有多大的概率写成s的形式，$p(c)$ 就是之前的 unigram probability</p>
+<h2 id="Filtering-Words"><a href="#Filtering-Words" class="headerlink" title="Filtering Words"></a>Filtering Words</h2><p>手动删除两种单词：</p>
+<ol>
+<li>停用词（the, and, their, …, 或者根据应用场景来定）</li>
+<li>出现频率很低的词</li>
+</ol>
+<h2 id="Normalize"><a href="#Normalize" class="headerlink" title="Normalize"></a>Normalize</h2><p>有两种方法：Stemming 和 Lemmatization，其实差不多，前者是比如fly, flies =&gt; fli 归类成一个形式，后者是必须保证这个形式也是严格的在词典中的词，即 Lemmatization 更严格。具体 Stemming操作可以参考：<a href="https://tartarus.org/martin/PorterStemmer/java.txt" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/java.txt</a> (就硬写了很多很多规则…但是是非常有意义的工作！！必须要语言学家来帮忙)</p>
+<h2 id="Word-Representation"><a href="#Word-Representation" class="headerlink" title="Word Representation"></a>Word Representation</h2><h3 id="最经典的方法：One-hot"><a href="#最经典的方法：One-hot" class="headerlink" title="最经典的方法：One-hot"></a>最经典的方法：One-hot</h3><p>关于单词的表示就不需要多说，由字典单词数量决定长度，对应位置为1独热就是了。但是在句子表示上也可以通过one-hot表示，有两种简单的表示方法：boolean 和 count，其实也就是出现了对应单词对应位置就标注，区别在于标识是1还是在句子中出现的次数。</p>
+<p>虽然内容简单，但是这里可以牵出 <strong>文本相似度</strong> 这个知识点，就是比较两个向量之间的距离：</p>
+<ul>
+<li>欧式距离：$d = |s1 - s2|$（只考虑大小）</li>
+<li>余弦距离：$d = \frac{s1 \cdot s2}{|s1|*|s2|}$（既考虑大小又考虑方向）</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>并不是出现的越多就越重要！</li>
+<li>并不是出现的越少就越不重要！</li>
+</ul>
+<p>=&gt; tf-idf 方法来了</p>
+<h3 id="最流行的方法：tf-idf"><a href="#最流行的方法：tf-idf" class="headerlink" title="最流行的方法：tf-idf"></a>最流行的方法：tf-idf</h3><p>先放官方定义：</p>
+<p>$$<br>tfidf(w) = tf(d, w) * idf(w)<br>$$</p>
+<p>其中，$tf(d,w)$ 是文档 d 中 w 的词频，$idf(w)=\log\frac{N}{N(w)}$，N是语料库中文档总数，N(w)是词语w出现在多少文档中。</p>
+<p>原来的方法只考虑了tf项，即单词本身的词频，tf-idf额外考虑了idf项，即单词本身的重要性（出现的越少重要性越大）。</p>
+<p>但是其实在这里单词本身还是one-hot的，即句子表示也是从one-hot衍生出来的，因此本质上tf-idf还是一种one-hot方法。</p>
+<p>one-hot缺点：</p>
+<ul>
+<li><p>无法衡量单词两两之间语义的相似度</p>
+</li>
+<li><p>词库一般都很长 ($10^5$~$10^6$)，大部分位置都是0 =&gt; 非常非常稀疏</p>
+<p>=&gt; 需要分布式表示方法</p>
+</li>
+</ul>
+<p>句子长度：one-hot长度等于词典长度，distributed长度自定义</p>
+<p>当把分布式表示方法对应到单词，就带来了<strong>词向量</strong></p>
+<h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>输入：很长很长的字符串（$10^9$ or more）</p>
+<p>输出：单词的分布式表示</p>
+<p>映射：训练模型（skip-gram / Glone / CBOW / RNN,LSTM / MF / Gaussian Embedding）</p>
+<p>最重要的参数：词向量表示的维度 <strong>dim/D</strong>（50～300）</p>
+<p>理想情况下，Word2Vec能代表单词的意思，但是真实情况什么样谁也不知道。因为需要训练样本的量级太大，一般直接用Google等大公司预训练好的词向量，在针对性的应用领域时再来专门来训练单词的词向量。</p>
+<p>如何减少时间复杂度：<strong>层次过滤思想</strong>，一次次筛选找到最有可能的pair，再来算句子相似度进行选择。同时希望越前面的筛选越简单，一步步来变严格，在这里借助倒排表。</p>
+<p><strong>Inverted Index：倒排表</strong>，原先是一个文章中有多少个某某单词的映射，现在是某某单词出现在哪些文章中的映射。因此可以根据question中的单词来看存在在哪些pair中，（至少包含一个单词/两个单词/…越来越严格），最终选出XX个，来算相似度。</p>
+<h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>语言模型用来判断：到底是不是人话。</p>
+<h3 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h3><p><strong>Noisy Channel Model</strong>（几乎所有NLP问题的通用表示）</p>
+<p>$$<br>p(text|source) \propto p(source|text) p(text)<br>$$</p>
+<p>其中 $p(text)$ 就是语言模型。</p>
+<p><strong>Chain Rule</strong>（有sparsity问题）</p>
+<p>$$<br>p(w_1,w_2,\cdots,w_n) = p(w_1)p(w_2|w_1)\cdots p(w_n|w_1,w_2,\cdots,w_{n-1})<br>$$</p>
+<p><strong>Markov Assumption</strong>（HMM, CRF, …）</p>
+<p>=&gt; unigram, bigram（1阶Markov假设，最常用）, N-gram</p>
+<h3 id="N-gram"><a href="#N-gram" class="headerlink" title="N-gram"></a>N-gram</h3><p>就这么算:</p>
+<p><img src="./unigram.png" alt="unigram"><br><img src="./bigram.png" alt="bigram"></p>
+<p>但是注意在这里如果其中一项为0那么所有都为0,显然是不好的，即没有在语料库中出现的句子完全有可能成立，所以一般都会加入平滑项（Smoothing）：</p>
+<ol>
+<li><strong>Add-one Smoothing</strong>：就像是朴素贝叶斯中先验概率用贝叶斯估计保护了一下一样，分子多了一个+1,分母补齐到归一</li>
+<li><strong>Add-K Smoothing</strong>：不同于 add 1，这个就是在分子多加 k。一般用验证集，学习出最佳的K。前两种方法也叫做Laplacian Smoothing</li>
+<li><strong>Interpolation</strong>：在计算 Trigram 概率时，同时考虑 Unigram, Bigram, Trigram 出现的次数 =&gt; 加权平均</li>
+<li><strong>Good-turning Smoothing</strong>：Assumption 已知语料没有占用全部概率空间，留了一点空间给没出现过的物种：$P_{GT}=\frac{N_1}{N}$，同时出现过的物种概率就相应的变小：$P_{GT}=\frac{(c+1)N_{c+1}}{N_c}$</li>
+</ol>
+<p>那么最后如何evaluate哪种模型好：</p>
+<p>$$<br>Perplexity = 2^{-(x)},\<br>x: \text{average log likelihood}<br>$$</p>
+<p>=&gt; likelihood 越大越好 =&gt; Perplexity 越小越好</p>
+<h2 id="承上启下"><a href="#承上启下" class="headerlink" title="承上启下"></a>承上启下</h2><p>至此就可以完成NLG的工作了，比如构建好了bigram模型，就是不断的找最大概率的后继词，组成一句话。</p>
+<p>以上是语言模型的基础，之后就可以进入学习的领域了。总的来说有两个分支，<strong>专家系统</strong> 和 <strong>基于概率的系统</strong>，虽然现在主要都是基于概率的模型，但是还是不能忽视前者。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AI/DeepEye/词向量训练" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html">词向量训练 - 贪心学院NLP</a>
+    </h1>
+  
+
+        
+        <a href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html" class="archive-article-date">
+  	<time datetime="2020-10-15T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+      字数：3k字 | 预计阅读时长：11分钟
+      </div>
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生成模型 vs. 判别模型</p>
+<p>生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$</p>
+<h2 id="Log-Linear-Model"><a href="#Log-Linear-Model" class="headerlink" title="Log Linear Model"></a>Log Linear Model</h2><p>指的是一类模型，典型例子是逻辑回归和条件随机场(CRF)：</p>
+<p>$$<br>P(y|x;w) = \frac{e^{\sum^J_{j=1}w_jF_j(x,y)}}{Z(x,w)}<br>$$</p>
+<p>其中只有 $w_j$ 是要学习的参数，$F_j$ 是定义的特征的函数(function)，下面的 $Z$ 是用来归一化的Normalization。</p>
+<p>x 是观测值，y 是标签，j 是特征id</p>
+<h3 id="Multinomial-Logistic-Regression（多元逻辑回归）"><a href="#Multinomial-Logistic-Regression（多元逻辑回归）" class="headerlink" title="Multinomial Logistic Regression（多元逻辑回归）"></a>Multinomial Logistic Regression（多元逻辑回归）</h3><p>以上的 $F_j(x,y)$ 定义如下：</p>
+<p>$$<br>F_j(x,y) = x_i \cdot \mathcal{I}(y=c)<br>$$</p>
+<p>即 y 是对应类别才有值。比如x有10个维度，y有3类，即 c=1,2,3。那么j就有 3*10=30 种取值，同样 $w_j$ 也有30个。（很多0）。示例如下：</p>
+<p><img src="./LogisRegre.png" alt="logis"></p>
+<p>为了让表述更清晰，因为w的0非常有规律，尝试把w拆分成如下形式：</p>
+<p>$$<br>w \isin \mathcal{R^{3d}}\<br>w = (\underbrace{w_1, w_2, \ldots, w_d}<em>{w^{(1)}},\underbrace{w</em>{d+1}, \ldots, w_{2d}}<em>{w^{(2)}},\underbrace{w</em>{2d+1} \ldots, w_{3d}}_{w^{(3)}})^T<br>$$</p>
+<p>化简图中的表达为：$P(y=1|x;w) = e^{w^{(1)^T}}\cdot x / Z(x,w)$，另外俩同样的。然后就可以算 $Z(x,w)$ 就是把三个分子加起来。</p>
+<p>得到最终的多元逻辑回归模型：</p>
+<p>$$<br>P(y=1|x;w) = \frac{e^{w^{(1)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}\<br>P(y=2|x;w) = \frac{e^{w^{(2)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}\<br>P(y=3|x;w) = \frac{e^{w^{(3)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}<br>$$</p>
+<h3 id="Conditional-Random-Field"><a href="#Conditional-Random-Field" class="headerlink" title="Conditional Random Field"></a>Conditional Random Field</h3><p>CRF可以理解成：Log Linear Model for Sequential Data。从上面的例子可以看出，区别不同的 LLM 的因素就是如何定义 $F_j(x,y)$。</p>
+<p>在 CRF 中，x 是一个序列的值，y 也是一个序列的标签，但是这个序列长短并不对齐，所以其实要把 F 换一种理解方式，变成一种值来理解，这个值如何获取呢？在LogisticRegre中，这个值就是x（带上一个指示函数）；而在CRF中，这个值是x整个序列和序列y中的两两样本相组合最后求和。表示成：</p>
+<p>$$<br>F_j(x,y) = \sum^n_{i=2}f_j(y_{i-1},y_i,x,i)\<br>$$</p>
+<p>CRF有两个最核心的问题：<strong>Inference问题</strong> 和 <strong>参数估计</strong></p>
+<p>Inference要做如下变形：</p>
+<p>$$<br>g(y_{i-1},y_i) = \sum^J_{j=1}f_j(y_{i-1},y_i,x,i)<br>$$</p>
+<p>其中 g 是变了一下求和对象，本来 F 外面是对所有特征求和，现在 g 外面是对所有时刻求和。为啥这么搞呢？为了套动态规划的Viterbi算法：</p>
+<p><img src="./crfInfer.png" alt="CRF"></p>
+<p>以上其实就是在推 $u(k,v)=\max_u [u(k-1,v)+g_k(u,v)]$ 这个递推公式</p>
+<p>第二个问题是参数估计：</p>
+<p>对 w 求梯度，做梯度下降，这一块计算量还是蛮大的，也有一些trick，太多就先不展开了。但总体来讲还是因为是linear的CRF，还是相对简单的。</p>
+<h2 id="词向量-Word2Vec-训练"><a href="#词向量-Word2Vec-训练" class="headerlink" title="词向量 Word2Vec 训练"></a>词向量 Word2Vec 训练</h2><ol>
+<li>Dense：最多300维就能搞定</li>
+<li>Semantic：Meaning Space</li>
+<li>Capacity：表达能力强（无穷）</li>
+<li>Global Generalization：param sharing</li>
+</ol>
+<p>Intuition：离的越近相似度越高  =&gt; <strong>Distributional Hypothesis</strong></p>
+<p>参考以上的intuition，产生了两种思路：通过两边的单词预测中间单词的意思（CBOW），通过中间单词预测两边的意思（Skip-Gram）。总的来说，关于词向量训练有几种经典方法：Skip-Gram, Glone, CBOW, RNN/LSTM 等。</p>
+<h3 id="Skip-Gram-Model"><a href="#Skip-Gram-Model" class="headerlink" title="Skip-Gram Model"></a>Skip-Gram Model</h3><p>Formulation：训练数据有个 window size 的概念，即看到多远的词，比如 ws=2 时，训练数据就是看到 xx 词，就能够看到边上2步以内的4个单词（不在边上）；因此模型的目标就是最大化条件概率，条件是 xx 词，希望看到 yy 词的概率最大（yy词就是在训练数据中的邻居）。</p>
+<p>数学表示就是：</p>
+<p>$$<br>\text{goal: }\argmax_\theta\prod_{w\isin Text}\prod_{c\isin context(w)}P(c|w;\theta)<br>$$</p>
+<p>取log化连乘为求和:</p>
+<p>$$<br>\argmax_\theta\sum_{w\isin Text}\sum_{c\isin context(w)}\log P(c|w;\theta)<br>$$</p>
+<p>其中context指的是上下文，就是说对于 Text 中的每个词，都希望他本来出现的上下文的词出现概率最大。</p>
+<p>为了匹配中心词&amp;上下文单词这种形式，这里语料库也发生了一些改变，注意这里u和v就是形状一模一样的词向量矩阵（行为某个词向量，<code>vstack</code>成一个矩阵），然后一个作为中心词的遍历，一个作为上下文单词的查询。那么为什么不一样呢，insight 就是因为一个单词作为中心词与作为上下文单词时词向量值是不一样的。以后统一把 <strong>v</strong> 当作中心词的词向量，<strong>u</strong> 当作上下文的词向量</p>
+<p>$$<br>\Theta = [u,v]<br>$$</p>
+<p>为了满足概率的性质（$0&lt;p&lt;1$ &amp;&amp; $\sum p=1$），这里就用 <strong>softmax</strong> 形式表示这个概率：</p>
+<p>$$<br>P(c|w;\theta) = \frac{\exp(u_c \cdot v_w)}{\sum_{c’}\exp(u_{c’} \cdot v_w)}<br>$$</p>
+<p>其中内积就表示相似度，谁和谁的内积呢？可以看到是上下文语料库中第 c 个单词和中心词语料库中第 w 个单词的内积，为了归一化，分母就是对所有上下文的单词做个求和，原因是概率是对 c 的概率，所以不用再对中心词的所有词求和。</p>
+<p>代入到以上目标式中可以得到 Skip-Gram 的问题定义：</p>
+<p>$$<br>\argmax_\Theta\sum_{w\isin Text}\sum_{c\isin context(w)}[u_c \cdot v_w - \log \sum_{c’\isin\text{语料}}e^{u_{c’} \cdot v_w}]<br>$$</p>
+<p>简化完毕，可以用 SGD 等方法训练 $\theta$ （就是 u 和 v）。但是这里又有一个 BottleNeck：计算量太大，词库太多了（表现在后面那项对所有词库求和）。为了优化这个训练过程，有两个办法来解决：<strong>Negative Sampling</strong>（常用） 和 <strong>Hierachical Softmax</strong>。</p>
+<blockquote>
+<p>非常推荐看看word2vec的源码：<a href="https://github.com/dav/word2vec/blob/master/src/word2vec.c" target="_blank" rel="noopener">https://github.com/dav/word2vec/blob/master/src/word2vec.c</a></p>
+</blockquote>
+<p>在这里举个 Negative Sampling 的例子。原先定义问题的 intuition 是希望当xx为中心词时，yy为上下文尽量大。换一种理解思路为：当xx和yy都出现时，若在语料库中二者是上下文，则希望二者互为上下文概率尽量大 $P(D=1|xx,yy;\theta)$；若在词库中不是上下文，则希望二者不为上下文概率尽量大 $P(D=0|xx,yy;\theta)$。显然这里 $D=0$的事件就是Negative的意思，而以上的问题化成数学表示可以看到：</p>
+<p>$$<br>\argmax_\theta \prod_{(w,c)\isin D}P(D=1|u_c,v_w;\theta) \prod_{(w,c’)\isin \hat{D}}P(D=0|u_{c’},v_w;\theta)<br>$$</p>
+<p>计算量集中在后面这一项语料库外的样本，由这个名字可以得，这个优化方法就是在这些负样本中采样而不是直接全部算。具体采样方法就是每取一对正样本（中心词，上下文词），就取n对负样本（即针对每个中心词），n是超参数。每次就重复这样采集然后去做梯度下降法（分别对$v_w, u_c$和$u_{c’}$做）</p>
+<blockquote>
+<p>这里插播一个把词向量映射到二维空间（可视化）的工具：<code>T-SNE</code></p>
+</blockquote>
+<p>那么 Skip-Gram 缺点在哪里:</p>
+<ol>
+<li>没有考虑上下文（只有前后词） =&gt; ELmo, Bert</li>
+<li>窗口长度有限 =&gt; 无法考虑Global信息 =&gt; Language Model (RNN/LSTM)</li>
+<li>无法有效学习低频词向量，as well as 未登录词 (OOV: out-of-vocabulary) =&gt; Subword Embedding</li>
+<li>没有严格意义上的语序</li>
+<li>不能表示对应单词的可信度 =&gt; Gaussian Embedding</li>
+</ol>
+<p>最后，以一个应用场景收尾词向量训练的内容：KDD2018 的 <a href="https://www.kdd.org/kdd2018/accepted-papers/view/real-time-personalization-using-embeddings-for-search-ranking-at-airbnb" target="_blank" rel="noopener">Real-time Personalization using Embeddings for Search Ranking at Airbnb</a>（每个房源都可以对应到一个词向量）</p>
+<h3 id="Subword"><a href="#Subword" class="headerlink" title="Subword"></a>Subword</h3><p>除了 Skip-Gram 训练方式，这里来介绍两种新方法：Subword和Deep Learning的方法，其中 Subword 原论文在这里：</p>
+<p><a href="https://arxiv.org/abs/1607.04606" target="_blank" rel="noopener">Enriching Word Vectors with Subword Information</a></p>
+<p>Subword 主要来解决 OOV 的问题，当语料库比较少的时候，用Subword效果会比baseline好很多。</p>
+<p>总之就是从词向量表示变成 Character-n gram 向量，比如 <code>reader</code> 这个词，令 n=4，即拆成 <code>^rea, read, eade, ader, der$</code> 这五种形式（起始符终止符保留），然后每个 n gram 都可以训练成一个向量，最终判断词的时候就是把这些向量的数值简单相加来表示该单词的向量。这里的 n 一般取值范围是 <code>n = 3 to 6</code>，注意是长度3到6的全部 subword 都拿来 train，而不是选一个3/4/5/6。</p>
+<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>回顾一下主流的 Distributed 词向量训练方法：(图有点大不好意思)</p>
+<p><img src="./word2vecTrain.png" alt="w2vTrain"></p>
+<p>从某个角度大致可以分为两大类，语言模型(LM)方法和非LM方法，其中SkipGram和CBOW都是非LM的方法，二者的区别也在之前提过，就是中心词预测上下文 vs. 上下文预测中间词，然后LM方法这里放了一个NNLM，第一个N是neural，这是Bengio最早在03年就提出的方法，但是从示意图看得到仍然是受马尔可夫条件约束，根据前三个词预测这个词，其实还是个 4-gram 的方法</p>
+<p>在讲 ELMo 之前，重新从 LM 角度来看看怎么解决 word representation 这个问题。因为不同词有不同的意思，然后词向量对应的又是 meaning space 而不是单词文本本身，所以假设所有词都有三种意思，那么就可以对每种词都有三个不同的词向量表示，然后在infer的时候相当于就是做了一个分类的问题，根据上下文从三个词向量中选一个作为这个 word representation。</p>
+<p>这个思路算是 LM 方法一个比较朴素的 intuition，自然 ELMo 也是带着这个intuition出现的，但是ELMo没有弄这个三个词向量表示，而是对每个词向量本身加上在上下文当中产生的偏移量得到的结果。比如 <code>back</code> 这个词，在词向量中的值当作原期望 $E_{back}$，根据上下文动态调整预测出偏移量 $\Delta_{back}$，最终表示就是新的期望：</p>
+<p>$$<br>E_{back} + \Delta_{back} = E’_{back}<br>$$</p>
+<p>ELMo 除了 LM 方法这个特点以外，还有一个特点是用了DL的方法，DL最核心的理解就是 Hierachical Representation，对 nlp 理想情况下是学习从 Word features =&gt; Syntactic features =&gt; Semantic features 的表征。因此，参考下图ppt：</p>
+<p><img src="./elmo.png" alt="ELMo"></p>
+<p>可以看到偏移量在这里是通过 BiLSTM 训练出来的，而且还不止一个偏移量，其中 $E^{(1)}$ 和 $E^{(2)}$ 都是偏移量，用两层的intuition是第一层先揉进上下文，第二层提取出更Hierachical的特征。然后这些偏移量都有权重的，通过训练确定。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>先放一个Category：</p>
+<p><img src="./categoryWR.png" alt="category"></p>
+<p>然后提一下之前咩有讲到的方法的intuition：</p>
+<ol>
+<li><p>Matrix Factorization：矩阵分解是全局的方法，通过bigram产生的矩阵，通过分解可以直接得到全局信息的词向量。问题显然就是太慢了而且是静态的，换一个句子就要重新统计。</p>
+</li>
+<li><p>GloVe：就是综合了global和local的优点（MF+SkipGram）提出来的高级方法</p>
+</li>
+<li><p>Gaussian Embedding：预测出来的词高频词置信度高，低频词置信度低。新问题是从计算两个词向量的相似度变成了计算两个distribution的相似度，一般用 KL diverrgence 来计算。</p>
+</li>
+<li><p>Hyperbolic Embedding：一种 Non-Euclidean 的表示方法，特点就是会把层级信息表示出来，比如 orange $\isin$ fruit 这种。</p>
+</li>
+</ol>
+<p>事实上，Embedding 是一个非常通用的方法，不仅可以应用于词和之后的句子，还有图，代码，知识图谱什么的全都可以利用 Embedding 技术进行向量化，进行之后的操作。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-MOOC/HighSchoolMath_stereometry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -260,26 +1250,26 @@
 
 
   
-    <article id="post-AI/统计西瓜/决策树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-AI/HangLi/决策树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html">统计学习方法 第五章 决策树</a>
+      <a class="article-title" href="/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html">统计学习方法 第五章 决策树</a>
     </h1>
   
 
         
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html" class="archive-article-date">
+        <a href="/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html" class="archive-article-date">
   	<time datetime="2020-09-30T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：603字 | 预计阅读时长：2分钟
+      字数：1.5k字 | 预计阅读时长：5分钟
       </div>
 
     
@@ -300,7 +1290,34 @@
 <li><strong>条件概率分布</strong><br><br>遍历到每个内部结点都会出一个条件概率 $P(Y|X)$，$X$ 取值于遍历过了的结点情况集合，$Y$ 取值于下一个结点的类的集合，每次分类时决策树就将该结点强行分到条件概率大的那一类去。</li>
 </ul>
 <p>在决策树的生成上，找到一棵最优决策树是非常NP完全的，所以只能通过启发式算法找到次最优的决策树。整个决策树分类的过程就可以理解成：选一个最优特征，作为当前结点的分类依据，不断递归，如果子集能够被正确分开，就构建叶结点，如果不能就继续分割。之后为了增加泛化能力，再需要对决策树进行剪枝…所以还是非常复杂的。其中生成考虑局部最优，剪枝又考虑全局最优。妙啊！</p>
-<h2 id="5-2-特征选择"><a href="#5-2-特征选择" class="headerlink" title="5.2 特征选择"></a>5.2 特征选择</h2>
+<h2 id="5-2-特征选择"><a href="#5-2-特征选择" class="headerlink" title="5.2 特征选择"></a>5.2 特征选择</h2><p>特征选择的准则是信息增益或信息增益比。显然，能够让模型分类最容易的那个特征就应该是被选择的特征，比如可以很容易地通过头发长度可以判断男女（大部分情况），而通过眼睛大小来判断比较困难，所以头发长度就是信息增益最大的特征，就是要选择的特征。</p>
+<p>但是具体来看什么叫做 信息增益呢，官方来说：信息增益（Information Gain）表示得知特征X的信息而使得类Y的信息不确定性减少的程度。基本上可以用上一段话来解释。那么从数学角度来看，就是要靠熵来作为标识了：</p>
+<blockquote>
+<p>算法5.1 <strong>信息增益</strong></p>
+<ol>
+<li>计算数据集 $D$ 的经验熵 $H(D)$：<br>$$H(D) = -\sum^K_{k=1}\frac{|C_k|}{|D|}\log_2 \frac{|C_k|}{|D|}$$</li>
+<li>计算特征 $A$ 对数据集 $D$ 的经验条件熵 $H(D|A)$：<br>$$H(D|A) = \sum^n_{i=1}\frac{|D_i|}{|D|}H(D_i)$$</li>
+<li>计算信息增益：<br>$$g(D,A)=H(D)−H(D|A)$$</li>
+</ol>
+</blockquote>
+<p>而信息增益比就是在信息增益的基础上对每个特征做了个放缩：<br>$$<br>g_R(D, A) = \frac{g(D, A)}{H_A(D)}<br>$$</p>
+<h2 id="5-3-决策树的生成"><a href="#5-3-决策树的生成" class="headerlink" title="5.3 决策树的生成"></a>5.3 决策树的生成</h2><p>从上面两个概念就衍生出两种生成树的方法：ID3和C4.5。没错名字特别奇怪，但其实也就是名字奇怪了。从特点上来看：ID3没有剪枝，用信息增益；C4.5没有剪枝，用信息增益比。之后讲到的CART有剪枝，用Gini系数。</p>
+<p>那么废话不多说，直接贴算法出来：</p>
+<blockquote>
+<p>算法5.2 <strong>ID3算法</strong><br><img src="https://img-blog.csdn.net/20180627094114246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="找图快些..."></p>
+</blockquote>
+<blockquote>
+<p>算法5.3 <strong>C4.5算法</strong><br><img src="https://img-blog.csdn.net/20180627094132868?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="找图快些..."></p>
+</blockquote>
+<h2 id="5-4-决策树的剪枝"><a href="#5-4-决策树的剪枝" class="headerlink" title="5.4 决策树的剪枝"></a>5.4 决策树的剪枝</h2><p>抱着简单=&gt;泛化性能好这个先验概念，我们需要通过剪枝来让模型更简单。详细公式不列出来了，列一个最终剪枝的损失函数：<br>$$<br>C_\alpha (T) = C(T) + \alpha |T|<br>$$<br>前者是预测误差，即模型和数据的拟合程度，后者是模型的复杂度。在剪枝回溯的过程中如果发现当前节点的 $C_\alpha$ 比子树划分出的节点的 $C_\alpha$ 小的话，就剪枝。即准确率和模型复杂度的Trade-off。</p>
+<p>所以从作用上来看，剪枝新增的这个项其实等价于正则化项，所以决策树的损失函数和神经网络的损失函数在形式和目的上是完全相同的。</p>
+<h2 id="5-5-CART算法"><a href="#5-5-CART算法" class="headerlink" title="5.5 CART算法"></a>5.5 CART算法</h2><p>CART假设决策树是二叉树，每个节点只能用 <strong>是</strong> 和 <strong>否</strong> 来回答，所以等价于递归地二分每个特征。CART算法由以下两部分组成：</p>
+<ol>
+<li>决策树生成：基于训练数据集生成决策树，生成的决策树要尽量大</li>
+<li>决策树剪枝：用验证数据集对已生成的树进行剪枝并选择最优子树</li>
+</ol>
+<p>CART的生成也分两种情况（回归树 &amp; 分类树），回归树用最小平方误差最小化准则，分类树用基尼系数最小化准则，进行特征选择。具体算法还没有实现，毕竟ID3和C4.5就已经是我能力极限了，之后补上来。而在分类树这里用Gini系数而不用熵来表示信息增益是因为Gini系数会比熵更接近分类误差率。</p>
+
       
 
       
@@ -342,7 +1359,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E5%86%B3%E7%AD%96%E6%A0%91.html">展开全文 >></a>
+          <a class="article-more-a" href="/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html">展开全文 >></a>
         </p>
       
 
@@ -372,56 +1389,49 @@
 
 
   
-    <article id="post-AI/统计西瓜/朴素贝叶斯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-AI/HangLi/SVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html">统计学习方法 第四章 朴素贝叶斯</a>
+      <a class="article-title" href="/AI-AI/HangLi/SVM.html">统计学习方法 第五章 决策树</a>
     </h1>
   
 
         
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html" class="archive-article-date">
-  	<time datetime="2020-09-30T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
+        <a href="/AI-AI/HangLi/SVM.html" class="archive-article-date">
+  	<time datetime="2020-09-30T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：1.2k字 | 预计阅读时长：4分钟
+      字数：586字 | 预计阅读时长：2分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-<p>朴素贝叶斯法并不是贝叶斯估计，贝叶斯估计可以是朴素贝叶斯法中估计先验概率和条件概率的一种方式。</p>
-<h2 id="4-1-朴素贝叶斯法的学习与分类"><a href="#4-1-朴素贝叶斯法的学习与分类" class="headerlink" title="4.1 朴素贝叶斯法的学习与分类"></a>4.1 朴素贝叶斯法的学习与分类</h2><p>其实朴素贝叶斯法的公式非常简单，就是普通的贝叶斯公式（但是起名并不是因为这个），即通过先验概率和条件概率生成后验概率。先放一个朴素贝叶斯法的基本公式：</p>
-<p>$$<br>P(Y=c_k|X=x) = \frac{P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_k P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}<br>$$</p>
-<p>简单来看就是根据标签分布和标签=&gt;数据分布来预测后验概率（从数据分类标签），感觉有三个特点：</p>
-<ul>
-<li>学习的是 <strong>标签 =&gt; 数据分布</strong>。朴素贝叶斯法的先验概率公式是标签的分布 $P(Y=c_k)$，条件概率公式也是标签=&gt;数据 $P(X=x|Y=c_k)$，然后最终的后验概率就是正常的分类预测 $P(Y=c_k|X=x)$。虽然最后做的是判别模型做的事（分类），但是因为在学习过程中学习到的是标签=&gt;数据，学习到的是生成数据的机制，所以朴素贝叶斯法属于 <strong>生成模型</strong>。</li>
-<li><strong>条件独立性假设</strong>。注意到得到条件概率的过程中需要考虑特征各个维度之间的相关性，比如身高和体重的关系，但是这样计算量就大绝了（指数级数量的参数）。因此朴素贝叶斯法在这里做了这个假设，即<br>$$<br>P(X^{(1)}=x^{(1)},\cdots,X^{(n)}=x^{(n)}|Y=c_k) = \prod^n_{j=1}P(X^{(j)}=x^{(j)}|Y=c_k)<br>$$<br>而这是个很强的约束，这才是朴素贝叶斯法名字的由来，因为这个想法很幼稚（误）</li>
-<li><strong>期望风险最小化=&gt;后验概率最大化</strong>。通过取后验概率最大作为分类结果是数学证明出来的，从期望风险最小化（没错就是之前提到的考虑联合概率分布的那个目标）推到对错分的 $X=x$ 逐个极小化（从而对每对联合概率分布都让风险最小），也就是取一个让后验概率最大的分类（错误分类对的概率最小就是正确分类的概率最大）。有个疑问：这么看来，推理过程不管联合概率分布怎么样，统一对所有分布的Loss都最小化，不需要提前知道联合概率分布的情况，所以不是病态的？</li>
-</ul>
-<h2 id="4-2-朴素贝叶斯法的参数估计"><a href="#4-2-朴素贝叶斯法的参数估计" class="headerlink" title="4.2 朴素贝叶斯法的参数估计"></a>4.2 朴素贝叶斯法的参数估计</h2><p>上一节说的先验概率和条件概率显然不是事先知道的，还是需要估计得到，有两种估计方法：<strong>极大似然估计</strong> 和 <strong>贝叶斯估计</strong>。（其实都是从频率估计概率）</p>
-<ul>
-<li>极大似然估计。也不需要细说，直接把公式丢上来就知道怎么回事了：<br>$$<br>P(Y=c_k) = \frac{\sum^N_{i=1}I(y_i=c_k)}{N}\<br>P(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum^N_{i=1}I(x^{(j)}<em>i=a</em>{jl}, y_i=c_k)}{\sum^N_{i=1}I(y_i=c_k)}<br>$$</li>
-<li>贝叶斯估计。其实算是对极大似然估计的改进，因为极大似然估计可能出现概率为0的情况，会影响到后验概率的计算结果，所以贝叶斯估计就是在极大似然估计的基础上加了一个保护项 $\lambda$。当 $\lambda$ 取1时就称作 <strong>拉普拉斯平滑</strong> 。公式如下：<br>$$<br>P(Y=c_k) = \frac{\sum^N_{i=1}I(y_i=c_k)+\lambda}{N+K\lambda}\<br>P(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum^N_{i=1}I(x^{(j)}<em>i=a</em>{jl}, y_i=c_k)+\lambda}{\sum^N_{i=1}I(y_i=c_k)+S_j\lambda}<br>$$<br>其中 $K$ 就是标签的种类数量，$S_j$是该特征的种类数量，都是为了达到概率之和为1而加入的</li>
-</ul>
-<h2 id="4-3-学习与分类算法"><a href="#4-3-学习与分类算法" class="headerlink" title="4.3 学习与分类算法"></a>4.3 学习与分类算法</h2><p>直接总结一下</p>
+<h2 id="支持向量机理论重现"><a href="#支持向量机理论重现" class="headerlink" title="支持向量机理论重现"></a>支持向量机理论重现</h2><h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p>令 $\gamma$ 表示样本到分界面的间隔，SVM的核心目标就是 <strong>间隔最大化</strong>，因此得到原始目标：</p>
+<p>$$<br>\max_{w,b} \quad \gamma \<br>s.t. \qquad y_i(\frac{w}{||w||}\cdot x_i + \frac{b}{||w||}) \geqslant \gamma<br>$$</p>
+<p>关于约束怎么来的可以参考点到直线距离就明白了，至于为什么要乘以 $y_i$ 可以参考感知机（简单来说就是为了保证左半部分恒为正，因为 $y_i$ 取值就是 $\pm 1$）。</p>
 <blockquote>
-<p>算法4.1 <strong>朴素贝叶斯算法</strong></p>
-<ol>
-<li>计算先验概率与条件概率（极大似然估计 / 贝叶斯估计）</li>
-<li>对于给定的实例 $x$，计算后验概率（贝叶斯公式）</li>
-<li>确定实例 $x$ 的类（取个最大的后验概率对应的类）</li>
-</ol>
+<p>问题优化1：</p>
 </blockquote>
-
+<p>以上表示间隔的方式也叫做 <strong>几何间隔</strong>，而一般问题用 <strong>函数间隔</strong> 表示（因为形式简单很多）。虽然名字不一样，但其实就是一个放缩关系（$||w||$），互相转化不影响原问题表述。于是用函数间隔 $\hat{\gamma}$ 代替几何间隔 $\gamma$，可以得到转化后的问题：</p>
+<p>$$<br>\max_{w,b} \quad \frac{\hat{\gamma}}{||w||} \<br>s.t. \qquad y_i(w \cdot x_i + b) \geqslant \gamma<br>$$</p>
+<blockquote>
+<p>问题优化2：</p>
+</blockquote>
+<p>其实 $\hat{\gamma}$ 具体取值不影响该优化问题，因为注意到当进行 $w = kw, b = kb$ 这样的放缩之后，以上问题的求解路径并没有改变。改变一下放缩对象，即 $\hat{\gamma}$，发现问题不变 =&gt; 于是直接令 $\hat{\gamma} = 1$。</p>
+<p>又为了凑形式优美，符合优化问题的标准型，我们把 max 问题变成 min 问题即目标从 $\max \frac{1}{||w||}$ 变成 $\min ||w||$。然而凸优化问题毕竟喜欢连续可导的凸函数，于是再不影响大局地变一下：$\min \frac{1}{2}||w||^2$。</p>
+<p>得到最终的目标函数：</p>
+<p>$$<br>\min_{w,b} \quad \frac{1}{2}||w||^2 \<br>s.t. \qquad y_i(w \cdot x_i + b) - 1 \geqslant 0<br>$$</p>
+<p>以上就是 SVM 的目标函数，几乎所有那个时代的 paper 都从这里出发。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
       
 
       
@@ -442,7 +1452,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">贝叶斯</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
         		</li>
       		
 		</ul>
@@ -463,759 +1473,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/统计西瓜/k近邻" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/k%E8%BF%91%E9%82%BB.html">统计学习方法 第三章 k近邻</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/k%E8%BF%91%E9%82%BB.html" class="archive-article-date">
-  	<time datetime="2020-09-29T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：789字 | 预计阅读时长：2分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-        
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/k%E8%BF%91%E9%82%BB.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k近邻</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/k%E8%BF%91%E9%82%BB.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/统计西瓜/统计学习方法/第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">统计学习方法 第一章 统计学习及监督学习概论</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" class="archive-article-date">
-  	<time datetime="2020-09-27T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.3k字 | 预计阅读时长：4分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-1-统计学习"><a href="#1-1-统计学习" class="headerlink" title="1.1 统计学习"></a>1.1 统计学习</h2><p>统计学习的方法值得再说一下：统计学习方法有三要素：<strong>模型，策略和算法</strong>。假设空间是待选函数（模型）的集合，我们需要用评价准则（策略）与训练数据通过算法来选出最优函数（模型）出来。</p>
-<h2 id="1-2-统计学习的分类"><a href="#1-2-统计学习的分类" class="headerlink" title="1.2 统计学习的分类"></a>1.2 统计学习的分类</h2><p>这个就真多了，从不同角度简要摘抄一下：</p>
-<h3 id="1-2-1-基本分类"><a href="#1-2-1-基本分类" class="headerlink" title="1.2.1 基本分类"></a>1.2.1 基本分类</h3><p>监督学习，无监督学习，强化学习，半监督学习和主动学习…</p>
-<p>监督学习有这么几个要素（无监督学习也差不多）：</p>
-<ol>
-<li><strong>空间组成</strong>。输入样本的集合即输入空间，每个输入样本的特征向量所构成的集合即特征空间，输出样本的集合即输出空间。</li>
-<li><strong>联合概率分布</strong>。训练集训练之后在测试集效果也不错的前提是：二者的数据被看作是依联合概率分布$P(X,Y)$独立同分布产生的。</li>
-<li><strong>假设空间</strong>。输入到输出空间的映射集合。</li>
-<li><strong>问题的形式化</strong>。监督学习分为学习和预测两个系统完成</li>
-</ol>
-<p>强化学习特点就是：</p>
-<ol>
-<li>马尔可夫决策过程的<strong>五元组</strong>：状态集合$S$，动作集合$A$，状态转移概率函数$P$，奖励函数$r$，衰减系数$\gamma$</li>
-<li><strong>策略</strong>：由价值函数的选择决定（值迭代和策略迭代）</li>
-</ol>
-<h3 id="1-2-2-按模型分类"><a href="#1-2-2-按模型分类" class="headerlink" title="1.2.2 按模型分类"></a>1.2.2 按模型分类</h3><p>另外两个 <strong>线性模型和非线性模型</strong> / <strong>参数化模型和非参数化模型</strong> 还算比较熟悉，但是 <strong>概率模型与非概率模型</strong> 还是要学一下，概率模型就是学习条件概率$P(y|x)$，非概率模型就是学习函数$y=f(x)$。但其实条件概率分布最大化后就是一个函数，而函数归一化后（比如softmax）就得到条件概率分布。所以二者的区别不在于输入与输出之间的映射关系，而在于模型的内在结构 =&gt; 概率模型一定可以表示为联合概率分布的形式（输入，输出，隐变量甚至参数的联合概率）</p>
-<h3 id="1-2-3-按算法分类"><a href="#1-2-3-按算法分类" class="headerlink" title="1.2.3 按算法分类"></a>1.2.3 按算法分类</h3><p><strong>在线学习</strong> vs. <strong>批量学习</strong>。批量学习就是常见的算法，而在线学习的特点就是在预测之后才能得到真实的反馈值，当数据无法存储 / 数据规模很大等等情况可能用到。</p>
-<h3 id="1-2-4-按技巧分类"><a href="#1-2-4-按技巧分类" class="headerlink" title="1.2.4 按技巧分类"></a>1.2.4 按技巧分类</h3><p>一些很有趣的技巧：<strong>贝叶斯学习</strong>（贝叶斯估计 vs. 极大似然估计），<strong>核方法</strong>（非线性化提高模型表达能力）</p>
-<h2 id="1-3-统计学习方法三要素"><a href="#1-3-统计学习方法三要素" class="headerlink" title="1.3 统计学习方法三要素"></a>1.3 统计学习方法三要素</h2><p>模型，策略，算法。模型和算法没有什么说的，在策略这里提了一个很有趣的概念：监督学习是一个<strong>病态问题</strong>：为了得到期望损失（也叫风险函数），又因为正常学习中都是以batch为单位训练得到损失，所以在计算期望的时候需要对$P(x,y)$联合分布作加权和（积分），即根据期望风险最小的学习模型要用到联合分布，但是联合分布又是未知的 =&gt; 监督学习是一个病态问题。</p>
-<p>但是事实上，根据大数定律（样本数量越多，则其算术平均值就有越高的概率接近期望值）可以知道，当样本容量趋于无穷时，经验风险（训练集的平均损失）就等于期望风险。由于样本有限，只用经验风险并不理想，所以关系到监督学习的两个策略：经验风险最小化和结构风险最小化。事实上这个经验风险就是人为定义对于每个batch的误差函数，而结构风险指的就是正则项，对过于复杂的模型有惩罚。</p>
-<h2 id="1-4-模型评估与模型选择"><a href="#1-4-模型评估与模型选择" class="headerlink" title="1.4 模型评估与模型选择"></a>1.4 模型评估与模型选择</h2><p>这一节和下一节西瓜书里有整理，大体是训练误差vs.测试误差 / 过拟合 / 正则化与交叉验证 等问题。</p>
-<h2 id="1-5-正则化与交叉验证"><a href="#1-5-正则化与交叉验证" class="headerlink" title="1.5 正则化与交叉验证"></a>1.5 正则化与交叉验证</h2><p>都是防止过拟合的两个方法，具体同上</p>
-<h2 id="1-6-泛化能力"><a href="#1-6-泛化能力" class="headerlink" title="1.6 泛化能力"></a>1.6 泛化能力</h2><p>泛化误差指的是对未知数据的预测误差，事实上，就是所学习到的模型的期望风险。泛化误差的上界是可以确定的，由训练误差和训练集大小假设空间大小决定：具体证明上限是本书第一个定理（定理1.1）证明的，关键步骤就是借助<strong>Hoeffding不等式</strong>，同时有约束假设空间的函数选择数量必须是有限个，不然就麻烦多了。</p>
-<h2 id="1-7-生成模型与判别模型"><a href="#1-7-生成模型与判别模型" class="headerlink" title="1.7 生成模型与判别模型"></a>1.7 生成模型与判别模型</h2><p>典型的生成模型有朴素贝叶斯和隐马尔可夫模型，判别模型就多了，什么knn，感知机，决策树啥的都是。因为不太了解生成模型，之后学习方法之后再回来补充。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">统计学习方法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/统计西瓜/概论/第二章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html">西瓜书 第二章 模型评估与选择</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html" class="archive-article-date">
-  	<time datetime="2020-09-26T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：2.4k字 | 预计阅读时长：8分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="2-1-经验误差与过拟合"><a href="#2-1-经验误差与过拟合" class="headerlink" title="2.1 经验误差与过拟合"></a>2.1 经验误差与过拟合</h2><p>主要讲了一些过拟合与欠拟合，有一句话很有意思：</p>
-<blockquote>
-<p>只要相信”P $\ne$ NP”，过拟合就不可避免。</p>
-</blockquote>
-<p>简单解释就是说机器学习问题大部分都是NP问题，而有效的机器学习算法都是在多项式时间内得到解，即P，如果相信误差最小化之后就能得到最优解，就说明P=NP，就矛盾了。</p>
-<h2 id="2-2-评估方法"><a href="#2-2-评估方法" class="headerlink" title="2.2 评估方法"></a>2.2 评估方法</h2><p>不说为啥要划分训练集和测试集了，直接上划分方法。注意为了选择模型和调参，以下的测试集在真正训练过程中都叫做验证集：</p>
-<h3 id="2-2-1-留出法-hold-out"><a href="#2-2-1-留出法-hold-out" class="headerlink" title="2.2.1 留出法 (hold-out)"></a>2.2.1 留出法 (hold-out)</h3><p>直接将数据集$D$划分为两个互斥集合作为训练集和测试集，注意3点：</p>
-<ol>
-<li>训练/测试集的划分要尽可能保持数据分布的一致性，采用“<strong>分层采样</strong>”，即保持各类样本的比例相似</li>
-<li>单次使用留出法可能不太可靠，一般采用<strong>若干次随机划分</strong>，重复实验后取平均值作为留出法的结果</li>
-<li>保真性和泛化性的Trade-off：大约 <strong>2/3~4/5</strong> 划分为训练集，剩下的用作测试</li>
-</ol>
-<h3 id="2-2-2交叉验证法-cross-validation"><a href="#2-2-2交叉验证法-cross-validation" class="headerlink" title="2.2.2交叉验证法 (cross validation)"></a>2.2.2交叉验证法 (cross validation)</h3><p>也叫做k折交叉验证法，就是把数据集$D划分为k份，每次用k-1个子集的并集作为训练集，余下作为测试集，然后改变组合进行k次。注意：</p>
-<ol>
-<li>分层采样</li>
-<li>若干次随机划分（eg.10次10折交叉验证）</li>
-<li>若$D$中包含m个样本，令k=m，则变为“留一法”(Leave-One-Out)，即每次测试集都是一个样本。优点是绝大多数情况都比较准确，缺点是计算开销太大</li>
-</ol>
-<h3 id="2-2-3-自助法-bootstrapping"><a href="#2-2-3-自助法-bootstrapping" class="headerlink" title="2.2.3 自助法 (bootstrapping)"></a>2.2.3 自助法 (bootstrapping)</h3><p>要先知道自助采样也叫做有放回采样，假设数据集$D$有m个样本，每次就有放回的取出一个样本加入训练集$D’$中，重复m次，这样算一下每个样本始终不被采集到的概率是$(1-1/m)^m$，算一下极限可以得到是$1/e$，约为0.368。而没被采集的部分就作为测试集。注意：</p>
-<ol>
-<li>自助法在数据集较小，难以有效划分训练/测试集时很有用</li>
-<li>但是会改变初始数据集的分布，引入估计偏差</li>
-</ol>
-<h2 id="2-3-性能度量"><a href="#2-3-性能度量" class="headerlink" title="2.3 性能度量"></a>2.3 性能度量</h2><p>直接上模型评价方法了：</p>
-<h3 id="2-3-1-错误率与精度"><a href="#2-3-1-错误率与精度" class="headerlink" title="2.3.1 错误率与精度"></a>2.3.1 错误率与精度</h3><p>一句话：</p>
-<blockquote>
-<p><strong>错误率</strong>是分类错误的样本数占总数的比例<br><br><strong>精度</strong>则是分类正确的样本数占总数的比例</p>
-</blockquote>
-<h3 id="2-3-2-查准率、查全率与F1"><a href="#2-3-2-查准率、查全率与F1" class="headerlink" title="2.3.2 查准率、查全率与F1"></a>2.3.2 查准率、查全率与F1</h3><p>前两个也叫<strong>准确率</strong>(precision)$P$和<strong>召回率</strong>(recall)$R$，这里先不放那个TPFPTNFN的表了，$P$和$R$老是记不清公式，其实就是二者都是以TP作为目标分子，对于分母来说$P$注重预测结果的准确率，所以是$TP+FP$，$R$注重真实情况的准确率，所以是$TP+FN$。</p>
-<p>为了把这俩独立的评价方法结合起来作为综合评估的方法，最直接的方法就是用“平衡点”(Break-Even Point)时的值作为评价标准，此时$P=R$。但是最常用的是<strong>F1度量</strong>：$\frac{2PR}{P+R}$</p>
-<h3 id="2-3-3-ROC与AUC"><a href="#2-3-3-ROC与AUC" class="headerlink" title="2.3.3 ROC与AUC"></a>2.3.3 ROC与AUC</h3><p>很多学习器测试样本时是生成一个连续值概率，然后我们手动将这个概率和threshold比较，大于的当作正样本，小于的当作负样本，为了评价这个连续值的排序质量而提出了ROC曲线这个概念。换一句话说就是利用ROC曲线来看这个学习器的排序质量怎么样，所以这个就主要是看图了。与P-R图用Precision做纵轴，Recall做横轴不同，ROC曲线用<strong>真正例率</strong>作为纵轴，用<strong>假正例率</strong>作为横轴，一个是正例中(TP+FN)预测正确(TP)的比例，一个是反例中(TN+FP)预测错误(FP)的比例。</p>
-<p>这种情况下y=x就对应“随机猜测”的情况，而AUC就是指ROC曲线下的面积，表示样本预测的排序质量。</p>
-<p>关于P-R曲线和ROC曲线的绘制值得实践一下，这里摘录书中ROC曲线的绘制方法：</p>
-<blockquote>
-<p>给定$m^+$个正例和$m^-$个反例，根据学习器预测结果对样例进行排序，然后把分类阈值设为最大，即把所有样例均预测为反例，此时真正例率和假正例率均为0,在坐标 (0,0) 处标记一个点。</p>
-</blockquote>
-<h3 id="2-3-4-代价敏感错误率与代价曲线"><a href="#2-3-4-代价敏感错误率与代价曲线" class="headerlink" title="2.3.4 代价敏感错误率与代价曲线"></a>2.3.4 代价敏感错误率与代价曲线</h3><p>之前的评价方法都隐式假设了<strong>均等代价</strong>，即两种预测错误的情况(FP和FN)的代价都是一样的。在<strong>非均等代价</strong>（疾病检测/门禁系统等）下，所希望的不再是简单地最小化错误次数，而是希望最小化<strong>总体代价</strong>。</p>
-<p>因此很自然地提出了<strong>代价敏感错误率</strong>，就是把不同情况的错分比例乘以相应的代价再求和作为度量。好像有点绕，简单来讲就是说比如对于二分类问题，FP代价乘以FP数量，FN代价乘以FN数量，求和之后除以总样本数即代价敏感错误率。</p>
-<p>与之相应的就提出了<strong>代价曲线</strong>来可视化代价敏感度，这个还是比较麻烦的，这里就简单意思一下。首先曲线图本身横轴是正例概率代价，纵轴是归一化代价，然后具体作图又是借助ROC曲线每个点映射到代价曲线中就是一条线段，这些线段集的下界围成的面积就是学习器的期望总体代价。</p>
-<h2 id="2-4-比较检验"><a href="#2-4-比较检验" class="headerlink" title="2.4 比较检验"></a>2.4 比较检验</h2><p>机器学习中进行模型的性能比较非常复杂，核心原因是因为我们希望比较的是泛化性能，而不是测试集性能，表现在这么几个方面：</p>
-<ol>
-<li>测试集的大小或样例不同都会导致测试结果不同，所以不能代表泛化性能</li>
-<li>很多学习算法本身具有随机性，用在相同测试集上可能每次效果也不同</li>
-</ol>
-<p>因此，我们需要采用<strong>统计假设检验</strong>来从概率统计角度进行性能比较。</p>
-<p>假设检验的检验方法过于复杂，这里就主要梳理一下假设检验的步骤，具体的检验方法(二项检验，t检验，McNemar检验…)都以后补了概统基础之后再说吧…</p>
-<p>以二分类问题和相应的二项检验为例，假设检验大致可以分为四步：</p>
-<ol>
-<li>提出零假设和备选假设：一般是互斥的，其中备选假设为想证明的情况（在这里单边假设的话就是指<strong>泛化错误率$\hat{\epsilon}$&lt;测试错误率$\epsilon$</strong>，当然也有双边假设即<strong>泛化错误率$\hat{\epsilon}$ = 测试错误率$\epsilon$</strong>），而零假设就是其补集说法，之后是要被推翻的</li>
-<li>计算检验统计量的实际值：在零假设的前提下，计算出证据发生的概率（在这里就是<strong>测试错误率$\epsilon$</strong>）</li>
-<li>给定显著性水平和确定相应的临界值：设置了一个<strong>泛化错误率</strong>$\hat{\epsilon}$的上界对应的临界值（这里需要知道怎么判断二者之间的关系的，要用到公式$P(\hat{\epsilon};\epsilon)=C^{\hat{\epsilon}\times m}_m \epsilon^{\hat{\epsilon}\times m}(1-\epsilon)^{m-\hat{\epsilon}\times m}$，其实就是正常的二项分布概率，然后再套二项检验设计检验统计量的公式得到临界值和显著性水平）</li>
-<li>检验统计量的实际值，与临界值比较，视实际值落入接受区域还是拒绝区域，做出接受或拒绝零假设的结论</li>
-</ol>
-<h2 id="2-5-偏差与方差"><a href="#2-5-偏差与方差" class="headerlink" title="2.5 偏差与方差"></a>2.5 偏差与方差</h2><p>这一节主要讲了 <strong>偏差-方差分解</strong> (bias-variance decomposition)这个概念，对于真正使用没有太大帮助，但是对理解泛化误差来自何处有一些帮助。直接上结论就是：泛化误差可以分解为偏差，方差和噪声之和。</p>
-<ul>
-<li><strong>偏差</strong>指的是学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力</li>
-<li><strong>方差</strong>指的是同样大小的训练集变动所导致的学习性能的变化（不同评估方法），即刻画了数据扰动所造成的影响</li>
-<li><strong>噪声</strong>指的是当前任务上任何学习算法所能达到的期望误差的下界，即刻画了学习问题本身的难度。看原公式似乎可以理解为数据集的标注错误就是噪声，标注都错了学习肯定就更难了</li>
-</ul>
-<p>一般来说，偏差与方差是有冲突的，称为 <strong>偏差-方差窘境</strong>，还是比较容易理解的。</p>
-<p>这里的证明就是基于这么一个公式：$E(f;D)=\mathbb{E}_D[(f(x;D)-y_D)^2]$，左边是指对于模型$f$数据集$D$的泛化误差，右边就是正常的计算误差的公式。注意左边的$E$是误差，右边的$\mathbb{E}$是期望。在推演过程中引入了学习算法的期望预测$\overline{f}$，用这个实际预测结果的差平方作为偏差的度量。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">西瓜书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AI/统计西瓜/概论/第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">西瓜书 第一章 绪论</a>
-    </h1>
-  
-
-        
-        <a href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html" class="archive-article-date">
-  	<time datetime="2020-09-26T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.2k字 | 预计阅读时长：4分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一章印象最深的就是NFL的证明了，<a href="https://datawhalechina.github.io/pumpkin-book/#/chapter1/chapter1?id=_12" target="_blank" rel="noopener">南瓜书</a>的推导非常靠谱！</p>
-        
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数理基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">西瓜书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AI//" class="article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/AI-AI/%E7%BB%9F%E8%AE%A1%E8%A5%BF%E7%93%9C/%E6%A6%82%E8%AE%BA/%E7%AC%AC%E4%B8%80%E7%AB%A0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-English/GREReading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English-English/GREReading.html">GRE Reading notes</a>
-    </h1>
-  
-
-        
-        <a href="/English-English/GREReading.html" class="archive-article-date">
-  	<time datetime="2020-09-08T02:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.5k字 | 预计阅读时长：5分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>考满分杨杨老师的阅读课笔记</p>
-        
-          <a class="article-more-a" href="/English-English/GREReading.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GRE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/English//" class="article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/English-English/GREReading.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-NeuSci/0827" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/NeuSci-NeuSci/0827.html">前脑叶白质切除术</a>
-    </h1>
-  
-
-        
-        <a href="/NeuSci-NeuSci/0827.html" class="archive-article-date">
-  	<time datetime="2020-08-27T07:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：1.2k字 | 预计阅读时长：4分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>脑白质切除术（lobotomy）是一种神经外科手术，包括切除前额叶皮质的连接组织。脑白质切除术主要于1930年代到1950年代用来医治一些精神病，这也是世界上第一种精神外科手术[1]。该技术曾获得1949年诺贝尔生理学或医学奖，但现在对脑白质切除术的评价一般都是负面的，这主要是因为在当时的简陋条件下，对大脑所实施的手术精准度很低，对术后效果的评价也没有客观、可信的标准，而且手术对象在经过手术后往往丧失精神冲动，被认为侵害人权。</p>
-        
-          <a class="article-more-a" href="/NeuSci-NeuSci/0827.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自说自话的总裁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经科学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/NeuSci//" class="article-tag-list-link color2">NeuSci</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/NeuSci-NeuSci/0827.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-NeuSci/0903" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/NeuSci-NeuSci/0903.html">前脑叶白质切除术</a>
-    </h1>
-  
-
-        
-        <a href="/NeuSci-NeuSci/0903.html" class="archive-article-date">
-  	<time datetime="2020-08-27T07:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-
-      <div align="center" class="post-count">
-      字数：0字 | 预计阅读时长：1分钟
-      </div>
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自说自话的总裁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经科学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/NeuSci//" class="article-tag-list-link color2">NeuSci</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/NeuSci-NeuSci/0903.html">展开全文 >></a>
+          <a class="article-more-a" href="/AI-AI/HangLi/SVM.html">展开全文 >></a>
         </p>
       
 
@@ -1247,7 +1505,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1532,6 +1790,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">西瓜书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
               </li>
             
             <div class="clearfix"></div>
