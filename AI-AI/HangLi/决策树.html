@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>统计学习方法 第五章 决策树 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。  决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪  5.1 决策树模型与学习这个定义还是非常准确的：">
+  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统计学习方法 第五章 决策树">
 <meta property="og:url" content="http://yoursite.com/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。  决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪  5.1 决策树模型与学习这个定义还是非常准确的：">
+<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20180627094114246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180627094132868?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="article:published_time" content="2020-09-30T09:50:43.000Z">
-<meta property="article:modified_time" content="2020-10-07T03:56:22.989Z">
+<meta property="article:modified_time" content="2020-11-03T06:47:16.662Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="数理基础">
 <meta property="article:tag" content="统计学习方法">
@@ -192,6 +192,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
+<a id="more"></a>
+
 <blockquote>
 <p>决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪</p>
 </blockquote>

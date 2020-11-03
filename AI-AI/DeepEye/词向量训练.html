@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>词向量训练 - 贪心学院NLP | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生成模型 vs. 判别模型 生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$ Log Linear Model指的是一类模型，典型例子是逻辑回归和条件随机场(CRF)： $$P(y|x;w) &#x3D; \frac{e^{\sum^J_{j&#x3D;1}w_jF_j(x,y)}}{Z(x,w)}$$ 其中只有">
+  <meta name="description" content="生成模型 vs. 判别模型 生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="词向量训练 - 贪心学院NLP">
 <meta property="og:url" content="http://yoursite.com/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="生成模型 vs. 判别模型 生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$ Log Linear Model指的是一类模型，典型例子是逻辑回归和条件随机场(CRF)： $$P(y|x;w) &#x3D; \frac{e^{\sum^J_{j&#x3D;1}w_jF_j(x,y)}}{Z(x,w)}$$ 其中只有">
+<meta property="og:description" content="生成模型 vs. 判别模型 生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/LogisRegre.png">
 <meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/crfInfer.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/elmo.png">
 <meta property="og:image" content="http://yoursite.com/AI-AI/DeepEye/categoryWR.png">
 <meta property="article:published_time" content="2020-10-15T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-10-25T06:02:31.056Z">
+<meta property="article:modified_time" content="2020-11-03T06:47:48.255Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="贪心学院">
@@ -195,6 +195,8 @@
       
         <p>生成模型 vs. 判别模型</p>
 <p>生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$</p>
+<a id="more"></a>
+
 <h2 id="Log-Linear-Model"><a href="#Log-Linear-Model" class="headerlink" title="Log Linear Model"></a>Log Linear Model</h2><p>指的是一类模型，典型例子是逻辑回归和条件随机场(CRF)：</p>
 <p>$$<br>P(y|x;w) = \frac{e^{\sum^J_{j=1}w_jF_j(x,y)}}{Z(x,w)}<br>$$</p>
 <p>其中只有 $w_j$ 是要学习的参数，$F_j$ 是定义的特征的函数(function)，下面的 $Z$ 是用来归一化的Normalization。</p>

@@ -253,7 +253,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
+        <a id="more"></a>
+
+<h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
 <h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p><a href="www.bing.com">链接</a></p>
 <h2 id="Transformer之后"><a href="#Transformer之后" class="headerlink" title="Transformer之后"></a>Transformer之后</h2><h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT 区别于 Transformer 最大的一点就是训练过程不同</p>
 <p>BERT 本身不是一个elegent的模型，国外的热度也比国内冷很多，在这里也不得不承认 Google 的 PR 做的非常好。</p>
@@ -392,7 +394,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
+        <a id="more"></a>
+
+<h2 id="Transformer之前"><a href="#Transformer之前" class="headerlink" title="Transformer之前"></a>Transformer之前</h2><p><a href="www.bing.com">链接</a></p>
 <h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p>首先放出一个火爆全网的博客：<a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">illustrated-transformer</a>，国内很多transformer教程都是用这里的配图，建议大家直接看原文。</p>
 <p>回顾 RNN/LSTM-based models 的缺点：</p>
 <ol>
@@ -530,7 +534,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="词向量复习"><a href="#词向量复习" class="headerlink" title="词向量复习"></a>词向量复习</h2><p><a href="www.bing.com">链接</a></p>
+        <a id="more"></a>
+
+<h2 id="词向量复习"><a href="#词向量复习" class="headerlink" title="词向量复习"></a>词向量复习</h2><p><a href="www.bing.com">链接</a></p>
 <h2 id="DL复习"><a href="#DL复习" class="headerlink" title="DL复习"></a>DL复习</h2><p>RNN最大的好处：可以处理不同时长的数据。</p>
 <h3 id="Vanilla-RNN"><a href="#Vanilla-RNN" class="headerlink" title="Vanilla RNN"></a>Vanilla RNN</h3><p>就是最原始的RNN长相，当然因为缺点太多，所以就是学一下intuition：</p>
 <p>$$<br>h_t = f(w_{hh} \cdot h_{t-1} + w_{xh} \cdot x_t + b_1)\<br>\hat{y}<em>t = g(w</em>{hy} \cdot h_t + b_2)<br>$$</p>
@@ -675,7 +681,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html">绪论 - 贪心学院NLP</a>
+      <a class="article-title" href="/AI-AI/DeepEye/%E7%BB%AA%E8%AE%BA.html">绪论 - w贪心学院NLP</a>
     </h1>
   
 
@@ -789,7 +795,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法</p>
+        <a id="more"></a>
+
+<p>问答系统最典型有两种构建方式：基于语料库的 (Knowledge Base)，和知识图谱的。以下都是基于语料库（问答pair）的方法</p>
 <p>正则/规则：匹配死板，但是不需要训练数据</p>
 <p>Pipeline</p>
 <ol>
@@ -991,98 +999,9 @@
       
         <p>生成模型 vs. 判别模型</p>
 <p>生成模型记住了类别的所有特征，判别模型只记住该类别不同于其他类的特征。换句话说，生成模型最大化概率 $P(x,y)$，判别模型最大化概率 $P(y|x)$</p>
-<h2 id="Log-Linear-Model"><a href="#Log-Linear-Model" class="headerlink" title="Log Linear Model"></a>Log Linear Model</h2><p>指的是一类模型，典型例子是逻辑回归和条件随机场(CRF)：</p>
-<p>$$<br>P(y|x;w) = \frac{e^{\sum^J_{j=1}w_jF_j(x,y)}}{Z(x,w)}<br>$$</p>
-<p>其中只有 $w_j$ 是要学习的参数，$F_j$ 是定义的特征的函数(function)，下面的 $Z$ 是用来归一化的Normalization。</p>
-<p>x 是观测值，y 是标签，j 是特征id</p>
-<h3 id="Multinomial-Logistic-Regression（多元逻辑回归）"><a href="#Multinomial-Logistic-Regression（多元逻辑回归）" class="headerlink" title="Multinomial Logistic Regression（多元逻辑回归）"></a>Multinomial Logistic Regression（多元逻辑回归）</h3><p>以上的 $F_j(x,y)$ 定义如下：</p>
-<p>$$<br>F_j(x,y) = x_i \cdot \mathcal{I}(y=c)<br>$$</p>
-<p>即 y 是对应类别才有值。比如x有10个维度，y有3类，即 c=1,2,3。那么j就有 3*10=30 种取值，同样 $w_j$ 也有30个。（很多0）。示例如下：</p>
-<p><img src="./LogisRegre.png" alt="logis"></p>
-<p>为了让表述更清晰，因为w的0非常有规律，尝试把w拆分成如下形式：</p>
-<p>$$<br>w \isin \mathcal{R^{3d}}\<br>w = (\underbrace{w_1, w_2, \ldots, w_d}<em>{w^{(1)}},\underbrace{w</em>{d+1}, \ldots, w_{2d}}<em>{w^{(2)}},\underbrace{w</em>{2d+1} \ldots, w_{3d}}_{w^{(3)}})^T<br>$$</p>
-<p>化简图中的表达为：$P(y=1|x;w) = e^{w^{(1)^T}}\cdot x / Z(x,w)$，另外俩同样的。然后就可以算 $Z(x,w)$ 就是把三个分子加起来。</p>
-<p>得到最终的多元逻辑回归模型：</p>
-<p>$$<br>P(y=1|x;w) = \frac{e^{w^{(1)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}\<br>P(y=2|x;w) = \frac{e^{w^{(2)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}\<br>P(y=3|x;w) = \frac{e^{w^{(3)^T}}\cdot x}{\sum^3_{i=1}e^{w^{(i)^T}}\cdot x}<br>$$</p>
-<h3 id="Conditional-Random-Field"><a href="#Conditional-Random-Field" class="headerlink" title="Conditional Random Field"></a>Conditional Random Field</h3><p>CRF可以理解成：Log Linear Model for Sequential Data。从上面的例子可以看出，区别不同的 LLM 的因素就是如何定义 $F_j(x,y)$。</p>
-<p>在 CRF 中，x 是一个序列的值，y 也是一个序列的标签，但是这个序列长短并不对齐，所以其实要把 F 换一种理解方式，变成一种值来理解，这个值如何获取呢？在LogisticRegre中，这个值就是x（带上一个指示函数）；而在CRF中，这个值是x整个序列和序列y中的两两样本相组合最后求和。表示成：</p>
-<p>$$<br>F_j(x,y) = \sum^n_{i=2}f_j(y_{i-1},y_i,x,i)\<br>$$</p>
-<p>CRF有两个最核心的问题：<strong>Inference问题</strong> 和 <strong>参数估计</strong></p>
-<p>Inference要做如下变形：</p>
-<p>$$<br>g(y_{i-1},y_i) = \sum^J_{j=1}f_j(y_{i-1},y_i,x,i)<br>$$</p>
-<p>其中 g 是变了一下求和对象，本来 F 外面是对所有特征求和，现在 g 外面是对所有时刻求和。为啥这么搞呢？为了套动态规划的Viterbi算法：</p>
-<p><img src="./crfInfer.png" alt="CRF"></p>
-<p>以上其实就是在推 $u(k,v)=\max_u [u(k-1,v)+g_k(u,v)]$ 这个递推公式</p>
-<p>第二个问题是参数估计：</p>
-<p>对 w 求梯度，做梯度下降，这一块计算量还是蛮大的，也有一些trick，太多就先不展开了。但总体来讲还是因为是linear的CRF，还是相对简单的。</p>
-<h2 id="词向量-Word2Vec-训练"><a href="#词向量-Word2Vec-训练" class="headerlink" title="词向量 Word2Vec 训练"></a>词向量 Word2Vec 训练</h2><ol>
-<li>Dense：最多300维就能搞定</li>
-<li>Semantic：Meaning Space</li>
-<li>Capacity：表达能力强（无穷）</li>
-<li>Global Generalization：param sharing</li>
-</ol>
-<p>Intuition：离的越近相似度越高  =&gt; <strong>Distributional Hypothesis</strong></p>
-<p>参考以上的intuition，产生了两种思路：通过两边的单词预测中间单词的意思（CBOW），通过中间单词预测两边的意思（Skip-Gram）。总的来说，关于词向量训练有几种经典方法：Skip-Gram, Glone, CBOW, RNN/LSTM 等。</p>
-<h3 id="Skip-Gram-Model"><a href="#Skip-Gram-Model" class="headerlink" title="Skip-Gram Model"></a>Skip-Gram Model</h3><p>Formulation：训练数据有个 window size 的概念，即看到多远的词，比如 ws=2 时，训练数据就是看到 xx 词，就能够看到边上2步以内的4个单词（不在边上）；因此模型的目标就是最大化条件概率，条件是 xx 词，希望看到 yy 词的概率最大（yy词就是在训练数据中的邻居）。</p>
-<p>数学表示就是：</p>
-<p>$$<br>\text{goal: }\argmax_\theta\prod_{w\isin Text}\prod_{c\isin context(w)}P(c|w;\theta)<br>$$</p>
-<p>取log化连乘为求和:</p>
-<p>$$<br>\argmax_\theta\sum_{w\isin Text}\sum_{c\isin context(w)}\log P(c|w;\theta)<br>$$</p>
-<p>其中context指的是上下文，就是说对于 Text 中的每个词，都希望他本来出现的上下文的词出现概率最大。</p>
-<p>为了匹配中心词&amp;上下文单词这种形式，这里语料库也发生了一些改变，注意这里u和v就是形状一模一样的词向量矩阵（行为某个词向量，<code>vstack</code>成一个矩阵），然后一个作为中心词的遍历，一个作为上下文单词的查询。那么为什么不一样呢，insight 就是因为一个单词作为中心词与作为上下文单词时词向量值是不一样的。以后统一把 <strong>v</strong> 当作中心词的词向量，<strong>u</strong> 当作上下文的词向量</p>
-<p>$$<br>\Theta = [u,v]<br>$$</p>
-<p>为了满足概率的性质（$0&lt;p&lt;1$ &amp;&amp; $\sum p=1$），这里就用 <strong>softmax</strong> 形式表示这个概率：</p>
-<p>$$<br>P(c|w;\theta) = \frac{\exp(u_c \cdot v_w)}{\sum_{c’}\exp(u_{c’} \cdot v_w)}<br>$$</p>
-<p>其中内积就表示相似度，谁和谁的内积呢？可以看到是上下文语料库中第 c 个单词和中心词语料库中第 w 个单词的内积，为了归一化，分母就是对所有上下文的单词做个求和，原因是概率是对 c 的概率，所以不用再对中心词的所有词求和。</p>
-<p>代入到以上目标式中可以得到 Skip-Gram 的问题定义：</p>
-<p>$$<br>\argmax_\Theta\sum_{w\isin Text}\sum_{c\isin context(w)}[u_c \cdot v_w - \log \sum_{c’\isin\text{语料}}e^{u_{c’} \cdot v_w}]<br>$$</p>
-<p>简化完毕，可以用 SGD 等方法训练 $\theta$ （就是 u 和 v）。但是这里又有一个 BottleNeck：计算量太大，词库太多了（表现在后面那项对所有词库求和）。为了优化这个训练过程，有两个办法来解决：<strong>Negative Sampling</strong>（常用） 和 <strong>Hierachical Softmax</strong>。</p>
-<blockquote>
-<p>非常推荐看看word2vec的源码：<a href="https://github.com/dav/word2vec/blob/master/src/word2vec.c" target="_blank" rel="noopener">https://github.com/dav/word2vec/blob/master/src/word2vec.c</a></p>
-</blockquote>
-<p>在这里举个 Negative Sampling 的例子。原先定义问题的 intuition 是希望当xx为中心词时，yy为上下文尽量大。换一种理解思路为：当xx和yy都出现时，若在语料库中二者是上下文，则希望二者互为上下文概率尽量大 $P(D=1|xx,yy;\theta)$；若在词库中不是上下文，则希望二者不为上下文概率尽量大 $P(D=0|xx,yy;\theta)$。显然这里 $D=0$的事件就是Negative的意思，而以上的问题化成数学表示可以看到：</p>
-<p>$$<br>\argmax_\theta \prod_{(w,c)\isin D}P(D=1|u_c,v_w;\theta) \prod_{(w,c’)\isin \hat{D}}P(D=0|u_{c’},v_w;\theta)<br>$$</p>
-<p>计算量集中在后面这一项语料库外的样本，由这个名字可以得，这个优化方法就是在这些负样本中采样而不是直接全部算。具体采样方法就是每取一对正样本（中心词，上下文词），就取n对负样本（即针对每个中心词），n是超参数。每次就重复这样采集然后去做梯度下降法（分别对$v_w, u_c$和$u_{c’}$做）</p>
-<blockquote>
-<p>这里插播一个把词向量映射到二维空间（可视化）的工具：<code>T-SNE</code></p>
-</blockquote>
-<p>那么 Skip-Gram 缺点在哪里:</p>
-<ol>
-<li>没有考虑上下文（只有前后词） =&gt; ELmo, Bert</li>
-<li>窗口长度有限 =&gt; 无法考虑Global信息 =&gt; Language Model (RNN/LSTM)</li>
-<li>无法有效学习低频词向量，as well as 未登录词 (OOV: out-of-vocabulary) =&gt; Subword Embedding</li>
-<li>没有严格意义上的语序</li>
-<li>不能表示对应单词的可信度 =&gt; Gaussian Embedding</li>
-</ol>
-<p>最后，以一个应用场景收尾词向量训练的内容：KDD2018 的 <a href="https://www.kdd.org/kdd2018/accepted-papers/view/real-time-personalization-using-embeddings-for-search-ranking-at-airbnb" target="_blank" rel="noopener">Real-time Personalization using Embeddings for Search Ranking at Airbnb</a>（每个房源都可以对应到一个词向量）</p>
-<h3 id="Subword"><a href="#Subword" class="headerlink" title="Subword"></a>Subword</h3><p>除了 Skip-Gram 训练方式，这里来介绍两种新方法：Subword和Deep Learning的方法，其中 Subword 原论文在这里：</p>
-<p><a href="https://arxiv.org/abs/1607.04606" target="_blank" rel="noopener">Enriching Word Vectors with Subword Information</a></p>
-<p>Subword 主要来解决 OOV 的问题，当语料库比较少的时候，用Subword效果会比baseline好很多。</p>
-<p>总之就是从词向量表示变成 Character-n gram 向量，比如 <code>reader</code> 这个词，令 n=4，即拆成 <code>^rea, read, eade, ader, der$</code> 这五种形式（起始符终止符保留），然后每个 n gram 都可以训练成一个向量，最终判断词的时候就是把这些向量的数值简单相加来表示该单词的向量。这里的 n 一般取值范围是 <code>n = 3 to 6</code>，注意是长度3到6的全部 subword 都拿来 train，而不是选一个3/4/5/6。</p>
-<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>回顾一下主流的 Distributed 词向量训练方法：(图有点大不好意思)</p>
-<p><img src="./word2vecTrain.png" alt="w2vTrain"></p>
-<p>从某个角度大致可以分为两大类，语言模型(LM)方法和非LM方法，其中SkipGram和CBOW都是非LM的方法，二者的区别也在之前提过，就是中心词预测上下文 vs. 上下文预测中间词，然后LM方法这里放了一个NNLM，第一个N是neural，这是Bengio最早在03年就提出的方法，但是从示意图看得到仍然是受马尔可夫条件约束，根据前三个词预测这个词，其实还是个 4-gram 的方法</p>
-<p>在讲 ELMo 之前，重新从 LM 角度来看看怎么解决 word representation 这个问题。因为不同词有不同的意思，然后词向量对应的又是 meaning space 而不是单词文本本身，所以假设所有词都有三种意思，那么就可以对每种词都有三个不同的词向量表示，然后在infer的时候相当于就是做了一个分类的问题，根据上下文从三个词向量中选一个作为这个 word representation。</p>
-<p>这个思路算是 LM 方法一个比较朴素的 intuition，自然 ELMo 也是带着这个intuition出现的，但是ELMo没有弄这个三个词向量表示，而是对每个词向量本身加上在上下文当中产生的偏移量得到的结果。比如 <code>back</code> 这个词，在词向量中的值当作原期望 $E_{back}$，根据上下文动态调整预测出偏移量 $\Delta_{back}$，最终表示就是新的期望：</p>
-<p>$$<br>E_{back} + \Delta_{back} = E’_{back}<br>$$</p>
-<p>ELMo 除了 LM 方法这个特点以外，还有一个特点是用了DL的方法，DL最核心的理解就是 Hierachical Representation，对 nlp 理想情况下是学习从 Word features =&gt; Syntactic features =&gt; Semantic features 的表征。因此，参考下图ppt：</p>
-<p><img src="./elmo.png" alt="ELMo"></p>
-<p>可以看到偏移量在这里是通过 BiLSTM 训练出来的，而且还不止一个偏移量，其中 $E^{(1)}$ 和 $E^{(2)}$ 都是偏移量，用两层的intuition是第一层先揉进上下文，第二层提取出更Hierachical的特征。然后这些偏移量都有权重的，通过训练确定。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>先放一个Category：</p>
-<p><img src="./categoryWR.png" alt="category"></p>
-<p>然后提一下之前咩有讲到的方法的intuition：</p>
-<ol>
-<li><p>Matrix Factorization：矩阵分解是全局的方法，通过bigram产生的矩阵，通过分解可以直接得到全局信息的词向量。问题显然就是太慢了而且是静态的，换一个句子就要重新统计。</p>
-</li>
-<li><p>GloVe：就是综合了global和local的优点（MF+SkipGram）提出来的高级方法</p>
-</li>
-<li><p>Gaussian Embedding：预测出来的词高频词置信度高，低频词置信度低。新问题是从计算两个词向量的相似度变成了计算两个distribution的相似度，一般用 KL diverrgence 来计算。</p>
-</li>
-<li><p>Hyperbolic Embedding：一种 Non-Euclidean 的表示方法，特点就是会把层级信息表示出来，比如 orange $\isin$ fruit 这种。</p>
-</li>
-</ol>
-<p>事实上，Embedding 是一个非常通用的方法，不仅可以应用于词和之后的句子，还有图，代码，知识图谱什么的全都可以利用 Embedding 技术进行向量化，进行之后的操作。</p>
-
+        
+          <a class="article-more-a" href="/AI-AI/DeepEye/%E8%AF%8D%E5%90%91%E9%87%8F%E8%AE%AD%E7%BB%83.html#more">more >></a>
+        
       
 
       
@@ -1276,48 +1195,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-<blockquote>
-<p>决策树学习通常包括3个步骤：特征选择，决策树的生成和决策树的修剪</p>
-</blockquote>
-<h2 id="5-1-决策树模型与学习"><a href="#5-1-决策树模型与学习" class="headerlink" title="5.1 决策树模型与学习"></a>5.1 决策树模型与学习</h2><p>这个定义还是非常准确的：</p>
-<blockquote>
-<p>定义5.1 <strong>决策树</strong><br><br>分类决策树模型是一种描述对实例进行分类的树形结构。决策树由结点（node）和有向边（directed edge）组成。结点有两种类型：内部结点（internal node）和叶结点（leaf node）。内部结点表示一个特征或属性，叶节点表示一个类。</p>
-</blockquote>
-<p>分类的过程就是从根节点开始不断的递归分类，最终到的叶结点就是分类结果。</p>
-<p>有两种方式来理解决策树：</p>
-<ul>
-<li><strong>if-then规则</strong><br><br>内部结点就是条件，叶结点就是结论。这么理解的话要注意一个重要性质：路径的集合是 <strong>互斥并且完备</strong> 的。</li>
-<li><strong>条件概率分布</strong><br><br>遍历到每个内部结点都会出一个条件概率 $P(Y|X)$，$X$ 取值于遍历过了的结点情况集合，$Y$ 取值于下一个结点的类的集合，每次分类时决策树就将该结点强行分到条件概率大的那一类去。</li>
-</ul>
-<p>在决策树的生成上，找到一棵最优决策树是非常NP完全的，所以只能通过启发式算法找到次最优的决策树。整个决策树分类的过程就可以理解成：选一个最优特征，作为当前结点的分类依据，不断递归，如果子集能够被正确分开，就构建叶结点，如果不能就继续分割。之后为了增加泛化能力，再需要对决策树进行剪枝…所以还是非常复杂的。其中生成考虑局部最优，剪枝又考虑全局最优。妙啊！</p>
-<h2 id="5-2-特征选择"><a href="#5-2-特征选择" class="headerlink" title="5.2 特征选择"></a>5.2 特征选择</h2><p>特征选择的准则是信息增益或信息增益比。显然，能够让模型分类最容易的那个特征就应该是被选择的特征，比如可以很容易地通过头发长度可以判断男女（大部分情况），而通过眼睛大小来判断比较困难，所以头发长度就是信息增益最大的特征，就是要选择的特征。</p>
-<p>但是具体来看什么叫做 信息增益呢，官方来说：信息增益（Information Gain）表示得知特征X的信息而使得类Y的信息不确定性减少的程度。基本上可以用上一段话来解释。那么从数学角度来看，就是要靠熵来作为标识了：</p>
-<blockquote>
-<p>算法5.1 <strong>信息增益</strong></p>
-<ol>
-<li>计算数据集 $D$ 的经验熵 $H(D)$：<br>$$H(D) = -\sum^K_{k=1}\frac{|C_k|}{|D|}\log_2 \frac{|C_k|}{|D|}$$</li>
-<li>计算特征 $A$ 对数据集 $D$ 的经验条件熵 $H(D|A)$：<br>$$H(D|A) = \sum^n_{i=1}\frac{|D_i|}{|D|}H(D_i)$$</li>
-<li>计算信息增益：<br>$$g(D,A)=H(D)−H(D|A)$$</li>
-</ol>
-</blockquote>
-<p>而信息增益比就是在信息增益的基础上对每个特征做了个放缩：<br>$$<br>g_R(D, A) = \frac{g(D, A)}{H_A(D)}<br>$$</p>
-<h2 id="5-3-决策树的生成"><a href="#5-3-决策树的生成" class="headerlink" title="5.3 决策树的生成"></a>5.3 决策树的生成</h2><p>从上面两个概念就衍生出两种生成树的方法：ID3和C4.5。没错名字特别奇怪，但其实也就是名字奇怪了。从特点上来看：ID3没有剪枝，用信息增益；C4.5没有剪枝，用信息增益比。之后讲到的CART有剪枝，用Gini系数。</p>
-<p>那么废话不多说，直接贴算法出来：</p>
-<blockquote>
-<p>算法5.2 <strong>ID3算法</strong><br><img src="https://img-blog.csdn.net/20180627094114246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="找图快些..."></p>
-</blockquote>
-<blockquote>
-<p>算法5.3 <strong>C4.5算法</strong><br><img src="https://img-blog.csdn.net/20180627094132868?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RldmlsX2J5ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="找图快些..."></p>
-</blockquote>
-<h2 id="5-4-决策树的剪枝"><a href="#5-4-决策树的剪枝" class="headerlink" title="5.4 决策树的剪枝"></a>5.4 决策树的剪枝</h2><p>抱着简单=&gt;泛化性能好这个先验概念，我们需要通过剪枝来让模型更简单。详细公式不列出来了，列一个最终剪枝的损失函数：<br>$$<br>C_\alpha (T) = C(T) + \alpha |T|<br>$$<br>前者是预测误差，即模型和数据的拟合程度，后者是模型的复杂度。在剪枝回溯的过程中如果发现当前节点的 $C_\alpha$ 比子树划分出的节点的 $C_\alpha$ 小的话，就剪枝。即准确率和模型复杂度的Trade-off。</p>
-<p>所以从作用上来看，剪枝新增的这个项其实等价于正则化项，所以决策树的损失函数和神经网络的损失函数在形式和目的上是完全相同的。</p>
-<h2 id="5-5-CART算法"><a href="#5-5-CART算法" class="headerlink" title="5.5 CART算法"></a>5.5 CART算法</h2><p>CART假设决策树是二叉树，每个节点只能用 <strong>是</strong> 和 <strong>否</strong> 来回答，所以等价于递归地二分每个特征。CART算法由以下两部分组成：</p>
-<ol>
-<li>决策树生成：基于训练数据集生成决策树，生成的决策树要尽量大</li>
-<li>决策树剪枝：用验证数据集对已生成的树进行剪枝并选择最优子树</li>
-</ol>
-<p>CART的生成也分两种情况（回归树 &amp; 分类树），回归树用最小平方误差最小化准则，分类树用基尼系数最小化准则，进行特征选择。具体算法还没有实现，毕竟ID3和C4.5就已经是我能力极限了，之后补上来。而在分类树这里用Gini系数而不用熵来表示信息增益是因为Gini系数会比熵更接近分类误差率。</p>
-
+        
+          <a class="article-more-a" href="/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html#more">more >></a>
+        
       
 
       
@@ -1415,23 +1295,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
-<h2 id="支持向量机理论重现"><a href="#支持向量机理论重现" class="headerlink" title="支持向量机理论重现"></a>支持向量机理论重现</h2><h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p>令 $\gamma$ 表示样本到分界面的间隔，SVM的核心目标就是 <strong>间隔最大化</strong>，因此得到原始目标：</p>
-<p>$$<br>\max_{w,b} \quad \gamma \<br>s.t. \qquad y_i(\frac{w}{||w||}\cdot x_i + \frac{b}{||w||}) \geqslant \gamma<br>$$</p>
-<p>关于约束怎么来的可以参考点到直线距离就明白了，至于为什么要乘以 $y_i$ 可以参考感知机（简单来说就是为了保证左半部分恒为正，因为 $y_i$ 取值就是 $\pm 1$）。</p>
-<blockquote>
-<p>问题优化1：</p>
-</blockquote>
-<p>以上表示间隔的方式也叫做 <strong>几何间隔</strong>，而一般问题用 <strong>函数间隔</strong> 表示（因为形式简单很多）。虽然名字不一样，但其实就是一个放缩关系（$||w||$），互相转化不影响原问题表述。于是用函数间隔 $\hat{\gamma}$ 代替几何间隔 $\gamma$，可以得到转化后的问题：</p>
-<p>$$<br>\max_{w,b} \quad \frac{\hat{\gamma}}{||w||} \<br>s.t. \qquad y_i(w \cdot x_i + b) \geqslant \gamma<br>$$</p>
-<blockquote>
-<p>问题优化2：</p>
-</blockquote>
-<p>其实 $\hat{\gamma}$ 具体取值不影响该优化问题，因为注意到当进行 $w = kw, b = kb$ 这样的放缩之后，以上问题的求解路径并没有改变。改变一下放缩对象，即 $\hat{\gamma}$，发现问题不变 =&gt; 于是直接令 $\hat{\gamma} = 1$。</p>
-<p>又为了凑形式优美，符合优化问题的标准型，我们把 max 问题变成 min 问题即目标从 $\max \frac{1}{||w||}$ 变成 $\min ||w||$。然而凸优化问题毕竟喜欢连续可导的凸函数，于是再不影响大局地变一下：$\min \frac{1}{2}||w||^2$。</p>
-<p>得到最终的目标函数：</p>
-<p>$$<br>\min_{w,b} \quad \frac{1}{2}||w||^2 \<br>s.t. \qquad y_i(w \cdot x_i + b) - 1 \geqslant 0<br>$$</p>
-<p>以上就是 SVM 的目标函数，几乎所有那个时代的 paper 都从这里出发。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        
+          <a class="article-more-a" href="/AI-AI/HangLi/SVM.html#more">more >></a>
+        
       
 
       

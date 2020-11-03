@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>统计学习方法 第四章 朴素贝叶斯 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。 朴素贝叶斯法并不是贝叶斯估计，贝叶斯估计可以是朴素贝叶斯法中估计先验概率和条件概率的一种方式。 4.1 朴素贝叶斯法的学">
+  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统计学习方法 第四章 朴素贝叶斯">
 <meta property="og:url" content="http://yoursite.com/AI-AI/HangLi/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。 朴素贝叶斯法并不是贝叶斯估计，贝叶斯估计可以是朴素贝叶斯法中估计先验概率和条件概率的一种方式。 4.1 朴素贝叶斯法的学">
+<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-30T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-09-30T07:18:16.982Z">
+<meta property="article:modified_time" content="2020-11-03T06:47:27.395Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="数理基础">
 <meta property="article:tag" content="统计学习方法">
@@ -189,6 +189,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
+<a id="more"></a>
+
 <p>朴素贝叶斯法并不是贝叶斯估计，贝叶斯估计可以是朴素贝叶斯法中估计先验概率和条件概率的一种方式。</p>
 <h2 id="4-1-朴素贝叶斯法的学习与分类"><a href="#4-1-朴素贝叶斯法的学习与分类" class="headerlink" title="4.1 朴素贝叶斯法的学习与分类"></a>4.1 朴素贝叶斯法的学习与分类</h2><p>其实朴素贝叶斯法的公式非常简单，就是普通的贝叶斯公式（但是起名并不是因为这个），即通过先验概率和条件概率生成后验概率。先放一个朴素贝叶斯法的基本公式：</p>
 <p>$$<br>P(Y=c_k|X=x) = \frac{P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_k P(y=c_k)\prod_j P(X^{(j)}=x^{(j)}|Y=c_k)}<br>$$</p>
