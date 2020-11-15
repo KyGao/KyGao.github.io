@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>统计学习方法 第五章 决策树 | Kerry</title>
+  <title>统计学习方法 第七章 SVM | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
+  <meta name="description" content="SVM 理论部分梳理ing，希望放到这里能或多或少有些帮助，同时也督促自己有朝一日能把坑填完，如果有小伙伴帮忙解答不胜感激。主要是参考《统计学习方法》和《西瓜书》，可能需要提前了解一些运筹学的相关知识（不等式的拉格朗日乘子法，二次规划等）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="统计学习方法 第五章 决策树">
+<meta property="og:title" content="统计学习方法 第七章 SVM">
 <meta property="og:url" content="http://yoursite.com/AI-AI/HangLi/SVM.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="笔者在学习实践完接近一年的ML&#x2F;DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。">
+<meta property="og:description" content="SVM 理论部分梳理ing，希望放到这里能或多或少有些帮助，同时也督促自己有朝一日能把坑填完，如果有小伙伴帮忙解答不胜感激。主要是参考《统计学习方法》和《西瓜书》，可能需要提前了解一些运筹学的相关知识（不等式的拉格朗日乘子法，二次规划等）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-30T09:50:43.000Z">
-<meta property="article:modified_time" content="2020-11-03T06:47:19.652Z">
+<meta property="og:image" content="https://tse3-mm.cn.bing.net/th/id/OIP.Z-poN-EEQwJeYTYduLbtSgHaDf?w=325&h=164&c=7&o=5&dpr=1.25&pid=1.7">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1160281/201906/1160281-20190605154938459-2070826235.jpg">
+<meta property="article:published_time" content="2020-10-30T09:50:43.000Z">
+<meta property="article:modified_time" content="2020-11-15T15:12:43.481Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="数理基础">
 <meta property="article:tag" content="统计学习方法">
 <meta property="article:tag" content="决策树">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tse3-mm.cn.bing.net/th/id/OIP.Z-poN-EEQwJeYTYduLbtSgHaDf?w=325&h=164&c=7&o=5&dpr=1.25&pid=1.7">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
@@ -72,10 +75,10 @@
 		</nav>
 
 		<nav>
-    总文章数 43
+    总文章数 44
     </nav>
     <nav>
-    总字数 <span class="post-count">65.7k</span>
+    总字数 <span class="post-count">68k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -170,44 +173,126 @@
         
   
     <h1 class="article-title" itemprop="name">
-      统计学习方法 第五章 决策树
+      统计学习方法 第七章 SVM
     </h1>
   
 
         
         <a href="/AI-AI/HangLi/SVM.html" class="archive-article-date">
-  	<time datetime="2020-09-30T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
+  	<time datetime="2020-10-30T09:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-      字数：586字 | 预计阅读时长：2分钟
+      字数：2.8k字 | 预计阅读时长：11分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>笔者在学习实践完接近一年的ML/DL，深感基础薄弱，趁提前上岸有时间重新回来补基础，便打算把没看过的西瓜书花书统计学习方法等一票经典读物拿出来啃，所做记录可能过于口语化和公式逻辑简化，可能也不太适合大佬阅读；但是又会掠过一些基础术语，也不太适合小白入门。可能只有有缘人能看懂了。</p>
+        <p>SVM 理论部分梳理ing，希望放到这里能或多或少有些帮助，同时也督促自己有朝一日能把坑填完，如果有小伙伴帮忙解答不胜感激。主要是参考《统计学习方法》和《西瓜书》，可能需要提前了解一些运筹学的相关知识（不等式的拉格朗日乘子法，二次规划等）。</p>
 <a id="more"></a>
 
-<h2 id="支持向量机理论重现"><a href="#支持向量机理论重现" class="headerlink" title="支持向量机理论重现"></a>支持向量机理论重现</h2><h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p>令 $\gamma$ 表示样本到分界面的间隔，SVM的核心目标就是 <strong>间隔最大化</strong>，因此得到原始目标：</p>
-<p>$$<br>\max_{w,b} \quad \gamma \<br>s.t. \qquad y_i(\frac{w}{||w||}\cdot x_i + \frac{b}{||w||}) \geqslant \gamma<br>$$</p>
+<h2 id="支持向量机理论重现"><a href="#支持向量机理论重现" class="headerlink" title="支持向量机理论重现"></a>支持向量机理论重现</h2><h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p><img src="https://tse3-mm.cn.bing.net/th/id/OIP.Z-poN-EEQwJeYTYduLbtSgHaDf?w=325&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="svm"></p>
+<p>令 $\gamma$ 表示样本到分界面的间隔，SVM的核心目标就是 <strong>间隔最大化</strong>，因此得到原始目标：</p>
+<p>$$<br>\max_{w,b} \quad \gamma \<br>s.t. \qquad y_i(\frac{w}{||w||}\cdot x_i + \frac{b}{||w||}) \geqslant \gamma \tag{1}<br>$$</p>
 <p>关于约束怎么来的可以参考点到直线距离就明白了，至于为什么要乘以 $y_i$ 可以参考感知机（简单来说就是为了保证左半部分恒为正，因为 $y_i$ 取值就是 $\pm 1$）。</p>
 <blockquote>
 <p>问题优化1：</p>
 </blockquote>
 <p>以上表示间隔的方式也叫做 <strong>几何间隔</strong>，而一般问题用 <strong>函数间隔</strong> 表示（因为形式简单很多）。虽然名字不一样，但其实就是一个放缩关系（$||w||$），互相转化不影响原问题表述。于是用函数间隔 $\hat{\gamma}$ 代替几何间隔 $\gamma$，可以得到转化后的问题：</p>
-<p>$$<br>\max_{w,b} \quad \frac{\hat{\gamma}}{||w||} \<br>s.t. \qquad y_i(w \cdot x_i + b) \geqslant \gamma<br>$$</p>
+<p>$$<br>\max_{w,b} \quad \frac{\hat{\gamma}}{||w||} \<br>s.t. \qquad y_i(w \cdot x_i + b) \geqslant \gamma \tag{2}<br>$$</p>
 <blockquote>
 <p>问题优化2：</p>
 </blockquote>
 <p>其实 $\hat{\gamma}$ 具体取值不影响该优化问题，因为注意到当进行 $w = kw, b = kb$ 这样的放缩之后，以上问题的求解路径并没有改变。改变一下放缩对象，即 $\hat{\gamma}$，发现问题不变 =&gt; 于是直接令 $\hat{\gamma} = 1$。</p>
 <p>又为了凑形式优美，符合优化问题的标准型，我们把 max 问题变成 min 问题即目标从 $\max \frac{1}{||w||}$ 变成 $\min ||w||$。然而凸优化问题毕竟喜欢连续可导的凸函数，于是再不影响大局地变一下：$\min \frac{1}{2}||w||^2$。</p>
 <p>得到最终的目标函数：</p>
-<p>$$<br>\min_{w,b} \quad \frac{1}{2}||w||^2 \<br>s.t. \qquad y_i(w \cdot x_i + b) - 1 \geqslant 0<br>$$</p>
-<p>以上就是 SVM 的目标函数，几乎所有那个时代的 paper 都从这里出发。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+<p>$$<br>\min_{w,b} \quad \frac{1}{2}||w||^2 \<br>s.t. \qquad y_i(w \cdot x_i + b) - 1 \geqslant 0 \tag{3}<br>$$</p>
+<p>以上就是 SVM 的目标函数，几乎所有那个时代关于SVM的 paper 都从这里出发。</p>
+<h2 id="转换成对偶问题"><a href="#转换成对偶问题" class="headerlink" title="转换成对偶问题"></a>转换成对偶问题</h2><p>首先用 Lagrange 乘子法将不等式约束放入目标中：</p>
+<blockquote>
+<p>不等式约束的拉格朗日乘子法和等式约束的拉格朗日乘子法不太一样，变成的是 min-max 问题。需要额外补课</p>
+</blockquote>
+<p>$$<br>\min_{w, b} \max_{\alpha_i} \mathcal{L}(w, b, \alpha) = \frac{1}{2}||w||^2 - \sum^N_{i=1}\alpha_i y_i(w x_i + b) + \sum^N_{i=1}\alpha_i,\quad<br>\alpha_i \geqslant 0 \tag{4}<br>$$</p>
+<p>注意这里是先变成二次规划标准型约束即 $1-y_i(wx_i+b)\leqslant 0$，再把乘子 $\alpha_i$ 加入到目标中，所以前面是先 max 再 min（先满足硬约束，再考虑原目标）</p>
+<p>$(4)$ 式也叫做 <strong>广义拉格朗日的极小极大问题</strong>，而其对偶问题表示为 $\max_{\alpha_i} \min_{w, b} \mathcal{L}$ 称为 <strong>广义拉格朗日的极大极小问题</strong>。关于对偶问题，这里放上几个定理（西瓜书附录有给证明，我这种非数学专业的把这个当作定理硬记就好了）：</p>
+<ol>
+<li>$\max_\alpha \min_\beta \mathcal{L} \leqslant \min_\beta \max_\alpha \mathcal{L}$</li>
+<li>目标和约束都是凸的时候，只有当 $\alpha, \beta$ 满足 KKT 条件时，1 中不等式才能取等号</li>
+</ol>
+<p>因此我们在这里看到 KKT 的作用就在于它代表了这个<strong>等号的成立</strong>，即我们若想通过对偶问题的求解来得到原问题的最优模型，则必须使其满足 KKT 条件。</p>
+<h2 id="对偶问题的化简"><a href="#对偶问题的化简" class="headerlink" title="对偶问题的化简"></a>对偶问题的化简</h2><p><strong><em>那么为什么要转化成对偶问题来求解呢？这里先挖个坑……</em></strong></p>
+<p>以下是求解这个对偶问题 $\max_\alpha \min_{w, b} \mathcal{L}(w, b, \alpha)$。</p>
+<p>首先来回顾一下 Lagrange 方法的通用解法：令 偏导=0</p>
+<p>$$<br>\left{<br>\begin{matrix}<br>\nabla_w \mathcal{L} (w, b, \alpha) = w - \sum^N_{i=1}\alpha_iy_ix_i = 0 \quad\Rightarrow\quad w = \sum^N_{i=1} \alpha_iy_ix_i \<br>\nabla_b \mathcal{L} (w, b, \alpha) = -\sum^N_{i=1}\alpha_i y_i = 0 \quad\quad\Rightarrow\quad \sum^N_{i=1}\alpha_iy_i = 0<br>\end{matrix}<br>\right. \tag{5}<br>$$</p>
+<p>代入 $(4)$ 式消去 $w$ 和 $b$（$b$ 通过 0 乘子消除）得到：</p>
+<p>$$<br>\mathcal{L}(w, b, \alpha) = - \frac{1}{2} \sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\langle x_i \cdot x_j\rangle + \sum^N_{i=1}\alpha_i \<br>s.t.\quad \alpha_i \geqslant 0 \<br>\quad \quad\quad\quad\quad \sum^N_{i=1}\alpha_iy_i = 0\tag{6}<br>$$</p>
+<p>将 $(6)$ 式从 $\max$ 变成 $\min$ 的形式，得到关键目标：</p>
+<p>$$<br>\min_\alpha \frac{1}{2} \sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\langle x_i \cdot x_j\rangle - \sum^N_{i=1}\alpha_i \<br>s.t.\quad \alpha_i \geqslant 0 \<br>\quad \quad\quad\quad\quad \sum^N_{i=1}\alpha_iy_i = 0\tag{7}<br>$$</p>
+<p>可以看到这里就把 w 和 b 消除了，意味着可以推出最优解 $\alpha^* = ( \alpha^<em>_1,  \alpha^</em>_2, … , \alpha^*_l)$</p>
+<p>至此，$(7)$ 得到一个典型的凸二次规划问题，可以求出全局最优解。</p>
+<p>而假设求出了 $\alpha^*$，那么模型就确定出来了：</p>
+<p>$$<br>\left{<br>\begin{matrix}<br>w^* = \sum \alpha_i^* y_i x_i \<br>b^* = y_i - \sum \alpha_i^<em>y_i(x_i \cdot x_j)<br>\end{matrix}<br>\Rightarrow\right.<br>\left{<br>\begin{matrix}<br>\textnormal{超平面：}w^*\cdot x + b^</em>=0 \<br>\textnormal{决策函数：}f(x) = sign(w^<em>\cdot x + b^</em>)<br>\end{matrix}\right.<br>\tag{8}<br>$$</p>
+<h2 id="支持向量的获取"><a href="#支持向量的获取" class="headerlink" title="支持向量的获取"></a>支持向量的获取</h2><p>这里再插一句，怎么知道哪些 sample 是 support vector 呢？</p>
+<p>已知原问题（$(3)$式）约束为 $y_i(w \cdot x_i + b) - 1 \geqslant 0$，易知取等号的就是在决策边界上的 support vector。对易知有疑惑的可以参考 $(8)$ 式中给的超平面，就是在离超平面有一段距离（不等于 0），同时又在硬约束边界上的点。</p>
+<p>从数学角度上来理解的话，根据 KKT 条件的 $\alpha_i^* c_i^*(x) = 0$ 可知：</p>
+<p>当每个 $\alpha_i^* \not ={0}$ 时，对应的样本即 support vector（因为他们必须等于 0）。</p>
+<h2 id="线性不可分（软间隔）"><a href="#线性不可分（软间隔）" class="headerlink" title="线性不可分（软间隔）"></a>线性不可分（软间隔）</h2><p>先不急着讲 $(7)$ 式如何求解，先把线性不可分的情况也加入，考虑到更一般的模型，再一起求解。</p>
+<p>线性不可分的情况显然更常见，因为一些 outlier 让原方法肯定不能满足 KKT 等约束，解决办法是引入一个松弛变量 $\zeta_i$，可以参考运筹学。</p>
+<p>有两个改变：</p>
+<ol>
+<li>$\zeta_i$ 作为惩罚项加入目标中，即希望错的不要那么离谱</li>
+<li>同时在约束中加入 $\zeta_i$，放松约束</li>
+</ol>
+<p>即变成以下问题：</p>
+<p>$$<br>\min_{w, b, \zeta} \frac{1}{2}||w||^2 + C \sum^N_{i=1}\zeta_i\<br>s.t. \quad y_i(w \cdot x_i + b) \geqslant 1 - \zeta_i\<br>\zeta_i \geqslant 0  \tag{9}<br>$$</p>
+<p>老样子，要解决以上问题，先变成对偶问题求解变量 $\alpha^*$</p>
+<p>$\Rightarrow \mathcal{Lagrange}$ 函数：</p>
+<p>$$<br>\mathcal{L}(w,, b, \zeta, \alpha, \mu) = \frac{1}{2}||w||^2 + C \sum^N_{i=1}\zeta_i - \sum^N_{i=1} \alpha_i(y_i(wx_i+b)-1+\zeta_i) - \sum^N_{i=1}\mu_i\zeta_i \tag{10}<br>$$</p>
+<p>其中 $\alpha_i \geqslant 0, \mu_i \geqslant 0$。仍然来对 $w, b, \zeta$ 三个偏导取到0：</p>
+<p>$$<br>\left{<br>\begin{matrix}<br>\nabla_w \mathcal{L} = w - \sum^N_{i=1}\alpha_iy_ix_i = 0 \<br>\nabla_b \mathcal{L} = -\sum^N_{i=1}\alpha_i y_i = 0 \<br>\nabla_{\zeta_i} \mathcal{L} = C-\alpha_i-\mu_i = 0<br>\end{matrix}<br>\right.<br>\Rightarrow<br>\left{<br>\begin{matrix}<br>w = \sum \alpha_iy_ix_i \<br>\sum\alpha_iy_i = 0\<br>C - \alpha_i - \mu_i = 0<br>\end{matrix}<br>\right. \tag{11}<br>$$</p>
+<p>经过以上代换，可得：</p>
+<p>$$<br>\max_\alpha -\frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j \langle x_i\cdot x_j \rangle + \sum_{i=1}^N \alpha_i\<br>s.t.\quad \sum \alpha_iy_i = 0\<br>C - \alpha_i - \mu_i = 0\<br>\alpha_i \geqslant 0, \mu_i \geqslant 0 \tag{12}<br>$$</p>
+<p>显然可以化简，用 $\mu_i = C - \alpha_i$ 消掉 $\mu_i$，得到 $0 \leqslant \alpha_i \leqslant C$。</p>
+<p>这里再提一下 KKT，其存在的意义就是让原问题的最优解 = 对偶问题的最优解，所以这个解又是$\left{<br>\begin{matrix}<br>w^* = \sum \alpha_i^* y_i x_i \<br>b^* = y_i - \sum \alpha_i^*y_i(x_i \cdot x_j)<br>\end{matrix}\right.$</p>
+<p>关于 support vector，对于所有让 $\alpha_i^* &gt; 0$ 的样本都是 support vector，分两种情况：</p>
+<ol>
+<li>当 $0 &lt; \alpha^*_i &lt; C$ 时，在间隔边界上</li>
+<li>当 $\alpha^*_i = C$ 时，超出了间隔边界（意味着松弛变量 $\zeta_i$ 在发挥作用，为了让 $\alpha_i$ 不会大于 $C$ 而努力拉回来）。这个情况比较特殊，还可以分，因为已知 $\zeta_i$ 的几何意义是离边界的距离：<ol>
+<li>当 $0&lt;\zeta_i&lt;1$ 时，在间隔边界中间但是还是对的</li>
+<li>当 $\zeta &gt; 1$ 时，就是误分了</li>
+</ol>
+</li>
+</ol>
+<p>以上就是线性不可分的数学模型，除了变量多了一两个，其他和线性可分是一样的。</p>
+<h2 id="另一种解释：Hinge-Loss"><a href="#另一种解释：Hinge-Loss" class="headerlink" title="另一种解释：Hinge Loss"></a>另一种解释：Hinge Loss</h2><p>对于问题 $(9)$ 来说，等价于问题 </p>
+<p>$$<br>\min_{w, b} \sum^N_{i=1} [1 - y_i(w \cdot x_i + b)]_+ + \lambda ||w||^2 \tag{13}<br>$$</p>
+<p>其中，$[z]_+$ 表示对于正确分类的损失为 0，没正确分类的才有值。</p>
+<p>这里这个 $\mathcal{L}(y(wx+b))=[1-y(wx+b)]_+$ 就是 Hinge Loss（合页损失函数）了，即可以通过训练求解了。画出合页损失函数的损失如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1160281/201906/1160281-20190605154938459-2070826235.jpg" alt="surrogateloss"></p>
+<p>其实就像一个合上的书页，所以叫做合页损失函数（吧）。这里可以看到0-1损失，可以认为是二分类问题的理想损失函数，因为严格正确。而可以认为线性SVM是优化0-1损失的上界构成的目标函数，用来替代无法求导的0-1函数，就是这个替代，在各种书中就把这个叫做 “Surrogate Loss”（替代损失函数）。</p>
+<p>有意思的是在代码实现上，与感知机的一模一样，因为1求导就没了，所以只能说用 Hinge Loss 是对学习有更高的要求，在训练过程上相对于 Perception 并没有啥改变。</p>
+<h2 id="凸二次规划问题的求解"><a href="#凸二次规划问题的求解" class="headerlink" title="凸二次规划问题的求解"></a>凸二次规划问题的求解</h2><p>在讲核技巧前，先把以上挖的坑（凸二次规划问题的求解）填上。</p>
+<p>虽然有很多求解方法，但是经过岁月过滤之后，工程上最常用的是序列最小优化算法（SMO）。这是个启发式算法，可以简单理解成每次拿一个误分类样本来放到问题中，单变量的二次规划很容易求出解析解，但是因为有 $\sum\alpha_iy_i=0$ 的约束（KKT条件），改变一个 $\alpha_i$ 必然会导致等式不成立。因此要改至少两个一起来改，简单起见选择俩。</p>
+<p>比如选 $\alpha_1, \alpha_2$ 俩变量，即只有一个自由变量，另一个满足 $\alpha_1 = - \frac{\sum^N_{i=2}\alpha_iy_i}{y_1}$。然后拿这俩到</p>
+<p>代码实现 SMO 要注意两点：</p>
+<ol>
+<li><p>选择：一般第一个是选择违背 KKT 条件最严重的样本，又可以看到 $E_2 - E_1$ 越大，$\alpha_2$ 变化越大，为了让模型收敛快，所以第二个选择使得 $|E_2 - E_1|$ 最大的（离最错的最远约等于最对）。事实上，这样就要遍历两遍数据才能选出这两个样本，复杂度过高。因此一般 SMO 直接取 2 个样本间距离最大的俩样本。</p>
+</li>
+<li><p>算法：SMO 先进行参数初始化，然后不断执行以下两步直至收敛：</p>
+<ol>
+<li>选取一对需要更新的样本：$\alpha_i$ 和 $\alpha_j$</li>
+<li>固定 $\alpha_i$ 和 $\alpha_j$ 以外的参数，求解（把约束加进来就是一元函数直接搞解析解）</li>
+</ol>
+<p>若在精度 $\epsilon$ 范围内满足停止条件则结束。具体公式参考统计学习方法：</p>
+</li>
+</ol>
+<p>$$<br>\alpha_2^{new;unc} = \alpha_2^{old} + \frac{y_2(E_1 - E_2)}{\eta}<br>$$</p>
+<h2 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h2><p>最后总算能上升到核函数了。</p>
+<p><strong><em>but最近事情有点多，这个坑有机会来填……</em></strong></p>
+
       
 
       
@@ -310,18 +395,18 @@
   
 <nav id="article-nav">
   
-    <a href="/AI-AI/HangLi/%E5%86%B3%E7%AD%96%E6%A0%91.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/uncategorized-AI/flower/%E7%BB%AA%E8%AE%BA.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          统计学习方法 第五章 决策树
+          AI/flower/绪论
         
       </div>
     </a>
   
   
-    <a href="/AI-AI/HangLi/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">统计学习方法 第四章 朴素贝叶斯</div>
+    <a href="/AI-AI/DeepEye/Transformer%E4%B9%8B%E5%90%8E.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Transformer之后 - 贪心学院NLP</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,7 +433,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#支持向量机理论重现"><span class="toc-number">1.</span> <span class="toc-text">支持向量机理论重现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标函数"><span class="toc-number">1.1.</span> <span class="toc-text">目标函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#支持向量机理论重现"><span class="toc-number">1.</span> <span class="toc-text">支持向量机理论重现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标函数"><span class="toc-number">1.1.</span> <span class="toc-text">目标函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换成对偶问题"><span class="toc-number">2.</span> <span class="toc-text">转换成对偶问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对偶问题的化简"><span class="toc-number">3.</span> <span class="toc-text">对偶问题的化简</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持向量的获取"><span class="toc-number">4.</span> <span class="toc-text">支持向量的获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性不可分（软间隔）"><span class="toc-number">5.</span> <span class="toc-text">线性不可分（软间隔）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另一种解释：Hinge-Loss"><span class="toc-number">6.</span> <span class="toc-text">另一种解释：Hinge Loss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#凸二次规划问题的求解"><span class="toc-number">7.</span> <span class="toc-text">凸二次规划问题的求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核函数"><span class="toc-number">8.</span> <span class="toc-text">核函数</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -658,6 +743,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">贪心学院</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xlm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">msra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">xtreme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">infoxlm</a>
               </li>
             
             <div class="clearfix"></div>
