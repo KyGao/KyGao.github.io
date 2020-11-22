@@ -8,21 +8,23 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Xtreme 榜一是怎么练成的 | Kerry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个记忆力不好的人的随手笔记">
+  <meta name="description" content="感谢团队的信任，让仅入门 NLP 三周的我就有机会做这次分享。首先是在 微软研究院AI头条 上看到推文 微软多语言预训练模型T-ULRv2登顶XTREME排行榜，对于其中这句话：“长期以来，微软图灵团队坚信文本的语义表示是语言无关的” 非常赞同，也非常想要弄清楚是通过什么方法达到这个目的的，于是就有了以下的整理分享。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xtreme 榜一是怎么练成的">
 <meta property="og:url" content="http://yoursite.com/AI-AI/xlm.html">
 <meta property="og:site_name" content="Kerry">
-<meta property="og:description" content="一个记忆力不好的人的随手笔记">
+<meta property="og:description" content="感谢团队的信任，让仅入门 NLP 三周的我就有机会做这次分享。首先是在 微软研究院AI头条 上看到推文 微软多语言预训练模型T-ULRv2登顶XTREME排行榜，对于其中这句话：“长期以来，微软图灵团队坚信文本的语义表示是语言无关的” 非常赞同，也非常想要弄清楚是通过什么方法达到这个目的的，于是就有了以下的整理分享。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-590e675685ecc7452b8d60075c61c8a9_1440w.jpg">
 <meta property="article:published_time" content="2020-11-12T02:50:43.000Z">
-<meta property="article:modified_time" content="2020-11-15T15:45:07.905Z">
+<meta property="article:modified_time" content="2020-11-22T15:46:28.787Z">
 <meta property="article:author" content="Kerry">
 <meta property="article:tag" content="xlm">
 <meta property="article:tag" content="msra">
 <meta property="article:tag" content="xtreme">
 <meta property="article:tag" content="infoxlm">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-590e675685ecc7452b8d60075c61c8a9_1440w.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Kerry" type="application/atom+xml">
   
@@ -76,7 +78,7 @@
     总文章数 44
     </nav>
     <nav>
-    总字数 <span class="post-count">68k</span>
+    总字数 <span class="post-count">69.7k</span>
     </nav>
 
 		<nav class="header-smart-menu">
@@ -183,13 +185,54 @@
       </header>
 
       <div align="center" class="post-count">
-      字数：0字 | 预计阅读时长：1分钟
+      字数：1.7k字 | 预计阅读时长：5分钟
       </div>
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>感谢团队的信任，让仅入门 NLP 三周的我就有机会做这次分享。首先是在 微软研究院AI头条 上看到推文 <a href="https://www.msra.cn/zh-cn/news/features/t-ulrv2" target="_blank" rel="noopener">微软多语言预训练模型T-ULRv2登顶XTREME排行榜</a>，对于其中这句话：“长期以来，微软图灵团队坚信文本的语义表示是语言无关的” 非常赞同，也非常想要弄清楚是通过什么方法达到这个目的的，于是就有了以下的整理分享。</p>
+<a id="more"></a>
+
+<h2 id="XTREME"><a href="#XTREME" class="headerlink" title="XTREME"></a>XTREME</h2><p>首先先来看看任务具体是什么情况，因为本人刚入门 NLP 不久，所以其中可能会有许多粗浅的见解和知识点，大家轻喷。</p>
+<p><a href="https://github.com/google-research/xtreme" target="_blank" rel="noopener">Github Page</a></p>
+<p><a href="https://sites.research.google/xtreme" target="_blank" rel="noopener">Website (Leaderboard)</a>（需翻墙）</p>
+<blockquote>
+<p>XTREME 全称 A Massively Multilingual Multi-task Benchmark for Evaluating Cross-lingual Generalization，此基准包括了 40 种类型多样的语言（涵盖 12 个语系），且包括 9 项推理任务，这些任务需要共同对不同级别的语法或语义进行推理。</p>
+</blockquote>
+<p>首先这是个 Benchmark，不是具体的单一任务，而是一个综合的评价体系，来衡量跨语言预训练模型的优劣，具体的方法就是类似GLUE，用多国语言的多种任务来得到模型表现的平均值。</p>
+<h3 id="语言情况"><a href="#语言情况" class="headerlink" title="语言情况"></a>语言情况</h3><p>从语言的角度来看，关注点一个是这些语言的情况，一个是跨语言问题本身。语言的分布非常多样，以至于存在非常多 low source 的语言，增大的任务难度，，例如德拉维语系的泰米尔语（印度南部、斯里兰卡和新加坡使用的语言），泰卢固语和马拉雅拉姆语（主要在印度南部使用的语言）以及尼日尔-刚果语系的斯瓦希里语和约鲁巴语（来自非洲）。</p>
+<p>从跨语言问题本身来看，尽管全球大多数语言都存在语料数据稀疏的问题，没有足够的数据可用于单独训练稳健的模型，但许多语言都有着大量相同的基底结构(Underlying Structure)。如在词汇层面，不同语言之间常存在不少同源词，例如，英语的 “ desk ” 和德语的 “ Tisch ” 均源自拉丁文 “ discus ”。同样，许多语言也以类似的方式来标注语义角色，例如，中文和土耳其语均使用后置词来标注时空关系。这些都是可以通过模型学习到的。</p>
+<h3 id="任务情况"><a href="#任务情况" class="headerlink" title="任务情况"></a>任务情况</h3><p>XTREME 的任务非常神奇，希望做到的是一种 <strong>Zero-shot Transfer Learning</strong>，可以理解成三步走：</p>
+<ol>
+<li>用多国语言训练一个跨语言模型 (Cross-lingual Language Model)</li>
+<li>只用英语 fine-tune 下游任务</li>
+<li>在其他语言的下游任务上 evaluate</li>
+</ol>
+<p>所以为了避免语言之间转换出现的信息偏差，Test Set 一律从英语翻译而来，以保证信息最大化保留。</p>
+<p>各任务参考以下：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-590e675685ecc7452b8d60075c61c8a9_1440w.jpg" alt="tasks"></p>
+<p>强推这个 <a href="https://github.com/choran/xtreme_demo" target="_blank" rel="noopener">demo</a>，非常清晰地总结了数据的长相和预处理过程。</p>
+<h4 id="Sentence-Classification"><a href="#Sentence-Classification" class="headerlink" title="Sentence Classification"></a>Sentence Classification</h4><p>即句子级别的分类问题，实现情况大致就是输入为两串句子，输出利用 [CLS] 或其他 token 实现分类即可。</p>
+<p>其中 <strong>XNLI</strong> 任务是非常常见的跨语言模型的任务，具体来说就是给以下两个句子，前称为“<strong>Premise</strong>”，后者称为“<strong>Hypothesis</strong>”，然后 label 就是这个 Hypothesis 和 Premise 的关系。有三种关系：<strong>Entailment, Contradictory, Neutral</strong>（蕴含，矛盾，无关），预测就是分类这三种关系。例子如下：</p>
+<p><strong>PAWS-X</strong> 与之相比会简单一些，也是给两个句子，返回这两个句子是否是 Paraphrase。注意这里只看二者是不是同义，不看真实性：比如 “今天的太阳是绿色的” 和 “绿色的太阳在今天升起” 是同义句，返回 1。例子如下：</p>
+<h4 id="Structure-Prediction"><a href="#Structure-Prediction" class="headerlink" title="Structure Prediction"></a>Structure Prediction</h4><p>POS 和 NER 都是单词识别的任务，简单来说就是每个词向量给一个label，其实就是一个 word-level 的分类问题。不同的是 POS 专注于词性分类，比如形容词动词数字；而 NER 专注于命名实体识别，在这个数据集用的是 IOB2 的格式，可以分为两部分解释，后一部分是识别 Person/Location等实体名词，前一部分是识别这个词在实体中的位置，开头是 B (begin)，不是开头是 I (Inside)，而不属于实体的词就一个孤儿的 O (outside)。以下是二者的例子：</p>
+<p>POS：</p>
+<p>NER：</p>
+<h4 id="Sentence-Retrieval"><a href="#Sentence-Retrieval" class="headerlink" title="Sentence Retrieval"></a>Sentence Retrieval</h4><p>BUCC 和 Tatoeba 是在做一个东西，就是同义句检索。一个文件放中文的一堆句子（一个句子一个序号），一个文件中放英文的一堆句子（一个句子一个序号），第三个文件是序号对，即中文和英文同义句的序号，数据集长相如下所示：</p>
+<p>预测目标如下所示：</p>
+<p>具体的评价相似性的方法文中用的是余弦相似度（cosine similarity）。注意这里是唯一不需要 fine-tune 的任务，直接把 pre-train model 拿来算相似度就行，非常神奇。</p>
+<h4 id="Question-Answering"><a href="#Question-Answering" class="headerlink" title="Question Answering"></a>Question Answering</h4><p>XQuAD, MLQA, TyDiQA 这仨的格式也是一模一样，只是在难度上 TyDiQA 比另外两个难（答案是原文出现的词的比例变小很多）。其中 MLQA 也是 XTREME 出来之前最常用的任务。格式如下所示，就是一篇文章 对应 几个问题，每个问题一个答案这样子，因为不知道 QA 的难点在哪，不敢做过多评价，数据集原格式如下：</p>
+<h2 id="InfoXLM"><a href="#InfoXLM" class="headerlink" title="InfoXLM"></a>InfoXLM</h2><p>推文中的 T-ULRv2 其实就是这个 InfoXLM 的方法，估计和图灵团队合作之后多了一些 tricks，而且也用到了产品线上，所以没有开源了。微软这篇方法的亮点不在于提出了什么很 inspiring 的内容，而是对整个跨语言模型有了一个非常深厚的了解下，作出的集大成的方法，此外加入了一些新的 idea，整个工作非常 solid。</p>
+<p>因为没有开源，所以之后工作的一些细节不敢确定，但是整个思路在论文中还是非常清晰的。以下就结合跨语言模型的发展里程碑，来展开这个工作。</p>
+<h3 id="XLM"><a href="#XLM" class="headerlink" title="XLM"></a>XLM</h3><p>不算 BERT 中提出的 m-BERT 这个成功尝试，这篇 FAIR 的 <strong>XLM</strong> 算是专门做跨语言模型领域的 paper：（<a href="https://arxiv.org/abs/1901.07291" target="_blank" rel="noopener">Cross-lingual Language Model Pretraining</a>）。</p>
+<p>参考链接：</p>
+<ol>
+<li><a href="https://github.com/google-research/xtreme" target="_blank" rel="noopener">项目repo, paper, website</a></li>
+<li><a href="https://www.sohu.com/a/397855343_670669" target="_blank" rel="noopener">发布 XTREME — 评估跨语言泛化的大规模多语言多任务基准</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/130363884" target="_blank" rel="noopener">覆盖40种语言：谷歌发布多语言、多任务NLP新基准XTREME</a></li>
+</ol>
+
       
 
       
@@ -325,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XTREME"><span class="toc-number">1.</span> <span class="toc-text">XTREME</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语言情况"><span class="toc-number">1.1.</span> <span class="toc-text">语言情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务情况"><span class="toc-number">1.2.</span> <span class="toc-text">任务情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sentence-Classification"><span class="toc-number">1.2.1.</span> <span class="toc-text">Sentence Classification</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Structure-Prediction"><span class="toc-number">1.2.2.</span> <span class="toc-text">Structure Prediction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sentence-Retrieval"><span class="toc-number">1.2.3.</span> <span class="toc-text">Sentence Retrieval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question-Answering"><span class="toc-number">1.2.4.</span> <span class="toc-text">Question Answering</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InfoXLM"><span class="toc-number">2.</span> <span class="toc-text">InfoXLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XLM"><span class="toc-number">2.1.</span> <span class="toc-text">XLM</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
